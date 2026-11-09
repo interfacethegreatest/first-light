@@ -36,15 +36,24 @@ export default function SourceSection({ id, number, text = DEFAULT_SOURCE_SECTIO
         minWidth: 0,
         height: 'auto',
         overflowWrap: 'anywhere',
-        border: 0,
+        border: '1px solid rgba(225, 231, 255, 0.10)',
         borderTop: `1px solid ${BORDER_COLOURS[borderTone]}`,
-        borderRadius: 0,
-        background: 'transparent',
+        borderRadius: 16,
+        background: 'linear-gradient(160deg, rgba(35, 39, 56, 0.96), rgba(20, 23, 35, 0.98))',
+        boxShadow: '0 12px 28px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
       }}
     >
       <div
         className="panel-heading"
-        style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', alignItems: 'center', justifyContent: 'space-between' }}
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'nowrap',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '18px 20px',
+          background: 'rgba(255, 255, 255, 0.025)',
+        }}
       >
         <h3 id={headingId} style={{ flex: 1, minWidth: 0 }}>Source section {number}</h3>
         {controls && (
@@ -53,7 +62,7 @@ export default function SourceSection({ id, number, text = DEFAULT_SOURCE_SECTIO
           </div>
         )}
       </div>
-      <div className="entry-form source-content">
+      <div className="entry-form source-content" style={{ padding: 20 }}>
         {children ?? <p>{text}</p>}
       </div>
     </section>
