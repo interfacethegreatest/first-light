@@ -45,7 +45,7 @@ export default function SourceSection({ id, number, text = IPSUM, children, cont
     <section
       className="panel"
       aria-labelledby={headingId}
-      style={{ width: '100%', minWidth: 0, height: 'auto', overflowWrap: 'anywhere' }}
+      style={{ width: '100%', minWidth: 0, height: 'auto', overflowWrap: 'anywhere', border: '2px solid aliceblue' }}
     >
       <div
         className="panel-heading"
