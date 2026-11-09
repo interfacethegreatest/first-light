@@ -16,7 +16,13 @@ export default function SourceSections({
       style={{ display: 'grid', gap: 24, marginTop: sections.length ? 24 : 0 }}
     >
       {sections.map((section, index) =>
-        sourceSectionTemplate.render(section, index + 1),
+        sourceSectionTemplate.render(
+          {
+            ...section,
+            borderTone: section.borderTone ?? (index % 2 === 0 ? 'aliceblue' : 'slatepurple'),
+          },
+          index + 1,
+        ),
       )}
     </div>
   )
