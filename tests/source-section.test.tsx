@@ -1,8 +1,12 @@
+import { StrictMode } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { fireEvent, render, screen, within } from '@testing-library/react'
+import { act, fireEvent, render, renderHook, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from '../src/App'
-import { sourceSectionTemplate } from '../src/components/sources/SourceSection'
+import AddSourceButton from '../src/components/sources/AddSourceButton'
+import SourceSections from '../src/components/sources/SourceSections'
+import useSourceSections from '../src/components/sources/useSourceSections'
+import { sourceSectionTemplate } from '../src/components/sources/sourceSectionTemplate'
 import { STORAGE_KEY, createDecision, createSource, type Workspace } from '../src/workspace'
 
 beforeEach(() => {
@@ -30,6 +34,80 @@ function savedWorkspace(): Workspace {
   })
   return workspace
 }
+
+describe('standalone source section feature', () => {
+  it('works under StrictMode without App or storage and preserves native actions, custom linkage, and stable paragraphs', async () => {
+    const read = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => { throw new Error('Storage unavailable') })
+    const write = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new Error('Storage unavailable') })
+    const submitted = vi.fn()
+    const invalid = vi.fn()
+    function StandaloneFeature({ unrelatedText }: { unrelatedText: string }) {
+      const { sourceSections, introduceSourceSection } = useSourceSections()
+      return <>
+        <form onSubmit={event => { event.preventDefault(); submitted() }} onInvalid={invalid}>
+          <label>Required draft<input required /></label>
+          <AddSourceButton onClick={introduceSourceSection} sectionsId="independent-source-sections" />
+        </form>
+        <p>{unrelatedText}</p>
+        <SourceSections sections={sourceSections} id="independent-source-sections" />
+      </>
+    }
+    const user = userEvent.setup()
+    const view = render(<StrictMode><StandaloneFeature unrelatedText="Initial unrelated content" /></StrictMode>)
+    const button = screen.getByRole('button', { name: 'Add source' })
+    expect(screen.getByRole('textbox', { name: 'Required draft' })).toBeRequired()
+    expect(button).toHaveAttribute('type', 'button')
+    expect(screen.queryByRole('region', { name: /^Source section \d+$/ })).not.toBeInTheDocument()
+
+    await user.click(button)
+    expect(screen.getAllByRole('region', { name: /^Source section \d+$/ })).toHaveLength(1)
+    await user.keyboard('{Enter}')
+    expect(screen.getAllByRole('region', { name: /^Source section \d+$/ })).toHaveLength(2)
+    await user.keyboard(' ')
+    const regions = screen.getAllByRole('region', { name: /^Source section \d+$/ })
+    expect(regions).toHaveLength(3)
+    expect(new Set(regions.map(region => region.getAttribute('aria-labelledby'))).size).toBe(3)
+    const paragraphs = regions.map(region => region.querySelector('p')!)
+    const text = paragraphs.map(paragraph => paragraph.textContent)
+    expect(new Set(text.map(value => value!.length)).size).toBe(3)
+    const container = document.getElementById(button.getAttribute('aria-controls')!)!
+    expect(container.id).toBe('independent-source-sections')
+    for (const region of regions) expect(container).toContainElement(region)
+
+    view.rerender(<StrictMode><StandaloneFeature unrelatedText="Changed unrelated content" /></StrictMode>)
+    expect(screen.getByText('Changed unrelated content')).toBeInTheDocument()
+    for (let index = 0; index < regions.length; index++) {
+      const region = screen.getByRole('region', { name: `Source section ${index + 1}` })
+      expect(region).toBe(regions[index])
+      expect(region.querySelector('p')).toBe(paragraphs[index])
+      expect(paragraphs[index].textContent).toBe(text[index])
+    }
+    expect(screen.getByRole('textbox', { name: 'Required draft' })).toHaveValue('')
+    expect(submitted).not.toHaveBeenCalled()
+    expect(invalid).not.toHaveBeenCalled()
+    expect(read).not.toHaveBeenCalled()
+    expect(write).not.toHaveBeenCalled()
+  })
+
+  it('keeps batched additions and hook instances independent under StrictMode', () => {
+    const first = renderHook(() => useSourceSections(), { wrapper: StrictMode })
+    const second = renderHook(() => useSourceSections(), { wrapper: StrictMode })
+    act(() => {
+      first.result.current.introduceSourceSection()
+      first.result.current.introduceSourceSection()
+    })
+
+    expect(first.result.current.sourceSections).toHaveLength(2)
+    expect(new Set(first.result.current.sourceSections.map(section => section.id)).size).toBe(2)
+    expect(second.result.current.sourceSections).toHaveLength(0)
+    const previous = first.result.current.sourceSections
+    first.rerender()
+    expect(first.result.current.sourceSections).toEqual(previous)
+    first.unmount()
+    const fresh = renderHook(() => useSourceSections(), { wrapper: StrictMode })
+    expect(fresh.result.current.sourceSections).toHaveLength(0)
+  })
+})
 
 describe('Add source introduces session-only UI sections', () => {
   it('immediately creates one section from a blank form without validation or a research-record write', () => {
