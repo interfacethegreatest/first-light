@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config'
+import { configDefaults, defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
@@ -10,5 +10,7 @@ export default defineConfig({
     setupFiles: ['./tests/setup.ts'],
     restoreMocks: true,
     clearMocks: true,
+    // This fixture suite uses Node's test runner, invoked separately by check.
+    exclude: [...configDefaults.exclude, 'tests/pack-moon-glb.test.mjs'],
   },
 })

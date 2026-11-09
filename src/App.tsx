@@ -6,6 +6,8 @@ import CalendarButton from './components/calendarMotion/CalendarButton'
 import AddSourceButton from './components/sources/AddSourceButton'
 import SourceSections from './components/sources/SourceSections'
 import useSourceSections from './components/sources/useSourceSections'
+import { moonMarkTemplate } from './components/misc/MoonMark/moonMarkTemplate'
+import { MoonCredit } from './components/misc/MoonMark/MoonMark'
 import './App.css'
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -16,16 +18,11 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   )
 }
 
-function Sun({ large = false }: { large?: boolean }) {
+function HeroSun() {
   return (
-    <svg aria-hidden="true" className={large ? 'sun-illustration' : 'brand-icon'} width={large ? '180' : '38'} height={large ? '122' : '38'} viewBox={large ? '0 0 180 122' : '0 0 38 38'} fill="none">
-      {large ? <>
-        <path d="M20 102h140M33 113h114M90 9v17M30 35l12 12M150 35l-12 12M10 76h18M152 76h18" stroke="currentColor" strokeWidth="2" />
-        <path d="M43 102a47 47 0 0 1 94 0" fill="currentColor" />
-      </> : <>
-        <rect width="38" height="38" rx="11" fill="currentColor" />
-        <path d="M8 25h22M12 22a7 7 0 0 1 14 0M19 8v4M9 12l3 3M29 12l-3 3" stroke="#fffaf4" strokeWidth="1.7" strokeLinecap="round" />
-      </>}
+    <svg aria-hidden="true" className="sun-illustration" width="180" height="122" viewBox="0 0 180 122" fill="none">
+      <path d="M20 102h140M33 113h114M90 9v17M30 35l12 12M150 35l-12 12M10 76h18M152 76h18" stroke="currentColor" strokeWidth="2" />
+      <path d="M43 102a47 47 0 0 1 94 0" fill="currentColor" />
     </svg>
   )
 }
@@ -120,7 +117,7 @@ export default function App() {
     <>
       <a className="skip-link" href="#workspace">Skip to workspace</a>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="First Light home"><Sun /><span>first light<span className="brand-dot">.</span></span></a>
+        <a className="brand" href="#top" aria-label="First Light home">{moonMarkTemplate.render({ size: 38 * 1.125, className: 'brand-icon' })}<span>first light<span className="brand-dot">.</span></span></a>
         <div className="header-context"><span className="context-divider" />Research workspace<span className="local-badge"><span />Local</span></div>
         <CalendarButton
           className="button button-secondary export-button"
@@ -139,7 +136,7 @@ export default function App() {
             <h1 id="hero-title">Good research.<br /><span>Real applications.</span></h1>
             <p className="hero-description">A place to turn what you learn into what you build. Collect the evidence, connect the findings, and give your next web application a clear starting point.</p>
           </div>
-          <div className="hero-art" aria-hidden="true"><div className="art-grid" /><Sun large /><span className="art-caption">EVERY BUILD STARTS WITH A SPARK</span></div>
+          <div className="hero-art" aria-hidden="true"><div className="art-grid" /><HeroSun /><span className="art-caption">EVERY BUILD STARTS WITH A SPARK</span></div>
         </section>
 
         <section className="workflow-strip" aria-label="Research to application workflow">
@@ -205,7 +202,7 @@ export default function App() {
         </div>
 
         <aside className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></aside>
-        <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>Local browser storage · Export regularly for backup · No account needed</p></footer>
+        <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>Local browser storage · Export regularly for backup · No account needed<br /><MoonCredit /></p></footer>
       </main>
     </>
   )

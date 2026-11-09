@@ -922,9 +922,9 @@ h1>span {
   .brand {
     font-size:23px
   }
-  .brand-icon {
-    width:33px;
-    height:33px
+  .brand-icon[data-moon-mark] {
+    width:37.125px;
+    height:37.125px
   }
   .header-context {
     display:none
