@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { useWorkspace } from './useWorkspace'
 import type { ImplementationStatus } from './workspace'
+import CalendarPanel from './components/calendarMotion/CalendarPanel'
+import CalendarButton from './components/calendarMotion/CalendarButton'
 import './App.css'
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -116,10 +118,14 @@ export default function App() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label="First Light home"><Sun /><span>first light<span className="brand-dot">.</span></span></a>
         <div className="header-context"><span className="context-divider" />Research workspace<span className="local-badge"><span />Local</span></div>
-        <button className="button button-secondary export-button" onClick={downloadWorkspace}>
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" /></svg>
-          Export workspace
-        </button>
+        <CalendarButton
+          className="button button-secondary export-button"
+          type="button"
+          label="Export workspace"
+          hoverLabel="Download JSON"
+          onClick={downloadWorkspace}
+          icon={<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" /></svg>}
+        />
       </header>
 
       <main id="top" className="page-shell">
@@ -152,6 +158,7 @@ export default function App() {
         </section>
 
         <div className="workspace-grid">
+          <CalendarPanel>
           <section className="panel source-panel" aria-labelledby="sources-heading">
             <div className="panel-heading"><span className="step-number">01</span><div><h3 id="sources-heading">Research library</h3><p>Start with something worth building on.</p></div></div>
             <form onSubmit={submitSource} noValidate className="entry-form">
@@ -160,13 +167,15 @@ export default function App() {
               <div className="field"><label htmlFor="source-notes">Source notes <span className="optional">optional</span></label><textarea id="source-notes" rows={3} value={sourceNotes} onChange={(event) => setSourceNotes(event.target.value)} placeholder="Why is this source useful? Note its context or limitations." /></div>
               {sourceError && <p className="form-error" role="alert">{sourceError}</p>}
               <p className="form-success" role="status" aria-live="polite">{sourceSuccess}</p>
-              <button className="button button-primary" type="submit">Add source <span aria-hidden="true">+</span></button>
+              <CalendarButton className="button button-primary" type="submit" label="Add source" hoverLabel="Save source" icon={<span aria-hidden="true">+</span>} />
             </form>
             <div className="library-section"><div className="list-heading"><h4>Your sources</h4><span>{workspace.sources.length}</span></div>
               {workspace.sources.length === 0 ? <div className="empty-state source-empty"><span className="empty-symbol" aria-hidden="true"><Arrow diagonal /></span><h4>A clean page. A clear beginning.</h4><p>Add your first source above. Your evidence will live here, ready to inform the next step.</p></div> : <ul className="source-list">{workspace.sources.map((source, index) => <li key={source.id}><span className="source-index">{String(index + 1).padStart(2, '0')}</span><div className="source-content"><a href={source.url} target="_blank" rel="noreferrer">{source.title}<Arrow diagonal /></a><span className="source-host">{new URL(source.url).hostname}</span>{source.notes && <p>{source.notes}</p>}</div></li>)}</ul>}
             </div>
           </section>
+          </CalendarPanel>
 
+          <CalendarPanel>
           <section className="panel decision-panel" aria-labelledby="decisions-heading">
             <div className="panel-heading"><span className="step-number">02</span><div><h3 id="decisions-heading">From finding to feature</h3><p>Make the connection between evidence and action.</p></div></div>
             <form onSubmit={submitDecision} noValidate className="entry-form">
@@ -174,7 +183,7 @@ export default function App() {
               <div className="decision-field-grid"><div className="field"><label htmlFor="research-finding">Research finding <span aria-hidden="true">*</span></label><textarea id="research-finding" rows={4} value={finding} onChange={(event) => setFinding(event.target.value)} placeholder="What does the evidence suggest? Include the limits of the finding." required /></div><div className="field"><label htmlFor="implementation-plan">Implementation plan <span aria-hidden="true">*</span></label><textarea id="implementation-plan" rows={4} value={implementation} onChange={(event) => setImplementation(event.target.value)} placeholder="How will this inform your web application? What will you test?" required /></div></div>
               {decisionError && <p className="form-error" role="alert">{decisionError}</p>}
               <p className="form-success" role="status" aria-live="polite">{decisionSuccess}</p>
-              <div className="decision-form-footer"><span className="field-hint">Every decision starts with a source.</span><button className="button button-primary" type="submit" disabled={workspace.sources.length === 0}>Add decision <span aria-hidden="true">+</span></button></div>
+              <div className="decision-form-footer"><span className="field-hint">Every decision starts with a source.</span><CalendarButton className="button button-primary" type="submit" label="Add decision" hoverLabel="Plan feature" disabled={workspace.sources.length === 0} icon={<span aria-hidden="true">+</span>} /></div>
             </form>
 
             <div className="decisions-section"><div className="list-heading"><h4>Implementation decisions</h4><span>{workspace.decisions.length}</span></div>
@@ -185,6 +194,7 @@ export default function App() {
               <p className="validation-note">“Validated” is a status you set after checking an implementation. It does not establish scientific validity. Record the test and its results in the repository’s decision template.</p>
             </div>
           </section>
+          </CalendarPanel>
         </div>
 
         <aside className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></aside>

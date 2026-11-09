@@ -1,0 +1,120 @@
+.calendar-panel-entrance,
+.calendar-panel-tilt {
+  width: 100%;
+  min-width: 0;
+}
+
+/* A focused field stays at rest, even if its panel is still entering. */
+.calendar-panel-entrance[data-calendar-focused='true'],
+.calendar-panel-tilt.calendar-panel-tilt-steady {
+  transform: none !important;
+  transition: none !important;
+}
+
+.calendar-motion-button.button {
+  position: relative;
+  max-width: 100%;
+  box-sizing: border-box;
+  /* The constant 2px border reserves space before the color cycle starts. */
+  border-width: 2px;
+  border-style: solid;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.calendar-motion-button.button .calendar-button-labels {
+  display: inline-grid;
+  min-width: 0;
+  max-width: 100%;
+  font: inherit;
+  line-height: inherit;
+}
+
+.calendar-button-default,
+.calendar-button-hover {
+  display: flex;
+  grid-area: 1 / 1;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.calendar-button-default {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.calendar-button-hover {
+  transform: translateY(-60%);
+  opacity: 0;
+}
+
+.calendar-motion-button.button:not(:disabled):focus-visible {
+  background-color: rgb(56, 137, 110);
+  color: aliceblue;
+}
+
+.calendar-motion-button:not(:disabled):focus-visible .calendar-button-default {
+  transform: translateY(-60%);
+  opacity: 0;
+}
+
+.calendar-motion-button:not(:disabled):focus-visible .calendar-button-hover {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .calendar-motion-button.button:not(:disabled):hover {
+    background-color: rgb(56, 137, 110);
+    color: aliceblue;
+  }
+
+  .calendar-motion-button:not(:disabled):hover .calendar-button-default {
+    transform: translateY(-60%);
+    opacity: 0;
+  }
+
+  .calendar-motion-button:not(:disabled):hover .calendar-button-hover {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.calendar-motion-button[data-calendar-reduced-motion='true'] .calendar-button-default {
+  transform: none !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+.calendar-motion-button[data-calendar-reduced-motion='true'] .calendar-button-hover {
+  transform: none !important;
+  opacity: 0 !important;
+  transition: none !important;
+}
+
+/* This also takes effect immediately, before the preference listener runs. */
+@media (prefers-reduced-motion: reduce) {
+  .calendar-panel-entrance,
+  .calendar-panel-tilt {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .calendar-motion-button.button,
+  .calendar-button-default,
+  .calendar-button-hover {
+    transition: none !important;
+  }
+
+  .calendar-motion-button .calendar-button-default {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .calendar-motion-button .calendar-button-hover {
+    transform: none !important;
+    opacity: 0 !important;
+  }
+}
