@@ -1,18 +1,19 @@
 :root {
+  color-scheme:dark;
   font-family:Inter,"Segoe UI",Arial,sans-serif;
-  color:#242922;
-  background:#f8f8f3;
+  color:#f3f4f7;
+  background:#000000;
   font-synthesis:none;
   text-rendering:optimizeLegibility;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   font-weight:400;
-  --ink:#242922;
-  --muted:#73776f;
-  --line:#e4e5dc;
-  --accent:#ce5a36;
-  --paper:#fffefa;
-  --sage:#e9eee2
+  --ink:#f3f4f7;
+  --muted:#b5bbcc;
+  --line:rgba(225, 231, 255, 0.16);
+  --accent:#ff9470;
+  --paper:rgba(15, 17, 26, 0.84);
+  --sage:rgba(170, 188, 160, 0.08)
 }
 * {
   box-sizing:border-box
@@ -41,11 +42,11 @@ input,textarea,select {
   min-width:0
 }
 button:focus-visible,a:focus-visible {
-  outline:3px solid #b45030;
+  outline:3px solid #ffaf86;
   outline-offset:4px
 }
 input:focus-visible,textarea:focus-visible,select:focus-visible {
-  outline:2px solid #ce5a36;
+  outline:2px solid #ff9470;
   outline-offset:2px
 }
 button,select {
@@ -69,7 +70,7 @@ ul {
   left:8px;
   transform:translateY(-150%);
   padding:12px;
-  background:var(--ink);
+  background:#20232f;
   color:white
 }
 .skip-link:focus {
@@ -82,7 +83,7 @@ ul {
   align-items:center;
   gap:30px;
   padding:20px 5.5%;
-  background:#fbfbf7
+  background:rgba(9, 10, 16, 0.80)
 }
 .brand {
   display:inline-flex;
@@ -115,7 +116,7 @@ ul {
 }
 .local-badge {
   font-size:10px;
-  border:1px solid #dce2d5;
+  border:1px solid rgba(225, 231, 255, 0.20);
   border-radius:5px;
   padding:5px 8px;
   display:inline-flex;
@@ -126,7 +127,7 @@ ul {
 .local-badge>span,.small-dot {
   width:5px;
   height:5px;
-  background:#748965;
+  background:#c2d7ad;
   border-radius:50%;
   display:inline-block
 }
@@ -148,18 +149,18 @@ ul {
 }
 .button-secondary {
   background:transparent;
-  border:1px solid #d9dcd1;
+  border:1px solid rgba(225, 231, 255, 0.22);
   gap:9px
 }
 .button-secondary:hover {
-  background:#eeefe8
+  background:rgba(255, 255, 255, 0.08)
 }
 .button-primary {
   background:var(--ink);
-  color:#fffefa
+  color:#0c0e17
 }
 .button-primary:hover:enabled {
-  background:#444e3d
+  background:#d6dce8
 }
 .button-primary>span {
   font-weight:400;
@@ -185,7 +186,7 @@ ul {
   font-size:9px;
   font-weight:650;
   letter-spacing:1.6px;
-  color:#6d7562;
+  color:#b5bbcc;
   display:flex;
   align-items:center;
   gap:9px
@@ -203,13 +204,13 @@ h1 {
   margin:18px 0 19px
 }
 h1>span {
-  color:#6d7562
+  color:#b5bbcc
 }
 .hero-description {
   max-width:480px;
   font-size:13px;
   line-height:1.85;
-  color:#73786e
+  color:#c0c3ce
 }
 .hero-art {
   position:relative;
@@ -224,12 +225,12 @@ h1>span {
 .art-grid {
   position:absolute;
   inset:0;
-  background-image:linear-gradient(to right,#e7e8df 1px,transparent 1px),linear-gradient(to bottom,#e7e8df 1px,transparent 1px);
+  background-image:linear-gradient(to right,rgba(225, 231, 255, 0.09) 1px,transparent 1px),linear-gradient(to bottom,rgba(225, 231, 255, 0.09) 1px,transparent 1px);
   background-size:28px 28px;
   mask-image:radial-gradient(ellipse at center,#000 20%,transparent 73%)
 }
 .sun-illustration {
-  color:#d66540;
+  color:#ff9470;
   position:relative;
   z-index:1;
   margin-top:-16px
@@ -239,7 +240,7 @@ h1>span {
   bottom:21px;
   font-size:6.5px;
   letter-spacing:1.55px;
-  color:#6d7562
+  color:#b5bbcc
 }
 .workflow-strip {
   display:flex;
@@ -250,7 +251,7 @@ h1>span {
   border-bottom:1px solid var(--line);
   padding:20px 0;
   font-size:11px;
-  color:#6d7466
+  color:#b5bbcc
 }
 .workflow-strip>span {
   display:flex;
@@ -261,10 +262,10 @@ h1>span {
 .workflow-strip b {
   font-size:9px;
   font-weight:500;
-  color:#6d7562
+  color:#b5bbcc
 }
 .workflow-strip>svg {
-  color:#a4aa9b;
+  color:#b9c2d4;
   width:14px;
   flex-shrink:0
 }
@@ -286,7 +287,7 @@ h1>span {
   align-items:center;
   gap:7px;
   font-size:10px;
-  color:#6d7562;
+  color:#b5bbcc;
   margin-bottom:3px
 }
 .stats-grid {
@@ -295,7 +296,7 @@ h1>span {
   border:1px solid var(--line);
   border-radius:7px;
   overflow:hidden;
-  background:#fdfdf8;
+  background:rgba(15, 17, 26, 0.72);
   margin-bottom:24px
 }
 .stat {
@@ -308,7 +309,7 @@ h1>span {
 }
 .stat-label {
   font-size:11px;
-  color:#6d7562
+  color:#b5bbcc
 }
 .stat-value {
   font-size:33px;
@@ -321,13 +322,13 @@ h1>span {
   justify-content:space-between
 }
 .stat-spark {
-  color:#a4ad91;
+  color:#b3c5a6;
   font-size:30px;
   margin-right:3px
 }
 .stat-detail {
   font-size:9px;
-  color:#6d7562
+  color:#b5bbcc
 }
 .workspace-grid {
   display:grid;
@@ -350,8 +351,8 @@ h1>span {
 }
 .step-number {
   font-size:10px;
-  color:#6d7562;
-  border:1px solid #e2e6d9;
+  color:#b5bbcc;
+  border:1px solid rgba(225, 231, 255, 0.18);
   border-radius:5px;
   padding:8px
 }
@@ -362,7 +363,7 @@ h1>span {
 }
 .panel-heading p {
   font-size:10px;
-  color:#6d7562;
+  color:#b5bbcc;
   margin-top:5px;
   line-height:1.6
 }
@@ -381,22 +382,22 @@ h1>span {
 .field label {
   font-size:11px;
   font-weight:550;
-  color:#4a5143
+  color:#d7dbe6
 }
 .field label>span:not(.optional) {
-  color:#b86649
+  color:#ff9470
 }
 .optional {
   font-weight:400;
-  color:#6d7562;
+  color:#b5bbcc;
   font-size:10px;
   margin-left:5px
 }
 .field input,.field textarea,.field select,.status-control select {
-  border:1px solid #e0e3d7;
+  border:1px solid rgba(225, 231, 255, 0.24);
   border-radius:4px;
-  background:#fffefa;
-  color:#353d2d;
+  background:#0c0e17;
+  color:#eff1f8;
   padding:11px 12px;
   font-size:11px;
   line-height:1.65;
@@ -404,7 +405,7 @@ h1>span {
   width:100%
 }
 .field input::placeholder,.field textarea::placeholder {
-  color:#6d7562;
+  color:#b5bbcc;
   opacity:1
 }
 .field textarea {
@@ -415,13 +416,13 @@ h1>span {
   cursor:pointer
 }
 .field select:disabled {
-  color:#6d7562;
+  color:#b5bbcc;
   cursor:not-allowed;
-  background:#f5f6f0
+  background:rgba(255, 255, 255, 0.04)
 }
 .field-hint {
   font-size:9px;
-  color:#6d7562;
+  color:#b5bbcc;
   line-height:1.6
 }
 .source-panel .entry-form>.button {
@@ -429,8 +430,8 @@ h1>span {
   min-width:132px
 }
 .form-error {
-  color:#a74226;
-  background:#fff0e9;
+  color:#ffb39a;
+  background:rgba(112, 41, 29, 0.40);
   padding:10px 12px;
   border-radius:4px;
   font-size:11px;
@@ -438,7 +439,7 @@ h1>span {
 }
 .form-success {
   font-size:10px;
-  color:#4a6b3e;
+  color:#b4dfaa;
   line-height:1.6
 }
 .form-success:empty {
@@ -461,14 +462,14 @@ h1>span {
 .list-heading h4 {
   font-size:10px;
   font-weight:600;
-  color:#6d7562
+  color:#b5bbcc
 }
 .list-heading>span {
   font-size:9px;
-  color:#6d7562;
+  color:#b5bbcc;
   min-width:19px;
   height:19px;
-  background:#eef0e6;
+  background:rgba(255, 255, 255, 0.08);
   border-radius:4px;
   display:inline-flex;
   align-items:center;
@@ -486,9 +487,9 @@ h1>span {
 .empty-symbol {
   width:35px;
   height:35px;
-  border:1px solid #e2e6d8;
+  border:1px solid rgba(225, 231, 255, 0.18);
   border-radius:8px;
-  color:#a0aa90;
+  color:#b9c1d0;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -498,12 +499,12 @@ h1>span {
 .empty-state h4 {
   font-size:12px;
   font-weight:500;
-  color:#647058;
+  color:#d0d5e1;
   letter-spacing:-.1px
 }
 .empty-state p {
   font-size:10px;
-  color:#6d7562;
+  color:#b5bbcc;
   line-height:1.8;
   max-width:310px;
   margin:9px auto 0
@@ -515,11 +516,11 @@ h1>span {
   display:flex;
   gap:12px;
   padding:17px 0;
-  border-top:1px solid #eceee5
+  border-top:1px solid rgba(225, 231, 255, 0.12)
 }
 .source-index {
   font-size:9px;
-  color:#6d7562;
+  color:#b5bbcc;
   padding-top:3px
 }
 .source-content {
@@ -543,19 +544,19 @@ h1>span {
 .source-content>a>svg {
   flex-shrink:0;
   margin-top:2px;
-  color:#6d7562
+  color:#b5bbcc
 }
 .source-host {
   font-size:9px;
   display:block;
-  color:#6d7562;
+  color:#b5bbcc;
   margin-top:3px;
   overflow-wrap:anywhere
 }
 .source-content>p {
   font-size:10px;
   line-height:1.75;
-  color:#737f68;
+  color:#c0c5d3;
   margin-top:9px;
   white-space:pre-wrap;
   overflow-wrap:anywhere
@@ -582,37 +583,37 @@ h1>span {
   align-items:center;
   gap:14px;
   font-size:16px;
-  color:#b3bba6;
+  color:#bcc4d5;
   margin-bottom:20px
 }
 .empty-orbit>span:first-child {
   height:25px;
   width:25px;
-  border:1px solid #cad1bc;
+  border:1px solid rgba(225, 231, 255, 0.22);
   border-radius:50%;
-  background:#f3f5ec
+  background:rgba(255, 255, 255, 0.04)
 }
 .empty-orbit>span:last-child {
   height:25px;
   width:25px;
-  border:1px solid #cad1bc;
+  border:1px solid rgba(225, 231, 255, 0.22);
   border-radius:5px;
-  background:#f3f5ec
+  background:rgba(255, 255, 255, 0.04)
 }
 .empty-tag {
   font-size:7px;
-  color:#6d7562;
+  color:#b5bbcc;
   letter-spacing:1.4px;
-  border:1px solid #e6e9de;
+  border:1px solid rgba(225, 231, 255, 0.16);
   padding:6px 9px;
   border-radius:3px;
   margin-top:18px
 }
 .validation-note {
   font-size:9px;
-  color:#6d7562;
+  color:#b5bbcc;
   line-height:1.8;
-  border-top:1px solid #eceee5;
+  border-top:1px solid rgba(225, 231, 255, 0.12);
   margin-top:10px;
   padding-top:16px
 }
@@ -624,8 +625,8 @@ h1>span {
 }
 .decision-card {
   padding:19px;
-  background:#fbfcf6;
-  border:1px solid #e7eadf;
+  background:rgba(255, 255, 255, 0.04);
+  border:1px solid rgba(225, 231, 255, 0.16);
   border-radius:5px
 }
 .decision-card-top {
@@ -637,7 +638,7 @@ h1>span {
 }
 .decision-id {
   font-size:8px;
-  color:#6d7562;
+  color:#b5bbcc;
   letter-spacing:1px
 }
 .status-badge {
@@ -647,8 +648,8 @@ h1>span {
   gap:5px;
   border-radius:4px;
   padding:5px 7px;
-  background:#eeeee6;
-  color:#62664e
+  background:rgba(211, 218, 245, 0.12);
+  color:#cdd2e0
 }
 .status-badge>span {
   width:4px;
@@ -657,19 +658,19 @@ h1>span {
   background:currentColor
 }
 .status-building {
-  color:#8c5126;
-  background:#f9eddf
+  color:#ffc192;
+  background:rgba(170, 97, 39, 0.20)
 }
 .status-validated {
-  color:#587246;
-  background:#e7efde
+  color:#b8dfb1;
+  background:rgba(93, 138, 75, 0.23)
 }
 .decision-card h5 {
   text-transform:uppercase;
   font-size:8px;
   letter-spacing:.8px;
   font-weight:550;
-  color:#6d7562;
+  color:#b5bbcc;
   margin-bottom:6px
 }
 .decision-text {
@@ -681,7 +682,7 @@ h1>span {
 .implementation-block {
   margin-top:13px;
   padding-top:13px;
-  border-top:1px solid #e8ecdf
+  border-top:1px solid rgba(225, 231, 255, 0.12)
 }
 .decision-card-bottom {
   display:flex;
@@ -690,7 +691,7 @@ h1>span {
   gap:15px;
   margin-top:18px;
   padding-top:15px;
-  border-top:1px solid #e8ecdf
+  border-top:1px solid rgba(225, 231, 255, 0.12)
 }
 .decision-source-link {
   display:flex;
@@ -698,7 +699,7 @@ h1>span {
   align-items:center;
   font-size:9px;
   line-height:1.6;
-  color:#6d7562;
+  color:#b5bbcc;
   text-decoration:none;
   overflow-wrap:anywhere;
   min-width:0
@@ -715,7 +716,7 @@ h1>span {
   display:flex;
   gap:8px;
   align-items:center;
-  color:#6d7562;
+  color:#b5bbcc;
   flex-shrink:0
 }
 .status-control select {
@@ -724,28 +725,28 @@ h1>span {
   padding:6px;
   width:auto;
   min-width:84px;
-  background:#fffefa
+  background:#0c0e17
 }
 .notice {
   padding:13px 17px;
-  border:1px solid #e5d4b6;
+  border:1px solid rgba(246, 196, 100, 0.30);
   border-radius:5px;
   font-size:11px;
   line-height:1.8;
   margin-bottom:16px
 }
 .notice-warning {
-  background:#fff4df;
-  color:#795a29
+  background:rgba(117, 77, 20, 0.35);
+  color:#ffd59d
 }
 .notice-error {
-  background:#fff0e9;
-  color:#a74226;
-  border-color:#edcbbd
+  background:rgba(112, 41, 29, 0.40);
+  color:#ffb39a;
+  border-color:rgba(255, 140, 105, 0.30)
 }
 .workspace-feedback {
   font-size:10px;
-  color:#557044;
+  color:#b5dfab;
   line-height:1.7;
   margin-bottom:15px
 }
@@ -762,14 +763,14 @@ h1>span {
   align-items:center;
   gap:18px;
   padding:22px 25px;
-  background:#eff1e8;
-  border:1px solid #e3e7d8;
+  background:rgba(29, 35, 42, 0.72);
+  border:1px solid rgba(225, 231, 255, 0.16);
   border-radius:6px;
   margin-top:25px
 }
 .next-step-icon {
   font-size:29px;
-  color:#939f7e
+  color:#b7c3a8
 }
 .next-step h3 {
   font-size:12px;
@@ -778,7 +779,7 @@ h1>span {
 }
 .next-step p {
   font-size:10px;
-  color:#6d7562;
+  color:#b5bbcc;
   line-height:1.8;
   margin-top:5px;
   max-width:810px
@@ -799,13 +800,13 @@ h1>span {
 .footer-tagline {
   font-size:9px;
   font-weight:400;
-  color:#6d7562;
+  color:#b5bbcc;
   letter-spacing:0;
   margin-left:17px
 }
 .site-footer p {
   font-size:9px;
-  color:#6d7562;
+  color:#b5bbcc;
   line-height:1.7;
   text-align:right
 }
