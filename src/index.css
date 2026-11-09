@@ -1,5 +1,6 @@
 * { box-sizing: border-box; }
 body { margin: 0; }
+.app-content { position: relative; z-index: 1; min-height: 100vh; }
 button, input, textarea, select { font: inherit; }
 button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
