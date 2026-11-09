@@ -3,6 +3,9 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { Mesh, type Group } from 'three'
 
+const SUN_MODEL_URL = `${import.meta.env.BASE_URL}media/sun/sun.gltf`
+const SUN_ROTATION_RADIANS_PER_SECOND = -0.45
+
 interface SunProps {
   reducedMotion: boolean
   onReady: () => void
@@ -11,14 +14,16 @@ interface SunProps {
 export default function Sun({ reducedMotion, onReady }: SunProps) {
   // Relative references inside this unchanged GLTF resolve beside the model:
   // sun.bin and textures/Material.002_baseColor.jpeg.
-  const { nodes, materials } = useGLTF(`${import.meta.env.BASE_URL}media/sun/sun.gltf`)
+  const { nodes, materials } = useGLTF(SUN_MODEL_URL)
   const sunRef = useRef<Group>(null)
   const announced = useRef(false)
   const sphere = nodes.Sphere_Material002_0
   const material = materials['Material.002']
 
-  useFrame(() => {
-    if (!reducedMotion && sunRef.current) sunRef.current.rotation.y += -0.0075
+  useFrame((_state, delta) => {
+    if (!reducedMotion && sunRef.current) {
+      sunRef.current.rotation.y += SUN_ROTATION_RADIANS_PER_SECOND * delta
+    }
   })
 
   if (!(sphere instanceof Mesh) || !material) throw new Error('Sun model is unavailable.')
@@ -41,3 +46,5 @@ export default function Sun({ reducedMotion, onReady }: SunProps) {
     </group>
   )
 }
+
+useGLTF.preload(SUN_MODEL_URL)

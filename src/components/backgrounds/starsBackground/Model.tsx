@@ -11,14 +11,15 @@ interface ModelProps {
 // Keep the original prop without changing Drei's star shader. In the source
 // version this extra Points property does not set the shader's star colors.
 const sourceStarProps = { color: 'red' }
+const STAR_ROTATION_RADIANS_PER_SECOND = 0.015
 
 function Model({ reducedMotion }: ModelProps) {
   const stars = useRef<Points>(null)
 
-  useFrame(() => {
+  useFrame((_state, delta) => {
     if (!reducedMotion && stars.current) {
-      // Preserve Calendar4's frame-based increment, including x following y.
-      stars.current.rotation.x = stars.current.rotation.y += 0.00025
+      // Preserve the original 60 FPS pace and x following y at any frame rate.
+      stars.current.rotation.x = stars.current.rotation.y += STAR_ROTATION_RADIANS_PER_SECOND * delta
     }
   })
 

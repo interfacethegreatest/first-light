@@ -35,7 +35,9 @@ The bundled HDR was downloaded from [the exact revision used by Drei's environme
 
 The original canvas uses absolute page placement. First Light needs a fixed, full-viewport decorative layer behind its scrolling research interface. Keep that layer noninteractive and excluded from keyboard and screen-reader navigation. Load the renderer separately so the research interface remains usable while it loads. Use readable dark translucent panels over the black backdrop. These changes adapt the scene to its host without adding stars, lights, or animation effects.
 
-Honor reduced-motion preferences by stopping the scene's rotation while retaining a usable static background. If WebGL or renderer loading fails, show the black fallback and keep the interface usable. Reduced-motion and fallback behavior are host accommodations; the normal animation retains the original per-frame increment. Source, decision, status, browser persistence, and export behavior remain within the existing research workspace boundary.
+Honor reduced-motion preferences by stopping the scene's rotation while retaining a usable static background. If WebGL or renderer loading fails, show the black fallback and keep the interface usable. Source, decision, status, browser persistence, and export behavior remain within the existing research workspace boundary.
+
+The current host adaptation advances y by `0.015 * delta` radians, then assigns the result to x. Delta is elapsed seconds, so the rotation has the same speed at different frame rates while preserving the original source pace at 60 FPS (`0.00025 * 60`). The table above and initial verification below describe the original per-frame source implementation.
 
 ## Verification record
 
