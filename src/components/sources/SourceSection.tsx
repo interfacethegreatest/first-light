@@ -4,9 +4,18 @@ import type { ReactNode } from 'react'
 // src/components/sections/AboutMe/AboutMe.tsx at 7b7e533.
 export const DEFAULT_SOURCE_SECTION_TEXT = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
+const BORDER_COLOURS = {
+  aliceblue: '#F0F8FF',
+  // Custom token: slatepurple is not a standard CSS colour keyword.
+  slatepurple: '#7B68EE',
+} as const
+
+export type SourceSectionBorderTone = keyof typeof BORDER_COLOURS
+
 export interface SourceSectionInstance {
   id: string
   text?: string
+  borderTone?: SourceSectionBorderTone
 }
 
 interface SourceSectionProps extends SourceSectionInstance {
@@ -15,14 +24,14 @@ interface SourceSectionProps extends SourceSectionInstance {
   controls?: ReactNode
 }
 
-export default function SourceSection({ id, number, text = DEFAULT_SOURCE_SECTION_TEXT, children, controls }: SourceSectionProps) {
+export default function SourceSection({ id, number, text = DEFAULT_SOURCE_SECTION_TEXT, borderTone = 'aliceblue', children, controls }: SourceSectionProps) {
   const headingId = `source-section-${id}-heading`
 
   return (
     <section
       className="panel"
       aria-labelledby={headingId}
-      style={{ width: '100%', minWidth: 0, height: 'auto', overflowWrap: 'anywhere', border: '2px solid aliceblue' }}
+      style={{ width: '100%', minWidth: 0, height: 'auto', overflowWrap: 'anywhere', border: `2px solid ${BORDER_COLOURS[borderTone]}` }}
     >
       <div
         className="panel-heading"
