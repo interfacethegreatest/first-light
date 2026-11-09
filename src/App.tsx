@@ -3,6 +3,7 @@ import { useWorkspace } from './useWorkspace'
 import type { ImplementationStatus } from './workspace'
 import CalendarPanel from './components/calendarMotion/CalendarPanel'
 import CalendarButton from './components/calendarMotion/CalendarButton'
+import { sourceSectionTemplate, type SourceSectionInstance } from './components/sources/SourceSection'
 import './App.css'
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -44,6 +45,7 @@ export default function App() {
   const [sourceNotes, setSourceNotes] = useState('')
   const [sourceError, setSourceError] = useState('')
   const [sourceSuccess, setSourceSuccess] = useState('')
+  const [sourceSections, setSourceSections] = useState<SourceSectionInstance[]>([])
   const [selectedSource, setSelectedSource] = useState('')
   const [finding, setFinding] = useState('')
   const [implementation, setImplementation] = useState('')
@@ -53,6 +55,11 @@ export default function App() {
   const [workspaceMessage, setWorkspaceMessage] = useState('')
   const effectiveSource = selectedSource || workspace.sources[0]?.id || ''
   const validated = workspace.decisions.filter((decision) => decision.status === 'validated').length
+
+  function introduceSourceSection() {
+    const section = sourceSectionTemplate.create()
+    setSourceSections(current => [...current, section])
+  }
 
   function submitSource(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -167,7 +174,7 @@ export default function App() {
               <div className="field"><label htmlFor="source-notes">Source notes <span className="optional">optional</span></label><textarea id="source-notes" rows={3} value={sourceNotes} onChange={(event) => setSourceNotes(event.target.value)} placeholder="Why is this source useful? Note its context or limitations." /></div>
               {sourceError && <p className="form-error" role="alert">{sourceError}</p>}
               <p className="form-success" role="status" aria-live="polite">{sourceSuccess}</p>
-              <CalendarButton className="button button-primary" type="submit" label="Add source" hoverLabel="Save source" icon={<span aria-hidden="true">+</span>} />
+              <CalendarButton className="button button-primary" type="button" label="Add source" hoverLabel="New section" onClick={introduceSourceSection} aria-controls="source-sections" icon={<span aria-hidden="true">+</span>} />
             </form>
             <div className="library-section"><div className="list-heading"><h4>Your sources</h4><span>{workspace.sources.length}</span></div>
               {workspace.sources.length === 0 ? <div className="empty-state source-empty"><span className="empty-symbol" aria-hidden="true"><Arrow diagonal /></span><h4>A clean page. A clear beginning.</h4><p>Add your first source above. Your evidence will live here, ready to inform the next step.</p></div> : <ul className="source-list">{workspace.sources.map((source, index) => <li key={source.id}><span className="source-index">{String(index + 1).padStart(2, '0')}</span><div className="source-content"><a href={source.url} target="_blank" rel="noreferrer">{source.title}<Arrow diagonal /></a><span className="source-host">{new URL(source.url).hostname}</span>{source.notes && <p>{source.notes}</p>}</div></li>)}</ul>}
@@ -195,6 +202,10 @@ export default function App() {
             </div>
           </section>
           </CalendarPanel>
+        </div>
+
+        <div id="source-sections" style={{ display: 'grid', gap: 24, marginTop: sourceSections.length ? 24 : 0 }}>
+          {sourceSections.map((section, index) => sourceSectionTemplate.render(section, index + 1))}
         </div>
 
         <aside className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></aside>
