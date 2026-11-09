@@ -13,7 +13,14 @@ export default function SourceSections({
   return (
     <div
       id={id}
-      style={{ display: 'grid', gap: 24, marginTop: sections.length ? 24 : 0 }}
+      style={{
+        display: 'grid',
+        gap: 24,
+        minWidth: 0,
+        marginTop: sections.length ? 24 : 0,
+        padding: sections.length ? 'clamp(8px, 1.5vw, 16px)' : 0,
+        paddingLeft: sections.length ? 'clamp(4px, 0.75vw, 8px)' : 0,
+      }}
     >
       {sections.map((section, index) =>
         sourceSectionTemplate.render(
