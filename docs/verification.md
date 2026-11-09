@@ -33,3 +33,15 @@ No browser JavaScript errors were observed in the main workflow. Browser test da
 Three subagents handled separate files for interface, research documentation, and domain/persistence tests. The coordinator reviewed their results, integrated them, replaced a font-dependent icon, and adjusted empty feedback regions to remain available to assistive technologies before rerunning checks.
 
 No cross-browser or screen-reader certification was performed. Cross-tab detection is a best-effort guard, not atomic collaboration. Data is browser-local; JSON export has no import interface yet. The first research topic, audience, application outcomes, licensing, remote repository, and hosting remain undecided. No publication or deployment was performed.
+
+## GitHub Pages preparation
+
+The user subsequently authorized publication to GitHub Pages. The coordinator added a configurable Vite base, a base-aware favicon, and a manually triggered Pages workflow. The existing verification agent independently reviewed subpath compatibility without making edits.
+
+- `VITE_BASE_PATH=/first-light/ npm run check`: passed type checks, all 28 tests, and the production build.
+- Built HTML asset paths: JavaScript, CSS, and favicon all point beneath `/first-light/` and their files exist in `dist/`.
+- Production preview at `http://127.0.0.1:4174/first-light/`: the Chromium workflow checks above passed, including persistence, export, storage failures, and responsive widths. No application JavaScript errors were observed.
+- Workflow structure: verified the only trigger is `workflow_dispatch`, the deployment depends on the checked build, and the YAML parses.
+- Remote access: authenticated as `interfacethegreatest`; attempted GraphQL and REST creation of the new `first-light` repository. Both were rejected as `Resource not accessible by integration` (REST HTTP 403).
+
+No repository was created or pushed, and no remote workflow or live URL was verified. The prepared deployment requires the one-time repository/access setup in [the Pages guide](github-pages.md).

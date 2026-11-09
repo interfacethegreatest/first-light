@@ -34,4 +34,6 @@ localStorage is scoped to one browser and origin. It supplies convenience persis
 
 Choose a research question and application audience before adding domain-specific behavior. Add backend storage, authentication, collaboration, or external integrations only when requirements justify them. A future persistence implementation should retain validation and source-to-decision references, with an explicit migration for changes to the stored format.
 
-The local repository has no remote or deployment automation. Publishing or deploying requires the user's approval. See [the project plan](project-plan.md) for requirements, acceptance criteria, ownership, and open decisions.
+The [GitHub Pages workflow](../.github/workflows/pages.yml) performs checks and builds a static site with `VITE_BASE_PATH` set to the repository path. It deploys only when manually triggered. Local development defaults to `/`. No runtime server or credentials are included in the deployed application. Publishing or deploying requires the user's approval; the current Pages publication has been requested. See [the deployment guide](github-pages.md) for the remaining GitHub access setup and [the project plan](project-plan.md) for requirements and acceptance criteria.
+
+GitHub Pages project sites on the same `owner.github.io` domain share a localStorage origin. Localhost records do not transfer to the hosted site. Keep sensitive research records out of browser storage.

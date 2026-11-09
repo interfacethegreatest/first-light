@@ -10,7 +10,7 @@ First Light is a new local repository for implementing research results as web a
 - Retain records in this browser with localStorage and allow JSON export for backup.
 - Start with an honest empty state; include no invented papers or findings.
 - Provide setup, research, architecture, and verification documentation.
-- Keep the repository local. Do not publish or deploy without the user's approval.
+- The first increment is local. Publish or deploy only when the user requests it; the Pages follow-up below is now authorized.
 
 ## Architecture
 
@@ -27,7 +27,7 @@ The evidence chain is: source → finding → implementation decision → verifi
 5. JSON export includes all current records. No evidence is prepopulated.
 6. Forms have labels, feedback is announced, and the layout works on desktop and mobile.
 7. Type checks, automated behavior tests, and a production build pass. Browser checks exercise the core flow and reload.
-8. The initial repository has no remote and no deployment automation.
+8. The initial local increment has no remote or deployment automation. The separately authorized Pages follow-up adds a manual deployment workflow.
 
 ## Ownership and sequencing
 
@@ -42,5 +42,15 @@ The interface and research documentation tasks can run independently against the
 
 - First research question and source materials.
 - Intended application users and measurable domain outcomes.
-- Backend, collaboration, authentication, and deployment needs, if any.
-- License and future GitHub owner/visibility. No license grant or remote is assumed.
+- Backend, collaboration, and authentication needs, if any.
+- License. No license grant is assumed.
+
+## Authorized GitHub Pages follow-up
+
+The user requested publication to GitHub Pages and a working link. Target a new public `interfacethegreatest/first-light` repository, with the app served at `/first-light/`.
+
+- Requirements: retain the existing application behavior and browser-local data, provide a reproducible static deployment, and return a verified live link.
+- Architecture: configurable Vite asset base, explicit base-aware favicon, and a manually dispatched GitHub Actions workflow using the Pages artifact/deployment actions. No backend or research data upload is added.
+- Acceptance: existing checks pass for the Pages build; production scripts, styles, and favicon resolve beneath the project path; core browser behavior works at that path; the GitHub workflow succeeds; and the live URL is checked before reporting publication.
+- Ownership: coordinator owns all deployment/configuration/documentation changes and remote operations. The existing verification agent performs an independent read-only path review. Remote deployment follows local verification sequentially.
+- Current blocker: GitHub authenticated successfully, but both GraphQL and REST repository creation were rejected as inaccessible to the integration. The deployment remains local until the repository and Pages access are supplied.

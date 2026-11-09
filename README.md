@@ -60,8 +60,10 @@ Records live in localStorage in one browser and origin, under `first-light.works
 
 If stored data is corrupt or from an unsupported version, the app preserves the original and warns that new records are session-only. Storage write failures and detected changes from another tab also produce a warning; export before closing or reloading. The starter is intended for one active tab, not concurrent editing.
 
-Each decision links to one source in the web workspace. Its document can cite additional evidence. No backend, authentication, collaboration, AI service, or deployment has been configured. The research domain, hosting, repository remote/visibility, and license remain open decisions. No license grant is included.
+Each decision links to one source in the web workspace. Its document can cite additional evidence. No backend, authentication, collaboration, or AI service has been configured. The research domain and license remain open decisions. No license grant is included.
 
 ## Repository
 
-The repository is local and uses the `main` branch. Nothing is published or deployed. Choose a GitHub owner and visibility when ready to add a remote; deployment requires separate approval.
+The repository uses the `main` branch. A manually triggered [GitHub Pages workflow](.github/workflows/pages.yml) checks, builds, and publishes the app under the repository's name. See [the deployment guide](docs/github-pages.md) for setup and verification.
+
+The user has requested GitHub Pages publication. The deployment setup is ready locally; remote repository creation is currently blocked by the connected GitHub integration's permissions. No live site has been published yet.
