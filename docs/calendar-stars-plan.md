@@ -20,7 +20,7 @@ Use a black page background and readable dark translucent panels. Keep the layou
 4. Existing source → decision → status → reload → export behavior continues to work.
 5. Reduced-motion and unavailable-WebGL cases leave a usable app.
 6. Type checks, relevant tests, and a Pages-path production build pass. Browser checks confirm actual WebGL rendering and same-origin environment loading.
-7. Provide a screenshot and reviewable code before asking to deploy, following the user's original instruction not to deploy without approval. The Pages workflow is manual and must not be dispatched for this change yet.
+7. Provide a screenshot and reviewable code before asking to deploy, following the user's original instruction not to deploy without approval. The user has now explicitly approved publication of this update. The coordinator is carrying out the approved publication through the manual Pages workflow; deployment verification is in progress.
 
 ## File ownership and sequencing
 

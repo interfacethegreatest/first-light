@@ -56,11 +56,11 @@ See [the project plan](docs/project-plan.md) for requirements and acceptance cri
 
 The [initial verification record](docs/verification.md) lists the checks performed and steps to repeat the browser workflow.
 
-## Calendar star background (pending deployment)
+## Calendar star background
 
 This branch ports the Three.js background from Calendar4, retaining its 7,500 stars, slow rotation, bloom, and black backdrop. The interface uses dark translucent surfaces to keep the background visible and the research forms readable. Reduced-motion preferences show a static scene; unavailable WebGL or a failed renderer download leaves a black background and a usable workspace.
 
-See [the source and verification notes](docs/calendar-stars-provenance.md) and the [desktop](docs/previews/calendar-stars-desktop.png) and [mobile](docs/previews/calendar-stars-mobile.png) previews. This revision is awaiting deployment approval; the live site above still shows the previously published revision.
+See [the source and verification notes](docs/calendar-stars-provenance.md) and the [desktop](docs/previews/calendar-stars-desktop.png) and [mobile](docs/previews/calendar-stars-mobile.png) previews. Publication of this update is approved; deployment verification is in progress.
 
 ## Storage and current limits
 

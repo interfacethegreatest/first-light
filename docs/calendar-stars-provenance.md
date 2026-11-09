@@ -53,4 +53,4 @@ Review previews: [desktop](previews/calendar-stars-desktop.png) and [mobile](pre
 
 The scene is loaded separately from the research interface. The added renderer chunk is about 274 KiB gzipped, plus the 1.54 MB local HDR asset. Rendering cost varies by device; this verification used software WebGL, not a survey of mobile GPUs. The star distribution is randomized, as in the original. Reduced motion and no-WebGL fallbacks intentionally adapt the normal animated scene for those browser conditions.
 
-This change is prepared for review only. The manual Pages workflow has not been dispatched for this revision. Deployment requires the user's approval under the original project instruction.
+The user has explicitly approved publication of this update after reviewing the prepared change. The coordinator is carrying out the approved publication through the manual Pages workflow. Deployment verification is in progress; the local results above do not establish that this revision is live.
