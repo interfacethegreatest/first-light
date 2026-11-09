@@ -171,7 +171,10 @@ export default function App() {
               <div className="field"><label htmlFor="source-notes">Source notes <span className="optional">optional</span></label><textarea id="source-notes" rows={3} value={sourceNotes} onChange={(event) => setSourceNotes(event.target.value)} placeholder="Why is this source useful? Note its context or limitations." /></div>
               {sourceError && <p className="form-error" role="alert">{sourceError}</p>}
               <p className="form-success" role="status" aria-live="polite">{sourceSuccess}</p>
-              <AddSourceButton onClick={introduceSourceSection} />
+              <div className="entry-form" style={{ padding: 0, gap: 0, minWidth: 0 }}>
+                <AddSourceButton onClick={introduceSourceSection} />
+                <SourceSections sections={sourceSections} />
+              </div>
             </form>
             <div className="library-section"><div className="list-heading"><h4>Your sources</h4><span>{workspace.sources.length}</span></div>
               {workspace.sources.length === 0 ? <div className="empty-state source-empty"><span className="empty-symbol" aria-hidden="true"><Arrow diagonal /></span><h4>A clean page. A clear beginning.</h4><p>Add your first source above. Your evidence will live here, ready to inform the next step.</p></div> : <ul className="source-list">{workspace.sources.map((source, index) => <li key={source.id}><span className="source-index">{String(index + 1).padStart(2, '0')}</span><div className="source-content"><a href={source.url} target="_blank" rel="noreferrer">{source.title}<Arrow diagonal /></a><span className="source-host">{new URL(source.url).hostname}</span>{source.notes && <p>{source.notes}</p>}</div></li>)}</ul>}
@@ -200,8 +203,6 @@ export default function App() {
           </section>
           </CalendarPanel>
         </div>
-
-        <SourceSections sections={sourceSections} />
 
         <aside className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></aside>
         <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>Local browser storage · Export regularly for backup · No account needed</p></footer>
