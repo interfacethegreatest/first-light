@@ -3,6 +3,7 @@ import { motion, type Variants } from 'framer-motion'
 import Tilt from 'react-parallax-tilt'
 import SunScene from '../../react three fibre/sunScene/SunScene'
 import { useCalendarMotionPreferences } from '../../calendarMotion/useCalendarMotionPreferences'
+import CardTiles from './CardTiles'
 import '@fontsource/poppins/latin-600.css'
 import styles from './newUser.module.css'
 
@@ -14,12 +15,6 @@ interface NewUserCardProps {
   borderTone?: 'aliceblue' | 'slatepurple'
   surfaceClassName?: string
 }
-
-const tileNames = [
-  'tile1', 'tile2', 'tile3', 'tile4', 'tile5', 'tile6', 'tile7',
-  'tile9', 'tile10', 'tile12', 'tile13', 'tile15',
-] as const
-const loaderNames = ['loader', 'loader2', 'loader3', 'loader4', 'loader5', 'loader6'] as const
 
 const frameVariants: Variants = {
   hidden: {},
@@ -93,14 +88,12 @@ export default function NewUserCard({
       >
         <section
           className={`${styles.main}${surfaceClassName ? ` ${surfaceClassName}` : ''}`}
+          data-new-user-card
           aria-labelledby={headingId}
           data-border-tone={borderTone}
           style={{ width: '100%', minWidth: 0, height: 'auto', overflowWrap: 'anywhere' }}
         >
-          <div className={styles.tiles} aria-hidden="true">
-            {tileNames.map(name => <div key={name} className={styles[name]} />)}
-            {loaderNames.map(name => <div key={name} className={styles[name]} />)}
-          </div>
+          <CardTiles reducedMotion={reducedMotion} />
 
           <motion.div className={styles.heading} variants={contentVariants}>
             <h3 id={headingId} className={styles.titleText}>{title}</h3>
