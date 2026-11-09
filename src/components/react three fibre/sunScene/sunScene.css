@@ -21,13 +21,7 @@
 }
 
 .source-sun-scene__fallback {
-  display: grid;
-  place-items: center;
-  color: #ffc363;
-  font-size: 31px;
-  line-height: 1;
-  text-shadow: 0 0 9px rgba(255, 156, 48, 0.75);
-  background: radial-gradient(circle, rgba(255, 174, 58, 0.21), transparent 70%);
+  object-fit: contain;
   pointer-events: none;
 }
 

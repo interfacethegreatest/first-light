@@ -1,5 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
-import { animate, motion, useMotionValue, useMotionTemplate } from 'framer-motion'
+import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import Tilt from 'react-parallax-tilt'
 import SunScene from '../../react three fibre/sunScene/SunScene'
 import { useCalendarMotionPreferences } from '../../calendarMotion/useCalendarMotionPreferences'
@@ -20,14 +19,6 @@ const tileNames = [
 ] as const
 const loaderNames = ['loader', 'loader2', 'loader3', 'loader4', 'loader5', 'loader6'] as const
 
-const COLOURS = [
-  'rgba(159, 158, 158, 0.7)',
-  'rgba(159, 158, 158, 0.5)',
-  'rgba(130, 129, 129, 0.35)',
-  'rgba(189, 188, 188, 0.2)',
-  'rgba(159, 158, 158, 0.17)',
-]
-
 export default function NewUserCard({
   headingId,
   title,
@@ -36,8 +27,6 @@ export default function NewUserCard({
   borderTone = 'aliceblue',
 }: NewUserCardProps) {
   const { reducedMotion, coarsePointer } = useCalendarMotionPreferences()
-  const colour = useMotionValue(COLOURS[0])
-  const border = useMotionTemplate`2px solid ${colour}`
   const frame = useRef<HTMLDivElement>(null)
   const [insideParentTilt, setInsideParentTilt] = useState(false)
   const [focusWithin, setFocusWithin] = useState(false)
@@ -46,21 +35,6 @@ export default function NewUserCard({
   useLayoutEffect(() => {
     setInsideParentTilt(Boolean(frame.current?.parentElement?.closest('.calendar-panel-tilt')))
   }, [])
-
-  useEffect(() => {
-    if (reducedMotion) {
-      colour.set(COLOURS[0])
-      return
-    }
-
-    const controls = animate(colour, COLOURS, {
-      ease: 'easeInOut',
-      duration: 10,
-      repeat: Infinity,
-      repeatType: 'mirror',
-    })
-    return () => controls.stop()
-  }, [colour, reducedMotion])
 
   return (
     <div
@@ -82,11 +56,11 @@ export default function NewUserCard({
         tiltAngleXManual={tiltEnabled ? null : 0}
         tiltAngleYManual={tiltEnabled ? null : 0}
       >
-        <motion.section
+        <section
           className={styles.main}
           aria-labelledby={headingId}
           data-border-tone={borderTone}
-          style={{ width: '100%', minWidth: 0, height: 'auto', overflowWrap: 'anywhere', border }}
+          style={{ width: '100%', minWidth: 0, height: 'auto', overflowWrap: 'anywhere' }}
         >
           <div className={styles.tiles} aria-hidden="true">
             {tileNames.map(name => <div key={name} className={styles[name]} />)}
@@ -109,7 +83,7 @@ export default function NewUserCard({
           </div>
 
           <div className={`entry-form source-content ${styles.body}`}>{children}</div>
-        </motion.section>
+        </section>
       </Tilt>
     </div>
   )

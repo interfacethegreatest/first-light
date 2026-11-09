@@ -1,14 +1,20 @@
 import { StrictMode, useEffect } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { act, render, screen, within } from '@testing-library/react'
+import { act, cleanup, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import SunRenderer from '../src/components/react three fibre/sunScene/SunRenderer'
 import SunScene from '../src/components/react three fibre/sunScene/SunScene'
 import NewUserCard from '../src/components/cards/newUserCard/NewUserCard'
+import { SUN_PREVIEW_URL, clearSunAssetCache, preloadSunAssets } from '../src/components/react three fibre/sunScene/sunAssets'
 
 // Mock only the GPU boundary. SunScene's visibility, readiness, lifecycle,
 // preference handling and error boundary remain the real implementation.
 vi.mock('../src/components/react three fibre/sunScene/SunRenderer', () => ({ default: vi.fn() }))
+vi.mock('../src/components/react three fibre/sunScene/sunAssets', async importOriginal => ({
+  ...await importOriginal<typeof import('../src/components/react three fibre/sunScene/sunAssets')>(),
+  preloadSunAssets: vi.fn(),
+  clearSunAssetCache: vi.fn(),
+}))
 
 const mounted = vi.fn()
 const unmounted = vi.fn()
@@ -70,7 +76,13 @@ function rendererProps() {
   return vi.mocked(SunRenderer).mock.calls.at(-1)![0]
 }
 
+async function advanceRetryClock() {
+  await act(async () => { await vi.advanceTimersByTimeAsync(10_000) })
+}
+
 beforeEach(() => {
+  vi.mocked(preloadSunAssets).mockResolvedValue(undefined)
+  vi.mocked(clearSunAssetCache).mockResolvedValue(undefined)
   vi.mocked(SunRenderer).mockImplementation(function Renderer({ reducedMotion }) {
     useEffect(() => { mounted(); return () => { unmounted() } }, [])
     return <div data-testid="gpu-renderer" data-reduced-motion={String(reducedMotion)} />
@@ -78,24 +90,93 @@ beforeEach(() => {
 })
 
 afterEach(() => {
+  cleanup()
+  vi.useRealTimers()
   vi.unstubAllGlobals()
 })
 
 describe('Sun scene activation and lifecycle', () => {
-  it.each(['WebGL2RenderingContext', 'IntersectionObserver'])('uses the real static fallback when %s is unavailable', missing => {
+  it('uses the actual model preview without canvas warnings when WebGL is unavailable', () => {
     browserEnvironment()
-    vi.stubGlobal(missing, undefined)
+    vi.stubGlobal('WebGL2RenderingContext', undefined)
     const error = vi.spyOn(console, 'error')
     const warning = vi.spyOn(console, 'warn')
     render(<SunScene />)
 
-    expect(screen.getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'fallback')
-    expect(screen.getByTestId('sun-scene')).toHaveTextContent('☀')
+    const scene = screen.getByTestId('sun-scene')
+    expect(scene).toHaveAttribute('data-sun-state', 'fallback')
+    expect(scene).not.toHaveTextContent('☀')
+    expect(scene.querySelector('img')).toHaveAttribute('src', SUN_PREVIEW_URL)
+    expect(scene.querySelector('img')).toHaveAttribute('alt', '')
     expect(screen.queryByTestId('gpu-renderer')).not.toBeInTheDocument()
     expect(document.querySelector('canvas')).toBeNull()
     expect(SunRenderer).not.toHaveBeenCalled()
+    expect(preloadSunAssets).not.toHaveBeenCalled()
     expect(error).not.toHaveBeenCalled()
     expect(warning).not.toHaveBeenCalled()
+  })
+
+  it('warms assets before viewport entry without mistaking warmup completion for renderer readiness', async () => {
+    const environment = browserEnvironment({ visible: false })
+    render(<StrictMode><SunScene /><SunScene /></StrictMode>)
+    await act(async () => { await Promise.resolve() })
+
+    expect(preloadSunAssets).toHaveBeenCalled()
+    expect(SunRenderer).not.toHaveBeenCalled()
+    for (const scene of screen.getAllByTestId('sun-scene')) {
+      expect(scene).toHaveAttribute('data-sun-state', 'inactive')
+      expect(scene.querySelector('img')).toHaveAttribute('src', SUN_PREVIEW_URL)
+    }
+    // The active observers are the last two after StrictMode effect replay.
+    environment.observers.slice(-2).forEach(observer => observer.intersect(true))
+    expect(SunRenderer).not.toHaveBeenCalled()
+  })
+
+  it('keeps warmup rejection contained and still permits a later successful renderer', async () => {
+    const environment = browserEnvironment()
+    vi.mocked(preloadSunAssets).mockRejectedValueOnce(new Error('Warmup unavailable'))
+    render(<SunScene />)
+    await act(async () => { await Promise.resolve() })
+    expect(screen.getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'inactive')
+
+    environment.observers[0].intersect(true)
+    await screen.findByTestId('gpu-renderer')
+    act(() => rendererProps().onReady())
+    expect(screen.getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'ready')
+  })
+
+  it.each(['missing', 'throwing'])('uses viewport measurements and cleans listeners when IntersectionObserver is %s', async mode => {
+    const environment = browserEnvironment()
+    if (mode === 'missing') vi.stubGlobal('IntersectionObserver', undefined)
+    else vi.stubGlobal('IntersectionObserver', class { constructor() { throw new Error('Observer unavailable') } })
+    let top = 10
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(() => new DOMRect(10, top, 50, 50))
+    const added = vi.spyOn(window, 'addEventListener')
+    const removed = vi.spyOn(window, 'removeEventListener')
+    const view = render(<SunScene />)
+    const scene = screen.getByTestId('sun-scene')
+    await screen.findByTestId('gpu-renderer')
+    expect(scene).toHaveAttribute('data-sun-state', 'loading')
+    act(() => rendererProps().onReady())
+    expect(scene).toHaveAttribute('data-sun-state', 'ready')
+
+    top = window.innerHeight + 100
+    act(() => window.dispatchEvent(new Event('scroll')))
+    expect(scene).toHaveAttribute('data-sun-state', 'inactive')
+    expect(screen.queryByTestId('gpu-renderer')).not.toBeInTheDocument()
+    top = 10
+    act(() => window.dispatchEvent(new Event('resize')))
+    await screen.findByTestId('gpu-renderer')
+    environment.visibility(false)
+    expect(screen.queryByTestId('gpu-renderer')).not.toBeInTheDocument()
+    environment.visibility(true)
+    await screen.findByTestId('gpu-renderer')
+
+    const scroll = added.mock.calls.find(([name]) => name === 'scroll')![1]
+    const resize = added.mock.calls.find(([name]) => name === 'resize')![1]
+    view.unmount()
+    expect(removed).toHaveBeenCalledWith('scroll', scroll, true)
+    expect(removed).toHaveBeenCalledWith('resize', resize)
   })
 
   it('activates only when both viewport and document are visible, waits for readiness, and updates reduced motion without remounting', async () => {
@@ -154,24 +235,117 @@ describe('Sun scene activation and lifecycle', () => {
     expect(screen.getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'loading')
   })
 
-  it('contains renderer failure callbacks and keeps the fallback through later visibility changes', async () => {
+  it('recovers from transient failure and ignores stale ready and failure callbacks after success', async () => {
     const environment = browserEnvironment()
     render(<SunScene />)
     environment.observers[0].intersect(true)
     await screen.findByTestId('gpu-renderer')
-    const { onReady, onFailure } = rendererProps()
-    act(() => onFailure())
+    const previous = rendererProps()
+    vi.useFakeTimers()
+    act(() => previous.onFailure())
 
     expect(screen.getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'fallback')
     expect(screen.queryByTestId('gpu-renderer')).not.toBeInTheDocument()
     expect(unmounted).toHaveBeenCalledOnce()
-    act(() => onReady())
+    expect(screen.getByTestId('sun-scene').querySelector('img')).toHaveAttribute('src', SUN_PREVIEW_URL)
+    await advanceRetryClock()
+    expect(clearSunAssetCache).toHaveBeenCalledOnce()
+    expect(screen.getByTestId('gpu-renderer')).toBeInTheDocument()
+    expect(screen.getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'loading')
+    act(() => rendererProps().onReady())
+    expect(screen.getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'ready')
+    act(() => { previous.onReady(); previous.onFailure() })
+    expect(screen.getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'ready')
+    expect(mounted).toHaveBeenCalledTimes(2)
+    expect(vi.getTimerCount()).toBe(0)
+  })
+
+  it('exhausts two retries and retains the preview without restarting its budget on visibility changes', async () => {
+    const environment = browserEnvironment()
+    render(<SunScene />)
+    environment.observers[0].intersect(true)
+    await screen.findByTestId('gpu-renderer')
+    vi.useFakeTimers()
+
+    for (let attempt = 0; attempt < 3; attempt++) {
+      act(() => rendererProps().onFailure())
+      expect(screen.getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'fallback')
+      if (attempt < 2) {
+        environment.visibility(false)
+        environment.visibility(true)
+        await advanceRetryClock()
+        expect(screen.getByTestId('gpu-renderer')).toBeInTheDocument()
+      }
+    }
     environment.observers[0].intersect(false)
     environment.observers[0].intersect(true)
     environment.visibility(false)
     environment.visibility(true)
+    await advanceRetryClock()
+
+    expect(clearSunAssetCache).toHaveBeenCalledTimes(2)
+    expect(mounted).toHaveBeenCalledTimes(3)
+    expect(screen.queryByTestId('gpu-renderer')).not.toBeInTheDocument()
     expect(screen.getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'fallback')
+    expect(screen.getByTestId('sun-scene').querySelector('img')).toHaveAttribute('src', SUN_PREVIEW_URL)
+    expect(vi.getTimerCount()).toBe(0)
+  })
+
+  it.each(['offscreen', 'hidden'])('pauses recovery timers while %s and resumes when visible', async pause => {
+    const environment = browserEnvironment()
+    render(<SunScene />)
+    environment.observers[0].intersect(true)
+    await screen.findByTestId('gpu-renderer')
+    vi.useFakeTimers()
+    act(() => rendererProps().onFailure())
+    expect(vi.getTimerCount()).toBe(1)
+
+    if (pause === 'offscreen') environment.observers[0].intersect(false)
+    else environment.visibility(false)
+    expect(vi.getTimerCount()).toBe(0)
+    await advanceRetryClock()
+    expect(clearSunAssetCache).not.toHaveBeenCalled()
+    if (pause === 'offscreen') environment.observers[0].intersect(true)
+    else environment.visibility(true)
+    await advanceRetryClock()
+
+    expect(clearSunAssetCache).toHaveBeenCalledOnce()
+    expect(screen.getByTestId('gpu-renderer')).toBeInTheDocument()
+  })
+
+  it('cancels pending recovery when unmounted', async () => {
+    const environment = browserEnvironment()
+    const view = render(<SunScene />)
+    environment.observers[0].intersect(true)
+    await screen.findByTestId('gpu-renderer')
+    vi.useFakeTimers()
+    act(() => rendererProps().onFailure())
+    expect(vi.getTimerCount()).toBe(1)
+
+    view.unmount()
+    expect(vi.getTimerCount()).toBe(0)
+    await advanceRetryClock()
+    expect(clearSunAssetCache).not.toHaveBeenCalled()
     expect(mounted).toHaveBeenCalledOnce()
+  })
+
+  it('does not remount after an in-flight cache reset resolves following unmount', async () => {
+    const environment = browserEnvironment()
+    let finishReset!: () => void
+    vi.mocked(clearSunAssetCache).mockImplementationOnce(() => new Promise<void>(resolve => { finishReset = resolve }))
+    const view = render(<SunScene />)
+    environment.observers[0].intersect(true)
+    await screen.findByTestId('gpu-renderer')
+    vi.useFakeTimers()
+    act(() => rendererProps().onFailure())
+    await advanceRetryClock()
+    expect(clearSunAssetCache).toHaveBeenCalledOnce()
+
+    view.unmount()
+    await act(async () => { finishReset(); await Promise.resolve() })
+    expect(mounted).toHaveBeenCalledOnce()
+    expect(vi.getTimerCount()).toBe(0)
+    expect(screen.queryByTestId('sun-scene')).not.toBeInTheDocument()
   })
 
   it('catches renderer throws without losing surrounding card text or native controls', async () => {
@@ -184,7 +358,7 @@ describe('Sun scene activation and lifecycle', () => {
     const card = screen.getByRole('region', { name: 'Usable research card' })
     environment.observers[0].intersect(true)
 
-    expect(await within(card).findByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'fallback')
+    await waitFor(() => expect(within(card).getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'fallback'))
     expect(within(card).getByText('Research content remains available.')).toBeInTheDocument()
     expect(within(card).getByRole('link', { name: 'CC BY 4.0' })).toBeInTheDocument()
     await user.click(within(card).getByRole('button', { name: 'Keep working' }))
