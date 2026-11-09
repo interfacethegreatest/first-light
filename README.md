@@ -66,4 +66,4 @@ Each decision links to one source in the web workspace. Its document can cite ad
 
 The repository uses the `main` branch. A manually triggered [GitHub Pages workflow](.github/workflows/pages.yml) checks, builds, and publishes the app under the repository's name. See [the deployment guide](docs/github-pages.md) for setup and verification.
 
-The user has requested GitHub Pages publication. The deployment setup is ready locally; remote repository creation is currently blocked by the connected GitHub integration's permissions. No live site has been published yet.
+The [GitHub repository](https://github.com/interfacethegreatest/first-light) is connected. The deployment setup has passed local production checks; first publication is waiting for the repository owner to select GitHub Actions in Settings → Pages. No live site has been verified yet.

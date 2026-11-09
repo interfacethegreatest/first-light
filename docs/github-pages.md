@@ -1,6 +1,6 @@
 # GitHub Pages deployment
 
-The user has requested publication of First Light. The deployment configuration is prepared locally; no live Pages link has been verified yet. The connected GitHub account is `interfacethegreatest`. Repository creation through the CLI's GraphQL operation and the REST `POST /user/repos` endpoint was rejected with `Resource not accessible by integration` (REST HTTP 403).
+The user has requested publication of First Light and supplied [the repository](https://github.com/interfacethegreatest/first-light). The deployment configuration has passed local production checks; no live Pages link has been verified yet. GitHub permits repository access but rejected enabling Pages through the API with `Resource not accessible by integration` (HTTP 403). The owner must select GitHub Actions in the Pages settings below.
 
 ## One-time GitHub setup
 
