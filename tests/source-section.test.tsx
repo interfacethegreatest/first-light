@@ -42,7 +42,11 @@ describe('Add source introduces session-only UI sections', () => {
     fireEvent.click(addSource)
 
     const section = screen.getByRole('region', { name: 'Source section 1' })
-    expect(within(section).getByText('New outputs will appear here.')).toBeInTheDocument()
+    const body = section.lastElementChild!
+    expect(body.children).toHaveLength(1)
+    expect(body.firstElementChild?.tagName).toBe('P')
+    expect(body.firstElementChild?.textContent).toMatch(/^Lorem ipsum /)
+    expect(body.firstElementChild?.children).toHaveLength(0)
     expect(screen.queryAllByRole('alert')).toHaveLength(0)
     expect(write).not.toHaveBeenCalled()
     expect(localStorage.getItem(STORAGE_KEY)).toBeNull()
@@ -66,10 +70,34 @@ describe('Add source introduces session-only UI sections', () => {
     const sections = screen.getAllByRole('region', { name: /^Source section \d+$/ })
     expect(sections).toHaveLength(4)
     expect(sections[0]).toBe(firstSection)
+    const firstThreeLengths = sections.slice(0, 3).map(section => section.querySelector('p')!.textContent!.length)
+    expect(new Set(firstThreeLengths).size).toBe(3)
     const headingIds = sections.map(section => section.getAttribute('aria-labelledby'))
     expect(new Set(headingIds).size).toBe(4)
     for (let index = 0; index < sections.length; index++) {
       expect(within(sections[index]).getByRole('heading', { name: `Source section ${index + 1}` })).toHaveAttribute('id', headingIds[index])
+    }
+    expect(localStorage.getItem(STORAGE_KEY)).toBeNull()
+  })
+
+  it('keeps each ipsum paragraph stable when unrelated App state rerenders', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    const button = screen.getByRole('button', { name: 'Add source' })
+    for (let index = 0; index < 3; index++) await user.click(button)
+    const regions = screen.getAllByRole('region', { name: /^Source section \d+$/ })
+    const paragraphs = regions.map(region => region.querySelector('p')!)
+    const text = paragraphs.map(paragraph => paragraph.textContent)
+
+    await user.type(screen.getByRole('textbox', { name: 'Source title' }), 'Unrelated source draft')
+    await user.type(screen.getByRole('textbox', { name: /Source notes/ }), 'Unrelated notes')
+    await user.click(button)
+
+    for (let index = 0; index < regions.length; index++) {
+      const region = screen.getByRole('region', { name: `Source section ${index + 1}` })
+      expect(region).toBe(regions[index])
+      expect(region.querySelector('p')).toBe(paragraphs[index])
+      expect(paragraphs[index].textContent).toBe(text[index])
     }
     expect(localStorage.getItem(STORAGE_KEY)).toBeNull()
   })
@@ -125,6 +153,58 @@ describe('Add source introduces session-only UI sections', () => {
 })
 
 describe('reusable source section template', () => {
+  it('gives every consecutive trio distinct text lengths regardless of the cycle starting point', () => {
+    for (let offset = 0; offset < 3; offset++) {
+      for (let skip = 0; skip < offset; skip++) sourceSectionTemplate.create()
+      const instances = Array.from({ length: 3 }, () => sourceSectionTemplate.create())
+      expect(new Set(instances.map(instance => instance.id)).size).toBe(3)
+      expect(instances.every(instance => typeof instance.text === 'string' && instance.text.startsWith('Lorem ipsum '))).toBe(true)
+      expect(new Set(instances.map(instance => instance.text!.length)).size).toBe(3)
+    }
+  })
+
+  it('renders stored text directly in one body paragraph without parsing markup', () => {
+    const text = 'Lorem <strong>ipsum</strong> & <script>example()</script>.'
+    render(sourceSectionTemplate.render({ id: 'literal-text', text }, 1))
+    const region = screen.getByRole('region', { name: 'Source section 1' })
+    const body = region.lastElementChild!
+
+    expect(body.children).toHaveLength(1)
+    const paragraph = body.firstElementChild!
+    expect(paragraph.tagName).toBe('P')
+    expect(paragraph.textContent).toBe(text)
+    expect(paragraph.children).toHaveLength(0)
+    expect(region.querySelector('strong,script')).toBeNull()
+  })
+
+  it('keeps optional title-row controls native and accessible without inserting actions into the body', async () => {
+    const instance = sourceSectionTemplate.create()
+    const edit = vi.fn()
+    const expand = vi.fn()
+    const user = userEvent.setup()
+    render(sourceSectionTemplate.render(instance, 1, undefined, <>
+      <button type="button" onClick={edit}>Edit section</button>
+      <button type="button" onClick={expand}>Expand section</button>
+    </>))
+    const region = screen.getByRole('region', { name: 'Source section 1' })
+    const heading = within(region).getByRole('heading', { name: 'Source section 1' })
+    const editButton = within(region).getByRole('button', { name: 'Edit section' })
+    const expandButton = within(region).getByRole('button', { name: 'Expand section' })
+
+    expect(heading.parentElement).toContainElement(editButton)
+    expect(heading.parentElement).toContainElement(expandButton)
+    expect(region.lastElementChild?.querySelector('button')).toBeNull()
+    await user.click(editButton)
+    expect(edit).toHaveBeenCalledOnce()
+    await user.keyboard(' ')
+    expect(edit).toHaveBeenCalledTimes(2)
+    await user.tab()
+    expect(expandButton).toHaveFocus()
+    await user.keyboard('{Enter}')
+    expect(expand).toHaveBeenCalledOnce()
+    expect(region.querySelector('p')?.textContent).toBe(instance.text)
+  })
+
   it('creates independent instances whose child state does not leak between sections', async () => {
     const first = sourceSectionTemplate.create()
     const second = sourceSectionTemplate.create()
@@ -136,6 +216,7 @@ describe('reusable source section template', () => {
     </>)
     const firstField = within(screen.getByRole('region', { name: 'Source section 1' })).getByRole('textbox', { name: 'Output draft' })
     const secondField = within(screen.getByRole('region', { name: 'Source section 2' })).getByRole('textbox', { name: 'Output draft' })
+    expect(screen.queryByText(/^Lorem ipsum /)).not.toBeInTheDocument()
 
     await user.type(firstField, 'First output')
     await user.type(secondField, 'Second output')
