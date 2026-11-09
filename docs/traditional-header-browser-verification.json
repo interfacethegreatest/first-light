@@ -1,0 +1,158 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:4202/first-light/",
+  "entry": "index-c8fq81Hq.js",
+  "scope": "Theme frame radius and unchanged row geometry only; no asset/GPU/control/download/reduced/performance suites",
+  "sizes": [
+    {
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "frameCount": 2,
+      "outer": {
+        "tag": "HEADER",
+        "marked": true,
+        "radius": "7px",
+        "border": "1px solid rgba(225, 231, 255, 0.16)",
+        "overflow": "visible",
+        "rect": {
+          "x": 20,
+          "y": 20,
+          "width": 1400,
+          "height": 223,
+          "right": 1420,
+          "bottom": 243
+        }
+      },
+      "title": {
+        "tag": "DIV",
+        "marked": true,
+        "radius": "7px",
+        "border": "1px solid rgba(225, 231, 255, 0.16)",
+        "overflow": "visible",
+        "rect": {
+          "x": 49,
+          "y": 45,
+          "width": 315.203125,
+          "height": 138,
+          "right": 364.203125,
+          "bottom": 183
+        }
+      },
+      "titleChildren": 2,
+      "titleLayout": {
+        "direction": "ltr",
+        "writingMode": "horizontal-tb",
+        "row": "row",
+        "wrap": "nowrap",
+        "whiteSpace": "nowrap"
+      },
+      "moon": {
+        "rect": {
+          "x": 62,
+          "y": 58,
+          "width": 112,
+          "height": 112,
+          "right": 174,
+          "bottom": 170
+        },
+        "loaded": "loaded",
+        "canvasCount": 1
+      },
+      "word": {
+        "rect": {
+          "x": 196,
+          "y": 94.203125,
+          "width": 147.203125,
+          "height": 39.59375,
+          "right": 343.203125,
+          "bottom": 133.796875
+        },
+        "text": "first light."
+      },
+      "export": {
+        "x": 1240.65625,
+        "y": 109.5,
+        "width": 150.34375,
+        "height": 44,
+        "right": 1391,
+        "bottom": 153.5
+      }
+    },
+    {
+      "viewport": 320,
+      "scrollWidth": 320,
+      "frameCount": 2,
+      "outer": {
+        "tag": "HEADER",
+        "marked": true,
+        "radius": "7px",
+        "border": "1px solid rgba(225, 231, 255, 0.16)",
+        "overflow": "visible",
+        "rect": {
+          "x": 12,
+          "y": 12,
+          "width": 296,
+          "height": 160,
+          "right": 308,
+          "bottom": 172
+        }
+      },
+      "title": {
+        "tag": "DIV",
+        "marked": true,
+        "radius": "7px",
+        "border": "1px solid rgba(225, 231, 255, 0.16)",
+        "overflow": "visible",
+        "rect": {
+          "x": 25,
+          "y": 29,
+          "width": 211.640625,
+          "height": 94,
+          "right": 236.640625,
+          "bottom": 123
+        }
+      },
+      "titleChildren": 2,
+      "titleLayout": {
+        "direction": "ltr",
+        "writingMode": "horizontal-tb",
+        "row": "row",
+        "wrap": "nowrap",
+        "whiteSpace": "nowrap"
+      },
+      "moon": {
+        "rect": {
+          "x": 38,
+          "y": 40,
+          "width": 72,
+          "height": 72,
+          "right": 110,
+          "bottom": 112
+        },
+        "loaded": "loaded",
+        "canvasCount": 1
+      },
+      "word": {
+        "rect": {
+          "x": 122,
+          "y": 61.703125,
+          "width": 101.640625,
+          "height": 28.59375,
+          "right": 223.640625,
+          "bottom": 90.296875
+        },
+        "text": "first light."
+      },
+      "export": {
+        "x": 251,
+        "y": 70,
+        "width": 44,
+        "height": 44,
+        "right": 295,
+        "bottom": 114
+      }
+    }
+  ],
+  "errors": [],
+  "screenshot": "header-320.png"
+}

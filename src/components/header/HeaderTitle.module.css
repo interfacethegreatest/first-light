@@ -1,0 +1,44 @@
+.title {
+  display: inline-flex;
+  direction: ltr;
+  writing-mode: horizontal-tb;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(12px, 1.6vw, 22px);
+  width: max-content;
+  max-width: 100%;
+  padding: 12px 20px 12px 12px;
+  white-space: nowrap;
+}
+
+.title .scene {
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(72px, 9vw, 112px);
+  height: clamp(72px, 9vw, 112px);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.wordmark {
+  flex: 0 0 auto;
+  font-size: clamp(26px, 2.5vw, 36px);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -1.4px;
+  white-space: nowrap;
+}
+
+.dot {
+  color: var(--accent, #ff9470);
+}
+
+@media (max-width: 560px) {
+  .title {
+    gap: 12px;
+    padding: 10px 12px;
+  }
+}

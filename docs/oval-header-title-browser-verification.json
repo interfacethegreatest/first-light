@@ -1,0 +1,439 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:4198/first-light/",
+  "entry": "index-CZKJRYOt.js",
+  "scope": "Oval geometry and native header controls only; no asset, density, performance, failure, or source-feature reruns",
+  "sizes": [
+    {
+      "viewport": {
+        "width": 1440,
+        "scrollWidth": 1440
+      },
+      "title": {
+        "tag": "DIV",
+        "role": null,
+        "tabindex": null,
+        "count": 1,
+        "children": 2,
+        "rect": {
+          "x": 49,
+          "y": 45,
+          "width": 315.203125,
+          "height": 138,
+          "right": 364.203125,
+          "bottom": 183
+        },
+        "css": {
+          "display": "flex",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "whiteSpace": "nowrap",
+          "border": "1px solid rgba(225, 231, 255, 0.16)",
+          "borderWidth": "1px",
+          "radius": "999px",
+          "background": "rgba(35, 37, 49, 0.5)",
+          "shadow": "rgba(35, 37, 49, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.28) 0px 18px 45px 0px, rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.16) 0px 2px 4px 0px",
+          "overflow": "visible"
+        },
+        "intrinsicWidth": 315.203125
+      },
+      "moon": {
+        "rect": {
+          "x": 62,
+          "y": 58,
+          "width": 112,
+          "height": 112,
+          "right": 174,
+          "bottom": 170
+        },
+        "state": "loaded",
+        "count": 1,
+        "canvasCount": 1,
+        "gpu": {
+          "indexCount": 205824,
+          "width": 112,
+          "height": 112,
+          "lit": 9780,
+          "alpha": 9780,
+          "minLuminance": 10.666666666666666,
+          "maxLuminance": 195.66666666666666,
+          "cornerAlphas": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "error": 0
+        }
+      },
+      "wordmark": {
+        "rect": {
+          "x": 196,
+          "y": 94.203125,
+          "width": 147.203125,
+          "height": 39.59375,
+          "right": 343.203125,
+          "bottom": 133.796875
+        },
+        "text": "first light.",
+        "whiteSpace": "nowrap",
+        "textRects": [
+          {
+            "x": 196,
+            "y": 93.203125,
+            "width": 138.59375,
+            "height": 41,
+            "right": 334.59375,
+            "bottom": 134.203125
+          }
+        ],
+        "dotRects": [
+          {
+            "x": 334.59375,
+            "y": 93.203125,
+            "width": 8.609375,
+            "height": 41,
+            "right": 343.203125,
+            "bottom": 134.203125
+          }
+        ]
+      },
+      "context": {
+        "rect": {
+          "x": 49,
+          "y": 195,
+          "width": 191.96875,
+          "height": 23,
+          "right": 240.96875,
+          "bottom": 218
+        },
+        "insideOval": false,
+        "text": "Research workspaceLocal"
+      },
+      "home": {
+        "rect": {
+          "x": 49,
+          "y": 41,
+          "width": 1163.65625,
+          "height": 181,
+          "right": 1212.65625,
+          "bottom": 222
+        },
+        "href": "#top",
+        "name": "First Light home"
+      },
+      "export": {
+        "rect": {
+          "x": 1240.65625,
+          "y": 109.5,
+          "width": 150.34375,
+          "height": 44,
+          "right": 1391,
+          "bottom": 153.5
+        },
+        "insideHome": false
+      },
+      "header": {
+        "x": 20,
+        "y": 20,
+        "width": 1400,
+        "height": 223,
+        "right": 1420,
+        "bottom": 243
+      },
+      "clippingAncestors": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "scrollWidth": 390
+      },
+      "title": {
+        "tag": "DIV",
+        "role": null,
+        "tabindex": null,
+        "count": 1,
+        "children": 2,
+        "rect": {
+          "x": 29,
+          "y": 33,
+          "width": 211.640625,
+          "height": 94,
+          "right": 240.640625,
+          "bottom": 127
+        },
+        "css": {
+          "display": "flex",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "whiteSpace": "nowrap",
+          "border": "1px solid rgba(225, 231, 255, 0.16)",
+          "borderWidth": "1px",
+          "radius": "999px",
+          "background": "rgba(35, 37, 49, 0.5)",
+          "shadow": "rgba(35, 37, 49, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.28) 0px 18px 45px 0px, rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.16) 0px 2px 4px 0px",
+          "overflow": "visible"
+        },
+        "intrinsicWidth": 211.640625
+      },
+      "moon": {
+        "rect": {
+          "x": 42,
+          "y": 44,
+          "width": 72,
+          "height": 72,
+          "right": 114,
+          "bottom": 116
+        },
+        "state": "loaded",
+        "count": 1,
+        "canvasCount": 1,
+        "gpu": {
+          "indexCount": 205824,
+          "width": 72,
+          "height": 72,
+          "lit": 4062,
+          "alpha": 4062,
+          "minLuminance": 12.666666666666666,
+          "maxLuminance": 191,
+          "cornerAlphas": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "error": 0
+        }
+      },
+      "wordmark": {
+        "rect": {
+          "x": 126,
+          "y": 65.703125,
+          "width": 101.640625,
+          "height": 28.59375,
+          "right": 227.640625,
+          "bottom": 94.296875
+        },
+        "text": "first light.",
+        "whiteSpace": "nowrap",
+        "textRects": [
+          {
+            "x": 126,
+            "y": 64.703125,
+            "width": 95.8125,
+            "height": 30,
+            "right": 221.8125,
+            "bottom": 94.703125
+          }
+        ],
+        "dotRects": [
+          {
+            "x": 221.8125,
+            "y": 64.703125,
+            "width": 5.828125,
+            "height": 30,
+            "right": 227.640625,
+            "bottom": 94.703125
+          }
+        ]
+      },
+      "context": {
+        "rect": {
+          "x": 29,
+          "y": 136,
+          "width": 178.625,
+          "height": 23,
+          "right": 207.625,
+          "bottom": 159
+        },
+        "insideOval": false,
+        "text": "Research workspaceLocal"
+      },
+      "home": {
+        "rect": {
+          "x": 29,
+          "y": 29,
+          "width": 332,
+          "height": 134,
+          "right": 361,
+          "bottom": 163
+        },
+        "href": "#top",
+        "name": "First Light home"
+      },
+      "export": {
+        "rect": {
+          "x": 226.4375,
+          "y": 179,
+          "width": 134.5625,
+          "height": 38.5,
+          "right": 361,
+          "bottom": 217.5
+        },
+        "insideHome": false
+      },
+      "header": {
+        "x": 12,
+        "y": 12,
+        "width": 366,
+        "height": 222.5,
+        "right": 378,
+        "bottom": 234.5
+      },
+      "clippingAncestors": []
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "scrollWidth": 320
+      },
+      "title": {
+        "tag": "DIV",
+        "role": null,
+        "tabindex": null,
+        "count": 1,
+        "children": 2,
+        "rect": {
+          "x": 29,
+          "y": 33,
+          "width": 211.640625,
+          "height": 94,
+          "right": 240.640625,
+          "bottom": 127
+        },
+        "css": {
+          "display": "flex",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "whiteSpace": "nowrap",
+          "border": "1px solid rgba(225, 231, 255, 0.16)",
+          "borderWidth": "1px",
+          "radius": "999px",
+          "background": "rgba(35, 37, 49, 0.5)",
+          "shadow": "rgba(35, 37, 49, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.28) 0px 18px 45px 0px, rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.16) 0px 2px 4px 0px",
+          "overflow": "visible"
+        },
+        "intrinsicWidth": 211.640625
+      },
+      "moon": {
+        "rect": {
+          "x": 42,
+          "y": 44,
+          "width": 72,
+          "height": 72,
+          "right": 114,
+          "bottom": 116
+        },
+        "state": "loaded",
+        "count": 1,
+        "canvasCount": 1,
+        "gpu": {
+          "indexCount": 205824,
+          "width": 72,
+          "height": 72,
+          "lit": 4062,
+          "alpha": 4062,
+          "minLuminance": 12.666666666666666,
+          "maxLuminance": 191,
+          "cornerAlphas": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "error": 0
+        }
+      },
+      "wordmark": {
+        "rect": {
+          "x": 126,
+          "y": 65.703125,
+          "width": 101.640625,
+          "height": 28.59375,
+          "right": 227.640625,
+          "bottom": 94.296875
+        },
+        "text": "first light.",
+        "whiteSpace": "nowrap",
+        "textRects": [
+          {
+            "x": 126,
+            "y": 64.703125,
+            "width": 95.8125,
+            "height": 30,
+            "right": 221.8125,
+            "bottom": 94.703125
+          }
+        ],
+        "dotRects": [
+          {
+            "x": 221.8125,
+            "y": 64.703125,
+            "width": 5.828125,
+            "height": 30,
+            "right": 227.640625,
+            "bottom": 94.703125
+          }
+        ]
+      },
+      "context": {
+        "rect": {
+          "x": 29,
+          "y": 136,
+          "width": 178.625,
+          "height": 23,
+          "right": 207.625,
+          "bottom": 159
+        },
+        "insideOval": false,
+        "text": "Research workspaceLocal"
+      },
+      "home": {
+        "rect": {
+          "x": 29,
+          "y": 29,
+          "width": 262,
+          "height": 134,
+          "right": 291,
+          "bottom": 163
+        },
+        "href": "#top",
+        "name": "First Light home"
+      },
+      "export": {
+        "rect": {
+          "x": 156.4375,
+          "y": 179,
+          "width": 134.5625,
+          "height": 38.5,
+          "right": 291,
+          "bottom": 217.5
+        },
+        "insideHome": false
+      },
+      "header": {
+        "x": 12,
+        "y": 12,
+        "width": 296,
+        "height": 222.5,
+        "right": 308,
+        "bottom": 234.5
+      },
+      "clippingAncestors": []
+    }
+  ],
+  "nativeHome": {
+    "href": "#top",
+    "enterActivates": true,
+    "focus": {
+      "visible": true,
+      "outline": "rgb(255, 175, 134) solid 3px",
+      "style": "solid",
+      "width": "3px"
+    },
+    "nextTab": "Export workspace"
+  },
+  "exportDownload": "first-light-workspace.json",
+  "moonCanvasIdentityPreserved": true,
+  "errors": []
+}
