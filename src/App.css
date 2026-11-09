@@ -81,63 +81,15 @@ ul {
 .skip-link:focus {
   transform:translateY(0)
 }
-.site-header {
-  min-height:91px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  gap:30px;
-  padding:20px 5.5%;
-  background:rgba(9, 10, 16, 0.80)
-}
-.brand {
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  font-size:25px;
-  font-weight:650;
-  letter-spacing:-1.2px;
-  text-decoration:none;
-  white-space:nowrap
-}
-.brand-icon {
-  color:var(--accent);
-  flex-shrink:0
-}
 .brand-dot {
   color:var(--accent)
 }
-.header-context {
-  display:flex;
-  align-items:center;
-  gap:24px;
-  font-size:12px;
-  color:var(--muted)
-}
-.context-divider {
-  height:24px;
-  width:1px;
-  background:var(--line)
-}
-.local-badge {
-  font-size:10px;
-  border:1px solid rgba(225, 231, 255, 0.20);
-  border-radius:5px;
-  padding:5px 8px;
-  display:inline-flex;
-  gap:6px;
-  align-items:center;
-  letter-spacing:.2px
-}
-.local-badge>span,.small-dot {
+.small-dot {
   width:5px;
   height:5px;
   background:#c2d7ad;
   border-radius:50%;
   display:inline-block
-}
-.export-button {
-  margin-left:auto
 }
 .button {
   border:0;
@@ -855,25 +807,9 @@ h1>span {
   line-height:1.7;
   text-align:right
 }
-@media(min-width:1450px) {
-  .site-header {
-    padding-left:max(5.5%,calc((100% - 1264px)/2));
-    padding-right:max(5.5%,calc((100% - 1264px)/2))
-  }
-}
 @media(max-width:1000px) {
-  .site-header {
-    gap:20px
-  }
-  .header-context {
-    gap:15px
-  }
   .page-shell {
     padding:0 4%
-  }
-  .site-header {
-    padding-left:4%;
-    padding-right:4%
   }
   .hero-art {
     width:205px
@@ -914,27 +850,6 @@ h1>span {
   }
 }
 @media(max-width:720px) {
-  .site-header {
-    min-height:77px;
-    padding:18px 5%;
-    gap:12px
-  }
-  .brand {
-    font-size:23px
-  }
-  .brand-icon[data-moon-mark] {
-    width:37.125px;
-    height:37.125px
-  }
-  .header-context {
-    display:none
-  }
-  .export-button {
-    font-size:10px;
-    padding:9px 11px;
-    min-height:36px;
-    gap:7px
-  }
   .page-shell {
     padding:0 5%
   }

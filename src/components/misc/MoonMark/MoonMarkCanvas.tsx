@@ -1,6 +1,7 @@
 import { Suspense, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import MoonModel from './MoonModel'
+import { useMoonResolution } from './useMoonResolution'
 
 interface MoonMarkCanvasProps {
   animate?: boolean
@@ -30,6 +31,7 @@ export default function MoonMarkCanvas({
   const unavailableCallback = useRef(onUnavailable)
   const reportedLoss = useRef(false)
   const [unavailable, setUnavailable] = useState(false)
+  const dpr = useMoonResolution()
 
   useLayoutEffect(() => {
     readyCallback.current = onReady
@@ -65,7 +67,7 @@ export default function MoonMarkCanvas({
       orthographic
       camera={camera}
       gl={{ alpha: true, antialias: true }}
-      dpr={[1, 1.5]}
+      dpr={dpr}
       frameloop={animate ? 'always' : 'demand'}
       style={{
         width: '100%',

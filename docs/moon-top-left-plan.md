@@ -1,5 +1,7 @@
 # Top-left Moon mark
 
+This is the original small-icon integration plan. Its placement sizing and vector fallback are superseded by [the scene-only banner plan](moon-scene-banner-plan.md); its asset provenance and conversion requirements remain applicable.
+
 ## Requirements and selected control
 
 Implement the latest pasted top-left brief using the verified Calendar4 Moon scene and model. The separately described adaptation-package files were not attached or present in the checkout. The implementation and packer are therefore local adaptations of the pasted requirements and the user-confirmed Calendar4 source, rather than copies of an unavailable package.

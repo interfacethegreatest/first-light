@@ -67,22 +67,22 @@ beforeEach(() => {
 
 afterEach(() => { vi.unstubAllGlobals() })
 
-describe('reusable Moon mark', () => {
-  it('waits for first visibility, defaults to stationary, and retains the vector until an actual render reports ready', async () => {
+describe('reusable Moon scene', () => {
+  it('waits for first visibility and displays only the stationary scene with no vector while loading', async () => {
     const activity = environment()
     const view = render(<StrictMode><MoonMark className="reusable-moon" /></StrictMode>)
     const element = mark(view.container)
     expect(element).toHaveAttribute('aria-hidden', 'true')
     expect(element).toHaveClass('reusable-moon')
     expect(element).toHaveAttribute('data-moon-state', 'pending')
-    expect(element.querySelector('[data-moon-fallback]')).toBeInTheDocument()
+    expect(element.querySelector('svg')).not.toBeInTheDocument()
     expect(MoonMarkCanvas).not.toHaveBeenCalled()
 
     activity.intersect(element, true)
     const renderer = await screen.findByTestId('moon-gpu-boundary')
     expect(element).toHaveAttribute('data-moon-state', 'loading')
     expect(renderer).toHaveAttribute('data-animate', 'false')
-    expect(element.querySelector('[data-moon-fallback]')).toBeInTheDocument()
+    expect(element.querySelector('svg')).not.toBeInTheDocument()
     act(() => latestRenderer().onReady?.())
     expect(element).toHaveAttribute('data-moon-state', 'loaded')
     expect(element.querySelector('[data-moon-fallback]')).not.toBeInTheDocument()
@@ -139,15 +139,15 @@ describe('reusable Moon mark', () => {
     expect(MoonMarkCanvas).toHaveBeenCalledTimes(calls)
   })
 
-  it('provides a usable vector without WebGL and keeps native sibling controls working', async () => {
+  it('leaves the decorative region empty without WebGL and keeps native sibling controls working', async () => {
     const activity = environment({ webgl: false })
     const action = vi.fn()
     const user = userEvent.setup()
     const view = render(<><MoonMark /><button onClick={action}>Workspace action</button></>)
     const element = mark(view.container)
     activity.intersect(element, true)
-    expect(element).toHaveAttribute('data-moon-state', 'fallback')
-    expect(element.querySelector('[data-moon-fallback]')).toBeInTheDocument()
+    expect(element).toHaveAttribute('data-moon-state', 'unavailable')
+    expect(element.querySelector('svg, canvas')).not.toBeInTheDocument()
     expect(MoonMarkCanvas).not.toHaveBeenCalled()
     await user.click(screen.getByRole('button', { name: 'Workspace action' }))
     expect(action).toHaveBeenCalledOnce()
@@ -160,7 +160,7 @@ describe('reusable Moon mark', () => {
     expect(mark(view.container)).toHaveAttribute('data-moon-animate', 'false')
   })
 
-  it('contains a renderer error locally and preserves the fallback and surrounding actions', async () => {
+  it('contains a renderer error locally and preserves surrounding actions without substituting an icon', async () => {
     const activity = environment()
     vi.spyOn(console, 'error').mockImplementation(() => {})
     vi.mocked(MoonMarkCanvas).mockImplementation(() => { throw new Error('Moon asset unavailable') })
@@ -169,13 +169,13 @@ describe('reusable Moon mark', () => {
     const view = render(<><MoonMark /><button onClick={action}>Continue research</button></>)
     const element = mark(view.container)
     activity.intersect(element, true)
-    await waitFor(() => expect(element).toHaveAttribute('data-moon-state', 'fallback'))
-    expect(element.querySelector('[data-moon-fallback]')).toBeInTheDocument()
+    await waitFor(() => expect(element).toHaveAttribute('data-moon-state', 'unavailable'))
+    expect(element.querySelector('svg, canvas')).not.toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: 'Continue research' }))
     expect(action).toHaveBeenCalledOnce()
   })
 
-  it('creates independent template instances and restores a vector after a loaded scene becomes unavailable', async () => {
+  it('creates independent scene objects and removes a failed renderer without introducing an icon', async () => {
     const activity = environment()
     const view = render(<>{moonMarkTemplate.render({ size: 24 })}{moonMarkTemplate.render({ size: 48 })}</>)
     const [first, second] = [...view.container.querySelectorAll('[data-moon-mark]')]
@@ -184,12 +184,12 @@ describe('reusable Moon mark', () => {
     act(() => latestRenderer().onReady?.())
     expect(first).toHaveAttribute('data-moon-state', 'loaded')
     expect(second).toHaveAttribute('data-moon-state', 'pending')
-    expect(second.querySelector('[data-moon-fallback]')).toBeInTheDocument()
+    expect(second.querySelector('svg, canvas')).not.toBeInTheDocument()
     expect((first as HTMLElement).style.getPropertyValue('--moon-mark-size')).toBe('24px')
     expect((second as HTMLElement).style.getPropertyValue('--moon-mark-size')).toBe('48px')
     act(() => latestRenderer().onUnavailable?.())
-    expect(first).toHaveAttribute('data-moon-state', 'fallback')
-    expect(first.querySelector('[data-moon-fallback]')).toBeInTheDocument()
+    expect(first).toHaveAttribute('data-moon-state', 'unavailable')
+    expect(first.querySelector('svg, canvas')).not.toBeInTheDocument()
     expect(second).toHaveAttribute('data-moon-state', 'pending')
   })
 
@@ -199,11 +199,14 @@ describe('reusable Moon mark', () => {
     render(<App />)
     const home = screen.getByRole('link', { name: 'First Light home' })
     expect(home).toHaveAttribute('href', '#top')
-    expect(home.querySelector('[data-moon-mark]')).toBeInTheDocument()
+    expect(home.querySelectorAll('[data-moon-mark]')).toHaveLength(1)
+    expect(home.querySelector('svg')).not.toBeInTheDocument()
     await user.tab()
     expect(screen.getByRole('link', { name: 'Skip to workspace' })).toHaveFocus()
     await user.tab()
     expect(home).toHaveFocus()
+    await user.tab()
+    expect(screen.getByRole('button', { name: 'Export workspace' })).toHaveFocus()
     const title = screen.getByRole('textbox', { name: 'Source title' })
     await user.type(title, 'A native research draft')
     expect(title).toHaveValue('A native research draft')
