@@ -1,0 +1,150 @@
+.viewport {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 160px;
+  display: grid;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Clip this fixed canvas on narrow cards instead of rescaling its artwork. */
+.pattern {
+  box-sizing: border-box;
+  width: 374px;
+  height: 160px;
+  padding: 1px;
+  display: grid;
+  grid-template-columns: 93px 93px 93px 93px;
+  grid-template-rows: 28px 52px 52px 14px;
+}
+
+.tile,
+.loaderLine {
+  box-sizing: border-box;
+}
+
+.tile {
+  transition: background-color 0.5s ease;
+}
+
+.tile1 { grid-area: 1 / 1 / 2 / 2; width: 93px; height: 28px; }
+.tile2 { grid-area: 1 / 2 / 2 / 3; width: 93px; height: 28px; }
+.tile3 { grid-area: 1 / 3 / 2 / 4; width: 93px; height: 28px; }
+.tile4 { grid-area: 1 / 4 / 3 / 5; width: 93px; height: 80px; }
+.tile5 { grid-area: 2 / 1 / 3 / 2; width: 93px; height: 52px; }
+.tile6 { grid-area: 2 / 2 / 3 / 3; width: 93px; height: 52px; }
+.tile7 { grid-area: 2 / 3 / 3 / 4; width: 93px; height: 52px; }
+.tile9 { grid-area: 3 / 1 / 4 / 2; width: 93px; height: 52px; }
+.tile10 { grid-area: 3 / 2 / 4 / 4; width: 186px; height: 52px; }
+.tile12 { grid-area: 3 / 4 / 4 / 5; width: 93px; height: 52px; }
+.tile13 { grid-area: 4 / 1 / 5 / 2; width: 93px; height: 14px; }
+.tile15 { grid-area: 4 / 3 / 5 / 4; width: 93px; height: 28px; }
+
+[data-new-user-card]:is(:hover, :focus-within) .tile1,
+[data-new-user-card]:is(:hover, :focus-within) .tile5,
+[data-new-user-card]:is(:hover, :focus-within) .tile9 {
+  border-bottom: 2px solid rgba(90, 89, 89, 0.17);
+  border-right: 2px solid rgba(90, 89, 89, 0.17);
+}
+
+[data-new-user-card]:is(:hover, :focus-within) .tile2,
+[data-new-user-card]:is(:hover, :focus-within) .tile3,
+[data-new-user-card]:is(:hover, :focus-within) .tile10 {
+  border-bottom: 2px solid rgba(90, 89, 89, 0.17);
+}
+
+[data-new-user-card]:is(:hover, :focus-within) .tile3,
+[data-new-user-card]:is(:hover, :focus-within) .tile5,
+[data-new-user-card]:is(:hover, :focus-within) .tile9 {
+  background-color: rgba(48, 121, 97, 0.036);
+}
+
+.loader,
+.loader2,
+.loader3 {
+  align-self: end;
+  justify-self: start;
+  width: 0px;
+  height: 2px;
+  margin-right: 23px;
+}
+
+.loader { grid-area: 1 / 4 / 2 / 5; }
+.loader2 { grid-area: 2 / 3 / 3 / 5; }
+.loader3 { grid-area: 3 / 4 / 4 / 5; height: 3px; }
+
+.loader4,
+.loader5,
+.loader6 {
+  align-self: start;
+  width: 93px;
+  height: 0px;
+}
+
+.loader4 { grid-area: 4 / 1 / 5 / 2; }
+.loader5 { grid-area: 1 / 2 / 5 / 3; }
+.loader6 { grid-area: 1 / 3 / 5 / 4; }
+
+[data-new-user-card]:is(:hover, :focus-within) .loader {
+  animation: progress93 0.3s linear forwards;
+}
+
+[data-new-user-card]:is(:hover, :focus-within) .loader2 {
+  animation: progress186 0.4s linear forwards;
+}
+
+[data-new-user-card]:is(:hover, :focus-within) .loader3 {
+  animation: progress62 0.6s linear forwards;
+}
+
+[data-new-user-card]:is(:hover, :focus-within) .loader4 {
+  animation: progressFooter 0.1s linear forwards;
+}
+
+[data-new-user-card]:is(:hover, :focus-within) .loader5,
+[data-new-user-card]:is(:hover, :focus-within) .loader6 {
+  animation: progressFull 0.3s linear forwards;
+}
+
+@keyframes progress93 {
+  from { width: 0px; border: 1px solid rgba(90, 89, 89, 0.17); }
+  to { width: 93px; border: 1px solid rgba(90, 89, 89, 0.17); }
+}
+
+@keyframes progress186 {
+  from { width: 0px; border: 1px solid rgba(90, 89, 89, 0.17); }
+  to { width: 186px; border: 1px solid rgba(90, 89, 89, 0.17); }
+}
+
+@keyframes progress62 {
+  from { width: 0px; border: 1px solid rgba(90, 89, 89, 0.17); }
+  to { width: 62px; border: 1.5px solid rgba(90, 89, 89, 0.09); }
+}
+
+@keyframes progressFooter {
+  from { height: 0px; border-right: 2px solid rgba(90, 89, 89, 0.17); }
+  to { height: 16px; border-right: 3px solid rgba(104, 103, 103, 0.11); }
+}
+
+@keyframes progressFull {
+  from { height: 0px; border-right: 2px solid rgba(90, 89, 89, 0.17); }
+  to { height: 160px; border-right: 3px solid rgba(104, 103, 103, 0.11); }
+}
+
+.viewport[data-reduced-motion='true'] .tile,
+.viewport[data-reduced-motion='true'] .loaderLine {
+  animation: none !important;
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile,
+  .loaderLine {
+    animation: none !important;
+    transition: none !important;
+  }
+}

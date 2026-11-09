@@ -23,6 +23,25 @@ import SunScene from '../../react three fibre/sunScene/SunScene'
 
 SunScene directly implements Calendar4's Canvas, ambient light, orbit controls, Suspense and sunset environment. React.lazy replaces Next's dynamic Sun import. `Sun.tsx` copies Calendar4's model implementation. The custom preview, retries, cache helper, readiness flags and viewport remounting have been removed. The model, texture, sunset environment and font remain locally hosted beneath Vite's configured base path.
 
+## Fixed tile pattern and card depth: current increment
+
+The new tile/depth increment separates the decorative pattern from card content. Its implementation contract is a fixed 374 × 160px canvas with four 93px columns and row tracks of 28px, 52px, 52px and 14px. The canvas stays centred at the top inside a responsive, clipped decorative viewport. Narrow cards reveal less of the same centred pattern; they do not compress its tracks. Short, medium and long text therefore use the same tile geometry while the card itself keeps its natural content height.
+
+This is an intentional conversion of Calendar4's percentage-based pattern, approximating a short reference card rather than reproducing percentage scaling on every card height. Tile 15 and the six loader animations also use fixed pixel dimensions/endpoints, so their geometry does not grow with the text. The decorative component owns all twelve tiles and six loaders. NewUserCard imports it rather than retaining a second JSX/CSS copy.
+
+The card-depth adjustment is local to NewUserCard: a subtle inner rim and contact shadow add depth alongside the existing shared glass shadow. This increment preserves App.css, the shared border/radius/glass tokens, the copied Sun scene, content editing, controls, tilt and reduced-motion support. Current verification is recorded below; requirements and ownership are in [the fixed-tiles plan](source-card-tiles-plan.md).
+
+| Canonical file | Ownership |
+| --- | --- |
+| [SourceSection.tsx](../src/components/sources/SourceSection.tsx) | The isolated generated section adapter: title/heading identity, optional controls/content and the explicit shared surface class. |
+| [sourceSectionTemplate.tsx](../src/components/sources/sourceSectionTemplate.tsx) | The existing canonical boilerplate object: stable instance creation and keyed section rendering. |
+| [NewUserCard.tsx](../src/components/cards/newUserCard/NewUserCard.tsx) | Card composition, importing CardTiles while retaining its heading, body, controls and Sun. |
+| [CardTiles.tsx](../src/components/cards/newUserCard/CardTiles.tsx) | The isolated CardTiles component and its twelve tile/six loader elements. |
+| [cardTiles.module.css](../src/components/cards/newUserCard/cardTiles.module.css) | Fixed pattern geometry, responsive clipping and decorative hover/loader motion. |
+| [newUser.module.css](../src/components/cards/newUserCard/newUser.module.css) | Card layout and local rim/depth styling; the extracted tile/loader CSS belongs in the tile module. |
+
+These are the implementation sources. No duplicate section, template object or copied JSX is needed in this document.
+
 ## Source list expansion and reveal
 
 `SourceSections` wraps the existing grid in `AnimatedHeight`. An inner `flow-root` measures the grid's full intrinsic height, including its top margin, responsive padding and reserved space beneath the Sun badges. ResizeObserver detects changes; `offsetHeight` avoids measuring the parent tilt's transformed bounds.
@@ -43,7 +62,7 @@ The real-Sun browser run verified fixed panel top, correct final parent growth a
 
 | Feature | Implementation |
 | --- | --- |
-| Card | NewUserCard's hover glow, decorative tile grid and loaders, with DateTimeWidgetModal's exact `rgba(35,37,49,0.5)` tint and inset/outer shadows. Container blur uses a separate negative-z, pointer-inert `::after` layer, so an ancestor's filter does not suppress nested glass. Form fields retain their direct 7px blur. Both workspace parents, statistics, decision cards, callout and fields share the glass values. |
+| Card | NewUserCard's hover glow, with the tile grid/loaders extracted under the fixed-size contract above. DateTimeWidgetModal supplies the shared `rgba(35,37,49,0.5)` tint and inset/outer shadow values; the new card rim/depth is local to the module. Container blur uses a separate negative-z, pointer-inert `::after` layer, so an ancestor's filter does not suppress nested glass. Form fields retain their direct 7px blur. Both workspace parents, statistics, decision cards, callout and fields share the glass values. |
 | Size | Original 374px width becomes a 374px maximum and available-width layout. Height follows the section's content. |
 | Title and content | Poppins 600, underlined and centred; flavour text is left-aligned with a 12px left inset. Existing unique heading IDs and optional controls remain accessible. |
 | Panel border | App.css owns `--workspace-panel-border` and `--workspace-panel-radius`; both `.panel` and `.workspace-panel-surface` consume them directly. Defaults are `1px solid rgba(225,231,255,0.16)` and `7px`. The module's zero-specificity fallbacks preserve standalone cards without overriding the shared utility. Other radii, button borders, Sun ring and decorative tile lines retain their styling. |
@@ -53,15 +72,15 @@ The real-Sun browser run verified fixed panel top, correct final parent growth a
 | Scene | Default Fiber camera, ambient intensity `2`, OrbitControls with zoom disabled, the actual Drei sunset environment `venice_sunset_1k.hdr`. |
 | Tilt | Source 2-degree tilt for standalone cards. An existing CalendarPanel ancestor supplies tilt for nested cards, avoiding compounded transforms. Coarse pointers, reduced motion and focused controls remain steady. |
 
-The source adaptations are limited to TypeScript types, React.lazy in place of Next dynamic, a CSS module class in place of a repeated Canvas ID, and base-aware local asset paths. Both `useGLTF()` and its preload use the actual `media/sun/sun.gltf` path. The local sunset HDR is the exact file selected by the source's Drei sunset preset. Canvas demand mode preserves First Light's reduced-motion setting without adding model loading logic. Registration forms, Home navigation and the source's artificial loading timer remain outside the reusable card.
+The Sun source adaptations are limited to TypeScript types, React.lazy in place of Next dynamic, a CSS module class in place of a repeated Canvas ID, and base-aware local asset paths. Both `useGLTF()` and its preload use the actual `media/sun/sun.gltf` path. The local sunset HDR is the exact file selected by the source's Drei sunset preset. Canvas demand mode preserves First Light's reduced-motion setting without adding model loading logic. Registration forms, Home navigation and the source's artificial loading timer remain outside the reusable card.
 
 Source CSS IDs are scoped classes, preventing duplicate IDs when several cards exist. Text stays selectable, and decorative layers do not intercept content. The existing `borderTone` field remains accepted as a data attribute; the new visual presentation uses Calendar4's neutral gray and green-hover palette.
 
-The generated list keeps responsive 8–16px padding on its top, right and bottom; left padding is half that amount (4–8px). An empty list has zero padding. All 12 source tiles and six loader elements remain in the decorative layer.
+The generated list keeps responsive 8–16px padding on its top, right and bottom; left padding is half that amount (4–8px). An empty list has zero padding. The fixed-pattern increment preserves all twelve source tiles and six loader elements in their own decorative layer, independent of section content height.
 
 ## Dependencies and assets
 
-The existing React 19, Fiber 9.8.2, Drei 10.7.9, Three 0.167.1, Framer Motion 11.18.2, react-parallax-tilt 1.7.352 and Poppins 5.3.0 packages are reused. This restoration adds no dependencies.
+The existing React 19, Fiber 9.8.2, Drei 10.7.9, Three 0.167.1, Framer Motion 11.18.2, react-parallax-tilt 1.7.352 and Poppins 5.3.0 packages are reused. The fixed-pattern/depth increment adds no dependencies.
 
 The four Sun files below match the Git blob hashes from the pinned Calendar4 revision. The sunset HDR matches [Drei's pinned asset revision](https://github.com/pmndrs/drei-assets/blob/456060a26bbeb8fdf79326f224b6d99b8bcce736/hdri/venice_sunset_1k.hdr).
 
@@ -80,7 +99,17 @@ This work is based on [Sun](https://sketchfab.com/3d-models/sun-cd65c13799fd47a1
 
 Poppins is copyright The Poppins Project Authors under SIL Open Font License 1.1. The font licence is distributed at `public/licenses/poppins-OFL.txt` alongside the bundled font.
 
-## Verification
+## Current fixed-tile verification
+
+- `VITE_BASE_PATH=/first-light/ npm run check` passes all 97 existing tests across ten files, TypeScript and the production build. This styling change adds no unit tests that simply repeat CSS declarations.
+- Browser cards measured 260, 435 and 888px tall for the three ipsum lengths. Appended output increased the first to 1282px; every decorative canvas remained 374×160px, with four 93px columns, rows 28/52/52/14px and unchanged tile dimensions/relative positions.
+- All six real CSS hover animation endpoints stayed fixed across card heights, appended output, and 1440/390/320px viewports. Decorative viewport widths were 372/293/230px; the canvas remained centred and clipped with no horizontal page overflow.
+- Reduced motion suppresses decorative animations and transitions. The decorative layer retains `pointer-events:none`. Shared 1px borders, 7px corners, the half-opacity tint and 7px blur remain effective; the local rim/contact shadows preserve the shared glass shadow without introducing a filter, opacity group or transform.
+- A separate real Sun/star rendering check retained 1,396 lit Sun pixels with GL error 0, centred 50px badges, section/Canvas identity, unsaved field drafts and unchanged storage. No page errors occurred. Geometry/hover checks isolated GPU work; no new real-time smoothness claim is made.
+
+## Prior verified checkpoint
+
+The following checkpoint and browser observations describe the earlier implementation, including the published two-stage reveal. Current fixed-pattern and depth checks are listed above.
 
 - All 97 tests across ten files pass. TypeScript and the production build with `VITE_BASE_PATH=/first-light/` pass.
 - Thirteen measured-height tests verify initial natural sizing, growth/shrink, retargeting, stale completion guards, automatic bounds release, focus/reduced-motion handling, observer cleanup/fallback and retained section/Sun identity. Settlement callbacks run after natural bounds return, and changing callback identity does not restart playback. Removing a focused child without a blur event does not suppress later growth or focus cancellation.
@@ -99,4 +128,10 @@ Production previews: [workspace and cards](previews/calendar-new-user-cards.png)
 
 Controlled browser evidence: [corrected glass](previews/glass-proof-current.png) and [previous filter configuration](previews/glass-proof-previous.png). These use temporary checker stripes for measurement; the application retains its original star background.
 
-The glass and Calendar4 Sun restoration was published from main commit `43f84e563587ebf68031f93efed34cbb3a63691c` in Pages run 42673033223, attempt 3, after GitHub's Actions service recovered. The parent-height animation followed from main commit `a16ebe2400e5bee3245d2090064f83b0ceaef6c2` in successful Pages run 42680992212. Public checks confirmed those releases. The two-stage staggered reveal is a separate change awaiting review and deployment approval.
+## Publication history
+
+The glass and Calendar4 Sun restoration was published from main commit `43f84e563587ebf68031f93efed34cbb3a63691c` in Pages run 42673033223, attempt 3, after GitHub's Actions service recovered. The parent-height animation followed from main commit `a16ebe2400e5bee3245d2090064f83b0ceaef6c2` in successful Pages run 42680992212. Public checks confirmed those releases.
+
+The two-stage staggered reveal was subsequently published through [PR #11](https://github.com/interfacethegreatest/first-light/pull/11), from main commit `503462d19f42b376f8d27c5ac74abf24c4f4cfd7`, in [Pages run 42686712041](https://github.com/interfacethegreatest/first-light/actions/runs/42686712041).
+
+The new fixed-tile/card-depth increment is not deployed. Its verification and publication are separate from the completed releases above.

@@ -1,0 +1,667 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:4195/first-light/",
+  "entry": "index-YWda51Lm.js",
+  "smoothnessClaim": false,
+  "application": {
+    "mode": "Actual production app with real Moon and stars; controlledHidden uses an explicitly labelled document visibility fixture, not OS tab visibility.",
+    "measurements": [
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "mark": {
+          "bounds": {
+            "x": 79.1875,
+            "y": 23.625,
+            "width": 42.75,
+            "height": 42.75
+          },
+          "state": "loaded",
+          "animate": "false",
+          "css": {
+            "opacity": "1",
+            "filter": "none",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px none rgb(255, 148, 112)",
+            "shadow": "none",
+            "pointerEvents": "none"
+          }
+        },
+        "visual": {
+          "opacity": "0.84",
+          "filter": "drop-shadow(rgba(232, 240, 255, 0.24) 0px 0px 5px)",
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(255, 148, 112)",
+          "shadow": "none",
+          "pointerEvents": "none"
+        },
+        "home": {
+          "bounds": {
+            "x": 79.1875,
+            "y": 23.625,
+            "width": 152.234375,
+            "height": 42.75
+          },
+          "href": "#top",
+          "name": "First Light home",
+          "opacity": "1",
+          "hitTargetsHome": true
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 91
+        },
+        "canvas": {
+          "bounds": {
+            "x": 79.1875,
+            "y": 23.625,
+            "width": 42.75,
+            "height": 42.75
+          },
+          "css": {
+            "opacity": "1",
+            "filter": "none",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px none rgb(255, 148, 112)",
+            "shadow": "none",
+            "pointerEvents": "none"
+          },
+          "draws": 1,
+          "pixels": {
+            "width": 42,
+            "height": 42,
+            "lit": 1454,
+            "alpha": 1454,
+            "bounds": {
+              "width": 42,
+              "height": 42
+            },
+            "cornerAlphas": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "hash": 60511305,
+            "error": 0
+          }
+        },
+        "fallback": false,
+        "heroSun": true
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "mark": {
+          "bounds": {
+            "x": 19.5,
+            "y": 21.4375,
+            "width": 37.125,
+            "height": 37.125
+          },
+          "state": "loaded",
+          "animate": "false",
+          "css": {
+            "opacity": "1",
+            "filter": "none",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px none rgb(255, 148, 112)",
+            "shadow": "none",
+            "pointerEvents": "none"
+          }
+        },
+        "visual": {
+          "opacity": "0.84",
+          "filter": "drop-shadow(rgba(232, 240, 255, 0.24) 0px 0px 5px)",
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(255, 148, 112)",
+          "shadow": "none",
+          "pointerEvents": "none"
+        },
+        "home": {
+          "bounds": {
+            "x": 19.5,
+            "y": 21.4375,
+            "width": 137.515625,
+            "height": 37.125
+          },
+          "href": "#top",
+          "name": "First Light home",
+          "opacity": "1",
+          "hitTargetsHome": true
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 81
+        },
+        "canvas": {
+          "bounds": {
+            "x": 19.5,
+            "y": 21.4375,
+            "width": 37.125,
+            "height": 37.125
+          },
+          "css": {
+            "opacity": "1",
+            "filter": "none",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px none rgb(255, 148, 112)",
+            "shadow": "none",
+            "pointerEvents": "none"
+          },
+          "draws": 2,
+          "pixels": {
+            "width": 37,
+            "height": 37,
+            "lit": 1096,
+            "alpha": 1096,
+            "bounds": {
+              "width": 37,
+              "height": 37
+            },
+            "cornerAlphas": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "hash": 2099576375,
+            "error": 0
+          }
+        },
+        "fallback": false,
+        "heroSun": true
+      },
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "mark": {
+          "bounds": {
+            "x": 16,
+            "y": 21.4375,
+            "width": 37.125,
+            "height": 37.125
+          },
+          "state": "loaded",
+          "animate": "false",
+          "css": {
+            "opacity": "1",
+            "filter": "none",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px none rgb(255, 148, 112)",
+            "shadow": "none",
+            "pointerEvents": "none"
+          }
+        },
+        "visual": {
+          "opacity": "0.84",
+          "filter": "drop-shadow(rgba(232, 240, 255, 0.24) 0px 0px 5px)",
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(255, 148, 112)",
+          "shadow": "none",
+          "pointerEvents": "none"
+        },
+        "home": {
+          "bounds": {
+            "x": 16,
+            "y": 21.4375,
+            "width": 137.515625,
+            "height": 37.125
+          },
+          "href": "#top",
+          "name": "First Light home",
+          "opacity": "1",
+          "hitTargetsHome": true
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 81
+        },
+        "canvas": {
+          "bounds": {
+            "x": 16,
+            "y": 21.4375,
+            "width": 37.125,
+            "height": 37.125
+          },
+          "css": {
+            "opacity": "1",
+            "filter": "none",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px none rgb(255, 148, 112)",
+            "shadow": "none",
+            "pointerEvents": "none"
+          },
+          "draws": 2,
+          "pixels": {
+            "width": 37,
+            "height": 37,
+            "lit": 1096,
+            "alpha": 1096,
+            "bounds": {
+              "width": 37,
+              "height": 37
+            },
+            "cornerAlphas": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "hash": 2099576375,
+            "error": 0
+          }
+        },
+        "fallback": false,
+        "heroSun": true
+      }
+    ],
+    "idle": {
+      "normal": {
+        "before": 1,
+        "after": 1
+      },
+      "reduced": {
+        "before": 3,
+        "after": 3
+      },
+      "offscreen": {
+        "before": 3,
+        "after": 3
+      },
+      "controlledHidden": {
+        "before": 3,
+        "after": 3
+      }
+    },
+    "keyboard": {
+      "hash": "#top",
+      "activeElement": "BODY"
+    },
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4195/first-light/media/moon/moon.glb",
+        "status": 200
+      }
+    ],
+    "errors": [],
+    "markAndCanvasIdentity": true
+  },
+  "failures": [
+    {
+      "fixture": "blocked-webgl",
+      "state": {
+        "width": 390,
+        "scrollWidth": 390,
+        "mark": {
+          "bounds": {
+            "x": 19.5,
+            "y": 21.4375,
+            "width": 37.125,
+            "height": 37.125
+          },
+          "state": "fallback",
+          "animate": "false",
+          "css": {
+            "opacity": "1",
+            "filter": "none",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px none rgb(255, 148, 112)",
+            "shadow": "none",
+            "pointerEvents": "none"
+          }
+        },
+        "visual": {
+          "opacity": "0.84",
+          "filter": "drop-shadow(rgba(232, 240, 255, 0.24) 0px 0px 5px)",
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(255, 148, 112)",
+          "shadow": "none",
+          "pointerEvents": "none"
+        },
+        "home": {
+          "bounds": {
+            "x": 19.5,
+            "y": 21.4375,
+            "width": 137.515625,
+            "height": 37.125
+          },
+          "href": "#top",
+          "name": "First Light home",
+          "opacity": "1",
+          "hitTargetsHome": true
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 81
+        },
+        "canvas": null,
+        "fallback": true,
+        "heroSun": true
+      },
+      "expectedInjectedFailureErrors": [],
+      "unexpectedErrors": []
+    },
+    {
+      "fixture": "missing-model",
+      "state": {
+        "width": 390,
+        "scrollWidth": 390,
+        "mark": {
+          "bounds": {
+            "x": 19.5,
+            "y": 21.4375,
+            "width": 37.125,
+            "height": 37.125
+          },
+          "state": "fallback",
+          "animate": "false",
+          "css": {
+            "opacity": "1",
+            "filter": "none",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px none rgb(255, 148, 112)",
+            "shadow": "none",
+            "pointerEvents": "none"
+          }
+        },
+        "visual": {
+          "opacity": "0.84",
+          "filter": "drop-shadow(rgba(232, 240, 255, 0.24) 0px 0px 5px)",
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(255, 148, 112)",
+          "shadow": "none",
+          "pointerEvents": "none"
+        },
+        "home": {
+          "bounds": {
+            "x": 19.5,
+            "y": 21.4375,
+            "width": 137.515625,
+            "height": 37.125
+          },
+          "href": "#top",
+          "name": "First Light home",
+          "opacity": "1",
+          "hitTargetsHome": true
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 81
+        },
+        "canvas": null,
+        "fallback": true,
+        "heroSun": true
+      },
+      "expectedInjectedFailureErrors": [
+        "Could not load /first-light/media/moon/moon.glb: fetch for \"http://127.0.0.1:4195/first-light/media/moon/moon.glb\" responded with 404: Not Found"
+      ],
+      "unexpectedErrors": []
+    }
+  ],
+  "assetComparison": {
+    "mode": "Standalone real Three renderer at DPR1, same local lights/orthographic camera as production and exact .028\u00d7100/Rx\u2212PI2 source transforms; no normalization. Original glTF and packed GLB differ only in asset packaging.",
+    "pairs": [
+      {
+        "size": 43,
+        "angle": 0,
+        "differingChannels": 0,
+        "maxDifference": 0,
+        "lit": 1476,
+        "originalError": 0,
+        "packedError": 0,
+        "vertices": 36556,
+        "indices": 205824
+      },
+      {
+        "size": 43,
+        "angle": 0.7,
+        "differingChannels": 0,
+        "maxDifference": 0,
+        "lit": 1475,
+        "originalError": 0,
+        "packedError": 0,
+        "vertices": 36556,
+        "indices": 205824
+      },
+      {
+        "size": 160,
+        "angle": 0,
+        "differingChannels": 0,
+        "maxDifference": 0,
+        "lit": 19868,
+        "originalError": 0,
+        "packedError": 0,
+        "vertices": 36556,
+        "indices": 205824
+      },
+      {
+        "size": 160,
+        "angle": 0.7,
+        "differingChannels": 0,
+        "maxDifference": 0,
+        "lit": 19862,
+        "originalError": 0,
+        "packedError": 0,
+        "vertices": 36556,
+        "indices": 205824
+      }
+    ],
+    "conversion": {
+      "tool": "scripts/pack-moon-glb.mjs (locally implemented from the pasted brief; no supplied adaptation package was available)",
+      "originalPayloadBytes": 2204301,
+      "glbBytes": 2202504,
+      "byteDifference": -1797,
+      "compression": "none; JSON minification and binary embedding only",
+      "externalUris": [],
+      "geometryBytesIdentical": true,
+      "imageBytesIdentical": true,
+      "jsonIdenticalExceptResourceEmbedding": true,
+      "imageMimeType": "image/jpeg"
+    },
+    "validatorIssues": {
+      "original": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [],
+        "truncated": false
+      },
+      "converted": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [],
+        "truncated": false
+      }
+    },
+    "errors": []
+  },
+  "scopedUnavailableContext": {
+    "result": "PASS",
+    "fixture": "WebGL constructors remain present; getContext returns null only for webgl/webgl2 on a Canvas inside [data-moon-mark]. Stars are not intercepted.",
+    "state": {
+      "width": 390,
+      "scrollWidth": 390,
+      "mark": {
+        "bounds": {
+          "x": 19.5,
+          "y": 21.4375,
+          "width": 37.125,
+          "height": 37.125
+        },
+        "state": "fallback",
+        "animate": "false",
+        "css": {
+          "opacity": "1",
+          "filter": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(255, 148, 112)",
+          "shadow": "none",
+          "pointerEvents": "none"
+        }
+      },
+      "visual": {
+        "opacity": "0.84",
+        "filter": "drop-shadow(rgba(232, 240, 255, 0.24) 0px 0px 5px)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(255, 148, 112)",
+        "shadow": "none",
+        "pointerEvents": "none"
+      },
+      "home": {
+        "bounds": {
+          "x": 19.5,
+          "y": 21.4375,
+          "width": 137.515625,
+          "height": 37.125
+        },
+        "href": "#top",
+        "name": "First Light home",
+        "opacity": "1",
+        "hitTargetsHome": true
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 81
+      },
+      "canvas": null,
+      "fallback": true,
+      "heroSun": true
+    },
+    "probe": {
+      "constructors": {
+        "webgl": true,
+        "webgl2": true
+      },
+      "blockedCalls": [
+        "webgl2",
+        "webgl2"
+      ],
+      "starContexts": 1
+    },
+    "attemptsAndRequestsBefore": {
+      "blockedCalls": 2,
+      "moonRequests": 1
+    },
+    "attemptsAndRequestsAfter": {
+      "blockedCalls": 2,
+      "moonRequests": 1
+    },
+    "moonRequests": [
+      "http://127.0.0.1:4195/first-light/media/moon/moon.glb"
+    ],
+    "expectedRendererPageErrors": [],
+    "unexpectedPageErrors": [],
+    "consoleErrors": [
+      "THREE.WebGLRenderer: Error creating WebGL context.",
+      "Error: Error creating WebGL context.\n    at new oT (http://127.0.0.1:4195/first-light/assets/index-YWda51Lm.js:3846:20309)\n    at J7 (http://127.0.0.1:4195/first-light/assets/index-YWda51Lm.js:3846:287493)\n    at R (http://127.0.0.1:4195/first-light/assets/index-YWda51Lm.js:3857:11837)\n    at Object.configure (http://127.0.0.1:4195/first-light/assets/index-YWda51Lm.js:3857:11951)\n    at http://127.0.0.1:4195/first-light/assets/index-YWda51Lm.js:3857:21533\n    at Wf (http://127.0.0.1:4195/first-light/assets/index-YWda51Lm.js:9:97023)\n    at i_ (http://127.0.0.1:4195/first-light/assets/index-YWda51Lm.js:9:106667)\n    at Wr (http://127.0.0.1:4195/first-light/assets/index-YWda51Lm.js:9:118052)\n    at i_ (http://127.0.0.1:4195/first-light/assets/index-YWda51Lm.js:9:107734)\n    at Wr (http://127.0.0.1:4195/first-light/assets/index-YWda51Lm.js:9:118052)"
+    ],
+    "nativeHomeAndDraftUsable": true
+  },
+  "touchScroll": {
+    "result": "PASS",
+    "mode": "Chromium mobile/touch emulation with native CDP Input.dispatchTouchEvent; no wheel events or synthetic DOM touch dispatch",
+    "url": "http://127.0.0.1:4195/first-light/",
+    "entry": "index-YWda51Lm.js",
+    "startAtMoonCenter": {
+      "x": 38.0625,
+      "y": 40.0
+    },
+    "gestureYCoordinates": [
+      40.0,
+      34.0,
+      28.0,
+      22.0,
+      16.0,
+      10.0,
+      4.0
+    ],
+    "before": {
+      "scrollY": 0,
+      "hash": "",
+      "maxTouchPoints": 1,
+      "coarsePointer": true,
+      "touchAction": "auto"
+    },
+    "after": {
+      "scrollY": 21,
+      "hash": "",
+      "probe": {
+        "events": [
+          {
+            "type": "touchstart",
+            "isTrusted": true,
+            "cancelable": true,
+            "targetTag": "A",
+            "targetHome": true,
+            "defaultPrevented": false,
+            "scrollY": 0
+          },
+          {
+            "type": "touchmove",
+            "isTrusted": true,
+            "cancelable": true,
+            "targetTag": "A",
+            "targetHome": true,
+            "defaultPrevented": false,
+            "scrollY": 0
+          },
+          {
+            "type": "touchmove",
+            "isTrusted": true,
+            "cancelable": false,
+            "targetTag": "A",
+            "targetHome": true,
+            "defaultPrevented": false,
+            "scrollY": 3
+          },
+          {
+            "type": "touchmove",
+            "isTrusted": true,
+            "cancelable": false,
+            "targetTag": "A",
+            "targetHome": true,
+            "defaultPrevented": false,
+            "scrollY": 15
+          },
+          {
+            "type": "touchmove",
+            "isTrusted": true,
+            "cancelable": false,
+            "targetTag": "A",
+            "targetHome": true,
+            "defaultPrevented": false,
+            "scrollY": 21
+          },
+          {
+            "type": "touchend",
+            "isTrusted": true,
+            "cancelable": false,
+            "targetTag": "A",
+            "targetHome": true,
+            "defaultPrevented": false,
+            "scrollY": 21
+          }
+        ],
+        "homeClicks": 0
+      }
+    },
+    "scrollDelta": 21,
+    "errors": []
+  }
+}

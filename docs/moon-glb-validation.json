@@ -1,0 +1,215 @@
+{
+  "artifactStatus": "final-local-packer",
+  "sourceRevision": "7b7e533e587d4991c97b63259355d1a5e9141616",
+  "validatorVersion": "2.0.0-dev.3.10",
+  "files": {
+    "moon.gltf": {
+      "bytes": 4092,
+      "sha256": "01197123bc1978340f27aa3facefef9462ef9f954be03cfa72d178bebda8c793",
+      "gitBlob": "eeda6a8f8c1b33310f7956ca48e8e3a179724d80"
+    },
+    "moon.bin": {
+      "bytes": 1993088,
+      "sha256": "3f38a498e11e40b2b1f8843ba31145eb8acecdcb482dd51737ddcdf23747a17b",
+      "gitBlob": "7f50356143a073595adeb34921df983289c98db4"
+    },
+    "textures/Moon_baseColor.jpeg": {
+      "bytes": 207121,
+      "sha256": "0fa4387f232d7ff4e1dfc5256f43a31d744c6f8c52fadc1f78691d29b829f207",
+      "gitBlob": "80c160b0a7c10c0bfaabcafb0b3f81ff94bb121d"
+    },
+    "license.txt": {
+      "bytes": 648,
+      "sha256": "6cb428723aa04a552841e4a3bfa6f86317707c1efc772f5401c330f747f7b7c4",
+      "gitBlob": "22d9145012a1cb9bb4f6f3ac843f789a5590cf66"
+    },
+    "moon.glb": {
+      "bytes": 2202504,
+      "sha256": "193b529d7384a5f74ade8cd610d50ace8364b6bb5a6bf9975b9f18f8bd3e7ae8",
+      "gitBlob": "61125c507ad512af629ac1c55d5c8f354983eac2"
+    },
+    "moon.glb.pack-report.json": {
+      "bytes": 5706,
+      "sha256": "b83479089b28b84ea404c031e28d8c5425ab894f113906c86dc2c6326c3ad197",
+      "gitBlob": "b7fc77297c6e839aba5ada99c76c040dbff1ee9d"
+    }
+  },
+  "conversion": {
+    "tool": "scripts/pack-moon-glb.mjs (locally implemented from the pasted brief; no supplied adaptation package was available)",
+    "originalPayloadBytes": 2204301,
+    "glbBytes": 2202504,
+    "byteDifference": -1797,
+    "compression": "none; JSON minification and binary embedding only",
+    "externalUris": [],
+    "geometryBytesIdentical": true,
+    "imageBytesIdentical": true,
+    "jsonIdenticalExceptResourceEmbedding": true,
+    "imageMimeType": "image/jpeg"
+  },
+  "geometry": {
+    "vertexCount": 36556,
+    "indexCount": 205824,
+    "triangleCount": 68608,
+    "positionBounds": {
+      "min": [
+        -0.9920006990432739,
+        -0.9920012354850769,
+        -0.9998937249183655
+      ],
+      "max": [
+        0.9920007586479187,
+        0.9920002818107605,
+        0.9998937249183655
+      ]
+    },
+    "accessors": {
+      "NORMAL": {
+        "count": 36556,
+        "components": 3,
+        "decodedValuesIdentical": true
+      },
+      "POSITION": {
+        "count": 36556,
+        "components": 3,
+        "decodedValuesIdentical": true
+      },
+      "TEXCOORD_0": {
+        "count": 36556,
+        "components": 2,
+        "decodedValuesIdentical": true
+      },
+      "INDICES": {
+        "count": 205824,
+        "components": 1,
+        "decodedValuesIdentical": true
+      }
+    },
+    "meshNames": [
+      "Moon_Moon_0"
+    ],
+    "nodeNames": [
+      "Sketchfab_model",
+      "42df7e17567f4fafb5fd601ede573025.fbx",
+      "RootNode",
+      "Moon",
+      "Moon_Moon_0"
+    ],
+    "material": {
+      "doubleSided": true,
+      "name": "Moon",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8546727830033204
+      }
+    }
+  },
+  "original": {
+    "requestedLocalResources": [
+      "moon.bin",
+      "textures/Moon_baseColor.jpeg"
+    ],
+    "validation": {
+      "uri": "moon.gltf",
+      "mimeType": "model/gltf+json",
+      "validatorVersion": "2.0.0-dev.3.10",
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [],
+        "truncated": false
+      },
+      "info": {
+        "version": "2.0",
+        "generator": "Sketchfab-12.58.1",
+        "resources": [
+          {
+            "pointer": "/buffers/0",
+            "mimeType": "application/gltf-buffer",
+            "storage": "external",
+            "uri": "moon.bin",
+            "byteLength": 1993088
+          },
+          {
+            "pointer": "/images/0",
+            "mimeType": "image/jpeg",
+            "storage": "external",
+            "uri": "textures/Moon_baseColor.jpeg",
+            "image": {
+              "width": 1024,
+              "height": 512,
+              "format": "rgb",
+              "bits": 8
+            }
+          }
+        ],
+        "animationCount": 0,
+        "materialCount": 1,
+        "hasMorphTargets": false,
+        "hasSkins": false,
+        "hasTextures": true,
+        "hasDefaultScene": true,
+        "drawCallCount": 1,
+        "totalVertexCount": 36556,
+        "totalTriangleCount": 68608,
+        "maxUVs": 1,
+        "maxInfluences": 0,
+        "maxAttributes": 3
+      }
+    }
+  },
+  "converted": {
+    "validation": {
+      "uri": "moon.glb",
+      "mimeType": "model/gltf-binary",
+      "validatorVersion": "2.0.0-dev.3.10",
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [],
+        "truncated": false
+      },
+      "info": {
+        "version": "2.0",
+        "generator": "Sketchfab-12.58.1",
+        "resources": [
+          {
+            "pointer": "/buffers/0",
+            "mimeType": "application/gltf-buffer",
+            "storage": "glb",
+            "byteLength": 2200212
+          },
+          {
+            "pointer": "/images/0",
+            "mimeType": "image/jpeg",
+            "storage": "buffer-view",
+            "image": {
+              "width": 1024,
+              "height": 512,
+              "format": "rgb",
+              "bits": 8
+            }
+          }
+        ],
+        "animationCount": 0,
+        "materialCount": 1,
+        "hasMorphTargets": false,
+        "hasSkins": false,
+        "hasTextures": true,
+        "hasDefaultScene": true,
+        "drawCallCount": 1,
+        "totalVertexCount": 36556,
+        "totalTriangleCount": 68608,
+        "maxUVs": 1,
+        "maxInfluences": 0,
+        "maxAttributes": 3
+      }
+    }
+  }
+}
