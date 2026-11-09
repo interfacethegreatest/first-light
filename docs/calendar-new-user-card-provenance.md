@@ -8,11 +8,12 @@ The generated source sections use the visual card and sun scene from `interfacet
 - [newUser.module.css](https://github.com/interfacethegreatest/Calendar4/blob/7b7e533e587d4991c97b63259355d1a5e9141616/src/components/cards/newUserCard/newUser.module.css)
 - [SunScene.tsx](https://github.com/interfacethegreatest/Calendar4/blob/7b7e533e587d4991c97b63259355d1a5e9141616/src/components/react%20three%20fibre/sunScene/SunScene.tsx)
 - [Sun.jsx](https://github.com/interfacethegreatest/Calendar4/blob/7b7e533e587d4991c97b63259355d1a5e9141616/public/media/sun/Sun.jsx)
+- [Sun scene styles.module.css](https://github.com/interfacethegreatest/Calendar4/blob/7b7e533e587d4991c97b63259355d1a5e9141616/src/components/react%20three%20fibre/sunScene/styles.module.css)
 - [DateTimeWidgetModal.module.css](https://github.com/interfacethegreatest/Calendar4/blob/7b7e533e587d4991c97b63259355d1a5e9141616/src/components/modals/DateTimeWidgetModal/DateTimeWidgetModal.module.css)
 
 ## Component structure
 
-`sourceSectionTemplate.create()` still creates stable section data. Its `render()` method uses `SourceSection`, which adapts that data into `cards/newUserCard/NewUserCard.tsx`. The button, state hook, list, and template remain separate. New cards stay beneath their generating button inside Research library and remain session-only.
+`sourceSectionTemplate.create()` still creates stable section data. Its `render()` method uses `SourceSection`, which adapts that data into `cards/newUserCard/NewUserCard.tsx`. `SourceSection.tsx` explicitly passes `surfaceClassName="workspace-panel-surface"` onto the actual generated `<section>`. That shared App.css utility uses the same border and radius variables as Research library. The button, state hook, list, and template remain separate. New cards stay beneath their generating button inside Research library and remain session-only.
 
 NewUserCard retains this import:
 
@@ -20,23 +21,23 @@ NewUserCard retains this import:
 import SunScene from '../../react three fibre/sunScene/SunScene'
 ```
 
-SunScene lazy-loads `SunRenderer`. The renderer owns the Canvas, lighting, controls and model; `Sun.tsx` owns the imported mesh and per-instance rotation. `sunAssets.ts` shares the model, environment and preview URLs, warms the loader caches, and clears failed entries before retrying. The model, texture, sunset environment, preview and font are hosted locally beneath Vite's configured base path.
+SunScene directly implements Calendar4's Canvas, ambient light, orbit controls, Suspense and sunset environment. React.lazy replaces Next's dynamic Sun import. `Sun.tsx` copies Calendar4's model implementation. The custom preview, retries, cache helper, readiness flags and viewport remounting have been removed. The model, texture, sunset environment and font remain locally hosted beneath Vite's configured base path.
 
 ## Source fidelity and adaptations
 
 | Feature | Implementation |
 | --- | --- |
-| Card | The Research library's 7px corner radius, NewUserCard's hover glow, decorative tile grid and loaders, with DateTimeWidgetModal's glass surface: `rgba(35,37,49,0.5)`, 7px backdrop blur, and the source inset/outer shadows. Both workspace parents, statistics, decision cards, the next-step callout, and form fields share the same surface through CSS variables. Hover and disabled/select states retain the glass fill. Layout, focus outlines and semantic status/notice/button colours remain intact. |
+| Card | NewUserCard's hover glow, decorative tile grid and loaders, with DateTimeWidgetModal's exact `rgba(35,37,49,0.5)` tint and inset/outer shadows. Container blur uses a separate negative-z, pointer-inert `::after` layer, so an ancestor's filter does not suppress nested glass. Form fields retain their direct 7px blur. Both workspace parents, statistics, decision cards, callout and fields share the glass values. |
 | Size | Original 374px width becomes a 374px maximum and available-width layout. Height follows the section's content. |
 | Title and content | Poppins 600, underlined and centred; flavour text is left-aligned with a 12px left inset. Existing unique heading IDs and optional controls remain accessible. |
-| Panel border | Generated cards and other workspace panels match the Research library's `1px solid rgba(225,231,255,0.16)` edge through `--line`; generated card corners also match its 7px radius. The generated card's competing animated inline border is removed. Other radii, button borders, Sun ring and decorative tile lines retain their styling. |
+| Panel border | App.css owns `--workspace-panel-border` and `--workspace-panel-radius`; both `.panel` and `.workspace-panel-surface` consume them directly. Defaults are `1px solid rgba(225,231,255,0.16)` and `7px`. The module's zero-specificity fallbacks preserve standalone cards without overriding the shared utility. Other radii, button borders, Sun ring and decorative tile lines retain their styling. |
 | Badge | 50px circle, black `#030304` ground, gray 2px edge and yellow shadow, centred at the lower card edge. Absolute positioning replaces the source's transformed fixed positioning so each badge follows its own card. A 26px frame reserve prevents overlap with the next card. |
 | Sun mesh | Original GLTF node `Sphere_Material002_0` and material `Material.002`; group scale `0.0285`, mesh scale `100`, rotation `[-Math.PI / 2, 0, 0]`, `dispose={null}`. |
-| Animation | Y advances by `-0.45 * delta` radians, where delta is elapsed seconds. This preserves the original `-0.0075` increment's pace at 60 FPS and keeps the same speed at other frame rates. Reduced motion disables automatic rotation while retaining user-controlled orbit. |
+| Animation | Calendar4's original `rotation.y += -0.0075` per frame is restored as requested. It is frame-rate dependent. The host Canvas uses demand frames for reduced motion; normal rendering follows the copied source. The separate stars background retains its existing delta-based rotation. |
 | Scene | Default Fiber camera, ambient intensity `2`, OrbitControls with zoom disabled, the actual Drei sunset environment `venice_sunset_1k.hdr`. |
 | Tilt | Source 2-degree tilt for standalone cards. An existing CalendarPanel ancestor supplies tilt for nested cards, avoiding compounded transforms. Coarse pointers, reduced motion and focused controls remain steady. |
 
-Vite uses React lazy/Suspense in place of Next dynamic imports. One canonical `SUN_MODEL_URL`, based on `import.meta.env.BASE_URL`, is passed to both `useGLTF()` and `useGLTF.preload()`. The supplied asset is `sun.gltf`, accompanied by its buffer and texture; there is no `sun.gltb` file. A supported card starts model and sunset-HDR preloading when it mounts, before viewport entry. Preload scheduling does not mark a scene ready: the model must actually render first. This corrects the source's mismatch between `/sun.gltf` and `/media/sun/sun.gltf`. First Light currently has no Moon renderer or Moon assets. Registration forms, Home navigation and the source's artificial loading timer are outside this reusable visual card. Existing section content and native controls remain usable while the real scene loads or fails.
+The source adaptations are limited to TypeScript types, React.lazy in place of Next dynamic, a CSS module class in place of a repeated Canvas ID, and base-aware local asset paths. Both `useGLTF()` and its preload use the actual `media/sun/sun.gltf` path. The local sunset HDR is the exact file selected by the source's Drei sunset preset. Canvas demand mode preserves First Light's reduced-motion setting without adding model loading logic. Registration forms, Home navigation and the source's artificial loading timer remain outside the reusable card.
 
 Source CSS IDs are scoped classes, preventing duplicate IDs when several cards exist. Text stays selectable, and decorative layers do not intercept content. The existing `borderTone` field remains accepted as a data attribute; the new visual presentation uses Calendar4's neutral gray and green-hover palette.
 
@@ -44,7 +45,7 @@ The generated list keeps responsive 8–16px padding on its top, right and botto
 
 ## Dependencies and assets
 
-The existing React 19, Fiber 9.8.2, Drei 10.7.9, Three 0.167.1, Framer Motion 11.18.2 and react-parallax-tilt 1.7.352 packages are reused. The only added package is `@fontsource/poppins@5.3.0`, importing its Latin 600 stylesheet.
+The existing React 19, Fiber 9.8.2, Drei 10.7.9, Three 0.167.1, Framer Motion 11.18.2, react-parallax-tilt 1.7.352 and Poppins 5.3.0 packages are reused. This restoration adds no dependencies.
 
 The four Sun files below match the Git blob hashes from the pinned Calendar4 revision. The sunset HDR matches [Drei's pinned asset revision](https://github.com/pmndrs/drei-assets/blob/456060a26bbeb8fdf79326f224b6d99b8bcce736/hdri/venice_sunset_1k.hdr).
 
@@ -55,11 +56,7 @@ The four Sun files below match the Git blob hashes from the pinned Calendar4 rev
 | `public/media/sun/textures/Material.002_baseColor.jpeg` | 4,292,952 | `58a3314791253c999a380eab20c09320b3ff177503fe3f80abe73901ed45ee90` |
 | `public/media/sun/license.txt` | 636 | `8811eb7dab80730d7afe12deea4b70aca6cc4ee5761dab85dbf7efdbe9f8ee8e` |
 | `public/environments/venice_sunset_1k.hdr` | 1,397,783 | `0e72ed46b5316cb5fb67fc81ff85b024a09146fd89ef3811a8d2299647ada118` |
-| `public/media/sun/sun-preview.png` | 36,715 | `ee1368b3767f3640b35625372edfbdb722930f9c19df2c4b97fb747e8814d334` |
-
-The preview is a 193px PNG captured from the actual Sun model with the existing camera, lighting and sunset environment on the badge's black background. It replaces the Unicode sun icon while loading, offscreen or unable to render; attribution is retained on every card.
-
-The first supported card starts about 5.9MB of model/environment requests. Loader and browser caches share those resources across cards. Each nearby, visible badge has a Canvas; scrolling it away or hiding the document unmounts that Canvas. Temporary failures get up to two automatic retries with cache invalidation; inactive/hidden cards pause recovery and unmounting cancels it. Unsupported graphics or exhausted retries retain the actual Sun preview without removing card content. WebGL cannot be guaranteed on unsupported devices. Without IntersectionObserver, viewport measurements on scroll and resize preserve offscreen culling. There is no arbitrary limit on generated cards.
+The first model and sunset environment requests total about 5.9MB. Loader and browser caches share those assets across cards. Each mounted card owns a Canvas, as in Calendar4; there is no preview image or custom retry/visibility machinery. The source requires working WebGL, and many simultaneous canvases can reach browser graphics limits. Normal animation has the source's per-frame speed behavior.
 
 ## Attribution
 
@@ -69,19 +66,17 @@ Poppins is copyright The Poppins Project Authors under SIL Open Font License 1.1
 
 ## Verification
 
-- All 93 tests across nine files pass. TypeScript and the production build with `VITE_BASE_PATH=/first-light/` pass.
-- Fourteen motion/URL regression tests invoke the real Sun and star frame callbacks against Three objects. They verify equal rotation at 30, 60 and 144 FPS, irregular deltas totalling one second, reduced-motion and unattached-ref guards, and matching load/preload URLs for `/` and `/first-light/`.
-- Fifteen scene tests and five asset tests verify eager warmup, canonical model/HDR/preview paths, shared preload scheduling, cache clearing, bounded recovery, stale-callback protection, offscreen/tab visibility and cleanup, observer fallback, real-preview markup and usable native controls.
-- Production copies of the model, buffer, texture, licences and sunset HDR match the recorded sources.
-- Chromium with SwiftShader renders the actual 17,664-index mesh in the 46px canvas inside the 50px badge: 1,396 lit pixels and no WebGL error in the captured sample. Rotation changes rendered pixel hashes; reduced motion stops automatic frame generation, while dragging with OrbitControls still updates the model view.
-- Scrolling badges offscreen unmounts their canvases and produces actual WebGL context-loss events from renderer disposal. Scrolling back creates a working renderer again.
-- A production-browser fault test holds the first model request to verify the actual Sun preview while loading, then aborts it and verifies automatic recovery. A subsequent real `WEBGL_lose_context` event also recovers to a rendered Sun with 1,396 lit pixels and no WebGL error. Unsupported WebGL retains the preview; missing IntersectionObserver still renders and culls on scroll. Fiber intentionally reports the injected fetch error to the browser despite boundary recovery; only that exact expected error is allowed by the fault test.
-- The production preview loads the sun, buffer, texture, HDR and Poppins font with HTTP 200 under `/first-light/`, while the existing stars background remains active. Both visible cards share one request to `/first-light/media/sun/sun.gltf`; the preload does not request a different path.
-- Chromium verifies the modal's exact translucent background, 7px blur and two shadows on workspace panels, cards, callouts and fields, including disabled and status selects. Editing, focus outlines, native status selection and persistence remain usable. Nested glass layers soften the background more than a single modal; backdrop-filter appearance and performance depend on the browser.
-- All four sides of the generated cards, workspace parents, statistics, decision cards and callout have the same `1px solid rgba(225,231,255,0.16)` border as Research library. Generated cards also match its 7px radius at all four corners. Hover and a delayed sample retain that border; no inline border animation overrides it. The final normal-render check shows the real Sun and existing star field together without application errors.
-- Layout checks at 1440, 768, 390 and 320px show no horizontal overflow. The badge stays at the card's lower centre, content remains intact after unrelated updates, and generated sections remain in their parent below Add source.
-- All 12 tiles and six hover loaders remain. Left padding is exactly half the right padding across the four checked widths; flavour text remains left-aligned with a 12px inset while headings remain centred.
+- All 77 tests across eight files pass. TypeScript and the production build with `VITE_BASE_PATH=/first-light/` pass.
+- Model tests verify Calendar4's original Sun frame increment, geometry/material, transforms, group prop forwarding and disposal, plus identical root/Pages load and preload URLs. Scene tests verify the copied lighting, controls, sunset environment and the host reduced-motion mode. Separate stars tests retain delta-based motion coverage.
+- The controlled browser test keeps the exact supplied tint and shadows. Nested cards, inputs and textareas transmit 24.12% of a red/blue backdrop (24.05% black/white), versus 11.76% with the old ancestor-filter configuration. The standalone modal reference transmits 48.94%; nested half-opacity surfaces still naturally compound.
+- Fresh checker patterns painted on each target's immediate wrapper prove real blur rather than a preblurred ancestor. Input/textarea contrast falls from RGB standard deviation 62.49 without blur to 21.61 with 7px blur; card contrast falls from 62.50 to 21.36.
+- Changing only `--workspace-panel-border` to a 3px border and `--workspace-panel-radius` to 19px updates both Research library and the actual generated section. Restoring defaults returns both to 1px and 7px. Removing the shared class/custom values in the test browser confirms the module's standalone fallback still works.
+- Chromium with SwiftShader renders three actual 17,664-index Sun meshes at once. Each 46px canvas has 1,396 lit pixels and no WebGL error. Rotation changes rendered pixel hashes; demand mode stops automatic Sun frames, while OrbitControls dragging still updates the view. The same Canvas instances survive scrolling and unrelated draft updates.
+- The normal production preview loads one shared GLTF request, buffer, texture and sunset HDR with HTTP 200 under `/first-light/`. Asset hashes match the original sources. The existing star field renders alongside the Sun scenes. There are no application errors in the normal tested path.
+- At 1440, 768, 390 and 320px, native editing, focus outlines, status selection and persistence remain usable, with no horizontal overflow. The 50px Sun badge remains unclipped and centred on its own card's lower edge. Natural card height, stable identity, source drafts and session-only section creation are preserved.
 
-Production previews: [workspace and card](previews/calendar-new-user-cards.png) and [narrow card](previews/calendar-new-user-card-mobile.png).
+Production previews: [workspace and cards](previews/calendar-new-user-cards.png) and [narrow card](previews/calendar-new-user-card-mobile.png).
 
-These are local production-preview results. Publication has not been requested for this revision.
+Controlled browser evidence: [corrected glass](previews/glass-proof-current.png) and [previous filter configuration](previews/glass-proof-previous.png). These use temporary checker stripes for measurement; the application retains its original star background.
+
+These are local production-preview results. This correction has not been deployed.

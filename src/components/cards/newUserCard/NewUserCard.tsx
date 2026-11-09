@@ -11,6 +11,7 @@ interface NewUserCardProps {
   children: ReactNode
   controls?: ReactNode
   borderTone?: 'aliceblue' | 'slatepurple'
+  surfaceClassName?: string
 }
 
 const tileNames = [
@@ -25,6 +26,7 @@ export default function NewUserCard({
   children,
   controls,
   borderTone = 'aliceblue',
+  surfaceClassName,
 }: NewUserCardProps) {
   const { reducedMotion, coarsePointer } = useCalendarMotionPreferences()
   const frame = useRef<HTMLDivElement>(null)
@@ -57,7 +59,7 @@ export default function NewUserCard({
         tiltAngleYManual={tiltEnabled ? null : 0}
       >
         <section
-          className={styles.main}
+          className={`${styles.main}${surfaceClassName ? ` ${surfaceClassName}` : ''}`}
           aria-labelledby={headingId}
           data-border-tone={borderTone}
           style={{ width: '100%', minWidth: 0, height: 'auto', overflowWrap: 'anywhere' }}

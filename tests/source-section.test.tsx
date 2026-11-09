@@ -9,9 +9,11 @@ import useSourceSections from '../src/components/sources/useSourceSections'
 import { sourceSectionTemplate } from '../src/components/sources/sourceSectionTemplate'
 import { STORAGE_KEY, createDecision, createSource, type Workspace } from '../src/workspace'
 
+// The source card now mounts Canvas directly; isolate only that GPU boundary.
+vi.mock('../src/components/react three fibre/sunScene/SunScene', () => ({ default: () => null }))
+
 beforeEach(() => {
-  // Use real Calendar components with the user's reduced-motion preference;
-  // the tests need no renderer or animation mocks to exercise App's state.
+  // Calendar controls and all source-feature state remain real.
   vi.stubGlobal('matchMedia', vi.fn((query: string) => ({
     matches: query.includes('prefers-reduced-motion'),
     addEventListener: vi.fn(),

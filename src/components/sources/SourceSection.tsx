@@ -28,6 +28,7 @@ export default function SourceSection({ id, number, text = DEFAULT_SOURCE_SECTIO
       title={`Source section ${number}`}
       controls={controls}
       borderTone={borderTone}
+      surfaceClassName="workspace-panel-surface"
     >
       {children ?? <p>{text}</p>}
     </NewUserCard>

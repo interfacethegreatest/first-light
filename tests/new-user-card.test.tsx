@@ -1,8 +1,11 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { act, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import NewUserCard from '../src/components/cards/newUserCard/NewUserCard'
 import { sourceSectionTemplate } from '../src/components/sources/sourceSectionTemplate'
+
+// Keep card content and controls real; actual WebGL is verified in the browser.
+vi.mock('../src/components/react three fibre/sunScene/SunScene', () => ({ default: () => null }))
 
 function motionPreferences() {
   function query() {
@@ -30,11 +33,6 @@ function motionPreferences() {
   vi.stubGlobal('matchMedia', vi.fn((name: string) => name.includes('prefers-reduced-motion') ? reduced.media : coarse.media))
   return { reduced, coarse }
 }
-
-beforeEach(() => {
-  // Exercise the real no-WebGL path without importing or starting a renderer.
-  vi.stubGlobal('WebGL2RenderingContext', undefined)
-})
 
 afterEach(() => {
   vi.unstubAllGlobals()
@@ -73,17 +71,13 @@ describe('Calendar NewUserCard integration', () => {
     expect(within(second).queryByRole('button')).not.toBeInTheDocument()
   })
 
-  it('keeps the real template output and controls usable when GPU rendering is unavailable', async () => {
+  it('keeps real template output and native controls independent from the GPU scene', async () => {
     motionPreferences()
     const action = vi.fn()
     const user = userEvent.setup()
     const instance = sourceSectionTemplate.create()
     const view = render(sourceSectionTemplate.render(instance, 1, undefined, <button type="button" onClick={action}>Edit output</button>))
     const region = screen.getByRole('region', { name: 'Source section 1' })
-    const scene = within(region).getByTestId('sun-scene')
-
-    expect(scene).toHaveAttribute('data-sun-state', 'fallback')
-    expect(scene).toHaveAttribute('aria-hidden', 'true')
     expect(region.querySelector('canvas')).toBeNull()
     expect(within(region).getByText(instance.text!)).toBeInTheDocument()
     await user.click(within(region).getByRole('button', { name: 'Edit output' }))
@@ -93,7 +87,6 @@ describe('Calendar NewUserCard integration', () => {
     expect(screen.getByRole('region', { name: 'Source section 1' })).toBe(region)
     expect(within(region).getByText('Updated output, independent of the renderer.')).toBeInTheDocument()
     expect(within(region).queryByText(instance.text!)).not.toBeInTheDocument()
-    expect(within(region).getByTestId('sun-scene')).toHaveAttribute('data-sun-state', 'fallback')
   })
 
   it('preserves focused form output through live preferences and cleans up media subscriptions', async () => {

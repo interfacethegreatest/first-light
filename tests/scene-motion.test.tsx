@@ -34,7 +34,7 @@ async function frameFor(kind: ModelKind, target: Group | Points | null, reducedM
   harness.targetRef = ref
   if (kind === 'sun') {
     const { default: Sun } = await import('../src/components/react three fibre/sunScene/Sun')
-    Sun({ reducedMotion, onReady: vi.fn() })
+    Sun({})
   } else {
     const { default: Model } = await import('../src/components/backgrounds/starsBackground/Model')
     Model({ reducedMotion })
@@ -56,14 +56,14 @@ afterEach(() => {
 })
 
 describe('actual model frame callbacks', () => {
-  it.each([30, 60, 144])('rotates the Sun by the same angle over one second at %s FPS', async fps => {
+  it.each([[30, 0.175], [60, -0.05], [144, -0.68]])('preserves the source Sun increment over %s frames', async (frames, expectedY) => {
     const sun = new Group()
     sun.rotation.set(0.3, 0.4, -0.2)
     const { frame } = await frameFor('sun', sun)
 
-    for (let index = 0; index < fps; index++) frame({}, 1 / fps)
+    for (let index = 0; index < frames; index++) frame({}, 1 / frames)
 
-    expect(sun.rotation.y).toBeCloseTo(-0.05, 10)
+    expect(sun.rotation.y).toBeCloseTo(expectedY, 10)
     expect(sun.rotation.x).toBe(0.3)
     expect(sun.rotation.z).toBe(-0.2)
   })
@@ -82,23 +82,22 @@ describe('actual model frame callbacks', () => {
     expect(stars.rotation.z).toBe(0.2)
   })
 
-  it.each(['sun', 'stars'] as const)('uses elapsed deltas through irregular frames for %s', async kind => {
+  it.each(['sun', 'stars'] as const)('preserves source Sun steps and elapsed star rotation through irregular frames for %s', async kind => {
     const target = kind === 'sun' ? new Group() : new Points()
     target.rotation.y = 0.4
     const { frame } = await frameFor(kind, target)
 
-    // Different frame durations, totalling one second, must match the regular
-    // frame runs rather than multiplying by the number of callbacks.
+    // The requested source Sun ignores delta; stars retain elapsed-time motion.
     for (const delta of [0.012, 0.038, 0.15, 0.3, 0.05, 0.2, 0.25]) frame({}, delta)
 
-    expect(target.rotation.y).toBeCloseTo(kind === 'sun' ? -0.05 : 0.415, 10)
+    expect(target.rotation.y).toBeCloseTo(kind === 'sun' ? 0.3475 : 0.415, 10)
     if (kind === 'stars') expect(target.rotation.x).toBe(target.rotation.y)
   })
 
-  it.each(['sun', 'stars'] as const)('leaves all axes unchanged for reduced-motion %s', async kind => {
-    const target = kind === 'sun' ? new Group() : new Points()
+  it('leaves all star axes unchanged for reduced motion', async () => {
+    const target = new Points()
     target.rotation.set(-0.7, 0.4, 0.2)
-    const { frame } = await frameFor(kind, target, true)
+    const { frame } = await frameFor('stars', target, true)
 
     frame({}, 1 / 60)
     frame({}, 0.5)
@@ -116,8 +115,28 @@ describe('actual model frame callbacks', () => {
 
     frame({}, 1)
 
-    expect(target.rotation.y).toBeCloseTo(kind === 'sun' ? -0.45 : 0.015, 10)
+    expect(target.rotation.y).toBeCloseTo(kind === 'sun' ? -0.0075 : 0.015, 10)
     if (kind === 'stars') expect(target.rotation.x).toBe(target.rotation.y)
+  })
+})
+
+describe('source Sun mesh contract', () => {
+  it('uses the original geometry/material and preserves group prop overrides and disposal ownership', async () => {
+    const { default: Sun } = await import('../src/components/react three fibre/sunScene/Sun')
+    const original = harness.load.getMockImplementation()!()
+    const normal = Sun({})
+    expect(normal.props.scale).toBe(0.0285)
+    expect(normal.props.dispose).toBeNull()
+    const mesh = normal.props.children
+    expect(mesh.props.geometry).toBe(original.nodes.Sphere_Material002_0.geometry)
+    expect(mesh.props.material).toBe(original.materials['Material.002'])
+    expect(mesh.props.scale).toBe(100)
+    expect(mesh.props.rotation).toEqual([-Math.PI / 2, 0, 0])
+
+    const positioned = Sun({ position: [1, 2, 3], scale: 0.5 })
+    expect(positioned.props.position).toEqual([1, 2, 3])
+    expect(positioned.props.scale).toBe(0.5)
+    expect(positioned.props.dispose).toBeNull()
   })
 })
 
@@ -128,7 +147,7 @@ describe('canonical Sun asset URL', () => {
     const { default: Sun } = await import('../src/components/react three fibre/sunScene/Sun')
     harness.targetRef = { current: new Group() }
 
-    Sun({ reducedMotion: false, onReady: vi.fn() })
+    Sun({})
 
     const expected = `${base}media/sun/sun.gltf`
     expect(harness.load).toHaveBeenCalledOnce()
