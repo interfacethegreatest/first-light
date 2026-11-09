@@ -153,7 +153,9 @@ describe('AnimatedHeight layout lifecycle', () => {
 
   it('retargets from the current displayed height and ignores completion from the cancelled transition', () => {
     const environment = controlledLayout(0)
-    render(<AnimatedHeight><div data-testid="content">Stable output</div></AnimatedHeight>)
+    const settled = vi.fn()
+    render(<AnimatedHeight onSettled={settled}><div data-testid="content">Stable output</div></AnimatedHeight>)
+    settled.mockClear()
     const content = screen.getByTestId('content')
     const outer = frame()
     environment.resize(100)
@@ -165,17 +167,21 @@ describe('AnimatedHeight layout lifecycle', () => {
     expect(outer.style.height).toBe('40px')
     expect(latestTransition()).toMatchObject({ from: 40, target: 180 })
     complete(previous)
+    expect(settled).not.toHaveBeenCalled()
     expect(outer.style.height).toBe('40px')
     expect(outer.style.overflow).toBe('hidden')
     expect(screen.getByTestId('content')).toBe(content)
     complete()
     expect(outer.style.height).toBe('auto')
     expect(outer.style.overflow).toBe('visible')
+    expect(settled).toHaveBeenCalledWith({ immediate: false })
   })
 
   it('retargets content changes discovered at completion before releasing natural height', () => {
     const environment = controlledLayout(100)
-    render(<AnimatedHeight><div data-testid="content">Asynchronous output</div></AnimatedHeight>)
+    const settled = vi.fn()
+    render(<AnimatedHeight onSettled={settled}><div data-testid="content">Asynchronous output</div></AnimatedHeight>)
+    settled.mockClear()
     environment.resize(200)
     const previous = latestTransition()
     environment.layout.intrinsic = 260
@@ -186,8 +192,40 @@ describe('AnimatedHeight layout lifecycle', () => {
     expect(frame().style.overflow).toBe('hidden')
     expect(latestTransition()).toMatchObject({ from: 200, target: 260 })
     expect(playback.transitions).toHaveLength(2)
+    expect(settled).not.toHaveBeenCalled()
     complete()
     expect(frame().style.height).toBe('auto')
+    expect(settled).toHaveBeenCalledWith({ immediate: false })
+  })
+
+  it('notifies settlement only after natural height and visible overflow have been restored', () => {
+    const environment = controlledLayout(100)
+    const snapshots: Array<{ immediate: boolean; height: string; overflow: string }> = []
+    render(<AnimatedHeight onSettled={value => snapshots.push({ ...value, height: frame().style.height, overflow: frame().style.overflow })}><div data-testid="content">Output</div></AnimatedHeight>)
+    expect(snapshots).toEqual([{ immediate: true, height: 'auto', overflow: 'visible' }])
+    environment.resize(200)
+    expect(snapshots).toHaveLength(1)
+    complete()
+    expect(snapshots.at(-1)).toEqual({ immediate: false, height: 'auto', overflow: 'visible' })
+  })
+
+  it('uses the latest settlement callback without restarting an active height animation', () => {
+    const environment = controlledLayout(100)
+    const first = vi.fn()
+    const latest = vi.fn()
+    const view = render(<AnimatedHeight onSettled={first}><div data-testid="content">Output</div></AnimatedHeight>)
+    first.mockClear()
+    environment.resize(200)
+    const transition = latestTransition()
+    view.rerender(<AnimatedHeight onSettled={latest}><div data-testid="content">Unrelated text update</div></AnimatedHeight>)
+    expect(frame().style.height).toBe('100px')
+    expect(transition.stop).not.toHaveBeenCalled()
+    expect(playback.transitions).toHaveLength(1)
+    expect(first).not.toHaveBeenCalled()
+    expect(latest).not.toHaveBeenCalled()
+    complete(transition)
+    expect(latest).toHaveBeenCalledWith({ immediate: false })
+    expect(first).not.toHaveBeenCalled()
   })
 
   it('snaps a live reduced-motion change without remounting or replaying earlier growth', () => {
@@ -262,7 +300,9 @@ describe('AnimatedHeight layout lifecycle', () => {
 
   it('cleans observers, subscriptions, and playback under StrictMode and ignores completion after unmount', () => {
     const environment = controlledLayout(100)
-    const view = render(<StrictMode><AnimatedHeight><div data-testid="content">Output</div></AnimatedHeight></StrictMode>)
+    const settled = vi.fn()
+    const view = render(<StrictMode><AnimatedHeight onSettled={settled}><div data-testid="content">Output</div></AnimatedHeight></StrictMode>)
+    settled.mockClear()
     expect(playback.transitions).toHaveLength(0)
     environment.resize(200)
     const previous = latestTransition()
@@ -275,6 +315,7 @@ describe('AnimatedHeight layout lifecycle', () => {
     expect(environment.coarse.listeners.size).toBe(0)
     environment.layout.intrinsic = 350
     complete(previous)
+    expect(settled).not.toHaveBeenCalled()
     expect(playback.transitions).toHaveLength(1)
     expect(outer.style.height).toBe('auto')
     expect(screen.queryByTestId('content')).not.toBeInTheDocument()
@@ -302,8 +343,10 @@ describe('AnimatedHeight layout lifecycle', () => {
     const user = userEvent.setup()
     render(<Feature />)
     const button = screen.getByRole('button', { name: 'Add source' })
+    environment.layout.intrinsic = 180
     await user.click(button)
-    const first = screen.getByRole('region', { name: 'Source section 1' })
+    const first = screen.getByRole('region', { hidden: true })
+    expect(screen.queryByRole('region', { name: 'Source section 1' })).not.toBeInTheDocument()
     const sun = first.querySelector('canvas')
     const outer = document.getElementById('height-test-sources')!.parentElement!.parentElement!
     environment.resize(180)
@@ -312,10 +355,13 @@ describe('AnimatedHeight layout lifecycle', () => {
     expect(outer.style.height).toBe('0px')
     complete()
     expect(outer.style.height).toBe('auto')
+    expect(screen.getByRole('region', { name: 'Source section 1' })).toBe(first)
+    environment.layout.intrinsic = 360
     await user.click(button)
     environment.resize(360)
     expect(outer.style.height).toBe('180px')
-    expect(screen.getByRole('region', { name: 'Source section 2' })).toBeInTheDocument()
+    expect(screen.getAllByRole('region', { hidden: true })).toHaveLength(2)
+    expect(screen.queryByRole('region', { name: 'Source section 2' })).not.toBeInTheDocument()
     environment.reduce(true)
 
     expect(outer.style.height).toBe('auto')
@@ -323,5 +369,6 @@ describe('AnimatedHeight layout lifecycle', () => {
     expect(screen.getByRole('region', { name: 'Source section 1' })).toBe(first)
     expect(first.querySelector('canvas')).toBe(sun)
     expect(sun).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: 'Source section 2' })).toBeInTheDocument()
   })
 })
