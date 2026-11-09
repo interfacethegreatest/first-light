@@ -60,4 +60,4 @@ Review artifacts: [animation video](previews/calendar-motion-demo.mp4), [desktop
 
 The entry bundle grows by about 43 kB gzipped to include the two animation libraries; the separate 3D scene payload is unchanged. The border cycle runs continuously in normal-motion mode, as in the source. Hardware and browser animation performance vary; verification used Chromium, including software WebGL for the combined preview, rather than a range of physical mobile devices.
 
-This revision is prepared for review and has not been deployed. Do not merge or dispatch the manual Pages workflow without the user's approval for this interface-motion update.
+Publication of this interface-motion update requires the user's approval before merging or dispatching the manual Pages workflow. The user has now explicitly granted that approval, and the coordinator is carrying out publication. Deployment verification is in progress; the local results above do not establish that this revision is live.

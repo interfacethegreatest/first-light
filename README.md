@@ -62,11 +62,11 @@ First Light uses the Three.js background from Calendar4, retaining its 7,500 sta
 
 See [the source and verification notes](docs/calendar-stars-provenance.md) and the [desktop](docs/previews/calendar-stars-desktop.png) and [mobile](docs/previews/calendar-stars-mobile.png) previews. This update was published with the user's approval through [the successful Pages workflow](https://github.com/interfacethegreatest/first-light/actions/runs/42620982549).
 
-## Calendar interface animations (pending deployment)
+## Calendar interface animations
 
 This branch also reuses Calendar4's spring panel entrances, gentle pointer tilt, rolling button labels, and slow border-color cycle. Focused fields remain steady, touch disables tilt, and reduced motion suppresses the new animation while preserving form values and focus.
 
-Watch the [animation preview](docs/previews/calendar-motion-demo.mp4) and see [the source mapping and verification record](docs/calendar-motion-provenance.md). This new interface-motion revision is awaiting publication approval; the live site still shows the previously published interface.
+Watch the [animation preview](docs/previews/calendar-motion-demo.mp4) and see [the source mapping and verification record](docs/calendar-motion-provenance.md). Publication of this interface-motion update is approved; deployment verification is in progress.
 
 ## Storage and current limits
 
