@@ -13,7 +13,10 @@
   --line:rgba(225, 231, 255, 0.16);
   --accent:#ff9470;
   --paper:rgba(15, 17, 26, 0.84);
-  --sage:rgba(170, 188, 160, 0.08)
+  --sage:rgba(170, 188, 160, 0.08);
+  --workspace-glass-background:rgba(35, 37, 49, 0.5);
+  --workspace-glass-blur:blur(7px);
+  --workspace-glass-shadow:inset 0 0 0 1000px rgba(35, 37, 49, 0.015), 0 18px 45px rgba(0, 0, 0, 0.28)
 }
 * {
   box-sizing:border-box
@@ -296,7 +299,6 @@ h1>span {
   border:1px solid var(--line);
   border-radius:7px;
   overflow:hidden;
-  background:rgba(15, 17, 26, 0.72);
   margin-bottom:24px
 }
 .stat {
@@ -336,17 +338,23 @@ h1>span {
   gap:24px;
   align-items:start
 }
+.panel,
+.stats-grid,
+.decision-card,
+.next-step,
+.field input,
+.field textarea,
+.field select,
+.status-control select {
+  background-color:var(--workspace-glass-background);
+  backdrop-filter:var(--workspace-glass-blur);
+  -webkit-backdrop-filter:var(--workspace-glass-blur);
+  box-shadow:var(--workspace-glass-shadow)
+}
 .panel {
-  background:var(--paper);
   border:1px solid var(--line);
   border-radius:7px;
   overflow:hidden
-}
-.source-panel {
-  background-color:rgba(35, 37, 49, 0.5);
-  backdrop-filter:blur(7px);
-  -webkit-backdrop-filter:blur(7px);
-  box-shadow:inset 0 0 0 1000px rgba(35, 37, 49, 0.015), 0 18px 45px rgba(0, 0, 0, 0.28)
 }
 .panel-heading {
   display:flex;
@@ -402,7 +410,6 @@ h1>span {
 .field input,.field textarea,.field select,.status-control select {
   border:1px solid rgba(225, 231, 255, 0.24);
   border-radius:4px;
-  background:#0c0e17;
   color:#eff1f8;
   padding:11px 12px;
   font-size:11px;
@@ -423,8 +430,7 @@ h1>span {
 }
 .field select:disabled {
   color:#b5bbcc;
-  cursor:not-allowed;
-  background:rgba(255, 255, 255, 0.04)
+  cursor:not-allowed
 }
 .field-hint {
   font-size:9px;
@@ -631,8 +637,7 @@ h1>span {
 }
 .decision-card {
   padding:19px;
-  background:rgba(255, 255, 255, 0.04);
-  border:1px solid rgba(225, 231, 255, 0.16);
+  border:1px solid var(--line);
   border-radius:5px
 }
 .decision-card-top {
@@ -730,8 +735,7 @@ h1>span {
   min-height:34px;
   padding:6px;
   width:auto;
-  min-width:84px;
-  background:#0c0e17
+  min-width:84px
 }
 .notice {
   padding:13px 17px;
@@ -769,8 +773,7 @@ h1>span {
   align-items:center;
   gap:18px;
   padding:22px 25px;
-  background:rgba(29, 35, 42, 0.72);
-  border:1px solid rgba(225, 231, 255, 0.16);
+  border:1px solid var(--line);
   border-radius:6px;
   margin-top:25px
 }

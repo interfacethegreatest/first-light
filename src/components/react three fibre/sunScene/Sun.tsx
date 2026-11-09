@@ -2,8 +2,8 @@ import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { Mesh, type Group } from 'three'
+import { SUN_MODEL_URL } from './sunAssets'
 
-const SUN_MODEL_URL = `${import.meta.env.BASE_URL}media/sun/sun.gltf`
 const SUN_ROTATION_RADIANS_PER_SECOND = -0.45
 
 interface SunProps {

@@ -2,6 +2,7 @@ import { Suspense, useEffect } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import { Environment, OrbitControls } from '@react-three/drei'
 import Sun from './Sun'
+import { SUN_ENVIRONMENT_URL } from './sunAssets'
 
 interface SunRendererProps {
   reducedMotion: boolean
@@ -36,7 +37,7 @@ export default function SunRenderer({ reducedMotion, onReady, onFailure }: SunRe
         <ambientLight intensity={2} />
         <OrbitControls enableZoom={false} />
         <Sun reducedMotion={reducedMotion} onReady={onReady} />
-        <Environment files={`${import.meta.env.BASE_URL}environments/venice_sunset_1k.hdr`} />
+        <Environment files={SUN_ENVIRONMENT_URL} />
       </Suspense>
     </Canvas>
   )
