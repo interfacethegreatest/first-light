@@ -23,6 +23,16 @@ import SunScene from '../../react three fibre/sunScene/SunScene'
 
 SunScene directly implements Calendar4's Canvas, ambient light, orbit controls, Suspense and sunset environment. React.lazy replaces Next's dynamic Sun import. `Sun.tsx` copies Calendar4's model implementation. The custom preview, retries, cache helper, readiness flags and viewport remounting have been removed. The model, texture, sunset environment and font remain locally hosted beneath Vite's configured base path.
 
+## Source list expansion
+
+`SourceSections` wraps the existing grid in `AnimatedHeight`. An inner `flow-root` measures the grid's full intrinsic height, including its top margin, responsive padding and reserved space beneath the Sun badges. ResizeObserver detects changes; `offsetHeight` avoids measuring the parent tilt's transformed bounds.
+
+The outer wrapper animates actual CSS height for 300ms with `easeOut`. Research library and its following content therefore grow through normal document layout, without scaling the card text or Sun. Rapid updates retarget from the current displayed height. Once settled, the wrapper returns to `height:auto` and visible overflow. Temporary clipping during expansion prevents new content from overlapping the following library section.
+
+Initial content, reduced motion, focused descendants and browsers without ResizeObserver use immediate natural height. Focus or preference changes cancel motion without replaying earlier growth. Observers and animation controls are cleaned up on unmount; the existing keyed section/card/Canvas nodes remain mounted. The Add source button sits outside the focused-content guard.
+
+The real-Sun browser run verified fixed panel top, correct final parent growth and matching displacement of “Your sources”, natural height restoration, rapid additions, retained Canvas/draft/storage identity, native textarea resizing, live and initial reduced motion, settled glass and all four viewport widths. It did **not** pass the painted-intermediate-height criterion: Chromium's software renderer delivered successive samples seconds apart, skipping the 300ms transition. A separate final-build diagnostic hid the Sun Canvas before mount; callbacks still arrived 300–600ms apart, so the timing limit extends beyond Sun startup. The final-build diagnostic confirmed parent growth from 645.78 to 987.28px and then to 2720.28px with zero movement of its top, exact following-library displacement, and restored natural sizing. Smoothness still needs a hardware-accelerated browser check; the copied Sun renderer is unchanged.
+
 ## Source fidelity and adaptations
 
 | Feature | Implementation |
@@ -66,7 +76,8 @@ Poppins is copyright The Poppins Project Authors under SIL Open Font License 1.1
 
 ## Verification
 
-- All 77 tests across eight files pass. TypeScript and the production build with `VITE_BASE_PATH=/first-light/` pass.
+- All 88 tests across nine files pass. TypeScript and the production build with `VITE_BASE_PATH=/first-light/` pass.
+- Eleven measured-height tests verify initial natural sizing, growth/shrink, retargeting, stale completion guards, automatic bounds release, focus/reduced-motion handling, observer cleanup/fallback and retained section/Sun identity. Removing a focused child without a blur event does not suppress later growth or focus cancellation.
 - Model tests verify Calendar4's original Sun frame increment, geometry/material, transforms, group prop forwarding and disposal, plus identical root/Pages load and preload URLs. Scene tests verify the copied lighting, controls, sunset environment and the host reduced-motion mode. Separate stars tests retain delta-based motion coverage.
 - The controlled browser test keeps the exact supplied tint and shadows. Nested cards, inputs and textareas transmit 24.12% of a red/blue backdrop (24.05% black/white), versus 11.76% with the old ancestor-filter configuration. The standalone modal reference transmits 48.94%; nested half-opacity surfaces still naturally compound.
 - Fresh checker patterns painted on each target's immediate wrapper prove real blur rather than a preblurred ancestor. Input/textarea contrast falls from RGB standard deviation 62.49 without blur to 21.61 with 7px blur; card contrast falls from 62.50 to 21.36.
@@ -79,4 +90,4 @@ Production previews: [workspace and cards](previews/calendar-new-user-cards.png)
 
 Controlled browser evidence: [corrected glass](previews/glass-proof-current.png) and [previous filter configuration](previews/glass-proof-previous.png). These use temporary checker stripes for measurement; the application retains its original star background.
 
-These are local production-preview results. This correction has not been deployed.
+The glass and Calendar4 Sun restoration was published from main commit `43f84e563587ebf68031f93efed34cbb3a63691c` in Pages run 42673033223, attempt 3, after GitHub's Actions service recovered. Public pixel and real-mesh checks confirmed that release. The new source-list height animation is a separate change awaiting review and deployment approval.
