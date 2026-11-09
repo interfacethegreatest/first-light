@@ -1,10 +1,8 @@
-import type { ReactElement, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 // Calendar4's section boilerplate supplies a title/edit row and plain p content:
 // src/components/sections/AboutMe/AboutMe.tsx at 7b7e533.
-const IPSUM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-const IPSUM_LENGTHS = [1, 4, 12] as const
-let nextIpsumLength = 0
+export const DEFAULT_SOURCE_SECTION_TEXT = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
 export interface SourceSectionInstance {
   id: string
@@ -17,28 +15,7 @@ interface SourceSectionProps extends SourceSectionInstance {
   controls?: ReactNode
 }
 
-export const sourceSectionTemplate = {
-  create: (): SourceSectionInstance => {
-    const repeats = IPSUM_LENGTHS[nextIpsumLength]
-    nextIpsumLength = (nextIpsumLength + 1) % IPSUM_LENGTHS.length
-    return {
-      id: crypto.randomUUID(),
-      text: Array(repeats).fill(IPSUM).join(' '),
-    }
-  },
-  render: (
-    section: SourceSectionInstance,
-    number: number,
-    output?: ReactNode,
-    controls?: ReactNode,
-  ): ReactElement => (
-    <SourceSection key={section.id} {...section} number={number} controls={controls}>
-      {output}
-    </SourceSection>
-  ),
-}
-
-export default function SourceSection({ id, number, text = IPSUM, children, controls }: SourceSectionProps) {
+export default function SourceSection({ id, number, text = DEFAULT_SOURCE_SECTION_TEXT, children, controls }: SourceSectionProps) {
   const headingId = `source-section-${id}-heading`
 
   return (
