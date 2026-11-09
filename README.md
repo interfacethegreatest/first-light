@@ -2,6 +2,8 @@
 
 Turn research findings into web applications, with a traceable path from evidence to implementation.
 
+**Live application:** <https://interfacethegreatest.github.io/first-light/>
+
 This is a new local React + TypeScript + Vite starter. Its first research topic and application audience are still open. The included web workspace lets you record sources, link findings to implementation decisions, track progress, and export your records. It starts empty, without sample papers or claims.
 
 ## Run locally
@@ -66,4 +68,4 @@ Each decision links to one source in the web workspace. Its document can cite ad
 
 The repository uses the `main` branch. A manually triggered [GitHub Pages workflow](.github/workflows/pages.yml) checks, builds, and publishes the app under the repository's name. See [the deployment guide](docs/github-pages.md) for setup and verification.
 
-The [GitHub repository](https://github.com/interfacethegreatest/first-light) is connected. The deployment setup has passed local production checks; first publication is waiting for the repository owner to select GitHub Actions in Settings → Pages. No live site has been verified yet.
+The [GitHub repository](https://github.com/interfacethegreatest/first-light) is connected and GitHub Pages is enabled. The app is published at <https://interfacethegreatest.github.io/first-light/>. Future deployments use the manual workflow described above.

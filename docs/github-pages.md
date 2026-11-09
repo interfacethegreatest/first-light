@@ -1,6 +1,10 @@
 # GitHub Pages deployment
 
-The user has requested publication of First Light and supplied [the repository](https://github.com/interfacethegreatest/first-light). The deployment configuration has passed local production checks; no live Pages link has been verified yet. GitHub permits repository access but rejected enabling Pages through the API with `Resource not accessible by integration` (HTTP 403). The owner must select GitHub Actions in the Pages settings below.
+**Live application:** <https://interfacethegreatest.github.io/first-light/>
+
+**Repository:** <https://github.com/interfacethegreatest/first-light>
+
+GitHub Pages is enabled with GitHub Actions as its source. The [initial deployment workflow](https://github.com/interfacethegreatest/first-light/actions/runs/42617690422) passed the checks, build, and deployment. Publication was explicitly requested by the user. The setup instructions below also apply when moving to another repository.
 
 ## One-time GitHub setup
 

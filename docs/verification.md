@@ -45,3 +45,13 @@ The user subsequently authorized publication to GitHub Pages. The coordinator ad
 - Remote access: authenticated as `interfacethegreatest`; attempted GraphQL and REST creation of the new `first-light` repository. Both were rejected as `Resource not accessible by integration` (REST HTTP 403).
 
 No repository was created or pushed, and no remote workflow or live URL was verified. The prepared deployment requires the one-time repository/access setup in [the Pages guide](github-pages.md).
+
+## GitHub Pages publication
+
+The user supplied the public `interfacethegreatest/first-light` repository. Its original README commit was preserved as a merge parent when adding First Light. After the owner enabled GitHub Actions as the Pages source, [workflow run 42617690422](https://github.com/interfacethegreatest/first-light/actions/runs/42617690422) successfully checked, built, and deployed revision `f658e0b` on 2026-11-09.
+
+The live URL reported by GitHub is <https://interfacethegreatest.github.io/first-light/>. The coordinator repeated the full Chromium workflow on that HTTPS site: empty state, keyboard skip link, invalid form feedback, source and linked-decision creation, status change, reload persistence, downloaded JSON, four responsive widths, stale-tab conflicts, corrupt storage preservation, and failed writes. All checks passed with no application JavaScript errors. Test records remained in isolated temporary browser contexts, without uploading research records.
+
+The verification agent independently confirmed the workflow completed successfully and that the live HTML, referenced JavaScript, stylesheet, and favicon each returned HTTP 200 with the expected content type. Every referenced asset stayed beneath `/first-light/` on the Pages origin.
+
+The deployment uses the existing manual workflow. Subsequent documentation updates do not automatically redeploy the application. Browser-local storage and the lack of an import interface remain unchanged; no cross-browser or screen-reader certification is claimed.
