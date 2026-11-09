@@ -1,0 +1,9 @@
+.globeCanvas {
+  position: relative;
+  cursor: grab;
+  z-index: 1;
+  height: 100% !important;
+  width: 100% !important;
+  margin-left: auto;
+  pointer-events: auto;
+}
