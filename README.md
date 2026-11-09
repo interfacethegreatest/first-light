@@ -58,9 +58,9 @@ The [initial verification record](docs/verification.md) lists the checks perform
 
 ## Calendar star background
 
-This branch ports the Three.js background from Calendar4, retaining its 7,500 stars, slow rotation, bloom, and black backdrop. The interface uses dark translucent surfaces to keep the background visible and the research forms readable. Reduced-motion preferences show a static scene; unavailable WebGL or a failed renderer download leaves a black background and a usable workspace.
+First Light uses the Three.js background from Calendar4, retaining its 7,500 stars, slow rotation, bloom, and black backdrop. The interface uses dark translucent surfaces to keep the background visible and the research forms readable. Reduced-motion preferences show a static scene; unavailable WebGL or a failed renderer download leaves a black background and a usable workspace.
 
-See [the source and verification notes](docs/calendar-stars-provenance.md) and the [desktop](docs/previews/calendar-stars-desktop.png) and [mobile](docs/previews/calendar-stars-mobile.png) previews. Publication of this update is approved; deployment verification is in progress.
+See [the source and verification notes](docs/calendar-stars-provenance.md) and the [desktop](docs/previews/calendar-stars-desktop.png) and [mobile](docs/previews/calendar-stars-mobile.png) previews. This update was published with the user's approval through [the successful Pages workflow](https://github.com/interfacethegreatest/first-light/actions/runs/42620982549).
 
 ## Storage and current limits
 

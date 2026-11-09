@@ -53,4 +53,14 @@ Review previews: [desktop](previews/calendar-stars-desktop.png) and [mobile](pre
 
 The scene is loaded separately from the research interface. The added renderer chunk is about 274 KiB gzipped, plus the 1.54 MB local HDR asset. Rendering cost varies by device; this verification used software WebGL, not a survey of mobile GPUs. The star distribution is randomized, as in the original. Reduced motion and no-WebGL fallbacks intentionally adapt the normal animated scene for those browser conditions.
 
-The user has explicitly approved publication of this update after reviewing the prepared change. The coordinator is carrying out the approved publication through the manual Pages workflow. Deployment verification is in progress; the local results above do not establish that this revision is live.
+## Published verification
+
+The user explicitly approved publication after reviewing the prepared change. [PR #2](https://github.com/interfacethegreatest/first-light/pull/2) was merged as `7848b1cd415255fb8cb4e47b2f9aeffc64570be0`. [Pages workflow 42620982549](https://github.com/interfacethegreatest/first-light/actions/runs/42620982549) successfully checked, built, and deployed that merge on 2026-11-09.
+
+Live application: <https://interfacethegreatest.github.io/first-light/>.
+
+An independent verification confirmed HTTP 200 for the live HTML, entry JavaScript, stylesheet, favicon, and referenced `StarBackground-CqT9_Edv.js` renderer chunk. The deployed HDR had the same 1,540,678 bytes and SHA-256 recorded above. All assets resolve beneath `/first-light/`.
+
+The coordinator then exercised the actual HTTPS site in Chromium with software WebGL: 7,500-point draws, a framebuffer readback with 2,298 lit pixels and no GL error, HTTP 200 for the same-origin HDR, noninteractive decorative layering, source → decision → status → reload → export, and layouts at 1440/768/390/320 pixels. All passed with no application JavaScript errors. Star positions are randomized, so the live and local lit-pixel counts need not match. Test records remained in isolated browser contexts; no user records were uploaded or modified.
+
+Later documentation-only commits do not trigger another deployment because the Pages workflow is manual. The rendering and device-performance limitations described above still apply.

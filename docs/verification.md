@@ -55,3 +55,9 @@ The live URL reported by GitHub is <https://interfacethegreatest.github.io/first
 The verification agent independently confirmed the workflow completed successfully and that the live HTML, referenced JavaScript, stylesheet, and favicon each returned HTTP 200 with the expected content type. Every referenced asset stayed beneath `/first-light/` on the Pages origin.
 
 The deployment uses the existing manual workflow. Subsequent documentation updates do not automatically redeploy the application. Browser-local storage and the lack of an import interface remain unchanged; no cross-browser or screen-reader certification is claimed.
+
+## Calendar star background publication
+
+After local review and explicit user approval, [PR #2](https://github.com/interfacethegreatest/first-light/pull/2) was merged and [Pages run 42620982549](https://github.com/interfacethegreatest/first-light/actions/runs/42620982549) successfully published merge `7848b1c`. The workflow runs type checks, all 34 tests, and a production build before deployment.
+
+Independent production checks confirmed the live page, CSS, entry and dynamically loaded renderer JavaScript, favicon, and exact HDR environment asset. Live Chromium software-WebGL checks confirmed 7,500-point rendering and the source → decision → status → reload → export flow, with responsive layouts and no application errors. See [the scene provenance and published verification record](calendar-stars-provenance.md) for asset hashes, rendering observations, and remaining device-performance limits.
