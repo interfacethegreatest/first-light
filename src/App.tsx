@@ -6,7 +6,7 @@ import CalendarButton from './components/calendarMotion/CalendarButton'
 import AddSourceButton from './components/sources/AddSourceButton'
 import SourceSections from './components/sources/SourceSections'
 import useSourceSections from './components/sources/useSourceSections'
-import { moonMarkTemplate } from './components/misc/MoonMark/moonMarkTemplate'
+import MoonBanner from './components/header/MoonBanner'
 import { MoonCredit } from './components/misc/MoonMark/MoonMark'
 import './App.css'
 
@@ -116,18 +116,7 @@ export default function App() {
   return (
     <>
       <a className="skip-link" href="#workspace">Skip to workspace</a>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="First Light home">{moonMarkTemplate.render({ size: 38 * 1.125, className: 'brand-icon' })}<span>first light<span className="brand-dot">.</span></span></a>
-        <div className="header-context"><span className="context-divider" />Research workspace<span className="local-badge"><span />Local</span></div>
-        <CalendarButton
-          className="button button-secondary export-button"
-          type="button"
-          label="Export workspace"
-          hoverLabel="Download JSON"
-          onClick={downloadWorkspace}
-          icon={<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" /></svg>}
-        />
-      </header>
+      <MoonBanner onExport={downloadWorkspace} />
 
       <main id="top" className="page-shell">
         <section className="hero" aria-labelledby="hero-title">

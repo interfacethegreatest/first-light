@@ -2,7 +2,6 @@ import {
   Component, lazy, Suspense, useCallback, useEffect, useRef, useState,
   type CSSProperties, type ReactNode,
 } from 'react'
-import MoonFallback from './MoonFallback'
 import { useMoonActivity } from './useMoonActivity'
 import styles from './MoonMark.module.css'
 
@@ -33,8 +32,8 @@ class MoonBoundary extends Component<{
   }
 }
 
-export default function MoonMark({ size = 36, animate = false, className }: MoonMarkProps) {
-  const element = useRef<HTMLSpanElement>(null)
+export default function MoonMark({ size = 112, animate = false, className }: MoonMarkProps) {
+  const element = useRef<HTMLDivElement>(null)
   const mounted = useRef(true)
   const { inViewport, pageVisible, reducedMotion } = useMoonActivity(element)
   const [hasWebGL, setHasWebGL] = useState<boolean | null>(null)
@@ -67,11 +66,11 @@ export default function MoonMark({ size = 36, animate = false, className }: Moon
   const canRender = requested && hasWebGL && !unavailable
   const canAnimate = animate && inViewport && pageVisible && !reducedMotion
   const state = hasWebGL === false || unavailable
-    ? 'fallback'
+    ? 'unavailable'
     : ready ? 'loaded' : requested ? 'loading' : 'pending'
 
   return (
-    <span
+    <div
       ref={element}
       className={`${styles.mark}${className ? ` ${className}` : ''}`}
       style={{ '--moon-mark-size': `${size}px` } as CSSProperties}
@@ -80,8 +79,7 @@ export default function MoonMark({ size = 36, animate = false, className }: Moon
       data-moon-state={state}
       data-moon-animate={Boolean(canRender && canAnimate)}
     >
-      <span className={styles.visual} data-moon-visual>
-        {!ready && <MoonFallback className={styles.fallback} />}
+      <div className={styles.visual} data-moon-visual>
         {canRender && (
           <MoonBoundary onUnavailable={onUnavailable}>
             <Suspense fallback={null}>
@@ -93,8 +91,8 @@ export default function MoonMark({ size = 36, animate = false, className }: Moon
             </Suspense>
           </MoonBoundary>
         )}
-      </span>
-    </span>
+      </div>
+    </div>
   )
 }
 

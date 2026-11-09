@@ -2,9 +2,11 @@
 
 ## Status
 
+The asset/validation details remain current. The small-icon layout, vector fallback and original browser measurements below describe the first Moon integration, published in commit `018c05f`. The current scene-only banner and zoom-resolution changes are documented separately in [moon-scene-banner-plan.md](moon-scene-banner-plan.md).
+
 The original assets are preserved and the self-contained GLB passes official validation and byte/value comparisons. The source is the user-confirmed Calendar4 project. Its adaptation package was unavailable, so [pack-moon-glb.mjs](../scripts/pack-moon-glb.mjs) and [pack-moon-glb.test.mjs](../tests/pack-moon-glb.test.mjs) were **locally implemented from the user's pasted brief**. These filenames do not imply that supplied package code was received or used. The generated [pack report](../public/media/moon/moon.glb.pack-report.json) records the local tool's origin explicitly.
 
-Packaging, application integration and the browser comparisons below are complete locally. This is a review branch, not a deployment result.
+Packaging, the original application integration and the browser comparisons below were completed before that initial deployment.
 
 ## Pinned originals
 
@@ -108,4 +110,4 @@ This work is based on [Moon](https://sketchfab.com/3d-models/moon-1425bed819624f
 
 Rendering is owned separately from asset conversion. Its canonical paths are [MoonModel.tsx](../src/components/misc/MoonMark/MoonModel.tsx), [MoonMarkCanvas.tsx](../src/components/misc/MoonMark/MoonMarkCanvas.tsx), and [MoonMark.tsx](../src/components/misc/MoonMark/MoonMark.tsx). The preferred legacy [moonScene/MoonScene.tsx](../src/components/react%20three%20fibre/moonScene/MoonScene.tsx) path re-exports MoonMarkCanvas rather than duplicating the scene. [Moon.jsx](../public/media/moon/Moon.jsx) retains the original author/license/source header and re-exports the canonical model through `../../../src/components/misc/MoonMark/MoonModel`, without duplicating geometry or material code. These aliases are source compatibility entrypoints, not public browser-loading modules. No poster image is needed for this asset task.
 
-No deployment or live-site result is claimed here. The unavailable adaptation package was not used; this implementation follows the confirmed Calendar4 originals and pasted brief instead.
+The unavailable adaptation package was not used; this implementation follows the confirmed Calendar4 originals and pasted brief instead. Current banner changes require their own deployment approval.
