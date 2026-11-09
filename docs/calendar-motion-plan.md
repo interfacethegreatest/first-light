@@ -23,7 +23,7 @@ Use reduced-motion preferences to stop spring travel, tilt, and border/label ani
 4. Pointer movement cannot move focused fields. Touch/coarse pointers do not tilt panels. Reduced motion disables the new animation and live preference changes preserve form values and focus.
 5. No horizontal overflow appears at 1440, 768, 390, or 320 pixels, including during entrance. Existing source → decision → status → reload → export behavior passes.
 6. Existing tests, relevant new behavioral checks, TypeScript, and the Pages-path build pass. Browser checks verify actual movement, motion suppression, and interaction. Capture a short animation preview.
-7. Prepare a draft PR and reviewable preview. Obtain the user's approval before merging or dispatching Pages for this new update. The user has now explicitly approved publication. The coordinator is carrying out the approved publication; deployment verification is in progress.
+7. Prepare a draft PR and reviewable preview. Obtain the user's approval before merging or dispatching Pages for this new update. The user explicitly approved publication after review. Workflow `42628705528` successfully published merge `6dd5152`; production checks are recorded in the provenance document.
 
 ## Ownership and sequencing
 

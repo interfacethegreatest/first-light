@@ -60,4 +60,16 @@ Review artifacts: [animation video](previews/calendar-motion-demo.mp4), [desktop
 
 The entry bundle grows by about 43 kB gzipped to include the two animation libraries; the separate 3D scene payload is unchanged. The border cycle runs continuously in normal-motion mode, as in the source. Hardware and browser animation performance vary; verification used Chromium, including software WebGL for the combined preview, rather than a range of physical mobile devices.
 
-Publication of this interface-motion update requires the user's approval before merging or dispatching the manual Pages workflow. The user has now explicitly granted that approval, and the coordinator is carrying out publication. Deployment verification is in progress; the local results above do not establish that this revision is live.
+## Published verification
+
+The user explicitly approved publication after review. [PR #3](https://github.com/interfacethegreatest/first-light/pull/3) was merged as `6dd5152b126bfd4a84f38469b8e06647f2a68ab4`. [Pages workflow 42628705528](https://github.com/interfacethegreatest/first-light/actions/runs/42628705528) passed the checks, all 44 tests, build, and deployment on 2026-11-09.
+
+Live application: <https://interfacethegreatest.github.io/first-light/>.
+
+The verification agent independently confirmed the live entry JavaScript and CSS contain both Calendar animation markers, distinguishing this release from the previous stars-only interface. The HTML, entry script, stylesheet, favicon, and dynamically loaded star chunk returned HTTP 200 with correct content types. The HDR still had 1,540,678 bytes and the original SHA-256 `7afe4c2f9700ee78c7477c53fa355463d7dda1fdede401432d6b5f9ff0a95696`.
+
+The coordinator repeated the interface checks on the actual HTTPS site in Chromium: entrance movement from x `-1440` through `-1433.3` to `0`, nonzero pointer tilt with steady focused fields, rolling-label opacity/transform, the source green hover color, changing border colors, keyboard submit/export, disabled decision creation, source → decision → status → reload → export, and four responsive widths. Live reduced-motion toggles preserved the input node, value, and focus; borders stopped. A touch/coarse-pointer context kept tilt disabled. All passed. Entrance checks waited for an observed rendered frame rather than assuming the hosted page could advance within a fixed delay.
+
+These interface frame measurements isolated the decorative chunk, as in the local verification. A separate combined check then rendered the actual live 7,500-star scene with software WebGL, observed 3,822 lit framebuffer pixels with no GL error, and confirmed HTTP 200 for the same-origin environment. Source → decision → status → reload → export and all four widths passed with that real scene active and no application JavaScript errors.
+
+Test records remained in fresh browser contexts; no user records were uploaded or changed. Later documentation-only commits do not trigger another deployment because the Pages workflow is manual. The device-performance and browser-coverage limits above still apply.

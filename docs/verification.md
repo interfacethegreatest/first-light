@@ -61,3 +61,11 @@ The deployment uses the existing manual workflow. Subsequent documentation updat
 After local review and explicit user approval, [PR #2](https://github.com/interfacethegreatest/first-light/pull/2) was merged and [Pages run 42620982549](https://github.com/interfacethegreatest/first-light/actions/runs/42620982549) successfully published merge `7848b1c`. The workflow runs type checks, all 34 tests, and a production build before deployment.
 
 Independent production checks confirmed the live page, CSS, entry and dynamically loaded renderer JavaScript, favicon, and exact HDR environment asset. Live Chromium software-WebGL checks confirmed 7,500-point rendering and the source → decision → status → reload → export flow, with responsive layouts and no application errors. See [the scene provenance and published verification record](calendar-stars-provenance.md) for asset hashes, rendering observations, and remaining device-performance limits.
+
+## Calendar interface animation publication
+
+After explicit user approval, [PR #3](https://github.com/interfacethegreatest/first-light/pull/3) was merged as `6dd5152` and [Pages workflow 42628705528](https://github.com/interfacethegreatest/first-light/actions/runs/42628705528) successfully ran type checks, all 44 tests, the production build, and deployment.
+
+Independent production checks confirmed the new Calendar animation markers in the live JavaScript/CSS, HTTP 200 for the application and star-renderer assets, and the original HDR checksum. Chromium checks of the live UI passed for actual spring/tilt/label/border motion, keyboard/native form actions, stable focused fields, touch/coarse-pointer behavior, live reduced-motion changes, persistence/export, and widths of 1440/768/390/320 pixels. See [the interface motion provenance and published verification](calendar-motion-provenance.md) for details and coverage limits.
+
+A separate combined live check confirmed the actual 7,500-star WebGL rendering and same-origin environment load, then repeated the research workflow and four responsive widths with no application errors. Synthetic test records stayed in isolated browser contexts.
