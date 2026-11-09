@@ -1,0 +1,63 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-self: center;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.wrapper .button {
+  flex: 0 0 auto;
+  min-height: 41px;
+  margin: 0;
+  padding: 11px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.mobileIcon {
+  display: none;
+  pointer-events: none;
+}
+
+.wrapper .button:focus-visible {
+  outline: 3px solid #ffaf86;
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  .wrapper .button {
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 560px) {
+  .wrapper {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .wrapper .button {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+    border-radius: 12px;
+  }
+
+  .wrapper .button :global(.calendar-button-labels) {
+    display: none;
+  }
+
+  .mobileIcon {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+  }
+}

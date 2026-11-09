@@ -1,0 +1,251 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:4199/first-light/",
+  "entry": "index-i5Ay27Bd.js",
+  "scope": "Only LTR/row/nowrap geometry under normal and inherited RTL; no asset/GPU/control/performance suites",
+  "cases": [
+    {
+      "normal": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "title": {
+          "tag": "DIV",
+          "children": 2,
+          "rect": {
+            "x": 49,
+            "y": 45,
+            "width": 315.203125,
+            "height": 138,
+            "right": 364.203125,
+            "bottom": 183
+          },
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "whiteSpace": "nowrap",
+          "justifyContent": "flex-start",
+          "intrinsicWidth": 315.203125
+        },
+        "moon": {
+          "rect": {
+            "x": 62,
+            "y": 58,
+            "width": 112,
+            "height": 112,
+            "right": 174,
+            "bottom": 170
+          },
+          "marker": true
+        },
+        "wordmark": {
+          "rect": {
+            "x": 196,
+            "y": 94.203125,
+            "width": 147.203125,
+            "height": 39.59375,
+            "right": 343.203125,
+            "bottom": 133.796875
+          },
+          "text": "first light.",
+          "direction": "ltr"
+        },
+        "home": {
+          "rect": {
+            "x": 49,
+            "y": 41,
+            "width": 1163.65625,
+            "height": 181,
+            "right": 1212.65625,
+            "bottom": 222
+          },
+          "direction": "ltr",
+          "name": "First Light home",
+          "href": "#top"
+        }
+      },
+      "parentRTL": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "title": {
+          "tag": "DIV",
+          "children": 2,
+          "rect": {
+            "x": 889.453125,
+            "y": 45,
+            "width": 315.203125,
+            "height": 138,
+            "right": 1204.65625,
+            "bottom": 183
+          },
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "whiteSpace": "nowrap",
+          "justifyContent": "flex-start",
+          "intrinsicWidth": 315.203125
+        },
+        "moon": {
+          "rect": {
+            "x": 902.453125,
+            "y": 58,
+            "width": 112,
+            "height": 112,
+            "right": 1014.453125,
+            "bottom": 170
+          },
+          "marker": true
+        },
+        "wordmark": {
+          "rect": {
+            "x": 1036.453125,
+            "y": 94.203125,
+            "width": 147.203125,
+            "height": 39.59375,
+            "right": 1183.65625,
+            "bottom": 133.796875
+          },
+          "text": "first light.",
+          "direction": "ltr"
+        },
+        "home": {
+          "rect": {
+            "x": 49,
+            "y": 41,
+            "width": 1163.65625,
+            "height": 181,
+            "right": 1212.65625,
+            "bottom": 222
+          },
+          "direction": "rtl",
+          "name": "First Light home",
+          "href": "#top"
+        }
+      }
+    },
+    {
+      "normal": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "title": {
+          "tag": "DIV",
+          "children": 2,
+          "rect": {
+            "x": 29,
+            "y": 33,
+            "width": 211.640625,
+            "height": 94,
+            "right": 240.640625,
+            "bottom": 127
+          },
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "whiteSpace": "nowrap",
+          "justifyContent": "flex-start",
+          "intrinsicWidth": 211.640625
+        },
+        "moon": {
+          "rect": {
+            "x": 42,
+            "y": 44,
+            "width": 72,
+            "height": 72,
+            "right": 114,
+            "bottom": 116
+          },
+          "marker": true
+        },
+        "wordmark": {
+          "rect": {
+            "x": 126,
+            "y": 65.703125,
+            "width": 101.640625,
+            "height": 28.59375,
+            "right": 227.640625,
+            "bottom": 94.296875
+          },
+          "text": "first light.",
+          "direction": "ltr"
+        },
+        "home": {
+          "rect": {
+            "x": 29,
+            "y": 29,
+            "width": 262,
+            "height": 134,
+            "right": 291,
+            "bottom": 163
+          },
+          "direction": "ltr",
+          "name": "First Light home",
+          "href": "#top"
+        }
+      },
+      "parentRTL": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "title": {
+          "tag": "DIV",
+          "children": 2,
+          "rect": {
+            "x": 79.359375,
+            "y": 33,
+            "width": 211.640625,
+            "height": 94,
+            "right": 291,
+            "bottom": 127
+          },
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "whiteSpace": "nowrap",
+          "justifyContent": "flex-start",
+          "intrinsicWidth": 211.640625
+        },
+        "moon": {
+          "rect": {
+            "x": 92.359375,
+            "y": 44,
+            "width": 72,
+            "height": 72,
+            "right": 164.359375,
+            "bottom": 116
+          },
+          "marker": true
+        },
+        "wordmark": {
+          "rect": {
+            "x": 176.359375,
+            "y": 65.703125,
+            "width": 101.640625,
+            "height": 28.59375,
+            "right": 278,
+            "bottom": 94.296875
+          },
+          "text": "first light.",
+          "direction": "ltr"
+        },
+        "home": {
+          "rect": {
+            "x": 29,
+            "y": 29,
+            "width": 262,
+            "height": 134,
+            "right": 291,
+            "bottom": 163
+          },
+          "direction": "rtl",
+          "name": "First Light home",
+          "href": "#top"
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "screenshot": "header-rtl-320.png",
+  "screenshotFixture": "Only native home anchor has dir=rtl; title remains explicitly LTR"
+}
