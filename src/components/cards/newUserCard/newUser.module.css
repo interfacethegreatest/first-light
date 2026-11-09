@@ -31,13 +31,13 @@
   width: 100%;
   min-width: 0;
   height: auto;
-  border: 2px solid rgba(90, 89, 89, 0.295);
+  border: 2px solid rgba(159, 158, 158, 0.7);
   border-radius: 15px;
   background: linear-gradient(135deg, #1b1b1d1e 75%, #1e1e1e1e 100%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  transition: box-shadow 0.3s ease, border 0.3s ease;
+  transition: box-shadow 0.3s ease;
   overflow: visible;
   isolation: isolate;
   cursor: default;
@@ -69,7 +69,6 @@
 
 .main:hover {
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4);
-  border-color: rgba(149, 149, 149, 0.295);
   background: linear-gradient(135deg, #1b1b1d1e 75%, #1f1f1f1e 100%);
 }
 
@@ -230,7 +229,7 @@
   z-index: 2;
   width: 100%;
   min-width: 0;
-  padding: 12px 18px 90px;
+  padding: 12px 18px 90px 12px;
   overflow: visible;
   user-select: text;
 }
@@ -240,7 +239,7 @@
   font-size: 0.85rem;
   font-weight: 500;
   line-height: 1.85;
-  text-align: center;
+  text-align: left;
   white-space: pre-wrap;
   color: rgba(240, 248, 255, 0.78);
   user-select: text;

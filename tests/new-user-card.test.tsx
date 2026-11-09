@@ -11,6 +11,8 @@ function motionPreferences() {
       matches: false,
       addEventListener: vi.fn((_type: string, callback: () => void) => listeners.add(callback)),
       removeEventListener: vi.fn((_type: string, callback: () => void) => listeners.delete(callback)),
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
     }
     return {
       media,
