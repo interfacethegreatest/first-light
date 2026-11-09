@@ -5,9 +5,9 @@ import type { ReactNode } from 'react'
 export const DEFAULT_SOURCE_SECTION_TEXT = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
 const BORDER_COLOURS = {
-  aliceblue: '#F0F8FF',
+  aliceblue: 'rgba(240, 248, 255, 0.16)',
   // Custom token: slatepurple is not a standard CSS colour keyword.
-  slatepurple: '#7B68EE',
+  slatepurple: 'rgba(123, 104, 238, 0.28)',
 } as const
 
 export type SourceSectionBorderTone = keyof typeof BORDER_COLOURS
@@ -31,7 +31,16 @@ export default function SourceSection({ id, number, text = DEFAULT_SOURCE_SECTIO
     <section
       className="panel"
       aria-labelledby={headingId}
-      style={{ width: '100%', minWidth: 0, height: 'auto', overflowWrap: 'anywhere', border: `2px solid ${BORDER_COLOURS[borderTone]}` }}
+      style={{
+        width: '100%',
+        minWidth: 0,
+        height: 'auto',
+        overflowWrap: 'anywhere',
+        border: 0,
+        borderTop: `1px solid ${BORDER_COLOURS[borderTone]}`,
+        borderRadius: 0,
+        background: 'transparent',
+      }}
     >
       <div
         className="panel-heading"
