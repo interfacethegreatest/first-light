@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "snapshotKind": "local working-tree source; not deployment evidence",
-  "snapshotSha256": "614a9dfc732797edffea625263c3e633b998e34815a088bd61c0724ae76cc4d8",
+  "snapshotSha256": "c7dd30b65a4acedf36beea948dd4a5b4184e85530874216cdf4df95ecb47651e",
   "sourceSelection": {
     "directory": "all files under src/",
     "explicitFiles": [
@@ -15,7 +15,7 @@
   },
   "fileCount": 98,
   "srcFileCount": 96,
-  "sourceBytes": 210786,
+  "sourceBytes": 212094,
   "componentModuleCount": 47,
   "components": [
     {
@@ -675,8 +675,8 @@
     },
     {
       "path": "src/components/cards/newUserCard/cardTiles.module.css",
-      "bytes": 4582,
-      "sha256": "ec16040ea7c54ff7bf1f88cf2c2ca983edf41e7a665327f146c3c5eade858755",
+      "bytes": 5890,
+      "sha256": "d172443310417ab71896b0e7b5ed302c2f739410d973bfea33a20b107603473f",
       "encoding": "utf8",
       "category": "Source sections and reusable cards",
       "anchor": "file-src-components-cards-newusercard-cardtiles-module-css-58f31a0f",
@@ -1460,13 +1460,13 @@
   "artifacts": {
     "markdown": {
       "path": "docs/component-catalog.md",
-      "bytes": 264553,
-      "sha256": "84f374baae53569f34a05063fde6b2fe16df3d6acfc54c12ffe9f57f9af58f80"
+      "bytes": 265861,
+      "sha256": "aef918ec3035523b9e6d09962c4c3aa376a3f23d5e345110f2f07fa8a25d300a"
     },
     "zip": {
       "path": "docs/component-source.zip",
-      "bytes": 227002,
-      "sha256": "2474679d8f9332b39b7a7cb0895b8ea2a4d07b9d27d98318a85e0045860b81fa",
+      "bytes": 228310,
+      "sha256": "c61cf5542255b4133c22f97deacc87dd40ff103d86b9d53962999d14dcb96b2b",
       "entries": 98
     }
   }
