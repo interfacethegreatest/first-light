@@ -1,0 +1,13 @@
+# Footer typography and glass/HTML component release
+
+The user approved deployment of the current First Light work. Publish the 3D footer text in the main app and the approved glass/HTML/input components as an accessible example at `/first-light/examples/glass-panel-3d/`. Preserve the existing workspace actions, storage format, Moon/Sun/star scenes, layout and manually triggered deployment policy.
+
+Vite uses two HTML build entries so the normal Pages artifact contains both the application and example, with shared assets. The example demonstrates real Drei Html, restrained MeshWobbleMaterial motion and Calendar4's extracted input/outsideClick logic. Existing component documents contain implementation-stage test results and screenshots; their statements about not deploying describe those earlier stages.
+
+Ownership for this release: the coordinator owns packaging, documentation, repository publication and workflow dispatch. An independent agent audits the source/release files read-only. A verification agent owns temporary browser checks and release artifacts, with no source or remote mutations. Local checks precede repository publication; live verification follows successful Pages deployment.
+
+Acceptance: full project checks pass; both production HTML entries and local fonts/HDR load under `/first-light/`; native workspace actions and the actual Html example remain usable at desktop/mobile widths; Pages reports a successful deployment of the approved commit; live URLs and revision assets are verified. No dependency upgrade, hosting-source change or automatic deployment trigger is needed.
+
+Local verification passed: `VITE_BASE_PATH=/first-light/ npm run check` runs 160 application tests, 26 asset-packer tests, original/converted Moon validation with zero errors or warnings, strict TypeScript and the combined production build. Both routes and their referenced fonts/HDR/scripts/styles load correctly. Browser checks cover the native workspace source/decision/status/reload/export flow, actual footer Text3D, real stable-portal Html content and mobile fit. The workspace flow uses isolated synthetic data, separately from actual GPU rendering checks.
+
+The independent source/packaging audit found no release blockers and confirmed font licensing and the requested outsideClick wiring. Chromium with software WebGL was checked; Safari and hardware GPU performance remain unverified. Vite's existing large-chunk advisory remains. Publication uses the existing [manual Pages workflow](https://github.com/interfacethegreatest/first-light/actions/workflows/pages.yml); its run records the deployed commit and result.

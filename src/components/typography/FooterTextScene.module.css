@@ -1,0 +1,32 @@
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 660px;
+  min-width: 0;
+  height: 112px;
+  margin: 24px auto 0;
+  background: transparent;
+  pointer-events: none;
+  touch-action: auto;
+}
+
+.fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0 12px;
+  color: var(--ink, #f3f4f7);
+  font-family: inherit;
+  font-size: clamp(14px, 1.5vw, 20px);
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .scene {
+    height: 90px;
+  }
+}

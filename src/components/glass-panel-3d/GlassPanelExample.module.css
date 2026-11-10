@@ -1,0 +1,71 @@
+.example {
+  position: relative;
+  isolation: isolate;
+  max-width: 48rem;
+  margin: 12vh auto;
+  padding: 1.5rem;
+}
+
+/* Preview-only lights behind the pane make its transparency easy to inspect. */
+.example::before {
+  content: '';
+  position: absolute;
+  inset: 26% 8% 5%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 22% 30%, rgba(163, 179, 195, .42), transparent 48%),
+    radial-gradient(ellipse at 82% 75%, rgba(112, 141, 136, .32), transparent 48%);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-bottom: 1.5rem;
+}
+
+.sceneExample { margin-top: 3rem; }
+.sceneExample .toolbar { align-items: center; justify-content: space-between; }
+
+.toolbar button {
+  padding: .7rem 1rem;
+  color: inherit;
+  background: rgba(35, 37, 49, .65);
+  border: var(--workspace-panel-border);
+  border-radius: var(--workspace-panel-radius);
+}
+
+.content {
+  display: grid;
+  gap: 1.1rem;
+  line-height: 1.6;
+}
+
+.content h1 {
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+
+.eyebrow {
+  color: #c3cad9;
+  font-size: .65rem;
+  letter-spacing: .13em;
+}
+
+.field {
+  display: grid;
+  gap: .5rem;
+  font-size: .85rem;
+}
+
+.field input {
+  width: 100%;
+  padding: .8rem;
+  color: inherit;
+  background: rgba(18, 20, 29, .25);
+  border: var(--workspace-panel-border);
+  border-radius: var(--workspace-panel-radius);
+}

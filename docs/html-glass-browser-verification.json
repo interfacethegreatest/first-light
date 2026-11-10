@@ -1,0 +1,179 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:4220/first-light/",
+  "scope": "Actual production Drei Html with native textarea and actual torus GPU uniform time; no mocked Canvas.",
+  "ancestry": {
+    "insideActualHtml": true,
+    "insideStablePortal": true,
+    "hiddenAncestor": false,
+    "oneField": 1,
+    "oneHost": 1
+  },
+  "torusMotion": {
+    "before": [
+      {
+        "draws": 48,
+        "time": 1.889234999998659,
+        "timeChanges": 9,
+        "connected": true,
+        "error": 0
+      }
+    ],
+    "after": [
+      {
+        "draws": 54,
+        "time": 2.142180000002682,
+        "timeChanges": 11,
+        "connected": true,
+        "error": 0
+      }
+    ],
+    "stationaryNativeForm": true
+  },
+  "focusedIdle": {
+    "before": [
+      {
+        "draws": 63,
+        "time": 0,
+        "timeChanges": 14,
+        "connected": true,
+        "error": 0
+      }
+    ],
+    "after": [
+      {
+        "draws": 63,
+        "time": 0,
+        "timeChanges": 14,
+        "connected": true,
+        "error": 0
+      }
+    ],
+    "observedTransitionsBeforeStable": 0
+  },
+  "activeStyle": {
+    "state": "active",
+    "border": "2px solid rgb(42, 111, 87)",
+    "height": "88px"
+  },
+  "errorStyle": {
+    "state": "error",
+    "border": "2px solid rgb(200, 60, 60)",
+    "height": "88px"
+  },
+  "reducedIdle": {
+    "before": [
+      {
+        "draws": 84,
+        "time": 0,
+        "timeChanges": 20,
+        "connected": true,
+        "error": 0
+      }
+    ],
+    "after": [
+      {
+        "draws": 84,
+        "time": 0,
+        "timeChanges": 20,
+        "connected": true,
+        "error": 0
+      }
+    ],
+    "observedTransitionsBeforeStable": 0
+  },
+  "mobile": {
+    "width": 320,
+    "scrollWidth": 320,
+    "box": {
+      "x": 66.9375,
+      "y": 710.2109375,
+      "width": 171.25,
+      "height": 82.046875,
+      "top": 710.2109375,
+      "right": 238.1875,
+      "bottom": 792.2578125,
+      "left": 66.9375
+    },
+    "insideHtml": true
+  },
+  "offscreenIdle": {
+    "before": [
+      {
+        "draws": 105,
+        "time": 0,
+        "timeChanges": 23,
+        "connected": true,
+        "error": 0
+      }
+    ],
+    "after": [
+      {
+        "draws": 105,
+        "time": 0,
+        "timeChanges": 23,
+        "connected": true,
+        "error": 0
+      }
+    ],
+    "observedTransitionsBeforeStable": 1
+  },
+  "controlledHiddenIdle": {
+    "before": [
+      {
+        "draws": 111,
+        "time": 0,
+        "timeChanges": 25,
+        "connected": true,
+        "error": 0
+      }
+    ],
+    "after": [
+      {
+        "draws": 111,
+        "time": 0,
+        "timeChanges": 25,
+        "connected": true,
+        "error": 0
+      }
+    ],
+    "observedTransitionsBeforeStable": 0
+  },
+  "nativeContextLoss": {
+    "sameField": true,
+    "sameHost": true,
+    "inFallback": true,
+    "selection": [
+      2,
+      8
+    ],
+    "canvasCount": 0
+  },
+  "pageErrors": [],
+  "hdr": [
+    {
+      "url": "http://127.0.0.1:4220/first-light/environments/potsdamer_platz_1k.hdr",
+      "status": 200
+    }
+  ],
+  "limitations": [
+    "Chromium/SwiftShader only; hidden-document signal controlled rather than native minimization."
+  ],
+  "freshNormalContexts": [
+    {
+      "case": "full-flow",
+      "visibleActualHtml": true,
+      "pageErrors": []
+    },
+    {
+      "case": 2,
+      "visibleActualHtml": true,
+      "pageErrors": []
+    },
+    {
+      "case": 3,
+      "visibleActualHtml": true,
+      "pageErrors": []
+    }
+  ]
+}
