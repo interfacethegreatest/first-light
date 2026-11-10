@@ -8,21 +8,13 @@ import SourceSections from './components/sources/SourceSections'
 import useSourceSections from './components/sources/useSourceSections'
 import MoonBanner from './components/header/MoonBanner'
 import { MoonCredit } from './components/misc/MoonMark/MoonMark'
+import SparkArt from './components/hero/SparkArt'
 import './App.css'
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
     <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       {diagonal ? <path d="M6 18 18 6M6 6h12v12" /> : <path d="M4 12h15m-6-6 6 6-6 6" />}
-    </svg>
-  )
-}
-
-function HeroSun() {
-  return (
-    <svg aria-hidden="true" className="sun-illustration" width="180" height="122" viewBox="0 0 180 122" fill="none">
-      <path d="M20 102h140M33 113h114M90 9v17M30 35l12 12M150 35l-12 12M10 76h18M152 76h18" stroke="currentColor" strokeWidth="2" />
-      <path d="M43 102a47 47 0 0 1 94 0" fill="currentColor" />
     </svg>
   )
 }
@@ -125,7 +117,7 @@ export default function App() {
             <h1 id="hero-title">Good research.<br /><span>Real applications.</span></h1>
             <p className="hero-description">A place to turn what you learn into what you build. Collect the evidence, connect the findings, and give your next web application a clear starting point.</p>
           </div>
-          <div className="hero-art" aria-hidden="true"><div className="art-grid" /><HeroSun /><span className="art-caption">EVERY BUILD STARTS WITH A SPARK</span></div>
+          <SparkArt />
         </section>
 
         <section className="workflow-strip" aria-label="Research to application workflow">

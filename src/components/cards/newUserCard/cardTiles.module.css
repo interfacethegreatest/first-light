@@ -47,20 +47,20 @@
 [data-new-user-card]:is(:hover, :focus-within) .tile1,
 [data-new-user-card]:is(:hover, :focus-within) .tile5,
 [data-new-user-card]:is(:hover, :focus-within) .tile9 {
-  border-bottom: 2px solid rgba(90, 89, 89, 0.17);
-  border-right: 2px solid rgba(90, 89, 89, 0.17);
+  border-bottom: var(--tile-line-width) solid var(--tile-line-colour);
+  border-right: var(--tile-line-width) solid var(--tile-line-colour);
 }
 
 [data-new-user-card]:is(:hover, :focus-within) .tile2,
 [data-new-user-card]:is(:hover, :focus-within) .tile3,
 [data-new-user-card]:is(:hover, :focus-within) .tile10 {
-  border-bottom: 2px solid rgba(90, 89, 89, 0.17);
+  border-bottom: var(--tile-line-width) solid var(--tile-line-colour);
 }
 
 [data-new-user-card]:is(:hover, :focus-within) .tile3,
 [data-new-user-card]:is(:hover, :focus-within) .tile5,
 [data-new-user-card]:is(:hover, :focus-within) .tile9 {
-  background-color: rgba(48, 121, 97, 0.036);
+  background-color: rgba(225, 231, 255, 0.02);
 }
 
 .loader,
@@ -69,13 +69,13 @@
   align-self: end;
   justify-self: start;
   width: 0px;
-  height: 2px;
+  height: var(--tile-line-width);
   margin-right: 23px;
 }
 
 .loader { grid-area: 1 / 4 / 2 / 5; }
 .loader2 { grid-area: 2 / 3 / 3 / 5; }
-.loader3 { grid-area: 3 / 4 / 4 / 5; height: 3px; }
+.loader3 { grid-area: 3 / 4 / 4 / 5; height: var(--tile-line-width); }
 
 .loader4,
 .loader5,
@@ -111,28 +111,28 @@
 }
 
 @keyframes progress93 {
-  from { width: 0px; border: 1px solid rgba(90, 89, 89, 0.17); }
-  to { width: 93px; border: 1px solid rgba(90, 89, 89, 0.17); }
+  from { width: 0px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
+  to { width: 93px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
 }
 
 @keyframes progress186 {
-  from { width: 0px; border: 1px solid rgba(90, 89, 89, 0.17); }
-  to { width: 186px; border: 1px solid rgba(90, 89, 89, 0.17); }
+  from { width: 0px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
+  to { width: 186px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
 }
 
 @keyframes progress62 {
-  from { width: 0px; border: 1px solid rgba(90, 89, 89, 0.17); }
-  to { width: 62px; border: 1.5px solid rgba(90, 89, 89, 0.09); }
+  from { width: 0px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
+  to { width: 62px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
 }
 
 @keyframes progressFooter {
-  from { height: 0px; border-right: 2px solid rgba(90, 89, 89, 0.17); }
-  to { height: 16px; border-right: 3px solid rgba(104, 103, 103, 0.11); }
+  from { height: 0px; border-right: var(--tile-line-width) solid var(--tile-line-colour); }
+  to { height: 16px; border-right: var(--tile-line-width) solid var(--tile-line-colour); }
 }
 
 @keyframes progressFull {
-  from { height: 0px; border-right: 2px solid rgba(90, 89, 89, 0.17); }
-  to { height: 160px; border-right: 3px solid rgba(104, 103, 103, 0.11); }
+  from { height: 0px; border-right: var(--tile-line-width) solid var(--tile-line-colour); }
+  to { height: 160px; border-right: var(--tile-line-width) solid var(--tile-line-colour); }
 }
 
 .viewport[data-reduced-motion='true'] .tile,

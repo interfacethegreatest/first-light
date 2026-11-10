@@ -1,0 +1,28 @@
+{
+  "scope": "No wider-app/SparkArt/TileGrid/template/dependency source changes during typography update; previous pending tile work retained.",
+  "allUnchanged": true,
+  "before": {
+    "src/App.tsx": "842f094bce1edf904d3acf32025269d839020810ac98934656d7f5ddd9d438f4",
+    "src/App.css": "6c96f2448d6c2881d18010e81736f5283b1bc74f8e8b362a45fbba7bf0976ac5",
+    "src/components/hero/SparkArt.tsx": "dca3c18b81279c81e71489d7f306cda41ed29266056d3fe27af0198304177cda",
+    "src/components/hero/SparkArt.module.css": "631f8dd171c702222ebcead539ca40b76f8f04e3dc79e43febb0f051e899b520",
+    "src/components/decorations/TileGrid.tsx": "98d1a9123e6c186502023a42fe6b78368b84334fefd984650ef16975ba142945",
+    "src/components/decorations/TileGrid.module.css": "cfb70da7d3406c9141ead2617dd8357bd8541f730c2dcf23135d40867f9dae2b",
+    "src/components/sources/SourceSection.tsx": "de8b3c8838b4cd986a3b08818940b6fa4d0dd1b8343c93a97f197df0c68117e0",
+    "src/components/sources/sourceSectionTemplate.tsx": "e695e045a34c50fc0e98c27454bc73408a88522c39d431a8f436f6cdeb025a69",
+    "package.json": "fc856e128f5a75bf49e3ceecea2264e5d2fa64fd22c16aa209d454a9e9f63e3a",
+    "package-lock.json": "8445ac56cb80dbc3460928563c9a27ea002e866ff5e58f1e7e172b41280e11c0"
+  },
+  "after": {
+    "src/App.tsx": "842f094bce1edf904d3acf32025269d839020810ac98934656d7f5ddd9d438f4",
+    "src/App.css": "6c96f2448d6c2881d18010e81736f5283b1bc74f8e8b362a45fbba7bf0976ac5",
+    "src/components/hero/SparkArt.tsx": "dca3c18b81279c81e71489d7f306cda41ed29266056d3fe27af0198304177cda",
+    "src/components/hero/SparkArt.module.css": "631f8dd171c702222ebcead539ca40b76f8f04e3dc79e43febb0f051e899b520",
+    "src/components/decorations/TileGrid.tsx": "98d1a9123e6c186502023a42fe6b78368b84334fefd984650ef16975ba142945",
+    "src/components/decorations/TileGrid.module.css": "cfb70da7d3406c9141ead2617dd8357bd8541f730c2dcf23135d40867f9dae2b",
+    "src/components/sources/SourceSection.tsx": "de8b3c8838b4cd986a3b08818940b6fa4d0dd1b8343c93a97f197df0c68117e0",
+    "src/components/sources/sourceSectionTemplate.tsx": "e695e045a34c50fc0e98c27454bc73408a88522c39d431a8f436f6cdeb025a69",
+    "package.json": "fc856e128f5a75bf49e3ceecea2264e5d2fa64fd22c16aa209d454a9e9f63e3a",
+    "package-lock.json": "8445ac56cb80dbc3460928563c9a27ea002e866ff5e58f1e7e172b41280e11c0"
+  }
+}

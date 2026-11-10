@@ -1,0 +1,18 @@
+.grid {
+  --tile-line-width: 1px;
+  --tile-line-colour: rgba(225, 231, 255, 0.09);
+  --tile-cell-size: 28px;
+  background-image:
+    linear-gradient(to right, var(--tile-line-colour) var(--tile-line-width), transparent var(--tile-line-width)),
+    linear-gradient(to bottom, var(--tile-line-colour) var(--tile-line-width), transparent var(--tile-line-width));
+  background-size: var(--tile-cell-size) var(--tile-cell-size);
+  mask-image: radial-gradient(ellipse at center, #000 20%, transparent 73%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 73%);
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    --tile-cell-size: 22px;
+  }
+}

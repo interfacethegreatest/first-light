@@ -1,3 +1,5 @@
+@import './styles/glass.css';
+
 :root {
   color-scheme:dark;
   font-family:Inter,"Segoe UI",Arial,sans-serif;
@@ -14,11 +16,6 @@
   --accent:#ff9470;
   --paper:rgba(15, 17, 26, 0.84);
   --sage:rgba(170, 188, 160, 0.08);
-  --workspace-glass-background:rgba(35, 37, 49, 0.5);
-  --workspace-glass-blur:blur(7px);
-  --workspace-glass-shadow:inset 0 0 0 1000px rgba(35, 37, 49, 0.015), 0 18px 45px rgba(0, 0, 0, 0.28);
-  --workspace-panel-border:1px solid var(--line);
-  --workspace-panel-radius:7px
 }
 * {
   box-sizing:border-box
@@ -169,36 +166,6 @@ h1>span {
   line-height:1.85;
   color:#c0c3ce
 }
-.hero-art {
-  position:relative;
-  width:255px;
-  height:232px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  overflow:hidden
-}
-.art-grid {
-  position:absolute;
-  inset:0;
-  background-image:linear-gradient(to right,rgba(225, 231, 255, 0.09) 1px,transparent 1px),linear-gradient(to bottom,rgba(225, 231, 255, 0.09) 1px,transparent 1px);
-  background-size:28px 28px;
-  mask-image:radial-gradient(ellipse at center,#000 20%,transparent 73%)
-}
-.sun-illustration {
-  color:#ff9470;
-  position:relative;
-  z-index:1;
-  margin-top:-16px
-}
-.art-caption {
-  position:absolute;
-  bottom:21px;
-  font-size:6.5px;
-  letter-spacing:1.55px;
-  color:#b5bbcc
-}
 .workflow-strip {
   display:flex;
   align-items:center;
@@ -250,8 +217,6 @@ h1>span {
 .stats-grid {
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  border:var(--workspace-panel-border);
-  border-radius:7px;
   overflow:hidden;
   margin-bottom:24px
 }
@@ -291,55 +256,6 @@ h1>span {
   grid-template-columns:minmax(0,1fr) minmax(0,1.56fr);
   gap:24px;
   align-items:start
-}
-.panel,
-.workspace-panel-surface,
-.stats-grid,
-.decision-card,
-.next-step,
-.field input,
-.field textarea,
-.field select,
-.status-control select {
-  background-color:var(--workspace-glass-background);
-  box-shadow:var(--workspace-glass-shadow)
-}
-.panel,
-.workspace-panel-surface,
-.stats-grid,
-.decision-card,
-.next-step {
-  position:relative;
-  isolation:isolate;
-  backdrop-filter:none;
-  -webkit-backdrop-filter:none
-}
-/* A separate filter layer keeps nested glass from resampling a tinted parent. */
-.panel::after,
-.workspace-panel-surface::after,
-.stats-grid::after,
-.decision-card::after,
-.next-step::after {
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  z-index:-1;
-  pointer-events:none;
-  backdrop-filter:var(--workspace-glass-blur);
-  -webkit-backdrop-filter:var(--workspace-glass-blur)
-}
-.field input,
-.field textarea,
-.field select,
-.status-control select {
-  backdrop-filter:var(--workspace-glass-blur);
-  -webkit-backdrop-filter:var(--workspace-glass-blur)
-}
-.panel,
-.workspace-panel-surface {
-  border:var(--workspace-panel-border);
-  border-radius:var(--workspace-panel-radius)
 }
 .panel {
   overflow:hidden
@@ -396,8 +312,6 @@ h1>span {
   margin-left:5px
 }
 .field input,.field textarea,.field select,.status-control select {
-  border:1px solid rgba(225, 231, 255, 0.24);
-  border-radius:4px;
   color:#eff1f8;
   padding:11px 12px;
   font-size:11px;
@@ -624,9 +538,7 @@ h1>span {
   margin-top:19px
 }
 .decision-card {
-  padding:19px;
-  border:var(--workspace-panel-border);
-  border-radius:5px
+  padding:19px
 }
 .decision-card-top {
   display:flex;
@@ -761,8 +673,6 @@ h1>span {
   align-items:center;
   gap:18px;
   padding:22px 25px;
-  border:var(--workspace-panel-border);
-  border-radius:6px;
   margin-top:25px
 }
 .next-step-icon {
@@ -810,9 +720,6 @@ h1>span {
 @media(max-width:1000px) {
   .page-shell {
     padding:0 4%
-  }
-  .hero-art {
-    width:205px
   }
   .workspace-grid {
     grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);
@@ -873,22 +780,6 @@ h1>span {
   .hero-description {
     font-size:12px;
     max-width:390px
-  }
-  .hero-art {
-    width:108px;
-    height:188px;
-    opacity:.8;
-    margin-right:-6px;
-    align-self:flex-start
-  }
-  .sun-illustration {
-    width:100px
-  }
-  .art-caption {
-    display:none
-  }
-  .art-grid {
-    background-size:22px 22px
   }
   .workflow-strip {
     display:grid;
@@ -1022,9 +913,6 @@ h1>span {
   }
 }
 @media(max-width:420px) {
-  .hero-art {
-    display:none
-  }
   h1 {
     font-size:42px
   }

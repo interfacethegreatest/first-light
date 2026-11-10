@@ -1,0 +1,208 @@
+{
+  "result": "PASS",
+  "beforeEntry": "index-B7-MQfUd.js",
+  "afterEntry": "index-CzKcGY4y.js",
+  "cases": [
+    {
+      "width": 1440,
+      "outsideComputedStylesEqual": true,
+      "protectedSelectorCount": 16,
+      "before": {
+        "title": {
+          "fontFamily": "Poppins, \"Segoe UI\", sans-serif",
+          "fontSize": "27.2px",
+          "fontWeight": "600",
+          "lineHeight": "38.08px",
+          "letterSpacing": "normal",
+          "color": "rgb(240, 248, 255)",
+          "textAlign": "center",
+          "textDecorationLine": "underline"
+        },
+        "paragraph": {
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+          "fontSize": "13.6px",
+          "fontWeight": "500",
+          "lineHeight": "25.16px",
+          "letterSpacing": "normal",
+          "color": "rgba(240, 248, 255, 0.78)",
+          "textAlign": "left",
+          "textDecorationLine": "none"
+        }
+      },
+      "after": {
+        "title": {
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "600",
+          "lineHeight": "19.6px",
+          "letterSpacing": "1.55px",
+          "color": "rgb(181, 187, 204)",
+          "textAlign": "left",
+          "textDecorationLine": "none"
+        },
+        "paragraph": {
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+          "fontSize": "10px",
+          "fontWeight": "400",
+          "lineHeight": "17.5px",
+          "letterSpacing": "normal",
+          "color": "rgb(192, 197, 211)",
+          "textAlign": "left",
+          "textDecorationLine": "none"
+        },
+        "textInsets": [
+          12,
+          12
+        ],
+        "grid": {
+          "width": 374,
+          "height": 160
+        },
+        "readable": {
+          "titleOpacity": "1",
+          "bodyOpacity": "1",
+          "visibility": "visible",
+          "inert": false
+        }
+      },
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "outsideComputedStylesEqual": true,
+      "protectedSelectorCount": 16,
+      "before": {
+        "title": {
+          "fontFamily": "Poppins, \"Segoe UI\", sans-serif",
+          "fontSize": "16.8px",
+          "fontWeight": "600",
+          "lineHeight": "23.52px",
+          "letterSpacing": "normal",
+          "color": "rgb(240, 248, 255)",
+          "textAlign": "center",
+          "textDecorationLine": "underline"
+        },
+        "paragraph": {
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+          "fontSize": "13.6px",
+          "fontWeight": "500",
+          "lineHeight": "25.16px",
+          "letterSpacing": "normal",
+          "color": "rgba(240, 248, 255, 0.78)",
+          "textAlign": "left",
+          "textDecorationLine": "none"
+        }
+      },
+      "after": {
+        "title": {
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "600",
+          "lineHeight": "21px",
+          "letterSpacing": "1.55px",
+          "color": "rgb(181, 187, 204)",
+          "textAlign": "left",
+          "textDecorationLine": "none"
+        },
+        "paragraph": {
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+          "fontSize": "11px",
+          "fontWeight": "400",
+          "lineHeight": "19.25px",
+          "letterSpacing": "normal",
+          "color": "rgb(192, 197, 211)",
+          "textAlign": "left",
+          "textDecorationLine": "none"
+        },
+        "textInsets": [
+          12,
+          12
+        ],
+        "grid": {
+          "width": 374,
+          "height": 160
+        },
+        "readable": {
+          "titleOpacity": "1",
+          "bodyOpacity": "1",
+          "visibility": "visible",
+          "inert": false
+        }
+      },
+      "noOverflow": true
+    },
+    {
+      "width": 320,
+      "outsideComputedStylesEqual": true,
+      "protectedSelectorCount": 16,
+      "before": {
+        "title": {
+          "fontFamily": "Poppins, \"Segoe UI\", sans-serif",
+          "fontSize": "16.8px",
+          "fontWeight": "600",
+          "lineHeight": "23.52px",
+          "letterSpacing": "normal",
+          "color": "rgb(240, 248, 255)",
+          "textAlign": "center",
+          "textDecorationLine": "underline"
+        },
+        "paragraph": {
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+          "fontSize": "13.6px",
+          "fontWeight": "500",
+          "lineHeight": "25.16px",
+          "letterSpacing": "normal",
+          "color": "rgba(240, 248, 255, 0.78)",
+          "textAlign": "left",
+          "textDecorationLine": "none"
+        }
+      },
+      "after": {
+        "title": {
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "600",
+          "lineHeight": "21px",
+          "letterSpacing": "1.55px",
+          "color": "rgb(181, 187, 204)",
+          "textAlign": "left",
+          "textDecorationLine": "none"
+        },
+        "paragraph": {
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+          "fontSize": "11px",
+          "fontWeight": "400",
+          "lineHeight": "19.25px",
+          "letterSpacing": "normal",
+          "color": "rgb(192, 197, 211)",
+          "textAlign": "left",
+          "textDecorationLine": "none"
+        },
+        "textInsets": [
+          12,
+          12
+        ],
+        "grid": {
+          "width": 374,
+          "height": 160
+        },
+        "readable": {
+          "titleOpacity": "1",
+          "bodyOpacity": "1",
+          "visibility": "visible",
+          "inert": false
+        }
+      },
+      "noOverflow": true
+    }
+  ],
+  "draftAndStoragePreserved": true,
+  "normalRevealAndReducedCreationReadable": true,
+  "reducedCardCount": 2,
+  "errors": [],
+  "scope": "StarBackground import suppressed; unchanged Sun Canvas roots hidden. This is typography/layout verification, not GPU or asset validation.",
+  "fullReports": [
+    "baseline.json",
+    "after.json"
+  ]
+}

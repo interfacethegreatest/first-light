@@ -1,0 +1,803 @@
+{
+  "result": "PASS",
+  "entry": "index-B7-MQfUd.js",
+  "url": "http://127.0.0.1:4203/first-light/",
+  "mode": "Actual production CSS/DOM. StarBackground import suppressed and unchanged source Sun Canvas roots hidden to isolate decoration geometry; no Moon/asset/GPU/performance suite. CSS loaders paused only at their real keyframe endpoints.",
+  "rawReport": {
+    "artifact": "/workspace/artifacts/first-light-matching-spark-tiles/report.json",
+    "bytes": 458030,
+    "sha256": "347a2763484a9a9e07cd87055c1e3e83fd97e35004912fdb697a4fde33b1ac33"
+  },
+  "comparisonCases": [
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "reference": {
+        "display": "flex",
+        "width": 255,
+        "height": 232,
+        "paint": {
+          "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+          "size": "28px 28px, 28px 28px",
+          "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "lineWidth": "1px",
+          "lineColour": "rgba(225, 231, 255, 0.09)",
+          "cellSize": "28px",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        },
+        "captionDisplay": "block"
+      },
+      "cards": [
+        {
+          "height": 260,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0
+          },
+          "viewport": {
+            "width": 372,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "28px 28px, 28px 28px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "28px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        },
+        {
+          "height": 435,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0
+          },
+          "viewport": {
+            "width": 372,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "28px 28px, 28px 28px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "28px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        },
+        {
+          "height": 888,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0
+          },
+          "viewport": {
+            "width": 372,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "28px 28px, 28px 28px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "28px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        }
+      ]
+    },
+    {
+      "width": 700,
+      "scrollWidth": 700,
+      "reference": {
+        "display": "flex",
+        "width": 108,
+        "height": 188,
+        "paint": {
+          "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+          "size": "22px 22px, 22px 22px",
+          "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "lineWidth": "1px",
+          "lineColour": "rgba(225, 231, 255, 0.09)",
+          "cellSize": "22px",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        },
+        "captionDisplay": "none"
+      },
+      "cards": [
+        {
+          "height": 245,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0
+          },
+          "viewport": {
+            "width": 372,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "22px 22px, 22px 22px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "22px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        },
+        {
+          "height": 421,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0
+          },
+          "viewport": {
+            "width": 372,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "22px 22px, 22px 22px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "22px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        },
+        {
+          "height": 873,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0
+          },
+          "viewport": {
+            "width": 372,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "22px 22px, 22px 22px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "22px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        }
+      ]
+    }
+  ],
+  "initial": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "reference": {
+      "display": "flex",
+      "width": 255,
+      "height": 232,
+      "paint": {
+        "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+        "size": "28px 28px, 28px 28px",
+        "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+        "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+        "lineWidth": "1px",
+        "lineColour": "rgba(225, 231, 255, 0.09)",
+        "cellSize": "28px",
+        "pointerEvents": "none",
+        "ariaHidden": "true"
+      },
+      "captionDisplay": "block"
+    },
+    "cards": [
+      {
+        "height": 260,
+        "pattern": {
+          "width": 374,
+          "height": 160,
+          "columns": "93px 93px 93px 93px",
+          "rows": "28px 52px 52px 14px",
+          "centerOffset": 0
+        },
+        "viewport": {
+          "width": 372,
+          "height": 160,
+          "overflow": "hidden",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        },
+        "paint": {
+          "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+          "size": "28px 28px, 28px 28px",
+          "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "lineWidth": "1px",
+          "lineColour": "rgba(225, 231, 255, 0.09)",
+          "cellSize": "28px",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        }
+      },
+      {
+        "height": 435,
+        "pattern": {
+          "width": 374,
+          "height": 160,
+          "columns": "93px 93px 93px 93px",
+          "rows": "28px 52px 52px 14px",
+          "centerOffset": 0
+        },
+        "viewport": {
+          "width": 372,
+          "height": 160,
+          "overflow": "hidden",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        },
+        "paint": {
+          "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+          "size": "28px 28px, 28px 28px",
+          "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "lineWidth": "1px",
+          "lineColour": "rgba(225, 231, 255, 0.09)",
+          "cellSize": "28px",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        }
+      },
+      {
+        "height": 888,
+        "pattern": {
+          "width": 374,
+          "height": 160,
+          "columns": "93px 93px 93px 93px",
+          "rows": "28px 52px 52px 14px",
+          "centerOffset": 0
+        },
+        "viewport": {
+          "width": 372,
+          "height": 160,
+          "overflow": "hidden",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        },
+        "paint": {
+          "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+          "size": "28px 28px, 28px 28px",
+          "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "lineWidth": "1px",
+          "lineColour": "rgba(225, 231, 255, 0.09)",
+          "cellSize": "28px",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        }
+      }
+    ]
+  },
+  "growth": {
+    "width": 700,
+    "scrollWidth": 700,
+    "reference": {
+      "display": "flex",
+      "width": 108,
+      "height": 188,
+      "paint": {
+        "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+        "size": "22px 22px, 22px 22px",
+        "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+        "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+        "lineWidth": "1px",
+        "lineColour": "rgba(225, 231, 255, 0.09)",
+        "cellSize": "22px",
+        "pointerEvents": "none",
+        "ariaHidden": "true"
+      },
+      "captionDisplay": "none"
+    },
+    "cards": [
+      {
+        "height": 1268,
+        "pattern": {
+          "width": 374,
+          "height": 160,
+          "columns": "93px 93px 93px 93px",
+          "rows": "28px 52px 52px 14px",
+          "centerOffset": 0
+        },
+        "viewport": {
+          "width": 372,
+          "height": 160,
+          "overflow": "hidden",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        },
+        "paint": {
+          "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+          "size": "22px 22px, 22px 22px",
+          "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "lineWidth": "1px",
+          "lineColour": "rgba(225, 231, 255, 0.09)",
+          "cellSize": "22px",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        }
+      },
+      {
+        "height": 421,
+        "pattern": {
+          "width": 374,
+          "height": 160,
+          "columns": "93px 93px 93px 93px",
+          "rows": "28px 52px 52px 14px",
+          "centerOffset": 0
+        },
+        "viewport": {
+          "width": 372,
+          "height": 160,
+          "overflow": "hidden",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        },
+        "paint": {
+          "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+          "size": "22px 22px, 22px 22px",
+          "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "lineWidth": "1px",
+          "lineColour": "rgba(225, 231, 255, 0.09)",
+          "cellSize": "22px",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        }
+      },
+      {
+        "height": 873,
+        "pattern": {
+          "width": 374,
+          "height": 160,
+          "columns": "93px 93px 93px 93px",
+          "rows": "28px 52px 52px 14px",
+          "centerOffset": 0
+        },
+        "viewport": {
+          "width": 372,
+          "height": 160,
+          "overflow": "hidden",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        },
+        "paint": {
+          "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+          "size": "22px 22px, 22px 22px",
+          "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "lineWidth": "1px",
+          "lineColour": "rgba(225, 231, 255, 0.09)",
+          "cellSize": "22px",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        }
+      }
+    ]
+  },
+  "narrow": [
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "reference": {
+        "display": "none",
+        "width": 0,
+        "height": 0,
+        "paint": {
+          "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+          "size": "22px 22px, 22px 22px",
+          "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "lineWidth": "1px",
+          "lineColour": "rgba(225, 231, 255, 0.09)",
+          "cellSize": "22px",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        },
+        "captionDisplay": "none"
+      },
+      "cards": [
+        {
+          "height": 245,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0.5
+          },
+          "viewport": {
+            "width": 293,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "22px 22px, 22px 22px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "22px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        },
+        {
+          "height": 471,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0.5
+          },
+          "viewport": {
+            "width": 293,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "22px 22px, 22px 22px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "22px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        },
+        {
+          "height": 1075,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0.5
+          },
+          "viewport": {
+            "width": 293,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "22px 22px, 22px 22px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "22px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "reference": {
+        "display": "none",
+        "width": 0,
+        "height": 0,
+        "paint": {
+          "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+          "size": "22px 22px, 22px 22px",
+          "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+          "lineWidth": "1px",
+          "lineColour": "rgba(225, 231, 255, 0.09)",
+          "cellSize": "22px",
+          "pointerEvents": "none",
+          "ariaHidden": "true"
+        },
+        "captionDisplay": "none"
+      },
+      "cards": [
+        {
+          "height": 270,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0
+          },
+          "viewport": {
+            "width": 230,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "22px 22px, 22px 22px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "22px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        },
+        {
+          "height": 572,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0
+          },
+          "viewport": {
+            "width": 230,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "22px 22px, 22px 22px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "22px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        },
+        {
+          "height": 1376,
+          "pattern": {
+            "width": 374,
+            "height": 160,
+            "columns": "93px 93px 93px 93px",
+            "rows": "28px 52px 52px 14px",
+            "centerOffset": 0
+          },
+          "viewport": {
+            "width": 230,
+            "height": 160,
+            "overflow": "hidden",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          },
+          "paint": {
+            "image": "linear-gradient(to right, rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(225, 231, 255, 0.09) 1px, rgba(0, 0, 0, 0) 1px)",
+            "size": "22px 22px, 22px 22px",
+            "mask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "webkitMask": "radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 73%)",
+            "lineWidth": "1px",
+            "lineColour": "rgba(225, 231, 255, 0.09)",
+            "cellSize": "22px",
+            "pointerEvents": "none",
+            "ariaHidden": "true"
+          }
+        }
+      ]
+    }
+  ],
+  "focusLoaderEndpoints": [
+    {
+      "width": 93,
+      "height": 1,
+      "borders": [
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "1px",
+          "colour": "rgba(225, 231, 255, 0.09)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        }
+      ]
+    },
+    {
+      "width": 186,
+      "height": 1,
+      "borders": [
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "1px",
+          "colour": "rgba(225, 231, 255, 0.09)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        }
+      ]
+    },
+    {
+      "width": 62,
+      "height": 1,
+      "borders": [
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "1px",
+          "colour": "rgba(225, 231, 255, 0.09)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        }
+      ]
+    },
+    {
+      "width": 93,
+      "height": 16,
+      "borders": [
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "1px",
+          "colour": "rgba(225, 231, 255, 0.09)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        }
+      ]
+    },
+    {
+      "width": 93,
+      "height": 160,
+      "borders": [
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "1px",
+          "colour": "rgba(225, 231, 255, 0.09)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        }
+      ]
+    },
+    {
+      "width": 93,
+      "height": 160,
+      "borders": [
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "1px",
+          "colour": "rgba(225, 231, 255, 0.09)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        },
+        {
+          "width": "0px",
+          "colour": "rgb(243, 244, 247)"
+        }
+      ]
+    }
+  ],
+  "reducedMotion": {
+    "animationValues": [
+      "none"
+    ],
+    "transitionValues": [
+      "0s"
+    ]
+  },
+  "draftAndStoragePreserved": true,
+  "sourceIdentityPreserved": true,
+  "nativeMouseEnterSpaceAndCreditFocus": true,
+  "errors": []
+}

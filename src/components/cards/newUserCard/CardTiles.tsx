@@ -1,3 +1,4 @@
+import TileGrid from '../../decorations/TileGrid'
 import styles from './cardTiles.module.css'
 
 const tileNames = [
@@ -17,14 +18,14 @@ export default function CardTiles({ reducedMotion = false }: { reducedMotion?: b
       data-reduced-motion={reducedMotion}
       aria-hidden="true"
     >
-      <div className={styles.pattern} data-tile-pattern>
+      <TileGrid className={styles.pattern} data-tile-pattern>
         {tileNames.map(name => (
           <div key={name} className={`${styles.tile} ${styles[name]}`} />
         ))}
         {loaderNames.map(name => (
           <div key={name} className={`${styles.loaderLine} ${styles[name]}`} />
         ))}
-      </div>
+      </TileGrid>
     </div>
   )
 }
