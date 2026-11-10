@@ -31,7 +31,7 @@ function ObjectScene(props: GlassObjectCanvasProps) {
   useEffect(() => {
     // Finite refresh for optical/camera changes; no recursive idle invalidation.
     invalidate(3)
-  }, [invalidate, settings, spin, rotationAxis, rotationSpeed])
+  }, [invalidate, settings, spin, rotationAxis, rotationSpeed, props.lightingIntensity])
 
   const reportMainDraw = useCallback((renderer: WebGLRenderer, scene: Scene, renderedCamera: Camera) => {
     if (reported.current || renderer.getRenderTarget() !== null || renderedCamera !== camera) return
@@ -54,7 +54,7 @@ function ObjectScene(props: GlassObjectCanvasProps) {
   return (
     <>
       <color attach="background" args={['#080b14']} />
-      <GlassStudioEnvironment />
+      <GlassStudioEnvironment intensity={props.lightingIntensity} />
       {/* Exactly one visible mesh. No text, tags, shadow planes or extra shapes. */}
       {kind === 'torus'
         ? <GlassTorusObject {...objectProps} name="isolated-glass-torus" />
@@ -70,6 +70,7 @@ function ObjectScene(props: GlassObjectCanvasProps) {
 
 /** One renderer for one isolated object. The surrounding card owns its activity. */
 export default function GlassObjectCanvas(props: GlassObjectCanvasProps) {
+  const lightingIntensity = props.lightingIntensity ?? 1
   const canvas = useRef<HTMLCanvasElement>(null)
   useEffect(() => {
     const element = canvas.current
@@ -99,10 +100,10 @@ export default function GlassObjectCanvas(props: GlassObjectCanvasProps) {
         gl.domElement.style.touchAction = 'pan-y'
         invalidate(3)
       }}>
-      <ambientLight intensity={0.7} />
-      <directionalLight position={[3, 5, 6]} intensity={3.5} />
-      <directionalLight position={[-3, 2, -4]} color="#b8ddff" intensity={4} />
-      <pointLight position={[-4, 1, 1]} color="#ff9470" intensity={16} distance={9} />
+      <ambientLight intensity={0.7 * lightingIntensity} />
+      <directionalLight position={[3, 5, 6]} intensity={3.5 * lightingIntensity} />
+      <directionalLight position={[-3, 2, -4]} color="#b8ddff" intensity={4 * lightingIntensity} />
+      <pointLight position={[-4, 1, 1]} color="#ff9470" intensity={16 * lightingIntensity} distance={9} />
       <Suspense fallback={null}><ObjectScene {...props} /></Suspense>
     </Canvas>
   )

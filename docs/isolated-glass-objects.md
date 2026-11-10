@@ -1,5 +1,7 @@
 # Isolated glass objects
 
+Main-page integration: the [main-page guide](main-page-glass-objects.md) records the additional two-card placement, user-selected optical settings, main-only lighting/tint and rotating footer. The standalone example and its defaults remain available; the original scope and verification below describe that initial implementation.
+
 The isolated-object design provides a rotating glass torus and a blank glass panel as reusable React Three Fiber objects. Native cards supply presentation and controls around them. This separates the object, scene host and HTML interface so a mesh can be reused without copying an entire demonstration.
 
 This document records requirements, architecture and acceptance criteria. Observed runtime results belong in the verification section after coordinator review; source descriptions alone do not establish a passed browser check or deployment.
@@ -51,7 +53,7 @@ The rotation hook skips the first frame after an inactive-to-active transition, 
 | --- | --- |
 | Both objects (`ObjectProps`, also aliased as `GlassObjectProps`) | Optional `settings: GlassSettings`, `spin`, `rotationAxis: 'x' \| 'y' \| 'z'`, `rotationSpeed`, `onRendered`, and native R3F group props other than children/group `onAfterRender`. |
 | GlassPanelObject (`PanelProps`) | The above plus optional `size: [width, height, depth]` and `radius`. |
-| GlassTorusCard / GlassPanelCard (`GlassObjectCardProps`) | Optional `title`, native header `children`, `initialSpin`, `initialRotationAxis`, `initialRotationSpeed` and `initialMaterial: Partial<GlassSettings>`. |
+| GlassTorusCard / GlassPanelCard (`GlassObjectCardProps`) | Optional `title`, native header `children`, `initialSpin`, `initialRotationAxis`, `initialRotationSpeed`, `initialMaterial: Partial<GlassSettings>` and `lightingIntensity` (light multiplier, default `1`). |
 | GlassObjectGallery | No props; one native selector defaults to the torus. |
 
 The object rotation options default to `spin=true`, `rotationAxis='y'` and `rotationSpeed=0.3`. Passing a custom `settings` object to a mesh requires a complete GlassSettings value; spread DEFAULT_GLASS_SETTINGS when overriding selected fields. A card's `initialMaterial` is partial and merged into those defaults. Its quality selector owns effective samples, resolution and backside settings.

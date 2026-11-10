@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "mode": "mobile320",
+  "base": "http://127.0.0.1:4223/first-light/",
+  "mobile320": {
+    "width": 320,
+    "emulatedCoarseTouch": true,
+    "bothRealCanvasesLoaded": true,
+    "stacked": true,
+    "noOverflow": true,
+    "panY": true,
+    "health": {
+      "pageErrors": [],
+      "consoleErrors": [],
+      "badResponses": []
+    }
+  },
+  "limits": [
+    "Chromium/SwiftShader only; no hardware-mobile/Safari/FPS guarantee."
+  ]
+}

@@ -49,8 +49,8 @@ function environment({ reduced = false, webgl = true, hidden = false, observe = 
 function latestRenderer() { return vi.mocked(FooterTextCanvas).mock.calls.at(-1)![0] }
 
 beforeEach(() => {
-  vi.mocked(FooterTextCanvas).mockImplementation(({ animate, text }) => (
-    <div data-testid="footer-gpu-boundary" data-animate={animate} data-text={text} aria-hidden="true" />
+  vi.mocked(FooterTextCanvas).mockImplementation(({ animate, text, rotationSpeed }) => (
+    <div data-testid="footer-gpu-boundary" data-animate={animate} data-text={text} data-rotation-speed={rotationSpeed} aria-hidden="true" />
   ))
 })
 
@@ -72,6 +72,7 @@ describe('reusable footer text scene', () => {
     expect(region).toHaveAttribute('data-footer-text-state', 'loading')
     expect(fallback).toBeInTheDocument()
     expect(renderer).toHaveAttribute('data-animate', 'true')
+    expect(latestRenderer().rotationSpeed).toBe(0)
     act(() => latestRenderer().onReady?.())
     expect(region).toHaveAttribute('data-footer-text-state', 'loaded')
     expect(region.querySelector('p')).not.toBeInTheDocument()
@@ -82,12 +83,13 @@ describe('reusable footer text scene', () => {
     expect(activity.listeners.size).toBe(0)
   })
 
-  it('pauses the same loaded renderer offscreen, hidden, and reduced, then resumes when eligible', async () => {
+  it('forwards custom rotation speed while pausing the same renderer offscreen, hidden, and reduced', async () => {
     const activity = environment()
-    const view = render(<FooterTextScene text="Research becomes an application." />)
+    const view = render(<FooterTextScene text="Research becomes an application." rotationSpeed={0.12} />)
     const region = screen.getByRole('img', { name: 'Research becomes an application.' })
     activity.intersect(region, true)
     const renderer = await screen.findByTestId('footer-gpu-boundary')
+    expect(renderer).toHaveAttribute('data-rotation-speed', '0.12')
     act(() => latestRenderer().onReady?.())
     activity.intersect(region, false)
     expect(renderer).toHaveAttribute('data-animate', 'false')
@@ -101,11 +103,17 @@ describe('reusable footer text scene', () => {
     expect(renderer).toHaveAttribute('data-animate', 'false')
     activity.reduced(false)
     expect(renderer).toHaveAttribute('data-animate', 'true')
-    view.rerender(<FooterTextScene text="Revised reusable message." />)
+    expect(renderer).toHaveAttribute('data-rotation-speed', '0.12')
+    view.rerender(<FooterTextScene text="Revised reusable message." rotationSpeed={-0.2} />)
     expect(region).toHaveAccessibleName('Revised reusable message.')
     expect(renderer).toHaveAttribute('data-text', 'Revised reusable message.')
+    expect(renderer).toHaveAttribute('data-rotation-speed', '-0.2')
     expect(screen.getByTestId('footer-gpu-boundary')).toBe(renderer)
     expect(region).toHaveAttribute('data-footer-text-state', 'loaded')
+    view.rerender(<FooterTextScene text="Revised reusable message." motion={false} rotationSpeed={-0.2} />)
+    expect(renderer).toHaveAttribute('data-animate', 'false')
+    expect(renderer).toHaveAttribute('data-rotation-speed', '-0.2')
+    expect(screen.getByTestId('footer-gpu-boundary')).toBe(renderer)
   })
 
   it('defers loading in a hidden document and removes subscriptions and stale observer deliveries on unmount', async () => {
@@ -162,13 +170,14 @@ describe('reusable footer text scene', () => {
   it('returns to text after renderer failure and ignores stale readiness without replacing focused controls', async () => {
     const activity = environment()
     const user = userEvent.setup()
-    render(<><label>Keep this draft<input /></label><FooterTextScene /></>)
+    render(<><label>Keep this draft<input /></label><FooterTextScene rotationSpeed={0.12} /></>)
     const input = screen.getByRole('textbox', { name: 'Keep this draft' })
     await user.type(input, 'Still focused')
     const region = screen.getByRole('img', { name: 'Make learning tangible.' })
     activity.intersect(region, true)
     await screen.findByTestId('footer-gpu-boundary')
     const callbacks = latestRenderer()
+    expect(callbacks.rotationSpeed).toBe(0.12)
     act(() => callbacks.onReady?.())
     expect(region).toHaveAttribute('data-footer-text-state', 'loaded')
     act(() => callbacks.onUnavailable?.())

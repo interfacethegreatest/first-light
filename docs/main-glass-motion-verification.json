@@ -1,0 +1,708 @@
+{
+  "result": "PASS",
+  "mode": "supplement",
+  "base": "http://127.0.0.1:4223/first-light/",
+  "supplement": {
+    "scope": "New main canvases remain real; unchanged star/Sun/research-panel GPU layers suppressed only in this bounded fixture.",
+    "mainLights": {
+      "torus": {
+        "directionalLights[0].color": [
+          4.375,
+          4.375,
+          4.375
+        ],
+        "directionalLights[1].color": [
+          2.396600915456701,
+          3.6152756445809753,
+          5
+        ],
+        "pointLights[0].color": [
+          20,
+          5.922765415750515,
+          3.2405875125792445
+        ],
+        "diffuse": [
+          0.6104955708001716,
+          0.6444796819634361,
+          0.6938717612856897
+        ],
+        "ambientLightColor": [
+          0.875,
+          0.875,
+          0.875
+        ]
+      },
+      "panel": {
+        "directionalLights[0].color": [
+          4.375,
+          4.375,
+          4.375
+        ],
+        "directionalLights[1].color": [
+          2.396600915456701,
+          3.6152756445809753,
+          5
+        ],
+        "pointLights[0].color": [
+          20,
+          5.922765415750515,
+          3.2405875125792445
+        ],
+        "diffuse": [
+          0.6104955708001716,
+          0.6444796819634361,
+          0.6938717612856897
+        ],
+        "ambientLightColor": [
+          0.875,
+          0.875,
+          0.875
+        ]
+      }
+    },
+    "actualTorusYRotation": {
+      "before": [
+        1.35,
+        0,
+        0,
+        0,
+        0,
+        1.35,
+        0,
+        0,
+        0,
+        0,
+        1.35,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "after": [
+        0.947623,
+        0,
+        -0.961515,
+        0,
+        0,
+        1.35,
+        0,
+        0,
+        0.961515,
+        0,
+        0.947623,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "focusedTorusIdle": {
+      "before": {
+        "kind": "torus",
+        "colors": {
+          "directionalLights[0].color": [
+            4.375,
+            4.375,
+            4.375
+          ],
+          "directionalLights[1].color": [
+            2.396600915456701,
+            3.6152756445809753,
+            5
+          ],
+          "pointLights[0].color": [
+            20,
+            5.922765415750515,
+            3.2405875125792445
+          ],
+          "diffuse": [
+            0.6104955708001716,
+            0.6444796819634361,
+            0.6938717612856897
+          ],
+          "ambientLightColor": [
+            0.875,
+            0.875,
+            0.875
+          ]
+        },
+        "connected": true,
+        "draws": 186,
+        "counts": {
+          "36": 76,
+          "384": 72,
+          "55296": 38
+        },
+        "uniforms": {
+          "chromaticAberration": 0.062,
+          "temporalDistortion": 0,
+          "roughness": 0.08,
+          "ior": 1.7,
+          "_transmission": 1,
+          "thickness": 0.41
+        },
+        "samples": [
+          4
+        ],
+        "squareTextureSizes": [
+          1,
+          128,
+          256
+        ],
+        "modelMatrix": [
+          0.536973,
+          0,
+          -1.238612,
+          0,
+          0,
+          1.35,
+          0,
+          0,
+          1.238612,
+          0,
+          0.536973,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "matrixTime": 18453.5,
+        "modelViewMatrix": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          4.456688,
+          11.14172,
+          0,
+          0,
+          -0.928477,
+          0.371391,
+          0,
+          0,
+          5,
+          -2,
+          1
+        ],
+        "modelViewTime": 18482.10000000894,
+        "width": 616,
+        "height": 512,
+        "lost": false,
+        "error": 0
+      },
+      "after": {
+        "kind": "torus",
+        "colors": {
+          "directionalLights[0].color": [
+            4.375,
+            4.375,
+            4.375
+          ],
+          "directionalLights[1].color": [
+            2.396600915456701,
+            3.6152756445809753,
+            5
+          ],
+          "pointLights[0].color": [
+            20,
+            5.922765415750515,
+            3.2405875125792445
+          ],
+          "diffuse": [
+            0.6104955708001716,
+            0.6444796819634361,
+            0.6938717612856897
+          ],
+          "ambientLightColor": [
+            0.875,
+            0.875,
+            0.875
+          ]
+        },
+        "connected": true,
+        "draws": 186,
+        "counts": {
+          "36": 76,
+          "384": 72,
+          "55296": 38
+        },
+        "uniforms": {
+          "chromaticAberration": 0.062,
+          "temporalDistortion": 0,
+          "roughness": 0.08,
+          "ior": 1.7,
+          "_transmission": 1,
+          "thickness": 0.41
+        },
+        "samples": [
+          4
+        ],
+        "squareTextureSizes": [
+          1,
+          128,
+          256
+        ],
+        "modelMatrix": [
+          0.536973,
+          0,
+          -1.238612,
+          0,
+          0,
+          1.35,
+          0,
+          0,
+          1.238612,
+          0,
+          0.536973,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "matrixTime": 18453.5,
+        "modelViewMatrix": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          4.456688,
+          11.14172,
+          0,
+          0,
+          -0.928477,
+          0.371391,
+          0,
+          0,
+          5,
+          -2,
+          1
+        ],
+        "modelViewTime": 18482.10000000894,
+        "width": 616,
+        "height": 512,
+        "lost": false,
+        "error": 0
+      }
+    },
+    "reducedPanelIdle": {
+      "before": {
+        "kind": "panel",
+        "colors": {
+          "directionalLights[0].color": [
+            4.375,
+            4.375,
+            4.375
+          ],
+          "directionalLights[1].color": [
+            2.396600915456701,
+            3.6152756445809753,
+            5
+          ],
+          "pointLights[0].color": [
+            20,
+            5.922765415750515,
+            3.2405875125792445
+          ],
+          "diffuse": [
+            0.6104955708001716,
+            0.6444796819634361,
+            0.6938717612856897
+          ],
+          "ambientLightColor": [
+            0.875,
+            0.875,
+            0.875
+          ]
+        },
+        "connected": true,
+        "draws": 208,
+        "counts": {
+          "36": 76,
+          "384": 72,
+          "13860": 60
+        },
+        "uniforms": {
+          "chromaticAberration": 0.062,
+          "temporalDistortion": 0,
+          "roughness": 0.08,
+          "ior": 1.7,
+          "_transmission": 1,
+          "thickness": 0.41
+        },
+        "samples": [
+          4
+        ],
+        "squareTextureSizes": [
+          1,
+          128,
+          256
+        ],
+        "modelMatrix": [
+          -0.735821,
+          0,
+          -0.677176,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0.677176,
+          0,
+          -0.735821,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "matrixTime": 23401.10000000894,
+        "modelViewMatrix": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          4.456688,
+          11.14172,
+          0,
+          0,
+          -0.928477,
+          0.371391,
+          0,
+          0,
+          5,
+          -2,
+          1
+        ],
+        "modelViewTime": 23782.79999999702,
+        "width": 616,
+        "height": 512,
+        "lost": false,
+        "error": 0
+      },
+      "after": {
+        "kind": "panel",
+        "colors": {
+          "directionalLights[0].color": [
+            4.375,
+            4.375,
+            4.375
+          ],
+          "directionalLights[1].color": [
+            2.396600915456701,
+            3.6152756445809753,
+            5
+          ],
+          "pointLights[0].color": [
+            20,
+            5.922765415750515,
+            3.2405875125792445
+          ],
+          "diffuse": [
+            0.6104955708001716,
+            0.6444796819634361,
+            0.6938717612856897
+          ],
+          "ambientLightColor": [
+            0.875,
+            0.875,
+            0.875
+          ]
+        },
+        "connected": true,
+        "draws": 208,
+        "counts": {
+          "36": 76,
+          "384": 72,
+          "13860": 60
+        },
+        "uniforms": {
+          "chromaticAberration": 0.062,
+          "temporalDistortion": 0,
+          "roughness": 0.08,
+          "ior": 1.7,
+          "_transmission": 1,
+          "thickness": 0.41
+        },
+        "samples": [
+          4
+        ],
+        "squareTextureSizes": [
+          1,
+          128,
+          256
+        ],
+        "modelMatrix": [
+          -0.735821,
+          0,
+          -0.677176,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0.677176,
+          0,
+          -0.735821,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "matrixTime": 23401.10000000894,
+        "modelViewMatrix": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          4.456688,
+          11.14172,
+          0,
+          0,
+          -0.928477,
+          0.371391,
+          0,
+          0,
+          5,
+          -2,
+          1
+        ],
+        "modelViewTime": 23782.79999999702,
+        "width": 616,
+        "height": 512,
+        "lost": false,
+        "error": 0
+      }
+    },
+    "realOpticalTransmissionContrast": {
+      "size": [
+        617,
+        513
+      ],
+      "meanAbsoluteChannelDifference": 41.2654,
+      "channelsChangedAbove2": 212122
+    },
+    "actualMainToExampleLightRatios": {
+      "ambientLightColor": [
+        1.25,
+        1.25,
+        1.25
+      ],
+      "directionalLights[0].color": [
+        1.25,
+        1.25,
+        1.25
+      ],
+      "directionalLights[1].color": [
+        1.25,
+        1.25,
+        1.25
+      ],
+      "pointLights[0].color": [
+        1.25,
+        1.25,
+        1.25
+      ]
+    },
+    "skipLinkPresentation": {
+      "focused": false,
+      "transform": "matrix(1, 0, 0, 1, 0, -63)",
+      "top": -55,
+      "activeElement": "BODY"
+    },
+    "nativeWorkspace": {
+      "threeSourceSections": true,
+      "draftMetadataStoragePreserved": true,
+      "exportContainsOnlySavedWorkspace": true
+    },
+    "footerReducedIdle": {
+      "before": {
+        "kind": "footer",
+        "colors": {
+          "directionalLights[0].color": [
+            2,
+            2,
+            2
+          ],
+          "directionalLights[1].color": [
+            0.6,
+            0.6,
+            0.6
+          ],
+          "diffuse": [
+            1,
+            0.29613827078752575,
+            0.16202937562896222
+          ],
+          "ambientLightColor": [
+            0.8,
+            0.8,
+            0.8
+          ]
+        },
+        "connected": true,
+        "draws": 736,
+        "counts": {
+          "12": 112,
+          "60": 16,
+          "66": 16,
+          "168": 112,
+          "216": 16,
+          "420": 48,
+          "444": 16,
+          "504": 16,
+          "546": 16,
+          "738": 48,
+          "798": 16,
+          "1134": 32,
+          "1182": 48,
+          "1596": 16,
+          "3024": 48,
+          "3192": 16,
+          "5166": 48,
+          "5586": 16,
+          "7938": 32,
+          "8274": 48
+        },
+        "uniforms": {
+          "roughness": 0.5
+        },
+        "samples": [],
+        "squareTextureSizes": [
+          1
+        ],
+        "modelMatrix": null,
+        "matrixTime": null,
+        "modelViewMatrix": [
+          0.463596,
+          0.023737,
+          -0.885728,
+          0,
+          -0.124603,
+          0.991454,
+          -0.038648,
+          0,
+          0.877241,
+          0.128282,
+          0.462592,
+          0,
+          -2.766189,
+          -0.597865,
+          -6.741349,
+          1
+        ],
+        "modelViewTime": 65663.79999999702,
+        "width": 660,
+        "height": 112,
+        "lost": false,
+        "error": 0
+      },
+      "after": {
+        "kind": "footer",
+        "colors": {
+          "directionalLights[0].color": [
+            2,
+            2,
+            2
+          ],
+          "directionalLights[1].color": [
+            0.6,
+            0.6,
+            0.6
+          ],
+          "diffuse": [
+            1,
+            0.29613827078752575,
+            0.16202937562896222
+          ],
+          "ambientLightColor": [
+            0.8,
+            0.8,
+            0.8
+          ]
+        },
+        "connected": true,
+        "draws": 736,
+        "counts": {
+          "12": 112,
+          "60": 16,
+          "66": 16,
+          "168": 112,
+          "216": 16,
+          "420": 48,
+          "444": 16,
+          "504": 16,
+          "546": 16,
+          "738": 48,
+          "798": 16,
+          "1134": 32,
+          "1182": 48,
+          "1596": 16,
+          "3024": 48,
+          "3192": 16,
+          "5166": 48,
+          "5586": 16,
+          "7938": 32,
+          "8274": 48
+        },
+        "uniforms": {
+          "roughness": 0.5
+        },
+        "samples": [],
+        "squareTextureSizes": [
+          1
+        ],
+        "modelMatrix": null,
+        "matrixTime": null,
+        "modelViewMatrix": [
+          0.463596,
+          0.023737,
+          -0.885728,
+          0,
+          -0.124603,
+          0.991454,
+          -0.038648,
+          0,
+          0.877241,
+          0.128282,
+          0.462592,
+          0,
+          -2.766189,
+          -0.597865,
+          -6.741349,
+          1
+        ],
+        "modelViewTime": 65663.79999999702,
+        "width": 660,
+        "height": 112,
+        "lost": false,
+        "error": 0
+      }
+    },
+    "footerRotation": {
+      "observedYawRadians": 0.9092055327136563,
+      "elapsedSeconds": 7.6815,
+      "observedRadiansPerSecond": 0.11836301929488464,
+      "configuredRate": 0.12,
+      "fullRevolutionObserved": false,
+      "note": "Front pose/readability and partial actual Y turn observed; full-turn fitting uses reviewed geometric envelope."
+    },
+    "health": {
+      "pageErrors": [],
+      "consoleErrors": [],
+      "badResponses": []
+    },
+    "noWebGLNativeFallback": true
+  },
+  "limits": [
+    "Chromium/SwiftShader only; no hardware-mobile/Safari/FPS guarantee."
+  ]
+}

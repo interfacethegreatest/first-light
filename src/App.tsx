@@ -12,7 +12,23 @@ import SparkArt from './components/hero/SparkArt'
 import PaneBackground from './components/panes/PaneBackground'
 import FooterTextScene from './components/typography/FooterTextScene'
 import ResearchDraftPanel from './components/glass-panel-3d/ResearchDraftPanel'
+import { GlassTorusCard, GlassPanelCard } from './components/glass-objects/GlassObjectCards'
 import './App.css'
+
+const MAIN_GLASS_PROPS = {
+  initialSpin: true,
+  initialRotationAxis: 'y' as const,
+  initialRotationSpeed: 0.25,
+  lightingIntensity: 1.25,
+  initialMaterial: {
+    transmission: 1,
+    thickness: 0.41,
+    ior: 1.7,
+    chromaticAberration: 0.062,
+    roughness: 0.08,
+    color: '#cdd2d9',
+  },
+}
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
@@ -34,9 +50,10 @@ function errorMessage(error: unknown) {
 
 export default function App() {
   useEffect(() => {
-    if (window.location.hash !== '#glass-workspace') return
+    const target = window.location.hash
+    if (target !== '#glass-workspace' && target !== '#glass-objects') return
     const frame = window.requestAnimationFrame(() => {
-      document.getElementById('glass-workspace')?.scrollIntoView({ block: 'start', behavior: 'auto' })
+      document.getElementById(target.slice(1))?.scrollIntoView({ block: 'start', behavior: 'auto' })
     })
     return () => window.cancelAnimationFrame(frame)
   }, [])
@@ -197,8 +214,13 @@ export default function App() {
           <ResearchDraftPanel />
         </section>
 
+        <section id="glass-objects" aria-label="Glass objects" className="main-glass-objects">
+          <GlassTorusCard {...MAIN_GLASS_PROPS} />
+          <GlassPanelCard {...MAIN_GLASS_PROPS} />
+        </section>
+
         <PaneBackground as="aside" className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></PaneBackground>
-        <FooterTextScene />
+        <FooterTextScene rotationSpeed={0.12} />
         <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>Local browser storage · Export regularly for backup · No account needed<br /><MoonCredit /></p></footer>
       </main>
     </>
