@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "snapshotKind": "local working-tree source; not deployment evidence",
-  "snapshotSha256": "f1ae203f8b40ffd4310dcdb36c1ce60af438b8fff51e5f36054eafd21f913e23",
+  "snapshotSha256": "614a9dfc732797edffea625263c3e633b998e34815a088bd61c0724ae76cc4d8",
   "sourceSelection": {
     "directory": "all files under src/",
     "explicitFiles": [
@@ -15,7 +15,7 @@
   },
   "fileCount": 98,
   "srcFileCount": 96,
-  "sourceBytes": 209229,
+  "sourceBytes": 210786,
   "componentModuleCount": 47,
   "components": [
     {
@@ -765,8 +765,8 @@
     },
     {
       "path": "src/components/glass-objects/GlassObjectCards.tsx",
-      "bytes": 8722,
-      "sha256": "74f1bdbe2a2332f0b699c74d8390924f990cbeb66c27f47e5d948f48d1e7fc3b",
+      "bytes": 8758,
+      "sha256": "04cfced1d3f0b5db72fb70da3bc43baf448898210b8ba5963c35a8ac1e5983be",
       "encoding": "utf8",
       "category": "Isolated glass objects and rotation",
       "anchor": "file-src-components-glass-objects-glassobjectcards-tsx-6093911e",
@@ -1188,8 +1188,8 @@
     },
     {
       "path": "src/components/react three fibre/sunScene/SunScene.tsx",
-      "bytes": 858,
-      "sha256": "b042ab34e9d0abb25df672808e9f79ae60140bedaddeceaf49c9c18dc234f170",
+      "bytes": 2012,
+      "sha256": "860ef3f7594a7c493d8c31cd433ed8c969eb21dda90c7ac5c6a7d18ead9a3194",
       "encoding": "utf8",
       "category": "Calendar Sun scene",
       "anchor": "file-src-components-react-three-fibre-sunscene-sunscene-tsx-9facbfc3",
@@ -1287,8 +1287,8 @@
     },
     {
       "path": "src/components/transmission/GlassStudioEnvironment.tsx",
-      "bytes": 1114,
-      "sha256": "7e1b3bcd967899ca0d70e0ec4e4928985af0c8b4e3665c88480b08e1dc208e28",
+      "bytes": 1481,
+      "sha256": "7a17a550357da9917493234cb02af844f515e7ea7291ae63b11809306f0bd6fc",
       "encoding": "utf8",
       "category": "Transmission materials and scene cards",
       "anchor": "file-src-components-transmission-glassstudioenvironment-tsx-21c64c8f",
@@ -1460,13 +1460,13 @@
   "artifacts": {
     "markdown": {
       "path": "docs/component-catalog.md",
-      "bytes": 262995,
-      "sha256": "f234b9a8af19d5e45f51ffa99fd8d33ac43b080998f20851c1adde90c1828fbb"
+      "bytes": 264553,
+      "sha256": "84f374baae53569f34a05063fde6b2fe16df3d6acfc54c12ffe9f57f9af58f80"
     },
     "zip": {
       "path": "docs/component-source.zip",
-      "bytes": 225445,
-      "sha256": "676d901a7340b389de94f33831807b150490624ace638eebc1f79e773c1c4317",
+      "bytes": 227002,
+      "sha256": "2474679d8f9332b39b7a7cb0895b8ea2a4d07b9d27d98318a85e0045860b81fa",
       "entries": 98
     }
   }

@@ -39,6 +39,24 @@ beforeEach(()=>{
 afterEach(()=>{vi.unstubAllGlobals()})
 
 describe('two glass objects on the actual main workspace',()=>{
+  it('keeps loaded glass renderers out of unrelated App typing while their own controls still update',async()=>{
+    const intersect=environment(true)
+    render(<App />)
+    const region=screen.getByRole('region',{name:'Glass objects'})
+    showObjects(intersect,region)
+    await screen.findAllByTestId('main-object-gpu-boundary')
+    act(()=>{latest('torus').onReady();latest('panel').onReady()})
+    const before=vi.mocked(GlassObjectCanvas).mock.calls.length
+    const panelBefore=vi.mocked(GlassObjectCanvas).mock.calls.filter(call=>call[0].kind==='panel').length
+    const user=userEvent.setup()
+    await user.type(screen.getByRole('textbox',{name:'Source title'}),'Native typing')
+    expect(GlassObjectCanvas).toHaveBeenCalledTimes(before)
+    const torus=region.querySelector('[data-glass-object-kind="torus"]')! as HTMLElement
+    await user.selectOptions(within(torus).getByRole('combobox',{name:'Rotation axis'}),'x')
+    expect(latest('torus').rotationAxis).toBe('x')
+    expect(vi.mocked(GlassObjectCanvas).mock.calls.filter(call=>call[0].kind==='panel')).toHaveLength(panelBefore)
+  })
+
   it('places two independent cards between the research draft and next step, passing exact optics, tint, spin and main-only lighting',async()=>{
     const intersect=environment()
     const view=render(<App />)

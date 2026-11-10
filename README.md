@@ -90,6 +90,8 @@ The component example also includes [**individual glass objects**](https://inter
 
 Both cards are also mounted on the [main page](https://interfacethegreatest.github.io/first-light/#glass-objects), below the original Research draft pane. They start at 0.25 rad/s around Y, with transmission 1, thickness 0.41, IOR 1.7, chromatic aberration 0.062 and roughness 0.08. A cool grey tint and 1.25 lighting multiplier strengthen their surface while retaining transmission. The main footer's 3D “Make learning tangible.” text rotates around Y at 0.12 rad/s. Both cards and the footer pause with visibility/reduced-motion gates. Existing example defaults remain unchanged. See [the App additions, layout and verification](docs/main-page-glass-objects.md).
 
+Glass cards now avoid lighting-map recaptures during unrelated form typing, and source Suns stop continuous rendering offscreen or in hidden tabs. The design and optical settings remain unchanged. An optional [device check](https://interfacethegreatest.github.io/first-light/performance/) measures actual submitted glass frames on your device without uploading the report or editing research records. Linux WebKit compatibility passed; physical Safari/Apple GPU smoothness awaits a device report. See [the measurement method, results and Safari instructions](docs/browser-device-performance.md).
+
 ## Storage and current limits
 
 Records live in localStorage in one browser and origin, under `first-light.workspace.v1`. They are not saved to Git or shared between devices. Export JSON regularly. There is no import or deletion interface yet; keep important research reasoning in versioned documents as well. Do not put sensitive research data in this starter.

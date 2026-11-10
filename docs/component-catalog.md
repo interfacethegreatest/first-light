@@ -2,7 +2,7 @@
 
 This is a **local working-tree snapshot, including uncommitted source**. It is not a deployment record or a claim about the live site.
 
-Snapshot SHA-256: `f1ae203f8b40ffd4310dcdb36c1ce60af438b8fff51e5f36054eafd21f913e23`. All **96 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **98 selected source files**, with no source truncation.
+Snapshot SHA-256: `614a9dfc732797edffea625263c3e633b998e34815a088bd61c0724ae76cc4d8`. All **96 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **98 selected source files**, with no source truncation.
 
 Additional files: `public/media/moon/Moon.jsx` and `examples/glass-panel-3d/main.tsx`. The example entry mounts the optional GlassPanelExample; it is supporting application code, not an additional React component.
 
@@ -4233,10 +4233,10 @@ useGLTF.preload(SUN_MODEL_URL)
 <a id="file-src-components-react-three-fibre-sunscene-sunscene-tsx-9facbfc3"></a>
 ### src/components/react three fibre/sunScene/SunScene.tsx
 
-858 bytes · SHA-256 `b042ab34e9d0abb25df672808e9f79ae60140bedaddeceaf49c9c18dc234f170` · utf8
+2012 bytes · SHA-256 `860ef3f7594a7c493d8c31cd433ed8c969eb21dda90c7ac5c6a7d18ead9a3194` · utf8
 
 ```tsx
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls } from '@react-three/drei'
 import { useCalendarMotionPreferences } from '../../calendarMotion/useCalendarMotionPreferences'
@@ -4246,16 +4246,52 @@ const Sun = lazy(() => import('./Sun'))
 
 export default function SunScene() {
   const { reducedMotion } = useCalendarMotionPreferences()
+  const canvas = useRef<HTMLCanvasElement>(null)
+  const [inViewport, setInViewport] = useState(false)
+  const [pageVisible, setPageVisible] = useState(
+    () => typeof document === 'undefined' || document.visibilityState !== 'hidden',
+  )
+
+  useEffect(() => {
+    const element = canvas.current
+    if (!element) return
+    if (typeof IntersectionObserver === 'undefined') {
+      setInViewport(true)
+      return
+    }
+
+    let live = true
+    const observer = new IntersectionObserver(entries => {
+      if (!live) return
+      const entry = entries.find(value => value.target === element)
+      if (entry) setInViewport(entry.isIntersecting)
+    })
+    observer.observe(element)
+    return () => {
+      live = false
+      observer.disconnect()
+    }
+  }, [])
+
+  useEffect(() => {
+    const update = () => setPageVisible(document.visibilityState !== 'hidden')
+    update()
+    document.addEventListener('visibilitychange', update)
+    return () => document.removeEventListener('visibilitychange', update)
+  }, [])
+
+  const interactive = inViewport && pageVisible
 
   return (
     <Canvas
+      ref={canvas}
       className={styles.globeCanvas}
       data-testid="sun-scene"
       aria-hidden="true"
-      frameloop={reducedMotion ? 'demand' : 'always'}
+      frameloop={interactive && !reducedMotion ? 'always' : 'demand'}
     >
       <ambientLight intensity={2} />
-      <OrbitControls enableZoom={false} />
+      <OrbitControls enableZoom={false} enabled={interactive} />
       <Suspense fallback={null}>
         <Sun />
       </Suspense>
@@ -6166,13 +6202,15 @@ export function GlassTorus({ settings, animate = false, ...meshProps }: GlassPri
 <a id="file-src-components-transmission-glassstudioenvironment-tsx-21c64c8f"></a>
 ### src/components/transmission/GlassStudioEnvironment.tsx
 
-1114 bytes · SHA-256 `7e1b3bcd967899ca0d70e0ec4e4928985af0c8b4e3665c88480b08e1dc208e28` · utf8
+1481 bytes · SHA-256 `7a17a550357da9917493234cb02af844f515e7ea7291ae63b11809306f0bd6fc` · utf8
 
 ```tsx
 import { Environment, Lightformer } from '@react-three/drei'
+import { memo } from 'react'
 
-/** Reflection lighting without a room/city photograph imprinted on the glass. */
-export function GlassStudioEnvironment({ intensity = 1 }: { intensity?: number }) {
+// Drei recaptures all cube faces when Environment's children change identity.
+// Keep those children stable across unrelated React updates and optical edits.
+const StudioEnvironmentContents = memo(function StudioEnvironmentContents({ intensity }: { intensity: number }) {
   return (
     <Environment frames={1} resolution={128} background={false}>
       {/* These softboxes exist only in Environment's separate capture scene.
@@ -6188,6 +6226,11 @@ export function GlassStudioEnvironment({ intensity = 1 }: { intensity?: number }
         scale={8} position={[0, 0, 5]} target={[0, 0, 0]} />
     </Environment>
   )
+})
+
+/** Reflection lighting without a room/city photograph imprinted on the glass. */
+export function GlassStudioEnvironment({ intensity = 1 }: { intensity?: number }) {
+  return <StudioEnvironmentContents intensity={intensity} />
 }
 ```
 
@@ -6657,11 +6700,11 @@ export default function GlassObjectCanvas(props: GlassObjectCanvasProps) {
 <a id="file-src-components-glass-objects-glassobjectcards-tsx-6093911e"></a>
 ### src/components/glass-objects/GlassObjectCards.tsx
 
-8722 bytes · SHA-256 `74f1bdbe2a2332f0b699c74d8390924f990cbeb66c27f47e5d948f48d1e7fc3b` · utf8
+8758 bytes · SHA-256 `04cfced1d3f0b5db72fb70da3bc43baf448898210b8ba5963c35a8ac1e5983be` · utf8
 
 ```tsx
 import {
-  Component, lazy, Suspense, useCallback, useEffect, useId,
+  Component, lazy, memo, Suspense, useCallback, useEffect, useId,
   useMemo, useRef, useState, type ReactNode,
 } from 'react'
 import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from '../transmission/GlassPrimitives'
@@ -6694,7 +6737,7 @@ const SLIDERS = [
   ['roughness', 'Roughness', 0, 0.25, 0.01],
 ] as const
 
-function GlassObjectCard({
+const GlassObjectCard = memo(function GlassObjectCard({
   kind, title, children, initialSpin = true, initialRotationAxis = 'y',
   initialRotationSpeed = 0.3, initialMaterial, lightingIntensity = 1,
 }: GlassObjectCardProps & { kind: GlassObjectKind }) {
@@ -6821,7 +6864,7 @@ function GlassObjectCard({
       </fieldset>
     </section>
   )
-}
+})
 
 /** Native card + one torus scene, ready to reuse outside this example. */
 export function GlassTorusCard(props: GlassObjectCardProps) {
