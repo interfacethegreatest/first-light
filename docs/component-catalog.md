@@ -2,7 +2,7 @@
 
 This is a **local working-tree snapshot, including uncommitted source**. It is not a deployment record or a claim about the live site.
 
-Snapshot SHA-256: `614a9dfc732797edffea625263c3e633b998e34815a088bd61c0724ae76cc4d8`. All **96 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **98 selected source files**, with no source truncation.
+Snapshot SHA-256: `c7dd30b65a4acedf36beea948dd4a5b4184e85530874216cdf4df95ecb47651e`. All **96 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **98 selected source files**, with no source truncation.
 
 Additional files: `public/media/moon/Moon.jsx` and `examples/glass-panel-3d/main.tsx`. The example entry mounts the optional GlassPanelExample; it is supporting application code, not an additional React component.
 
@@ -2508,7 +2508,7 @@ export default function NewUserCard({
 <a id="file-src-components-cards-newusercard-cardtiles-module-css-58f31a0f"></a>
 ### src/components/cards/newUserCard/cardTiles.module.css
 
-4582 bytes · SHA-256 `ec16040ea7c54ff7bf1f88cf2c2ca983edf41e7a665327f146c3c5eade858755` · utf8
+5890 bytes · SHA-256 `d172443310417ab71896b0e7b5ed302c2f739410d973bfea33a20b107603473f` · utf8
 
 ```css
 .viewport {
@@ -2535,45 +2535,69 @@ export default function NewUserCard({
   grid-template-rows: 28px 52px 52px 14px;
 }
 
+/* Only source cards replace TileGrid's shared spark paint with the interlock. */
+.viewport .pattern {
+  background-image: none;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
 .tile,
 .loaderLine {
   box-sizing: border-box;
 }
 
 .tile {
+  cursor: pointer;
   transition: background-color 0.5s ease;
+  z-index: 1;
 }
 
-.tile1 { grid-area: 1 / 1 / 2 / 2; width: 93px; height: 28px; }
-.tile2 { grid-area: 1 / 2 / 2 / 3; width: 93px; height: 28px; }
-.tile3 { grid-area: 1 / 3 / 2 / 4; width: 93px; height: 28px; }
-.tile4 { grid-area: 1 / 4 / 3 / 5; width: 93px; height: 80px; }
-.tile5 { grid-area: 2 / 1 / 3 / 2; width: 93px; height: 52px; }
-.tile6 { grid-area: 2 / 2 / 3 / 3; width: 93px; height: 52px; }
-.tile7 { grid-area: 2 / 3 / 3 / 4; width: 93px; height: 52px; }
-.tile9 { grid-area: 3 / 1 / 4 / 2; width: 93px; height: 52px; }
-.tile10 { grid-area: 3 / 2 / 4 / 4; width: 186px; height: 52px; }
-.tile12 { grid-area: 3 / 4 / 4 / 5; width: 93px; height: 52px; }
-.tile13 { grid-area: 4 / 1 / 5 / 2; width: 93px; height: 14px; }
-.tile15 { grid-area: 4 / 3 / 5 / 4; width: 93px; height: 28px; }
+.tile1 { grid-row-start: 1; grid-row-end: 2; grid-column-start: 1; grid-column-end: 2; width: 93px; height: 28px; }
+.tile2 { grid-row-start: 1; grid-row-end: 2; grid-column-start: 2; grid-column-end: 3; width: 93px; height: 28px; }
+.tile3 { grid-row-start: 1; grid-row-end: 2; grid-column-start: 3; grid-column-end: 4; width: 93px; height: 28px; }
+.tile4 { grid-row-start: 1; grid-row-end: 3; grid-column-start: 4; grid-column-end: 5; width: 93px; height: 80px; }
+.tile5 { grid-row-start: 2; grid-row-end: 3; grid-column-start: 1; grid-column-end: 2; width: 93px; height: 52px; }
+.tile6 { grid-row-start: 2; grid-row-end: 3; grid-column-start: 2; grid-column-end: 3; width: 93px; height: 52px; }
+.tile7 { grid-row-start: 2; grid-row-end: 3; grid-column-start: 3; grid-column-end: 4; width: 93px; height: 52px; }
+.tile9 { grid-row-start: 3; grid-row-end: 4; grid-column-start: 1; grid-column-end: 2; width: 93px; height: 52px; }
+.tile10 { grid-row-start: 3; grid-row-end: 4; grid-column-start: 2; grid-column-end: 4; width: 186px; height: 52px; }
+.tile12 { grid-row-start: 3; grid-row-end: 4; grid-column-start: 4; grid-column-end: 5; width: 93px; height: 52px; }
+.tile13 { grid-row-start: 4; grid-row-end: 5; grid-column-start: 1; grid-column-end: 2; width: 93px; height: 14px; }
+/* Source tile 15's 200% of the fixed 14px footer row becomes 28px. */
+.tile15 { grid-row-start: 4; grid-row-end: 5; grid-column-start: 3; grid-column-end: 4; width: 93px; height: 28px; }
+
+.tile1:is(:hover, :focus-within),
+.tile2:is(:hover, :focus-within),
+.tile4:is(:hover, :focus-within),
+.tile5:is(:hover, :focus-within),
+.tile6:is(:hover, :focus-within),
+.tile7:is(:hover, :focus-within),
+.tile10:is(:hover, :focus-within),
+.tile12:is(:hover, :focus-within),
+.tile13:is(:hover, :focus-within),
+.tile15:is(:hover, :focus-within) {
+  background-color: rgba(48, 121, 97, 0.036);
+}
 
 [data-new-user-card]:is(:hover, :focus-within) .tile1,
 [data-new-user-card]:is(:hover, :focus-within) .tile5,
 [data-new-user-card]:is(:hover, :focus-within) .tile9 {
-  border-bottom: var(--tile-line-width) solid var(--tile-line-colour);
-  border-right: var(--tile-line-width) solid var(--tile-line-colour);
+  border-bottom: 2px solid rgba(90, 89, 89, 0.17);
+  border-right: 2px solid rgba(90, 89, 89, 0.17);
 }
 
 [data-new-user-card]:is(:hover, :focus-within) .tile2,
 [data-new-user-card]:is(:hover, :focus-within) .tile3,
+[data-new-user-card]:is(:hover, :focus-within) .tile6,
 [data-new-user-card]:is(:hover, :focus-within) .tile10 {
-  border-bottom: var(--tile-line-width) solid var(--tile-line-colour);
+  border-bottom: 2px solid rgba(90, 89, 89, 0.17);
 }
 
 [data-new-user-card]:is(:hover, :focus-within) .tile3,
 [data-new-user-card]:is(:hover, :focus-within) .tile5,
 [data-new-user-card]:is(:hover, :focus-within) .tile9 {
-  background-color: rgba(225, 231, 255, 0.02);
+  background-color: rgba(48, 121, 97, 0.036);
 }
 
 .loader,
@@ -2582,13 +2606,13 @@ export default function NewUserCard({
   align-self: end;
   justify-self: start;
   width: 0px;
-  height: var(--tile-line-width);
+  height: 0px;
   margin-right: 23px;
 }
 
-.loader { grid-area: 1 / 4 / 2 / 5; }
-.loader2 { grid-area: 2 / 3 / 3 / 5; }
-.loader3 { grid-area: 3 / 4 / 4 / 5; height: var(--tile-line-width); }
+.loader { grid-row-start: 1; grid-row-end: 2; grid-column-start: 4; grid-column-end: 5; }
+.loader2 { grid-row-start: 2; grid-row-end: 3; grid-column-start: 3; grid-column-end: 5; }
+.loader3 { grid-row-start: 3; grid-row-end: 4; grid-column-start: 4; grid-column-end: 5; }
 
 .loader4,
 .loader5,
@@ -2598,20 +2622,21 @@ export default function NewUserCard({
   height: 0px;
 }
 
-.loader4 { grid-area: 4 / 1 / 5 / 2; }
-.loader5 { grid-area: 1 / 2 / 5 / 3; }
-.loader6 { grid-area: 1 / 3 / 5 / 4; }
+.loader4 { grid-row-start: 4; grid-row-end: 5; grid-column-start: 1; grid-column-end: 2; }
+.loader5 { grid-row-start: 1; grid-row-end: 5; grid-column-start: 2; grid-column-end: 3; }
+/* The source's invalid 4.4 end line resolves to the same one-column span. */
+.loader6 { grid-row-start: 1; grid-row-end: 5; grid-column-start: 3; grid-column-end: 4; }
 
 [data-new-user-card]:is(:hover, :focus-within) .loader {
-  animation: progress93 0.3s linear forwards;
+  animation: progress 0.3s linear forwards;
 }
 
 [data-new-user-card]:is(:hover, :focus-within) .loader2 {
-  animation: progress186 0.4s linear forwards;
+  animation: progress 0.4s linear forwards;
 }
 
 [data-new-user-card]:is(:hover, :focus-within) .loader3 {
-  animation: progress62 0.6s linear forwards;
+  animation: progress3 0.6s linear forwards;
 }
 
 [data-new-user-card]:is(:hover, :focus-within) .loader4 {
@@ -2623,29 +2648,25 @@ export default function NewUserCard({
   animation: progressFull 0.3s linear forwards;
 }
 
-@keyframes progress93 {
-  from { width: 0px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
-  to { width: 93px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
+@keyframes progress {
+  from { width: 0%; border: 1px solid rgba(90, 89, 89, 0.17); }
+  to { width: 100%; border: 1px solid rgba(90, 89, 89, 0.17); }
 }
 
-@keyframes progress186 {
-  from { width: 0px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
-  to { width: 186px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
+@keyframes progress3 {
+  from { width: 0%; border: 1px solid rgba(90, 89, 89, 0.17); }
+  to { width: 67%; border: 1.5px solid rgba(90, 89, 89, 0.09); }
 }
 
-@keyframes progress62 {
-  from { width: 0px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
-  to { width: 62px; border-bottom: var(--tile-line-width) solid var(--tile-line-colour); }
-}
-
+/* 110% of the 14px footer row and 146px full row span, respectively. */
 @keyframes progressFooter {
-  from { height: 0px; border-right: var(--tile-line-width) solid var(--tile-line-colour); }
-  to { height: 16px; border-right: var(--tile-line-width) solid var(--tile-line-colour); }
+  from { height: 0px; border-right: 2px solid rgba(90, 89, 89, 0.17); }
+  to { height: 15.4px; border-right: 3px solid rgba(104, 103, 103, 0.11); }
 }
 
 @keyframes progressFull {
-  from { height: 0px; border-right: var(--tile-line-width) solid var(--tile-line-colour); }
-  to { height: 160px; border-right: var(--tile-line-width) solid var(--tile-line-colour); }
+  from { height: 0px; border-right: 2px solid rgba(90, 89, 89, 0.17); }
+  to { height: 160.6px; border-right: 3px solid rgba(104, 103, 103, 0.11); }
 }
 
 .viewport[data-reduced-motion='true'] .tile,
