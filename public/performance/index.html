@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex">
+  <title>First Light · Device performance check</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #080b14; color: #f3f4f7; font: 16px/1.6 system-ui, sans-serif; }
+    main { width: min(100% - 32px, 900px); margin: 32px auto; }
+    h1 { font-size: clamp(1.6rem, 6vw, 2.3rem); line-height: 1.2; }
+    p { color: #c4cada; }
+    a { color: #ffb59b; }
+    label { display: block; margin: 18px 0 6px; }
+    input, textarea, button { font: inherit; }
+    input, textarea { display: block; width: 100%; color: inherit; background: #111522; border: 1px solid #454b61; border-radius: 7px; padding: 12px; }
+    input { max-width: 460px; }
+    textarea { min-height: 19rem; font: 12px/1.6 ui-monospace, monospace; resize: vertical; }
+    button { color: #10121b; background: #ffb59b; border: 0; border-radius: 7px; padding: 12px 18px; min-height: 46px; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: default; }
+    :focus-visible { outline: 3px solid #c1ddff; outline-offset: 3px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0 12px; }
+    #status { min-height: 3.2em; }
+    iframe { display: block; width: 100vw; margin-left: calc(50% - 50vw); height: min(70vh, 640px); min-height: 340px; border: 0; outline: 1px solid #454b61; border-radius: 7px; pointer-events: none; background: #080b14; }
+    [hidden] { display: none !important; }
+    .small { font-size: .87rem; }
+  </style>
+</head>
+<body>
+<main>
+  <p><a href="../">First Light</a> / Optional device check</p>
+  <h1>Check the glass scenes on your device</h1>
+  <p>Open this page in Safari, keep the tab visible, tap Run, then copy the report. Leave the phone orientation and browser zoom unchanged during the test. Four six-second measurements compare the torus and panel on Automatic and Balanced quality; loading and shader warmup take extra time.</p>
+  <p class="small">This loads the current app in a read-only test view. Optical settings stay unchanged. Reports remain on this page until you copy them; nothing is uploaded. The test does not edit saved research. Reduced Motion is respected. Submitted frames measure drawing activity, not GPU execution time or a device approval.</p>
+  <label for="device">Optional device label</label>
+  <input id="device" maxlength="100" autocomplete="off" placeholder="For example: iPhone 15, Safari 18">
+  <p class="small">Use a device name only; no personal information is needed.</p>
+  <div class="actions">
+    <button id="run" type="button">Run device check</button>
+    <button id="copy" type="button" disabled>Copy report</button>
+  </div>
+  <p id="status" role="status" aria-live="polite">Ready. The app loads only when you tap Run.</p>
+  <iframe id="app" title="Read-only First Light device test view" tabindex="-1" aria-hidden="true" inert hidden sandbox="allow-scripts allow-same-origin"></iframe>
+  <label for="report">Device report</label>
+  <textarea id="report" readonly spellcheck="false" placeholder="Your report will appear here. If copying is unavailable, select and copy this text."></textarea>
+</main>
+<script>
+(function () {
+  'use strict';
+  const rootURL = new URL('../', location.href);
+  const runButton = document.getElementById('run');
+  const copyButton = document.getElementById('copy');
+  const status = document.getElementById('status');
+  const reportField = document.getElementById('report');
+  const frame = document.getElementById('app');
+  const device = document.getElementById('device');
+  const motion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  let controller = null;
+
+  function stopReason() {
+    if (document.visibilityState === 'hidden') return 'Tab hidden; measurement interrupted.';
+    if (!motion || motion.matches) return 'Reduced Motion is enabled or unavailable; automatic motion is paused.';
+    return null;
+  }
+  function interrupted() {
+    const reason = stopReason();
+    if (reason && controller) controller.abort(reason);
+  }
+  function sleep(milliseconds, signal) {
+    return new Promise((resolve, reject) => {
+      if (signal.aborted) { reject(new Error(String(signal.reason))); return; }
+      const timer = setTimeout(() => { signal.removeEventListener('abort', abort); resolve(); }, milliseconds);
+      function abort() { clearTimeout(timer); signal.removeEventListener('abort', abort); reject(new Error(String(signal.reason))); }
+      signal.addEventListener('abort', abort, { once: true });
+    });
+  }
+  async function waitFor(read, signal, timeout = 30000) {
+    const deadline = performance.now() + timeout;
+    while (!signal.aborted) {
+      const value = read();
+      if (value) return value;
+      if (performance.now() > deadline) throw new Error('The scene did not become ready in time. WebGL or a required app asset may be unavailable.');
+      await sleep(100, signal);
+    }
+    throw new Error(String(signal.reason));
+  }
+  function qualitySelect(card) {
+    const label = Array.from(card.querySelectorAll('label')).find(element => element.textContent.trim().startsWith('Quality') && element.querySelector('select'));
+    return label && label.querySelector('select');
+  }
+  function setQuality(select, value, child) {
+    const setter = Object.getOwnPropertyDescriptor(child.HTMLSelectElement.prototype, 'value').set;
+    setter.call(select, value);
+    select.dispatchEvent(new child.Event('change', { bubbles: true }));
+  }
+  function publish(report) {
+    reportField.value = JSON.stringify(report, null, 2);
+    copyButton.disabled = false;
+  }
+  async function run() {
+    if (controller) { controller.abort('Stopped by user.'); return; }
+    controller = new AbortController();
+    const signal = controller.signal;
+    const output = {
+      schema: 'first-light-device-check-v1',
+      createdAt: new Date().toISOString(),
+      appURL: rootURL.href,
+      deviceLabel: device.value.trim(),
+      browser: navigator.userAgent,
+      platform: navigator.platform,
+      maxTouchPoints: navigator.maxTouchPoints || 0,
+      hardwareConcurrency: navigator.hardwareConcurrency || null,
+      viewport: { width: innerWidth, height: innerHeight, devicePixelRatio: window.devicePixelRatio || 1 },
+      reducedMotion: motion ? motion.matches : null,
+      status: 'running',
+      runs: [],
+      notes: [
+        'Submitted frames/sec counts only matching torus/panel host draws to the default framebuffer, deduplicated by rAF timestamp. Offscreen refraction captures and rAF-only callbacks are excluded.',
+        'Automatic selects the app profile for this pointer. On a phone Automatic may already be Balanced; this is reported, not treated as a faster/slower test.',
+        'Both native quality controls use the requested profile for each sample. The other card may be visible on wide screens; active visible objects are recorded. No optical sliders, rotation settings, saved records or other app controls are changed.',
+        'This is an opt-in local diagnostic, not a GPU timer, benchmark pass, Safari approval or telemetry upload.',
+        'Browser/renderer names may be masked or supplied by an automation engine. Use the platform and your physical device label as context; names alone do not prove Apple hardware.',
+      ],
+    };
+    const originals = [];
+    let probe = null;
+    runButton.textContent = 'Stop test';
+    device.disabled = true;
+    copyButton.disabled = true;
+    document.addEventListener('visibilitychange', interrupted);
+    if (motion && motion.addEventListener) motion.addEventListener('change', interrupted);
+    else if (motion && motion.addListener) motion.addListener(interrupted);
+    try {
+      if (stopReason()) throw new Error(stopReason());
+      status.textContent = 'Loading the current app and warming the real glass scenes…';
+      const response = await fetch(rootURL, { credentials: 'same-origin', cache: 'no-store', signal });
+      if (!response.ok) throw new Error('The current app page could not be loaded (' + response.status + ').');
+      const html = await response.text();
+      const parsed = new DOMParser().parseFromString(html, 'text/html');
+      parsed.querySelectorAll('base').forEach(element => element.remove());
+      const base = parsed.createElement('base');
+      base.href = rootURL.href;
+      const script = parsed.createElement('script');
+      script.src = new URL('performance/probe.js', rootURL).href;
+      parsed.head.prepend(script);
+      parsed.head.prepend(base);
+      frame.hidden = false;
+      frame.scrollIntoView({ block: 'center', behavior: 'instant' });
+      frame.srcdoc = '<!doctype html>\n' + parsed.documentElement.outerHTML;
+      const child = await waitFor(() => frame.contentWindow && frame.contentWindow.__firstLightProbe
+        && !frame.contentWindow.__firstLightProbe.snapshot().disposed
+        && frame.contentDocument.querySelector('#glass-objects') && frame.contentWindow, signal);
+      probe = child.__firstLightProbe;
+      output.appViewport = { width: child.innerWidth, height: child.innerHeight, devicePixelRatio: child.devicePixelRatio || 1 };
+      for (const card of child.document.querySelectorAll('#glass-objects [data-glass-object-kind]')) {
+        const select = qualitySelect(card);
+        if (!select) throw new Error('The native quality control could not be found.');
+        originals.push({ select, value: select.value });
+      }
+      for (const kind of ['torus', 'panel']) {
+        const card = child.document.querySelector('#glass-objects [data-glass-object-kind="' + kind + '"]');
+        if (!card) throw new Error('This app version does not include the ' + kind + ' card.');
+        const select = qualitySelect(card);
+        if (!select) throw new Error('The native quality control could not be found.');
+        for (const quality of ['auto', 'balanced']) {
+          status.textContent = 'Warming ' + kind + ' · ' + (quality === 'auto' ? 'Automatic' : 'Balanced') + '…';
+          originals.forEach(entry => setQuality(entry.select, quality, child));
+          const stage = card.querySelector('[data-glass-object-stage]');
+          stage.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'instant' });
+          // A loaded attribute is not enough: require three more real host-frame submissions.
+          const before = probe.snapshot().draws[kind];
+          await waitFor(() => {
+            if (card.getAttribute('data-glass-object-state') === 'unavailable') throw new Error('The ' + kind + ' WebGL renderer is unavailable.');
+            return card.getAttribute('data-glass-object-state') === 'loaded'
+              && card.getAttribute('data-glass-object-spin') === 'true'
+              && probe.snapshot().draws[kind] >= before + 3;
+          }, signal);
+          status.textContent = 'Measuring ' + kind + ' · ' + (quality === 'auto' ? 'Automatic' : 'Balanced') + ' for six seconds…';
+          probe.start(kind);
+          let result;
+          try { await sleep(6000, signal); result = probe.finish(); }
+          catch (error) { result = probe.finish(error.message); if (result) output.runs.push({ requestedQuality: quality, effectiveQuality: card.getAttribute('data-glass-object-quality'), ...result }); throw error; }
+          const visible = Array.from(child.document.querySelectorAll('#glass-objects [data-glass-object-spin="true"]')).map(element => element.getAttribute('data-glass-object-kind'));
+          output.runs.push({ requestedQuality: quality, effectiveQuality: card.getAttribute('data-glass-object-quality'), activeVisibleObjects: visible, canvasPixels: stage.querySelector('canvas') ? { width: stage.querySelector('canvas').width, height: stage.querySelector('canvas').height } : null, ...result });
+          if (result.status === 'paused-or-interrupted') throw new Error('Object motion paused during measurement. Keep the tab visible and try again.');
+        }
+      }
+      output.status = output.runs.every(result => result.status === 'measured') ? 'completed' : 'completed-with-insufficient-or-incomplete-data';
+      status.textContent = 'Finished. Copy the report and share it with the project coordinator. This report does not certify device support.';
+    } catch (error) {
+      output.status = signal.aborted || stopReason() ? 'paused-or-interrupted' : 'unavailable';
+      output.reason = signal.aborted ? String(signal.reason) : error.message;
+      status.textContent = output.reason + ' You can copy the partial report or run again.';
+    } finally {
+      output.probe = probe ? probe.snapshot() : null;
+      // Restore native quality state before disposing the test frame. No research controls are touched.
+      originals.forEach(({ select, value }) => { try { setQuality(select, value, frame.contentWindow); } catch (_) { /* Frame may already be unloaded. */ } });
+      if (probe) probe.dispose();
+      frame.removeAttribute('srcdoc');
+      frame.src = 'about:blank';
+      frame.hidden = true;
+      document.removeEventListener('visibilitychange', interrupted);
+      if (motion && motion.removeEventListener) motion.removeEventListener('change', interrupted);
+      else if (motion && motion.removeListener) motion.removeListener(interrupted);
+      controller = null;
+      runButton.textContent = 'Run device check';
+      device.disabled = false;
+      publish(output);
+    }
+  }
+  runButton.addEventListener('click', run);
+  copyButton.addEventListener('click', async () => {
+    try {
+      if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(reportField.value);
+      status.textContent = 'Report copied. Nothing was uploaded.';
+    } catch (_) {
+      reportField.focus();
+      reportField.select();
+      status.textContent = 'Select and copy the report text below; automatic copying is unavailable in this browser.';
+    }
+  });
+  window.addEventListener('pagehide', () => {
+    if (controller) controller.abort('Page closed or hidden.');
+    try { frame.contentWindow.__firstLightProbe?.dispose(); } catch (_) { /* Frame may be gone. */ }
+    frame.removeAttribute('srcdoc');
+    frame.src = 'about:blank';
+  });
+})();
+</script>
+</body>
+</html>

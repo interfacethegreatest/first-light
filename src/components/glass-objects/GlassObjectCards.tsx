@@ -1,5 +1,5 @@
 import {
-  Component, lazy, Suspense, useCallback, useEffect, useId,
+  Component, lazy, memo, Suspense, useCallback, useEffect, useId,
   useMemo, useRef, useState, type ReactNode,
 } from 'react'
 import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from '../transmission/GlassPrimitives'
@@ -32,7 +32,7 @@ const SLIDERS = [
   ['roughness', 'Roughness', 0, 0.25, 0.01],
 ] as const
 
-function GlassObjectCard({
+const GlassObjectCard = memo(function GlassObjectCard({
   kind, title, children, initialSpin = true, initialRotationAxis = 'y',
   initialRotationSpeed = 0.3, initialMaterial, lightingIntensity = 1,
 }: GlassObjectCardProps & { kind: GlassObjectKind }) {
@@ -159,7 +159,7 @@ function GlassObjectCard({
       </fieldset>
     </section>
   )
-}
+})
 
 /** Native card + one torus scene, ready to reuse outside this example. */
 export function GlassTorusCard(props: GlassObjectCardProps) {

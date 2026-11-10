@@ -1,7 +1,9 @@
 import { Environment, Lightformer } from '@react-three/drei'
+import { memo } from 'react'
 
-/** Reflection lighting without a room/city photograph imprinted on the glass. */
-export function GlassStudioEnvironment({ intensity = 1 }: { intensity?: number }) {
+// Drei recaptures all cube faces when Environment's children change identity.
+// Keep those children stable across unrelated React updates and optical edits.
+const StudioEnvironmentContents = memo(function StudioEnvironmentContents({ intensity }: { intensity: number }) {
   return (
     <Environment frames={1} resolution={128} background={false}>
       {/* These softboxes exist only in Environment's separate capture scene.
@@ -17,4 +19,9 @@ export function GlassStudioEnvironment({ intensity = 1 }: { intensity?: number }
         scale={8} position={[0, 0, 5]} target={[0, 0, 0]} />
     </Environment>
   )
+})
+
+/** Reflection lighting without a room/city photograph imprinted on the glass. */
+export function GlassStudioEnvironment({ intensity = 1 }: { intensity?: number }) {
+  return <StudioEnvironmentContents intensity={intensity} />
 }
