@@ -7,6 +7,8 @@ import HtmlGlassCanvas from '../src/components/html-glass-card/HtmlGlassCanvas'
 import { moveHtmlHost } from '../src/components/html-glass-card/moveHtmlHost'
 
 vi.mock('../src/components/html-glass-card/HtmlGlassCanvas', () => ({ default: vi.fn() }))
+// The native card now contains a second, decorative GPU boundary for its title.
+vi.mock('../src/components/typography/FooterTextCanvas', () => ({ default: () => null }))
 
 function environment({ reduced = false, hidden = false, webgl = true, observe = true } = {}) {
   const listeners = new Set<() => void>()

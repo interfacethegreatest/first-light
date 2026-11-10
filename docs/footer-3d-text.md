@@ -2,6 +2,8 @@
 
 One compact, reusable scene is mounted immediately before the existing site footer. It renders “Make learning tangible.” as extruded lettering. Existing paragraphs, glass panes, Moon/Sun scenes, backgrounds, footer contents and workspace controls stay in place; App.tsx changes only by adding an import and `<FooterTextScene />`.
 
+The shared renderer now uses Helvetiker Bold with deeper extrusion and bevels, and also powers the reusable [ThreeDHeading](three-d-heading.md) inside the [main-page glass card](main-glass-heading.md). Verification and asset hashes below describe the original footer implementation; the main-page integration document records the current checks.
+
 ## Code and assets
 
 - `FooterTextScene.tsx`: accessible HTML wrapper/fallback, lazy canvas loading, local error boundary and readiness state.

@@ -11,6 +11,7 @@ import { MoonCredit } from './components/misc/MoonMark/MoonMark'
 import SparkArt from './components/hero/SparkArt'
 import PaneBackground from './components/panes/PaneBackground'
 import FooterTextScene from './components/typography/FooterTextScene'
+import HtmlGlassCard from './components/html-glass-card/HtmlGlassCard'
 import './App.css'
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -183,6 +184,17 @@ export default function App() {
           </PaneBackground>
           </CalendarPanel>
         </div>
+
+        <section id="glass-workspace" aria-label="Idea draft" className="glass-workspace-section" data-main-glass="">
+          <HtmlGlassCard
+            title="A little more depth."
+            eyebrow="A SMALL SPARK"
+            noteLabel="Idea draft"
+            hint="Temporary draft · Clears on reload"
+          >
+            <p>Use this temporary space to sketch the next idea you want to explore.</p>
+          </HtmlGlassCard>
+        </section>
 
         <PaneBackground as="aside" className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></PaneBackground>
         <FooterTextScene />

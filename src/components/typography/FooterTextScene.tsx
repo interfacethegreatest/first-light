@@ -9,6 +9,8 @@ const FooterTextCanvas = lazy(() => import('./FooterTextCanvas'))
 
 export interface FooterTextSceneProps {
   text?: string
+  motion?: boolean
+  className?: string
 }
 
 class FooterTextBoundary extends Component<{
@@ -30,7 +32,7 @@ class FooterTextBoundary extends Component<{
   }
 }
 
-export default function FooterTextScene({ text = 'Make learning tangible.' }: FooterTextSceneProps) {
+export default function FooterTextScene({ text = 'Make learning tangible.', motion = true, className }: FooterTextSceneProps) {
   const element = useRef<HTMLDivElement>(null)
   const mounted = useRef(true)
   const failed = useRef(false)
@@ -59,7 +61,7 @@ export default function FooterTextScene({ text = 'Make learning tangible.' }: Fo
   }, [])
 
   const canRender = requested && hasWebGL === true && !unavailable
-  const animate = canRender && inViewport && pageVisible && !reducedMotion
+  const animate = motion && canRender && inViewport && pageVisible && !reducedMotion
   const state = unavailable || hasWebGL === false
     ? 'unavailable'
     : ready ? 'loaded' : requested ? 'loading' : 'pending'
@@ -67,7 +69,7 @@ export default function FooterTextScene({ text = 'Make learning tangible.' }: Fo
   return (
     <div
       ref={element}
-      className={styles.scene}
+      className={`${styles.scene}${className ? ` ${className}` : ''}`}
       role="img"
       aria-label={text}
       data-footer-text-state={state}
