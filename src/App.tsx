@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { useWorkspace } from './useWorkspace'
 import type { ImplementationStatus } from './workspace'
 import CalendarPanel from './components/calendarMotion/CalendarPanel'
@@ -33,6 +33,14 @@ function errorMessage(error: unknown) {
 }
 
 export default function App() {
+  useEffect(() => {
+    if (window.location.hash !== '#glass-workspace') return
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById('glass-workspace')?.scrollIntoView({ block: 'start', behavior: 'auto' })
+    })
+    return () => window.cancelAnimationFrame(frame)
+  }, [])
+
   const { workspace, storageWarning, addSource, addDecision, updateDecisionStatus, exportWorkspace } = useWorkspace()
   const [sourceTitle, setSourceTitle] = useState('')
   const [sourceUrl, setSourceUrl] = useState('')

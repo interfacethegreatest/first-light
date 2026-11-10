@@ -2,6 +2,8 @@
 
 The glass scene is mounted directly in `src/App.tsx` at `#glass-workspace`, below the two workspace panels and above the existing next-step/footer area. It is no longer available only through the component example. This change adds one self-contained card and leaves the header, hero, workspace controls, records, storage format and existing scene behavior in place.
 
+Cold navigation to `#glass-workspace` scrolls after React mounts the section. A one-shot mount effect schedules that exact initial fragment on the next animation frame and cancels its callback on cleanup; other fragments and ordinary page navigation keep their existing behavior.
+
 ```tsx
 <HtmlGlassCard
   title="A little more depth."
