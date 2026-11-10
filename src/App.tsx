@@ -8,6 +8,7 @@ import SourceSections from './components/sources/SourceSections'
 import useSourceSections from './components/sources/useSourceSections'
 import MoonBanner from './components/header/MoonBanner'
 import { MoonCredit } from './components/misc/MoonMark/MoonMark'
+import EarthMark, { EarthCredit } from './components/misc/EarthMark/EarthMark'
 import SparkArt from './components/hero/SparkArt'
 import PaneBackground from './components/panes/PaneBackground'
 import FooterTextScene from './components/typography/FooterTextScene'
@@ -154,7 +155,7 @@ export default function App() {
 
         <div className="workspace-heading" id="workspace">
           <div><p className="eyebrow">YOUR STARTING POINT</p><h2>The workspace</h2></div>
-          <span className="privacy-note"><span className="small-dot" />Stored in this browser</span>
+          <span className="privacy-note"><EarthMark size={14} />Stored in this browser</span>
         </div>
 
         {storageWarning && <div className="notice notice-warning" role="alert">{storageWarning}</div>}
@@ -221,7 +222,7 @@ export default function App() {
 
         <PaneBackground as="aside" className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></PaneBackground>
         <FooterTextScene rotationSpeed={0.12} />
-        <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>Local browser storage · Export regularly for backup · No account needed<br /><MoonCredit /></p></footer>
+        <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>Local browser storage · Export regularly for backup · No account needed<br /><MoonCredit />{' · '}<EarthCredit /></p></footer>
       </main>
     </>
   )

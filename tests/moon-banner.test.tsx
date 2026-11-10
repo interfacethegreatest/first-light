@@ -28,7 +28,7 @@ it('keeps the full-width home link and export action as separate keyboard contro
   expect(title).toHaveTextContent('first light.')
   expect(title).toContainElement(home.querySelector('[data-moon-mark]'))
   expect(title).not.toContainElement(home.querySelector('.header-context'))
-  expect(home.querySelector('svg')).not.toBeInTheDocument()
+  expect(home.querySelector('[data-moon-mark] svg')).not.toBeInTheDocument()
   expect(within(home).queryByRole('button')).not.toBeInTheDocument()
   expect(home).not.toContainElement(exportButton)
 

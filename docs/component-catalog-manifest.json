@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "snapshotKind": "local working-tree source; not deployment evidence",
-  "snapshotSha256": "c7dd30b65a4acedf36beea948dd4a5b4184e85530874216cdf4df95ecb47651e",
+  "snapshotSha256": "dfdefb2aa69cdc7cb404daae66526ef15b1cfbdadacac4476763526409045968",
   "sourceSelection": {
     "directory": "all files under src/",
     "explicitFiles": [
@@ -13,10 +13,10 @@
     "file": "scripts/export-component-catalog.mjs",
     "sha256": "06e857a77de25a1b5ee3d0c15a0c2190a6453f25fe4678a821b7872b6a258877"
   },
-  "fileCount": 98,
-  "srcFileCount": 96,
-  "sourceBytes": 212094,
-  "componentModuleCount": 47,
+  "fileCount": 103,
+  "srcFileCount": 101,
+  "sourceBytes": 221607,
+  "componentModuleCount": 51,
   "components": [
     {
       "module": "App",
@@ -307,6 +307,48 @@
       "usage": "Standalone/reusable; not imported from application entry"
     },
     {
+      "module": "EarthFallback",
+      "primaryExport": "EarthFallback",
+      "namedExports": [],
+      "file": "src/components/misc/EarthMark/EarthFallback.tsx",
+      "category": "Other supporting source",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "EarthMark",
+      "primaryExport": "EarthMark",
+      "namedExports": [
+        "EarthCredit"
+      ],
+      "file": "src/components/misc/EarthMark/EarthMark.tsx",
+      "category": "Other supporting source",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "EarthMarkCanvas",
+      "primaryExport": "EarthMarkCanvas",
+      "namedExports": [],
+      "file": "src/components/misc/EarthMark/EarthMarkCanvas.tsx",
+      "category": "Other supporting source",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "EarthModel",
+      "primaryExport": "EarthModel",
+      "namedExports": [],
+      "file": "src/components/misc/EarthMark/EarthModel.tsx",
+      "category": "Other supporting source",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
       "module": "MoonMark",
       "primaryExport": "MoonMark",
       "namedExports": [
@@ -576,8 +618,8 @@
   "files": [
     {
       "path": "src/App.css",
-      "bytes": 16865,
-      "sha256": "eb5a3b96cd0f8acb0ea53138ff4f933e80342e40cb5859ad2198683bdbdcca5f",
+      "bytes": 16686,
+      "sha256": "a2594b7ef5518c430037623c2b533ecd23bb873c2cdfbb78448969a678e3895a",
       "encoding": "utf8",
       "category": "Application, workspace data and shared styles",
       "anchor": "file-src-app-css-60f5dcfc",
@@ -585,8 +627,8 @@
     },
     {
       "path": "src/App.tsx",
-      "bytes": 16157,
-      "sha256": "612690da865ea467d52b48ee7b9b04da0f106b002c5c78b4e6e5160a25f55860",
+      "bytes": 16252,
+      "sha256": "b2be7b272e96966e39ae7bc4cfd849c7f5697bbd260003a43e64bf8790cb912a",
       "encoding": "utf8",
       "category": "Application, workspace data and shared styles",
       "anchor": "file-src-app-tsx-26ad4b83",
@@ -954,8 +996,8 @@
     },
     {
       "path": "src/components/header/MoonBanner.module.css",
-      "bytes": 1759,
-      "sha256": "79b95750dfd236f3bf62ef316b2bd142ae0b93f513567effbbab39b6181e110e",
+      "bytes": 1661,
+      "sha256": "c8108020b41ccc9ddc7b952c28752b75bbef3be7d9ebf0fc3c90c4a74cf81de8",
       "encoding": "utf8",
       "category": "Header, hero and shared tile decoration",
       "anchor": "file-src-components-header-moonbanner-module-css-910bb8d8",
@@ -963,8 +1005,8 @@
     },
     {
       "path": "src/components/header/MoonBanner.tsx",
-      "bytes": 889,
-      "sha256": "13867f0433270e1b7a79a67b444fea24314b359a07f43e4d19e8ddf0206e7659",
+      "bytes": 937,
+      "sha256": "91ed5346e1d74a932faa456a0e52297a79c706a34944c324e73a06dbf54bc3fe",
       "encoding": "utf8",
       "category": "Header, hero and shared tile decoration",
       "anchor": "file-src-components-header-moonbanner-tsx-91446d9d",
@@ -1086,6 +1128,51 @@
       "category": "Modal input container and outside-click hook",
       "anchor": "file-src-components-input-outsideclick-tsx-418bbec8",
       "importedFromMain": false
+    },
+    {
+      "path": "src/components/misc/EarthMark/EarthFallback.tsx",
+      "bytes": 445,
+      "sha256": "673d41dc7d9a5dc29875d999fedebe5faeb179bb0f0ec7a4863ecb657a681a7f",
+      "encoding": "utf8",
+      "category": "Other supporting source",
+      "anchor": "file-src-components-misc-earthmark-earthfallback-tsx-f17f09f6",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/misc/EarthMark/EarthMark.module.css",
+      "bytes": 667,
+      "sha256": "b4052583dc8f75cab4716885e5ac4e5475cab18618b6cc45f3834789d47ba2ce",
+      "encoding": "utf8",
+      "category": "Other supporting source",
+      "anchor": "file-src-components-misc-earthmark-earthmark-module-css-1a1c97ca",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/misc/EarthMark/EarthMark.tsx",
+      "bytes": 3660,
+      "sha256": "911412432e863750295819e7410432911df4eaaf41f4466fadee95c1140e721f",
+      "encoding": "utf8",
+      "category": "Other supporting source",
+      "anchor": "file-src-components-misc-earthmark-earthmark-tsx-3b0b8513",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/misc/EarthMark/EarthMarkCanvas.tsx",
+      "bytes": 2851,
+      "sha256": "199688e18df08be63d9098794e5b9626232321fc6e3ff617124e846cdfb3f2eb",
+      "encoding": "utf8",
+      "category": "Other supporting source",
+      "anchor": "file-src-components-misc-earthmark-earthmarkcanvas-tsx-fb3e7fdd",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/misc/EarthMark/EarthModel.tsx",
+      "bytes": 2024,
+      "sha256": "db4c92d46a433963ac306d4e3c6ad48069fe8de77fcccdf9132274879262b05c",
+      "encoding": "utf8",
+      "category": "Other supporting source",
+      "anchor": "file-src-components-misc-earthmark-earthmodel-tsx-b6de1981",
+      "importedFromMain": true
     },
     {
       "path": "src/components/misc/MoonMark/MoonMark.module.css",
@@ -1460,14 +1547,14 @@
   "artifacts": {
     "markdown": {
       "path": "docs/component-catalog.md",
-      "bytes": 265861,
-      "sha256": "aef918ec3035523b9e6d09962c4c3aa376a3f23d5e345110f2f07fa8a25d300a"
+      "bytes": 278266,
+      "sha256": "a46de284f5886b96b1d48f15d7f81da64d8d8417c79ebd830dd179c429e897cc"
     },
     "zip": {
       "path": "docs/component-source.zip",
-      "bytes": 228310,
-      "sha256": "c61cf5542255b4133c22f97deacc87dd40ff103d86b9d53962999d14dcb96b2b",
-      "entries": 98
+      "bytes": 238669,
+      "sha256": "0e07974dade1444f0576c0273ca538c4e1e25ba7d6b73c8338ea1d3af056a45b",
+      "entries": 103
     }
   }
 }

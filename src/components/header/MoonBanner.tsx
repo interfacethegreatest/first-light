@@ -1,4 +1,5 @@
 import HeaderExport from './HeaderExport'
+import EarthMark from '../misc/EarthMark/EarthMark'
 import { headerFrameTemplate } from './headerFrameTemplate'
 import { headerTitleTemplate } from './headerTitleTemplate'
 import styles from './MoonBanner.module.css'
@@ -17,7 +18,7 @@ export default function MoonBanner({ onExport }: MoonBannerProps) {
           {headerTitleTemplate.render()}
           <div className={`header-context ${styles.context}`}>
             <span>Research workspace</span>
-            <span className={styles.localBadge}><span aria-hidden="true" />Local</span>
+            <span className={styles.localBadge}><EarthMark size={12} />Local</span>
           </div>
         </a>
         <HeaderExport onExport={onExport} />

@@ -209,7 +209,7 @@ describe('reusable Moon scene', () => {
     const home = screen.getByRole('link', { name: 'First Light home' })
     expect(home).toHaveAttribute('href', '#top')
     expect(home.querySelectorAll('[data-moon-mark]')).toHaveLength(1)
-    expect(home.querySelector('svg')).not.toBeInTheDocument()
+    expect(home.querySelector('[data-moon-mark] svg')).not.toBeInTheDocument()
     const element = home.querySelector('[data-moon-mark]')!
     activity.intersect(element, true)
     const renderer = await screen.findByTestId('moon-gpu-boundary')

@@ -1,0 +1,31 @@
+Earth — source and derivative notice
+
+This work is based on "Earth"
+(https://sketchfab.com/3d-models/earth-f7a76c63ff1846afb2d606e5c8369c15)
+by PatelDev (https://sketchfab.com/PatelDev), licensed under CC-BY-4.0
+(http://creativecommons.org/licenses/by/4.0/).
+
+Source archive: interfacethegreatest/Calendar4, commit
+7b7e533e587d4991c97b63259355d1a5e9141616, public/media/earth/.
+earth.gltf, earth.bin, textures/Scene_-_Root_baseColor.jpeg, Earth.jsx and
+license.txt are preserved byte-for-byte from that commit. The original
+attribution and license notice remain in license.txt and Earth.jsx.
+
+Changes made locally for First Light:
+- earth.glb embeds the original BIN and original JPEG in a self-contained GLB.
+  JSON is minified and resources receive GLB alignment padding. All original
+  geometry bytes, image bytes, scene graph, names, materials and coordinates
+  are retained. No geometry optimization, compression, index conversion or
+  transform baking was performed.
+- earth-icon.glb is a separately named UI derivative. Its geometry, UVs,
+  materials, names and coordinates are unchanged. Only its texture is reduced
+  from 8192x4096 to 1024x512 with Pillow LANCZOS and JPEG quality 90 (4:2:0).
+  The prepared JPEG is in icon/Scene_-_Root_baseColor.jpeg. It is not claimed
+  to be byte-identical to the original JPEG. No generative imaging, automatic
+  color transform or image enhancement was used.
+- scripts/pack-moon-glb.mjs is the existing local single-BIN/JPEG packer,
+  reused unchanged despite its historical name. It is not a newly supplied
+  Earth converter. scripts/prepare-earth-icon.py records the derivative build.
+
+See docs/earth-asset-provenance.md and docs/earth-glb-validation.json in the
+repository for hashes, exact byte sizes, validation and reproduction commands.
