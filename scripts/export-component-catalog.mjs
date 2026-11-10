@@ -25,6 +25,7 @@ const groups = [
   ['glass-3d', 'Three.js glass panel and example', ['src/components/glass-panel-3d/', 'examples/glass-panel-3d/main.tsx']],
   ['html-glass', 'HTML glass card and scene helpers', ['src/components/html-glass-card/']],
   ['transmission', 'Transmission materials and scene cards', ['src/components/transmission/']],
+  ['glass-objects', 'Isolated glass objects and rotation', ['src/components/glass-objects/']],
   ['input', 'Modal input container and outside-click hook', ['src/components/input/']],
   ['typography', '3D typography and footer scene', ['src/components/typography/']],
   ['other', 'Other supporting source', []],

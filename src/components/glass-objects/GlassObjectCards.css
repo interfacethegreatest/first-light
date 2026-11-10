@@ -1,0 +1,8 @@
+/* Match the existing card design; keep every label outside the 3D objects. */
+.glass-object-card .transmission-heading > :not(h3):not(p) { margin: 0; }
+.glass-object-stage { isolation: isolate; }
+.glass-object-controls :is(input, select, button):focus-visible,
+.glass-object-gallery > label select:focus-visible {
+  outline: 2px solid #ff9470;
+  outline-offset: 3px;
+}

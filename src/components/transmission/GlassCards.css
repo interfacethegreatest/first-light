@@ -6,7 +6,8 @@
 .transmission-heading h3 { margin: 0; font-size: 1.35rem; font-weight: 600; }
 .transmission-stage { position: relative; height: clamp(22rem,56vw,32rem); min-width: 0; overflow: hidden; background: #080b14; touch-action: pan-y; }
 .transmission-stage canvas { display: block; opacity: 1; }
-.transmission-annotation { display: block; padding: .4rem .65rem; border: 1px solid rgba(240,248,255,.2); border-radius: 6px; color: #e8f4ff; font-family: inherit; font-size: 10px; letter-spacing: .12em; white-space: nowrap; }
+/* Scene tags stay hidden; the surrounding native card header identifies it. */
+.transmission-annotation { display: none; }
 .transmission-status { margin: 0; padding: .8rem 1.25rem; color: #bdc6d5; font-size: .75rem; }
 .transmission-controls { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; min-width: 0; margin: 0; padding: 1.25rem; border: 0; border-top: 1px solid rgba(240,248,255,.12); }
 .transmission-controls legend { padding: 0 .4rem; font-size: .8rem; }

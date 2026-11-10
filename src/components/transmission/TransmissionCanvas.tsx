@@ -1,8 +1,8 @@
 import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import {
-  Center, ContactShadows, Environment, Float, Html, OrbitControls,
-  RoundedBox, Text3D, useEnvironment,
+  Center, ContactShadows, Float, Html, OrbitControls,
+  RoundedBox, Text3D,
 } from '@react-three/drei'
 import {
   ACESFilmicToneMapping, OrthographicCamera, SRGBColorSpace,
@@ -10,7 +10,8 @@ import {
 } from 'three'
 import { GlassSphere, GlassTorus, TransmissionSurface } from './GlassPrimitives'
 import type { TransmissionCanvasProps } from './transmissionTypes'
-import { TRANSMISSION_ENVIRONMENT_URL, TRANSMISSION_FONT_URL } from './transmissionAssets'
+import { TRANSMISSION_FONT_URL } from './transmissionAssets'
+import { GlassStudioEnvironment } from './GlassStudioEnvironment'
 
 function VolumeText({ variant, text, placement, textDepth, glassText, settings, animate }: TransmissionCanvasProps) {
   const fit = useRef<Group>(null)
@@ -54,7 +55,6 @@ function SceneContents(props: TransmissionCanvasProps) {
   const camera = useThree(state => state.camera)
   const size = useThree(state => state.size)
   const invalidate = useThree(state => state.invalidate)
-  const environment = useEnvironment({ files: TRANSMISSION_ENVIRONMENT_URL })
   const reported = useRef(false)
   const designHeight = variant === 'panel' ? 5.6 : 6.1
   const zoom = Math.min(size.width / 7.6, size.height / designHeight)
@@ -81,7 +81,7 @@ function SceneContents(props: TransmissionCanvasProps) {
   return (
     <>
       <color attach="background" args={['#080b14']} />
-      <Environment map={environment} background={false} />
+      <GlassStudioEnvironment />
       <VolumeText {...props} />
       {variant === 'panel' ? (
         <>
@@ -173,11 +173,11 @@ export default function TransmissionCanvas(props: TransmissionCanvasProps) {
         gl.domElement.style.touchAction = 'pan-y'
         invalidate(3)
       }}>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[3, 5, 6]} intensity={2.5} castShadow
+      <ambientLight intensity={0.7} />
+      <directionalLight position={[3, 5, 6]} intensity={3.5} castShadow
         shadow-mapSize-width={1024} shadow-mapSize-height={1024} />
-      <directionalLight position={[-3, 2, -4]} color="#b8ddff" intensity={3} />
-      <pointLight position={[-4, 1, 1]} color="#ff9470" intensity={12} distance={9} />
+      <directionalLight position={[-3, 2, -4]} color="#b8ddff" intensity={4} />
+      <pointLight position={[-4, 1, 1]} color="#ff9470" intensity={16} distance={9} />
       <Suspense fallback={null}><SceneContents {...props} /></Suspense>
     </Canvas>
   )

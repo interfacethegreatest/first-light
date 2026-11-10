@@ -1,0 +1,293 @@
+{
+  "result": "PASS",
+  "mode": "after",
+  "url": "http://127.0.0.1:4223/first-light/",
+  "capture": {
+    "scope": "Real GPU; unrelated older demo canvases hidden only for this fixed-view fixture.",
+    "viewport": [
+      1440,
+      900
+    ],
+    "profile": "balanced",
+    "reducedMotion": true,
+    "objects": [
+      {
+        "kind": "torus",
+        "geometry": "TorusGeometry",
+        "triangles": "18432",
+        "stageBox": {
+          "x": 361,
+          "y": 87.90625,
+          "width": 718,
+          "height": 512
+        },
+        "modelMatrix": [
+          1.35,
+          0,
+          0,
+          0,
+          0,
+          1.35,
+          0,
+          0,
+          0,
+          0,
+          1.35,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "brightness": {
+          "imageSize": [
+            718,
+            513
+          ],
+          "fixedObjectROI": [
+            143,
+            41,
+            574,
+            471
+          ],
+          "wholeStage": {
+            "meanLuminance": 21.030369978334882,
+            "p95Luminance": 82.6338,
+            "p99Luminance": 158.7954,
+            "fractionAbove80": 0.05247954302345154
+          },
+          "objectROI": {
+            "meanLuminance": 30.8665431047321,
+            "p95Luminance": 107.43079999999999,
+            "p99Luminance": 182.93179999999998,
+            "fractionAbove80": 0.10430043705822047
+          }
+        }
+      },
+      {
+        "kind": "panel",
+        "geometry": "ExtrudeGeometry",
+        "triangles": "4620",
+        "stageBox": {
+          "x": 361,
+          "y": 87.90625,
+          "width": 718,
+          "height": 512
+        },
+        "modelMatrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "brightness": {
+          "imageSize": [
+            718,
+            513
+          ],
+          "fixedObjectROI": [
+            165,
+            128,
+            552,
+            384
+          ],
+          "wholeStage": {
+            "meanLuminance": 23.138313274365114,
+            "p95Luminance": 67.8676,
+            "p99Luminance": 79.72319999999999,
+            "fractionAbove80": 0.009963782870981229
+          },
+          "objectROI": {
+            "meanLuminance": 55.990093301841085,
+            "p95Luminance": 68.0802,
+            "p99Luminance": 150.7702,
+            "fractionAbove80": 0.0370437661498708
+          }
+        }
+      }
+    ],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "photoModelOr3DFontRequests": []
+  },
+  "regression": {
+    "actualRotationAndReducedDemandIdle": {
+      "actualModelMatrixBefore": [
+        1.35,
+        0,
+        0,
+        0,
+        0,
+        1.35,
+        0,
+        0,
+        0,
+        0,
+        1.35,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "actualModelMatrixAfter": [
+        1.279152,
+        0,
+        -0.431591,
+        0,
+        0,
+        1.35,
+        0,
+        0,
+        0.431591,
+        0,
+        1.279152,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "reducedMotionIdle": {
+        "before": [
+          {
+            "connected": true,
+            "draws": 180,
+            "counts": {
+              "36": 76,
+              "384": 72,
+              "55296": 32
+            },
+            "uniforms": {
+              "chromaticAberration": 0.04,
+              "temporalDistortion": 0,
+              "ior": 1.4,
+              "_transmission": 1,
+              "thickness": 0.85
+            },
+            "samples": [
+              4
+            ],
+            "squareTextureSizes": [
+              1,
+              128,
+              256
+            ],
+            "modelMatrix": [
+              1.220147,
+              0,
+              -0.577704,
+              0,
+              0,
+              1.35,
+              0,
+              0,
+              0.577704,
+              0,
+              1.220147,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "width": 718,
+            "height": 512,
+            "lost": false,
+            "error": 0
+          }
+        ],
+        "after": [
+          {
+            "connected": true,
+            "draws": 180,
+            "counts": {
+              "36": 76,
+              "384": 72,
+              "55296": 32
+            },
+            "uniforms": {
+              "chromaticAberration": 0.04,
+              "temporalDistortion": 0,
+              "ior": 1.4,
+              "_transmission": 1,
+              "thickness": 0.85
+            },
+            "samples": [
+              4
+            ],
+            "squareTextureSizes": [
+              1,
+              128,
+              256
+            ],
+            "modelMatrix": [
+              1.220147,
+              0,
+              -0.577704,
+              0,
+              0,
+              1.35,
+              0,
+              0,
+              0.577704,
+              0,
+              1.220147,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "width": 718,
+            "height": 512,
+            "lost": false,
+            "error": 0
+          }
+        ]
+      }
+    },
+    "coarseTouch320Fit": true,
+    "singleMesh": true,
+    "touchAction": "pan-y",
+    "pageErrors": [],
+    "consoleErrors": []
+  },
+  "comparison": [
+    {
+      "kind": "torus",
+      "beforeObjectMean": 19.254459145308367,
+      "afterObjectMean": 30.8665431047321,
+      "objectMeanRatio": 1.603085439678693,
+      "beforeStageMean": 15.187663303957821,
+      "afterStageMean": 21.030369978334882,
+      "sameGeometryAndPose": true
+    },
+    {
+      "kind": "panel",
+      "beforeObjectMean": 7.501948259851421,
+      "afterObjectMean": 55.990093301841085,
+      "objectMeanRatio": 7.463407019412047,
+      "beforeStageMean": 10.096298403079814,
+      "afterStageMean": 23.138313274365114,
+      "sameGeometryAndPose": true
+    }
+  ],
+  "manifestResources": 17,
+  "legacyCinematicSmoke": "PASS",
+  "limits": [
+    "Chromium/SwiftShader fixed-view measurements; no hardware-mobile/Safari or FPS claim."
+  ]
+}

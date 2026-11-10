@@ -2,7 +2,7 @@
 
 This is a **local working-tree snapshot, including uncommitted source**. It is not a deployment record or a claim about the live site.
 
-Snapshot SHA-256: `f4d98f12f01ce561b04411d90611af052910f12f7b43d91844fc53f7c7f5d2dd`. All **87 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **89 selected source files**, with no source truncation.
+Snapshot SHA-256: `c268f589d3a8c623b6217947de4acfa1603e49fdc5a185bb77e102d0cd76762c`. All **96 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **98 selected source files**, with no source truncation.
 
 Additional files: `public/media/moon/Moon.jsx` and `examples/glass-panel-3d/main.tsx`. The example entry mounts the optional GlassPanelExample; it is supporting application code, not an additional React component.
 
@@ -106,10 +106,20 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
   - [src/components/transmission/GlassCards.css](#file-src-components-transmission-glasscards-css-c731421e)
   - [src/components/transmission/GlassCards.tsx](#file-src-components-transmission-glasscards-tsx-26d03c88)
   - [src/components/transmission/GlassPrimitives.tsx](#file-src-components-transmission-glassprimitives-tsx-f38b34f5)
+  - [src/components/transmission/GlassStudioEnvironment.tsx](#file-src-components-transmission-glassstudioenvironment-tsx-21c64c8f)
   - [src/components/transmission/TransmissionCanvas.tsx](#file-src-components-transmission-transmissioncanvas-tsx-a549c86f)
   - [src/components/transmission/transmissionAssets.ts](#file-src-components-transmission-transmissionassets-ts-aaaad7ce)
   - [src/components/transmission/transmissionTypes.ts](#file-src-components-transmission-transmissiontypes-ts-54133895)
   - [src/components/transmission/useTransmissionActivity.ts](#file-src-components-transmission-usetransmissionactivity-ts-6c4da281)
+- [Isolated glass objects and rotation](#group-glass-objects)
+  - [src/components/glass-objects/GlassObjectCanvas.tsx](#file-src-components-glass-objects-glassobjectcanvas-tsx-0ec44c1a)
+  - [src/components/glass-objects/GlassObjectCards.css](#file-src-components-glass-objects-glassobjectcards-css-c8823ea3)
+  - [src/components/glass-objects/GlassObjectCards.tsx](#file-src-components-glass-objects-glassobjectcards-tsx-6093911e)
+  - [src/components/glass-objects/GlassPanelObject.tsx](#file-src-components-glass-objects-glasspanelobject-tsx-4f9bd3ee)
+  - [src/components/glass-objects/GlassTorusObject.tsx](#file-src-components-glass-objects-glasstorusobject-tsx-e34da6e7)
+  - [src/components/glass-objects/glassObjectSceneTypes.ts](#file-src-components-glass-objects-glassobjectscenetypes-ts-1e871685)
+  - [src/components/glass-objects/glassObjectTypes.ts](#file-src-components-glass-objects-glassobjecttypes-ts-e1d62c5f)
+  - [src/components/glass-objects/useObjectRotation.ts](#file-src-components-glass-objects-useobjectrotation-ts-15db3c06)
 - [Modal input container and outside-click hook](#group-input)
   - [src/components/input/ModalInput/ModalInputContainer.module.css](#file-src-components-input-modalinput-modalinputcontainer-module-css-6254925b)
   - [src/components/input/ModalInput/ModalInputContainer.tsx](#file-src-components-input-modalinput-modalinputcontainer-tsx-4e26eac1)
@@ -125,7 +135,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 <a id="component-inventory"></a>
 ## Component module inventory
 
-42 component-bearing or compatibility modules; 2 compatibility re-exports. This is a module inventory, not a speculative total of React functions.
+47 component-bearing or compatibility modules; 2 compatibility re-exports. This is a module inventory, not a speculative total of React functions.
 
 | Module | Primary / named exports | Complete source | Application use |
 | --- | --- | --- | --- |
@@ -139,6 +149,10 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 | NewUserCard | NewUserCard | [src/components/cards/newUserCard/NewUserCard.tsx](#file-src-components-cards-newusercard-newusercard-tsx-a9bb3792) | Imported from application entry (including lazy/conditional paths) |
 | TileGrid | TileGrid | [src/components/decorations/TileGrid.tsx](#file-src-components-decorations-tilegrid-tsx-e0b092ce) | Imported from application entry (including lazy/conditional paths) |
 | AppleGlassLens | AppleGlassLens | [src/components/glass/AppleGlassLens.tsx](#file-src-components-glass-appleglasslens-tsx-80cc41c4) | Imported from application entry (including lazy/conditional paths) |
+| GlassObjectCanvas | GlassObjectCanvas | [src/components/glass-objects/GlassObjectCanvas.tsx](#file-src-components-glass-objects-glassobjectcanvas-tsx-0ec44c1a) | Standalone/reusable; not imported from application entry |
+| GlassObjectCards | see full module; GlassTorusCard; GlassPanelCard; GlassObjectGallery | [src/components/glass-objects/GlassObjectCards.tsx](#file-src-components-glass-objects-glassobjectcards-tsx-6093911e) | Standalone/reusable; not imported from application entry |
+| GlassPanelObject | see full module; GlassPanelObject | [src/components/glass-objects/GlassPanelObject.tsx](#file-src-components-glass-objects-glasspanelobject-tsx-4f9bd3ee) | Standalone/reusable; not imported from application entry |
+| GlassTorusObject | see full module; GlassTorusObject | [src/components/glass-objects/GlassTorusObject.tsx](#file-src-components-glass-objects-glasstorusobject-tsx-e34da6e7) | Standalone/reusable; not imported from application entry |
 | GlassMaterial | GlassMaterial | [src/components/glass-panel-3d/GlassMaterial.tsx](#file-src-components-glass-panel-3d-glassmaterial-tsx-92394bc8) | Imported from application entry (including lazy/conditional paths) |
 | GlassPanel3D | GlassPanel3D | [src/components/glass-panel-3d/GlassPanel3D.tsx](#file-src-components-glass-panel-3d-glasspanel3d-tsx-4820d591) | Imported from application entry (including lazy/conditional paths) |
 | GlassPanelCanvas | GlassPanelCanvas | [src/components/glass-panel-3d/GlassPanelCanvas.tsx](#file-src-components-glass-panel-3d-glasspanelcanvas-tsx-84952dc4) | Imported from application entry (including lazy/conditional paths) |
@@ -166,6 +180,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 | SourceSections | SourceSections | [src/components/sources/SourceSections.tsx](#file-src-components-sources-sourcesections-tsx-8083ead8) | Imported from application entry (including lazy/conditional paths) |
 | GlassCards | see full module; RoundedTransmissionCard; CinematicTransmissionCard; TransmissionGallery | [src/components/transmission/GlassCards.tsx](#file-src-components-transmission-glasscards-tsx-26d03c88) | Standalone/reusable; not imported from application entry |
 | GlassPrimitives | see full module; TransmissionSurface; GlassSphere; GlassTorus | [src/components/transmission/GlassPrimitives.tsx](#file-src-components-transmission-glassprimitives-tsx-f38b34f5) | Standalone/reusable; not imported from application entry |
+| GlassStudioEnvironment | see full module; GlassStudioEnvironment | [src/components/transmission/GlassStudioEnvironment.tsx](#file-src-components-transmission-glassstudioenvironment-tsx-21c64c8f) | Standalone/reusable; not imported from application entry |
 | TransmissionCanvas | TransmissionCanvas | [src/components/transmission/TransmissionCanvas.tsx](#file-src-components-transmission-transmissioncanvas-tsx-a549c86f) | Standalone/reusable; not imported from application entry |
 | FooterTextCanvas | FooterTextCanvas | [src/components/typography/FooterTextCanvas.tsx](#file-src-components-typography-footertextcanvas-tsx-619ac822) | Imported from application entry (including lazy/conditional paths) |
 | FooterTextScene | FooterTextScene | [src/components/typography/FooterTextScene.tsx](#file-src-components-typography-footertextscene-tsx-8ca2a2d9) | Imported from application entry (including lazy/conditional paths) |
@@ -178,6 +193,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 | Kind | Export | Complete source |
 | --- | --- | --- |
 | Hook | useCalendarMotionPreferences | [src/components/calendarMotion/useCalendarMotionPreferences.ts](#file-src-components-calendarmotion-usecalendarmotionpreferences-ts-d360d67a) |
+| Hook | useObjectRotation | [src/components/glass-objects/useObjectRotation.ts](#file-src-components-glass-objects-useobjectrotation-ts-15db3c06) |
 | Hook | useGlassPanelMount | [src/components/glass-panel-3d/useGlassPanelMount.ts](#file-src-components-glass-panel-3d-useglasspanelmount-ts-156e0735) |
 | Hook | useHtmlSceneActivity | [src/components/html-glass-card/useHtmlSceneActivity.ts](#file-src-components-html-glass-card-usehtmlsceneactivity-ts-87b6214d) |
 | Hook | useOutsideClick | [src/components/input/outsideClick.tsx](#file-src-components-input-outsideclick-tsx-418bbec8) |
@@ -4987,7 +5003,7 @@ export default function GlassPanelCanvas({ onReady, onUnavailable }: GlassPanelC
 <a id="file-src-components-glass-panel-3d-glasspanelexample-tsx-73100257"></a>
 ### src/components/glass-panel-3d/GlassPanelExample.tsx
 
-2211 bytes · SHA-256 `533994d25d32b59ed8225ef14a777363db2802f0b1494ff46dbb8d50bf4dd6e4` · utf8
+2311 bytes · SHA-256 `bd13eca2d534ac8c02b6f20a5a5bc745f87250dc7362e8859644e0f8afe5eaa5` · utf8
 
 ```tsx
 import { useState } from 'react'
@@ -4995,6 +5011,7 @@ import GlassPanel3D from './GlassPanel3D'
 import { useGlassPanelMount } from './useGlassPanelMount'
 import HtmlGlassCard from '../html-glass-card/HtmlGlassCard'
 import { TransmissionGallery } from '../transmission/GlassCards'
+import { GlassObjectGallery } from '../glass-objects/GlassObjectCards'
 import styles from './GlassPanelExample.module.css'
 
 /** Optional example. It is deliberately not mounted in the application. */
@@ -5034,6 +5051,7 @@ export default function GlassPanelExample() {
         </div>
         <HtmlGlassCard error={previewError} />
       </section>
+      <GlassObjectGallery />
       <TransmissionGallery />
     </main>
   )
@@ -5722,7 +5740,7 @@ export function useHtmlSceneActivity(target: RefObject<HTMLElement | null>) {
 <a id="file-src-components-transmission-glasscards-css-c731421e"></a>
 ### src/components/transmission/GlassCards.css
 
-2347 bytes · SHA-256 `fdb2c17427f946ded26db41279facb370a2f41792bd7e4e828d3ec7ea094e063` · utf8
+2244 bytes · SHA-256 `e1a594c44ba846d156e99a8a70a380607fcda9b0df0b2696ee9aeb74efe3832a` · utf8
 
 ```css
 .transmission-gallery, .transmission-card { min-width: 0; font-family: inherit; color: inherit; }
@@ -5733,7 +5751,8 @@ export function useHtmlSceneActivity(target: RefObject<HTMLElement | null>) {
 .transmission-heading h3 { margin: 0; font-size: 1.35rem; font-weight: 600; }
 .transmission-stage { position: relative; height: clamp(22rem,56vw,32rem); min-width: 0; overflow: hidden; background: #080b14; touch-action: pan-y; }
 .transmission-stage canvas { display: block; opacity: 1; }
-.transmission-annotation { display: block; padding: .4rem .65rem; border: 1px solid rgba(240,248,255,.2); border-radius: 6px; color: #e8f4ff; font-family: inherit; font-size: 10px; letter-spacing: .12em; white-space: nowrap; }
+/* Scene tags stay hidden; the surrounding native card header identifies it. */
+.transmission-annotation { display: none; }
 .transmission-status { margin: 0; padding: .8rem 1.25rem; color: #bdc6d5; font-size: .75rem; }
 .transmission-controls { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; min-width: 0; margin: 0; padding: 1.25rem; border: 0; border-top: 1px solid rgba(240,248,255,.12); }
 .transmission-controls legend { padding: 0 .4rem; font-size: .8rem; }
@@ -6108,17 +6127,47 @@ export function GlassTorus({ settings, animate = false, ...meshProps }: GlassPri
 
 [Back to contents](#contents)
 
+<a id="file-src-components-transmission-glassstudioenvironment-tsx-21c64c8f"></a>
+### src/components/transmission/GlassStudioEnvironment.tsx
+
+1025 bytes · SHA-256 `7cef065c0ae2dc900f1ed51a47bf53508fcb6cf6831aa53a6b7a6c73496dc91d` · utf8
+
+```tsx
+import { Environment, Lightformer } from '@react-three/drei'
+
+/** Reflection lighting without a room/city photograph imprinted on the glass. */
+export function GlassStudioEnvironment() {
+  return (
+    <Environment frames={1} resolution={128} background={false}>
+      {/* These softboxes exist only in Environment's separate capture scene.
+          They never add shapes to the visible object scene or its backdrop. */}
+      <color attach="background" args={['#151820']} />
+      <Lightformer form="circle" intensity={4.5} color="#f0f5ff"
+        scale={[7, 8, 1]} position={[4, 4, 5]} target={[0, 0, 0]} />
+      <Lightformer form="circle" intensity={2.25} color="#b8ddff"
+        scale={8} position={[-4, 1, 3]} target={[0, 0, 0]} />
+      <Lightformer form="circle" intensity={3} color="#fff4e8"
+        scale={[3, 12, 1]} position={[0, 5, -2]} target={[0, 0, 0]} />
+      <Lightformer form="circle" intensity={1.25} color="#f0f5ff"
+        scale={8} position={[0, 0, 5]} target={[0, 0, 0]} />
+    </Environment>
+  )
+}
+```
+
+[Back to contents](#contents)
+
 <a id="file-src-components-transmission-transmissioncanvas-tsx-a549c86f"></a>
 ### src/components/transmission/TransmissionCanvas.tsx
 
-8793 bytes · SHA-256 `3755d397bf5b9855d732488ebf5247f1276580ed2f99376f638ba70802b420d4` · utf8
+8696 bytes · SHA-256 `68f2983ad5c8d2bee52c4612172bcebb236d1b4f783e40e15c19a5e58c4557bf` · utf8
 
 ```tsx
 import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import {
-  Center, ContactShadows, Environment, Float, Html, OrbitControls,
-  RoundedBox, Text3D, useEnvironment,
+  Center, ContactShadows, Float, Html, OrbitControls,
+  RoundedBox, Text3D,
 } from '@react-three/drei'
 import {
   ACESFilmicToneMapping, OrthographicCamera, SRGBColorSpace,
@@ -6126,7 +6175,8 @@ import {
 } from 'three'
 import { GlassSphere, GlassTorus, TransmissionSurface } from './GlassPrimitives'
 import type { TransmissionCanvasProps } from './transmissionTypes'
-import { TRANSMISSION_ENVIRONMENT_URL, TRANSMISSION_FONT_URL } from './transmissionAssets'
+import { TRANSMISSION_FONT_URL } from './transmissionAssets'
+import { GlassStudioEnvironment } from './GlassStudioEnvironment'
 
 function VolumeText({ variant, text, placement, textDepth, glassText, settings, animate }: TransmissionCanvasProps) {
   const fit = useRef<Group>(null)
@@ -6170,7 +6220,6 @@ function SceneContents(props: TransmissionCanvasProps) {
   const camera = useThree(state => state.camera)
   const size = useThree(state => state.size)
   const invalidate = useThree(state => state.invalidate)
-  const environment = useEnvironment({ files: TRANSMISSION_ENVIRONMENT_URL })
   const reported = useRef(false)
   const designHeight = variant === 'panel' ? 5.6 : 6.1
   const zoom = Math.min(size.width / 7.6, size.height / designHeight)
@@ -6197,7 +6246,7 @@ function SceneContents(props: TransmissionCanvasProps) {
   return (
     <>
       <color attach="background" args={['#080b14']} />
-      <Environment map={environment} background={false} />
+      <GlassStudioEnvironment />
       <VolumeText {...props} />
       {variant === 'panel' ? (
         <>
@@ -6289,11 +6338,11 @@ export default function TransmissionCanvas(props: TransmissionCanvasProps) {
         gl.domElement.style.touchAction = 'pan-y'
         invalidate(3)
       }}>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[3, 5, 6]} intensity={2.5} castShadow
+      <ambientLight intensity={0.7} />
+      <directionalLight position={[3, 5, 6]} intensity={3.5} castShadow
         shadow-mapSize-width={1024} shadow-mapSize-height={1024} />
-      <directionalLight position={[-3, 2, -4]} color="#b8ddff" intensity={3} />
-      <pointLight position={[-4, 1, 1]} color="#ff9470" intensity={12} distance={9} />
+      <directionalLight position={[-3, 2, -4]} color="#b8ddff" intensity={4} />
+      <pointLight position={[-4, 1, 1]} color="#ff9470" intensity={16} distance={9} />
       <Suspense fallback={null}><SceneContents {...props} /></Suspense>
     </Canvas>
   )
@@ -6422,6 +6471,545 @@ export function useTransmissionActivity(target: RefObject<HTMLDivElement | null>
   }, [target])
 
   return activity
+}
+```
+
+[Back to contents](#contents)
+
+
+<a id="group-glass-objects"></a>
+## Isolated glass objects and rotation
+
+<a id="file-src-components-glass-objects-glassobjectcanvas-tsx-0ec44c1a"></a>
+### src/components/glass-objects/GlassObjectCanvas.tsx
+
+4821 bytes · SHA-256 `5eae8d10cb95de7a072a730c77a5a8c6207e9bb60ba69044cf7350a8d2281765` · utf8
+
+```tsx
+import { Suspense, useCallback, useEffect, useLayoutEffect, useRef } from 'react'
+import { Canvas, useThree } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import {
+  ACESFilmicToneMapping, OrthographicCamera, SRGBColorSpace,
+  type Camera, type Mesh, type Scene, type WebGLRenderer,
+} from 'three'
+import { GlassStudioEnvironment } from '../transmission/GlassStudioEnvironment'
+import GlassTorusObject from './GlassTorusObject'
+import GlassPanelObject from './GlassPanelObject'
+import type { GlassObjectCanvasProps } from './glassObjectSceneTypes'
+
+function ObjectScene(props: GlassObjectCanvasProps) {
+  const { kind, settings, spin, rotationAxis, rotationSpeed, interactive, coarse, onReady } = props
+  const camera = useThree(state => state.camera)
+  const size = useThree(state => state.size)
+  const invalidate = useThree(state => state.invalidate)
+  const reported = useRef(false)
+  // Fit a bounding sphere rather than the front face, so every spin axis fits.
+  const designSize = kind === 'torus' ? 4.6 : 6.8
+  const zoom = Math.min(size.width, size.height) / designSize
+
+  useLayoutEffect(() => {
+    reported.current = false
+    if (camera instanceof OrthographicCamera && Number.isFinite(zoom) && zoom > 0) {
+      camera.zoom = zoom
+      camera.updateProjectionMatrix()
+      invalidate(3)
+    }
+  }, [camera, invalidate, kind, zoom])
+  useEffect(() => {
+    // Finite refresh for optical/camera changes; no recursive idle invalidation.
+    invalidate(3)
+  }, [invalidate, settings, spin, rotationAxis, rotationSpeed])
+
+  const reportMainDraw = useCallback((renderer: WebGLRenderer, scene: Scene, renderedCamera: Camera) => {
+    if (reported.current || renderer.getRenderTarget() !== null || renderedCamera !== camera) return
+    reported.current = true
+    const meshes: Mesh[] = []
+    scene.traverse(object => {
+      if ((object as Mesh).isMesh && object.visible) meshes.push(object as Mesh)
+    })
+    // Diagnostics describe the real scene after its first main draw, not a mock.
+    const canvas = renderer.domElement
+    canvas.dataset.glassObjectMeshCount = String(meshes.length)
+    canvas.dataset.glassObjectGeometry = meshes[0]?.geometry.type ?? ''
+    const geometry = meshes[0]?.geometry
+    canvas.dataset.glassObjectTriangles = String(geometry
+      ? (geometry.index?.count ?? geometry.attributes.position.count) / 3 : 0)
+    onReady()
+  }, [camera, onReady])
+
+  const objectProps = { settings, spin, rotationAxis, rotationSpeed, onRendered: reportMainDraw }
+  return (
+    <>
+      <color attach="background" args={['#080b14']} />
+      <GlassStudioEnvironment />
+      {/* Exactly one visible mesh. No text, tags, shadow planes or extra shapes. */}
+      {kind === 'torus'
+        ? <GlassTorusObject {...objectProps} name="isolated-glass-torus" />
+        : <GlassPanelObject {...objectProps} name="isolated-glass-panel" />}
+      {!coarse && <OrbitControls makeDefault enabled={interactive}
+        enableZoom={false} enablePan={false} enableDamping={false}
+        minAzimuthAngle={-0.6} maxAzimuthAngle={0.6}
+        minPolarAngle={Math.PI / 2 - 0.25} maxPolarAngle={Math.PI / 2 + 0.25}
+        onEnd={() => invalidate(3)} />}
+    </>
+  )
+}
+
+/** One renderer for one isolated object. The surrounding card owns its activity. */
+export default function GlassObjectCanvas(props: GlassObjectCanvasProps) {
+  const canvas = useRef<HTMLCanvasElement>(null)
+  useEffect(() => {
+    const element = canvas.current
+    if (!element) return
+    let live = true
+    const lost = (event: Event) => {
+      event.preventDefault()
+      if (live) props.onUnavailable('context')
+    }
+    element.addEventListener('webglcontextlost', lost)
+    return () => {
+      live = false
+      element.removeEventListener('webglcontextlost', lost)
+    }
+  }, [props.onUnavailable])
+
+  return (
+    <Canvas ref={canvas} data-testid="glass-object-canvas" data-glass-environment="studio-lights"
+      aria-hidden="true" orthographic
+      camera={{ position: [0, 0.35, 8], zoom: 70, near: 0.1, far: 40 }}
+      dpr={[1, props.high ? 1.75 : 1.25]} gl={{ alpha: false, antialias: true }}
+      frameloop={props.spin ? 'always' : 'demand'} style={{ touchAction: 'pan-y' }}
+      onCreated={({ gl, invalidate }) => {
+        gl.toneMapping = ACESFilmicToneMapping
+        gl.toneMappingExposure = 1
+        gl.outputColorSpace = SRGBColorSpace
+        gl.domElement.style.touchAction = 'pan-y'
+        invalidate(3)
+      }}>
+      <ambientLight intensity={0.7} />
+      <directionalLight position={[3, 5, 6]} intensity={3.5} />
+      <directionalLight position={[-3, 2, -4]} color="#b8ddff" intensity={4} />
+      <pointLight position={[-4, 1, 1]} color="#ff9470" intensity={16} distance={9} />
+      <Suspense fallback={null}><ObjectScene {...props} /></Suspense>
+    </Canvas>
+  )
+}
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-glass-objects-glassobjectcards-css-c8823ea3"></a>
+### src/components/glass-objects/GlassObjectCards.css
+
+370 bytes · SHA-256 `1efd2581e36e437aa0b2a4b022bb8bfd5567f28b5c9e3512dfe3776991fef56d` · utf8
+
+```css
+/* Match the existing card design; keep every label outside the 3D objects. */
+.glass-object-card .transmission-heading > :not(h3):not(p) { margin: 0; }
+.glass-object-stage { isolation: isolate; }
+.glass-object-controls :is(input, select, button):focus-visible,
+.glass-object-gallery > label select:focus-visible {
+  outline: 2px solid #ff9470;
+  outline-offset: 3px;
+}
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-glass-objects-glassobjectcards-tsx-6093911e"></a>
+### src/components/glass-objects/GlassObjectCards.tsx
+
+8592 bytes · SHA-256 `a7d485591456bc3cb9fbe22080bab888d15c4e26df015e65f6d30df8398cd169` · utf8
+
+```tsx
+import {
+  Component, lazy, Suspense, useCallback, useEffect, useId,
+  useMemo, useRef, useState, type ReactNode,
+} from 'react'
+import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from '../transmission/GlassPrimitives'
+import { useTransmissionActivity } from '../transmission/useTransmissionActivity'
+import type { TransmissionQuality } from '../transmission/transmissionTypes'
+import type { GlassObjectCardProps, GlassObjectKind } from './glassObjectSceneTypes'
+import type { RotationAxis } from './useObjectRotation'
+import '../transmission/GlassCards.css'
+import './GlassObjectCards.css'
+
+export type { GlassObjectCardProps } from './glassObjectSceneTypes'
+
+const GlassObjectCanvas = lazy(() => import('./GlassObjectCanvas'))
+
+class ObjectBoundary extends Component<{
+  children: ReactNode
+  onUnavailable: () => void
+}, { failed: boolean }> {
+  state = { failed: false }
+  static getDerivedStateFromError() { return { failed: true } }
+  componentDidCatch() { this.props.onUnavailable() }
+  render() { return this.state.failed ? null : this.props.children }
+}
+
+const SLIDERS = [
+  ['transmission', 'Transmission', 0, 1, 0.01],
+  ['thickness', 'Thickness', 0.2, 1.5, 0.01],
+  ['ior', 'Refraction index', 1.1, 1.8, 0.01],
+  ['chromaticAberration', 'Chromatic aberration', 0, 0.1, 0.001],
+  ['roughness', 'Roughness', 0, 0.25, 0.01],
+] as const
+
+function GlassObjectCard({
+  kind, title, children, initialSpin = true, initialRotationAxis = 'y',
+  initialRotationSpeed = 0.3, initialMaterial,
+}: GlassObjectCardProps & { kind: GlassObjectKind }) {
+  const id = useId()
+  const stage = useRef<HTMLDivElement>(null)
+  const activity = useTransmissionActivity(stage)
+  const alive = useRef(true)
+  const blocked = useRef(false)
+  const epoch = useRef(0)
+  const [attempt, setAttempt] = useState(0)
+  const [requested, setRequested] = useState(false)
+  const [ready, setReady] = useState(false)
+  const [failed, setFailed] = useState(false)
+  const [focused, setFocused] = useState(false)
+  const [motion, setMotion] = useState(initialSpin)
+  const [axis, setAxis] = useState<RotationAxis>(initialRotationAxis)
+  const [speed, setSpeed] = useState(initialRotationSpeed)
+  const [quality, setQuality] = useState<TransmissionQuality>('auto')
+  const [tuning, setTuning] = useState<GlassSettings>(() => ({ ...DEFAULT_GLASS_SETTINGS, ...initialMaterial }))
+
+  useEffect(() => {
+    alive.current = true
+    return () => { alive.current = false }
+  }, [])
+  useEffect(() => {
+    if (activity.inView && activity.pageVisible && activity.webgl) setRequested(true)
+  }, [activity.inView, activity.pageVisible, activity.webgl])
+
+  const effectiveQuality = quality === 'auto' ? activity.coarse ? 'balanced' : 'high' : quality
+  const high = effectiveQuality === 'high'
+  const settings = useMemo(() => ({
+    ...tuning, samples: high ? 6 : 4, resolution: high ? 512 : 256, backside: high,
+  }), [tuning, high])
+  const onReady = useCallback(() => {
+    if (alive.current && epoch.current === attempt && !blocked.current) setReady(true)
+  }, [attempt])
+  const onUnavailable = useCallback(() => {
+    if (!alive.current || epoch.current !== attempt || blocked.current) return
+    blocked.current = true
+    setFailed(true)
+    setReady(false)
+  }, [attempt])
+  const retry = () => {
+    epoch.current += 1
+    blocked.current = false
+    setAttempt(epoch.current)
+    setFailed(false)
+    setReady(false)
+  }
+
+  const canRender = requested && activity.webgl === true && !failed
+  const spin = canRender && ready && motion && Number.isFinite(speed) && speed !== 0
+    && activity.inView && activity.pageVisible && !activity.reduced && !focused
+  const state = failed || activity.webgl === false
+    ? 'unavailable' : ready ? 'loaded' : requested ? 'loading' : 'pending'
+
+  return (
+    <section className="transmission-card glass-object-card" aria-labelledby={`${id}-title`}
+      data-glass-object-state={state} data-glass-object-spin={spin}
+      data-glass-object-kind={kind} data-glass-object-quality={effectiveQuality}>
+      <header className="transmission-heading">
+        <p>FIRST LIGHT / GLASS OBJECT</p>
+        <h3 id={`${id}-title`}>{title ?? (kind === 'torus' ? 'Spinning glass torus' : 'A single glass panel')}</h3>
+        {children}
+      </header>
+
+      <div ref={stage} className="transmission-stage glass-object-stage" data-glass-object-stage="">
+        {canRender && (
+          <ObjectBoundary key={attempt} onUnavailable={onUnavailable}>
+            <Suspense fallback={null}>
+              <GlassObjectCanvas kind={kind} settings={settings} spin={spin}
+                rotationAxis={axis} rotationSpeed={speed}
+                interactive={activity.inView && activity.pageVisible && !focused}
+                coarse={activity.coarse} high={high} onReady={onReady} onUnavailable={onUnavailable} />
+            </Suspense>
+          </ObjectBoundary>
+        )}
+      </div>
+
+      <p className="transmission-status" role="status">
+        {state === 'unavailable' ? '3D preview unavailable. Your settings are kept.'
+          : state === 'pending' ? 'The object loads when it comes into view.'
+            : state === 'loading' ? 'Loading the local glass scene…'
+              : 'Spin pauses while editing, offscreen and with reduced motion. Drag on desktop to turn the view.'}
+      </p>
+
+      <fieldset className="transmission-controls glass-object-controls"
+        onFocusCapture={() => setFocused(true)}
+        onBlurCapture={event => {
+          if (!event.relatedTarget || !event.currentTarget.contains(event.relatedTarget as Node)) setFocused(false)
+        }}>
+        <legend>Object controls</legend>
+        <label>Rotation axis
+          <select value={axis} onChange={event => setAxis(event.currentTarget.value as RotationAxis)}>
+            <option value="x">X axis</option><option value="y">Y axis</option><option value="z">Z axis</option>
+          </select>
+        </label>
+        <label>Rotation speed: {speed.toFixed(2)} rad/s
+          <input type="range" min={-1} max={1} step={0.01} value={speed}
+            onChange={event => setSpeed(Number(event.currentTarget.value))} />
+        </label>
+        <label>Quality
+          <select value={quality} onChange={event => setQuality(event.currentTarget.value as TransmissionQuality)}>
+            <option value="auto">Automatic</option>
+            <option value="balanced">Balanced / mobile</option>
+            <option value="high">High / desktop</option>
+          </select>
+        </label>
+        {SLIDERS.map(([key, label, min, max, step]) => (
+          <label key={key}>{label}: {tuning[key].toFixed(3)}
+            <input type="range" min={min} max={max} step={step} value={tuning[key]}
+              onChange={event => {
+                const value = Number(event.currentTarget.value)
+                setTuning(previous => ({ ...previous, [key]: value }))
+              }} />
+          </label>
+        ))}
+        <label className="transmission-checkbox">
+          <input type="checkbox" checked={motion} onChange={event => setMotion(event.currentTarget.checked)} />Spin
+        </label>
+        <button type="button" onClick={retry}>{failed ? 'Retry 3D preview' : 'Reset 3D view'}</button>
+      </fieldset>
+    </section>
+  )
+}
+
+/** Native card + one torus scene, ready to reuse outside this example. */
+export function GlassTorusCard(props: GlassObjectCardProps) {
+  return <GlassObjectCard {...props} kind="torus" />
+}
+
+/** Native card + one blank panel scene. No text or other meshes inside it. */
+export function GlassPanelCard(props: GlassObjectCardProps) {
+  return <GlassObjectCard {...props} kind="panel" />
+}
+
+export function GlassObjectGallery() {
+  const [kind, setKind] = useState<GlassObjectKind>('torus')
+  useEffect(() => {
+    if (window.location.hash !== '#glass-objects') return
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById('glass-objects')?.scrollIntoView({ block: 'start', behavior: 'auto' })
+    })
+    return () => window.cancelAnimationFrame(frame)
+  }, [])
+  return (
+    <section id="glass-objects" className="transmission-gallery glass-object-gallery">
+      <h2>Individual glass objects</h2>
+      <label className="transmission-selector">Glass object
+        <select value={kind} onChange={event => setKind(event.currentTarget.value as GlassObjectKind)}>
+          <option value="torus">Glass torus</option><option value="panel">Glass panel</option>
+        </select>
+      </label>
+      {/* Switch only the mesh: one new canvas and the same native controls. */}
+      <GlassObjectCard kind={kind} />
+    </section>
+  )
+}
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-glass-objects-glasspanelobject-tsx-4f9bd3ee"></a>
+### src/components/glass-objects/GlassPanelObject.tsx
+
+1244 bytes · SHA-256 `e513717fa52fc1759d43636a5d3cdd255f360d43fc855dce2e2a0edfd4cc41c0` · utf8
+
+```tsx
+import { useRef } from 'react'
+import { RoundedBox } from '@react-three/drei'
+import type { Group } from 'three'
+import { DEFAULT_GLASS_SETTINGS, TransmissionSurface } from '../transmission/GlassPrimitives'
+import type { ObjectProps } from './glassObjectTypes'
+import { useObjectRotation } from './useObjectRotation'
+
+export interface PanelProps extends ObjectProps {
+  size?: [width: number, height: number, depth: number]
+  radius?: number
+}
+
+const DEFAULT_PANEL_SIZE: [number, number, number] = [4.8, 3, 0.42]
+
+/** One blank rounded panel; the outer group retains caller transforms/ref. */
+export function GlassPanelObject({
+  settings = DEFAULT_GLASS_SETTINGS,
+  spin,
+  rotationAxis,
+  rotationSpeed,
+  onRendered,
+  size = DEFAULT_PANEL_SIZE,
+  radius = 0.18,
+  ...groupProps
+}: PanelProps) {
+  const rotation = useRef<Group>(null)
+  useObjectRotation(rotation, { spin, rotationAxis, rotationSpeed })
+
+  return (
+    <group {...groupProps}>
+      <group ref={rotation}>
+        <RoundedBox args={size} radius={radius} smoothness={8} bevelSegments={8} onAfterRender={onRendered}>
+          <TransmissionSurface settings={settings} animate={false} />
+        </RoundedBox>
+      </group>
+    </group>
+  )
+}
+
+export default GlassPanelObject
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-glass-objects-glasstorusobject-tsx-e34da6e7"></a>
+### src/components/glass-objects/GlassTorusObject.tsx
+
+835 bytes · SHA-256 `98f444ebfce8ab2caa6cc0d5dff2db74ac00ed57b6a3c4b20db3fe98b593b6c0` · utf8
+
+```tsx
+import { useRef } from 'react'
+import type { Group } from 'three'
+import { DEFAULT_GLASS_SETTINGS, GlassTorus } from '../transmission/GlassPrimitives'
+import type { ObjectProps } from './glassObjectTypes'
+import { useObjectRotation } from './useObjectRotation'
+
+/** One torus: 1.35 mesh scale gives a 3.618-unit outer diameter. */
+export function GlassTorusObject({
+  settings = DEFAULT_GLASS_SETTINGS,
+  spin,
+  rotationAxis,
+  rotationSpeed,
+  onRendered,
+  ...groupProps
+}: ObjectProps) {
+  const rotation = useRef<Group>(null)
+  useObjectRotation(rotation, { spin, rotationAxis, rotationSpeed })
+
+  return (
+    <group {...groupProps}>
+      <group ref={rotation}>
+        <GlassTorus settings={settings} scale={1.35} animate={false} onAfterRender={onRendered} />
+      </group>
+    </group>
+  )
+}
+
+export default GlassTorusObject
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-glass-objects-glassobjectscenetypes-ts-1e871685"></a>
+### src/components/glass-objects/glassObjectSceneTypes.ts
+
+881 bytes · SHA-256 `c5ebac262a9438ea1666a66ed72c2ed68abd4c6b46becd99d7e203139d3b55cd` · utf8
+
+```ts
+import type { ReactNode } from 'react'
+import type { GlassSettings } from '../transmission/GlassPrimitives'
+import type { RotationAxis } from './useObjectRotation'
+
+export type GlassObjectKind = 'torus' | 'panel'
+
+export interface GlassObjectCardProps {
+  title?: string
+  /** Native content in the surrounding header; never inserted into the scene. */
+  children?: ReactNode
+  initialSpin?: boolean
+  initialRotationAxis?: RotationAxis
+  /** Radians per second. A negative value reverses the spin. */
+  initialRotationSpeed?: number
+  initialMaterial?: Partial<GlassSettings>
+}
+
+export interface GlassObjectCanvasProps {
+  kind: GlassObjectKind
+  settings: GlassSettings
+  spin: boolean
+  rotationAxis: RotationAxis
+  rotationSpeed: number
+  interactive: boolean
+  coarse: boolean
+  high: boolean
+  onReady: () => void
+  onUnavailable: (reason?: 'renderer' | 'context') => void
+}
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-glass-objects-glassobjecttypes-ts-e1d62c5f"></a>
+### src/components/glass-objects/glassObjectTypes.ts
+
+514 bytes · SHA-256 `1e3dfcb1ec0e324cf81a56caea3ab73c02ab94272d516b01745777e989ff63e5` · utf8
+
+```ts
+import type { ThreeElements } from '@react-three/fiber'
+import type { GlassSettings } from '../transmission/GlassPrimitives'
+import type { ObjectRotationOptions } from './useObjectRotation'
+
+export type ObjectProps = Omit<ThreeElements['group'], 'children' | 'onAfterRender'> & ObjectRotationOptions & {
+  settings?: GlassSettings
+  /** Mesh draw callback; the scene owner can exclude offscreen capture passes. */
+  onRendered?: ThreeElements['mesh']['onAfterRender']
+}
+
+export type GlassObjectProps = ObjectProps
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-glass-objects-useobjectrotation-ts-15db3c06"></a>
+### src/components/glass-objects/useObjectRotation.ts
+
+1266 bytes · SHA-256 `3610a7f62e55d2acac84f078b016c7b53bb45aa459a296e28bd6fee75e633424` · utf8
+
+```ts
+import { useLayoutEffect, useRef, type RefObject } from 'react'
+import { useFrame } from '@react-three/fiber'
+import type { Group } from 'three'
+
+export type RotationAxis = 'x' | 'y' | 'z'
+
+export interface ObjectRotationOptions {
+  spin?: boolean
+  rotationAxis?: RotationAxis
+  /** Radians per second; negative values reverse the direction. */
+  rotationSpeed?: number
+}
+
+export function useObjectRotation(
+  ref: RefObject<Group | null>,
+  { spin = true, rotationAxis = 'y', rotationSpeed = 0.3 }: ObjectRotationOptions = {},
+) {
+  const active = spin && Number.isFinite(rotationSpeed) && rotationSpeed !== 0
+  const previouslyActive = useRef(active)
+  const resumeFrame = useRef(false)
+
+  useLayoutEffect(() => {
+    if (active && !previouslyActive.current) resumeFrame.current = true
+    previouslyActive.current = active
+  }, [active])
+
+  useFrame((_state, delta) => {
+    if (!active || !ref.current || !Number.isFinite(delta) || delta < 0) return
+    // Demand rendering can deliver the whole idle interval on resume. Discard
+    // just that first frame; subsequent irregular deltas are never clamped.
+    if (resumeFrame.current) {
+      resumeFrame.current = false
+      return
+    }
+    ref.current.rotation[rotationAxis] += rotationSpeed * delta
+  })
 }
 ```
 
