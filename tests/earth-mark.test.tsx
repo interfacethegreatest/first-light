@@ -110,7 +110,7 @@ describe('actual Earth Canvas boundary',()=>{
     const {default:ActualCanvas}=await vi.importActual<typeof import('../src/components/misc/EarthMark/EarthMarkCanvas')>('../src/components/misc/EarthMark/EarthMarkCanvas')
     const ready=vi.fn(),unavailable=vi.fn(),view=render(<ActualCanvas animate rotationAxis="x" rotationSpeed={0.3} onReady={ready} onUnavailable={unavailable}/>)
     const canvas=screen.getByTestId('earth-canvas-boundary'),afterDraw=modelProps().onReady
-    expect(canvas).toHaveAttribute('data-frameloop','always');expect(modelProps()).toMatchObject({animate:true,rotationAxis:'x',rotationSpeed:0.3})
+    expect(canvas).toHaveAttribute('data-frameloop','always');expect(vi.mocked(Canvas).mock.calls.at(-1)![0].dpr).toBe(1);expect(modelProps()).toMatchObject({animate:true,rotationAxis:'x',rotationSpeed:0.3})
     expect(ready).not.toHaveBeenCalled();act(()=>afterDraw());expect(ready).toHaveBeenCalledOnce()
     view.rerender(<ActualCanvas animate rotationAxis="z" rotationSpeed={0} onReady={ready} onUnavailable={unavailable}/>)
     expect(screen.getByTestId('earth-canvas-boundary')).toBe(canvas);expect(canvas).toHaveAttribute('data-frameloop','demand')
