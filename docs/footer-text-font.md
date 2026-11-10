@@ -1,6 +1,6 @@
 # Footer Text3D font
 
-The decorative footer text uses the existing Helvetiker Regular typeface data bundled with installed Three.js **0.167.1**. No font was downloaded, regenerated, subsetted or otherwise changed, and no dependency upgrade was needed.
+The shared heading/footer renderer now uses the bundled **Helvetiker Bold** typeface from installed Three.js **0.167.1**. See [the bold heading component and font provenance](three-d-heading.md). The original regular font below is retained unchanged for compatibility and its initial verification record. Neither font was downloaded, regenerated or subsetted; no dependency upgrade was needed.
 
 ## Source and license
 
@@ -17,6 +17,7 @@ Embedded metadata identifies family **Helvetiker**, subfamily **Regular**, PostS
 
 | Public file | Bytes | SHA-256 |
 | --- | ---: | --- |
+| `fonts/helvetiker_bold.typeface.json` | 61,632 | `bd68159ee0b8d10fe24b9daa2e32f19686f9d8269a79dc8d44203a66298bfa2f` |
 | `fonts/helvetiker_regular.typeface.json` | 63,182 | `d5c5467690f74061179a292af83bd85c4c551e0f106b2af99714f11184c96981` |
 | `fonts/LICENSE-helvetiker.txt` | 2,006 | `35e8279356d7890871c4fce804d157e3f21456a7311ef2caab5cb4705c71b6bd` |
 
@@ -27,7 +28,7 @@ The JSON contains 208 glyph entries. Every character required for **“Make lear
 The canvas owner should load the self-hosted URL as:
 
 ```ts
-`${import.meta.env.BASE_URL}fonts/helvetiker_regular.typeface.json`
+`${import.meta.env.BASE_URL}fonts/helvetiker_bold.typeface.json`
 ```
 
 This keeps the font beneath either the local root or the GitHub Pages base path. The font JSON is self-contained and needs no remote font service. Retain its license file with the public assets. Accessible DOM text and renderer loading/failure behavior belong to the footer scene implementation.

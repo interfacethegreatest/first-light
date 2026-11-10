@@ -1,0 +1,88 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:4222/first-light/",
+  "actualMain": {
+    "initialStatic": [
+      {
+        "kind": "heading",
+        "draws": 36,
+        "error": 0
+      },
+      {
+        "kind": "glass",
+        "draws": 24,
+        "error": 0
+      }
+    ],
+    "font": {
+      "url": "http://127.0.0.1:4222/first-light/fonts/helvetiker_bold.typeface.json",
+      "status": 200,
+      "bytes": 61632,
+      "sha256": "bd68159ee0b8d10fe24b9daa2e32f19686f9d8269a79dc8d44203a66298bfa2f",
+      "weight": "bold"
+    },
+    "outsideEmptyAndFilledStates": true,
+    "mobile": {
+      "width": 320,
+      "scrollWidth": 320,
+      "title": {
+        "x": 53,
+        "y": 364.328125,
+        "width": 214,
+        "height": 144,
+        "top": 364.328125,
+        "right": 267,
+        "bottom": 508.328125,
+        "left": 53
+      },
+      "field": {
+        "x": 60.34375,
+        "y": 557.78125,
+        "width": 183.25,
+        "height": 79.734375,
+        "top": 557.78125,
+        "right": 243.59375,
+        "bottom": 637.515625,
+        "left": 60.34375
+      }
+    },
+    "sharedBoldFooterLoaded": true,
+    "focusedStatic": [
+      {
+        "kind": "heading",
+        "draws": 180,
+        "error": 0
+      },
+      {
+        "kind": "glass",
+        "draws": 39,
+        "error": 0
+      }
+    ],
+    "contextLoss": {
+      "sameField": true,
+      "sameHost": true,
+      "inNativeFallback": true,
+      "value": "A temporary idea kept inside the main glass card.",
+      "selection": [
+        2,
+        9
+      ]
+    },
+    "mainRoute": "http://127.0.0.1:4222/first-light/",
+    "realHtmlAndBoldMeshLoaded": true,
+    "oneAccessibleHeading": true,
+    "pageErrors": []
+  },
+  "workspace": {
+    "scope": "GPU-isolated fresh synthetic storage, actual native app/forms.",
+    "ideaIndependentOfStorage": true,
+    "sourceSectionsAndDraftsPreserved": true,
+    "decisionStatusAndExportPassed": true,
+    "reloadPreservesWorkspaceAndClearsIdea": true,
+    "pageErrors": []
+  },
+  "limitations": [
+    "Chromium/SwiftShader only; actual main-page paused screenshots, no demo-page substitution or performance benchmark."
+  ]
+}

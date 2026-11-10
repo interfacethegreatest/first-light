@@ -1,11 +1,13 @@
 # HTML inside the glass scene
 
-`HtmlGlassCard` adds a reusable scene containing actual native HTML positioned by Drei `Html`, a physical glass plate and a gently wobbling torus. The isolated `/examples/glass-panel-3d/` page demonstrates it below the existing panel. `App.tsx`, the current page, shared glass tokens, existing scenes and the original mount hook are unchanged by this task. No packages were installed or upgraded.
+`HtmlGlassCard` adds a reusable scene containing actual native HTML positioned by Drei `Html`, a physical glass plate and a gently wobbling torus. It is now mounted on the main page in `App.tsx`, below the workspace panels at `#glass-workspace`. Its title uses `ThreeDHeading` with real bold Text3D; native HTML children supply the body copy. The isolated `/examples/glass-panel-3d/` page also retains its example. Workspace controls, storage, shared glass tokens, existing scenes and the original mount hook are retained. No packages were installed or upgraded. See [main-page integration](main-glass-heading.md) for current verification.
 
 ```tsx
 import HtmlGlassCard from '../components/html-glass-card/HtmlGlassCard'
 
-<HtmlGlassCard error={false} inputHeight={88} />
+<HtmlGlassCard title="A little more depth." noteLabel="Idea draft" inputHeight={88}>
+  <p>Use this temporary space to sketch your next idea.</p>
+</HtmlGlassCard>
 ```
 
 ## Scene and motion

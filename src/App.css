@@ -255,6 +255,10 @@ h1>span {
   gap:24px;
   align-items:start
 }
+.glass-workspace-section {
+  margin-top:32px;
+  min-width:0;
+}
 .panel,
 .workspace-panel-surface,
 .stats-grid,

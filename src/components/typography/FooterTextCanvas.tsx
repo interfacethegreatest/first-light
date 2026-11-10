@@ -3,7 +3,7 @@ import { Canvas, useThree } from '@react-three/fiber'
 import { Center, Float, Text3D } from '@react-three/drei'
 import type { OrthographicCamera } from 'three'
 
-export const FOOTER_FONT_URL = `${import.meta.env.BASE_URL}fonts/helvetiker_regular.typeface.json`
+export const FOOTER_FONT_URL = `${import.meta.env.BASE_URL}fonts/helvetiker_bold.typeface.json`
 
 export interface FooterTextCanvasProps {
   text: string
@@ -44,13 +44,13 @@ function FittedText({ text, animate, onDrawn }: { text: string; animate: boolean
         <Text3D
           font={FOOTER_FONT_URL}
           size={0.8}
-          height={0.14}
+          height={0.28}
           curveSegments={8}
           bevelEnabled
-          bevelThickness={0.012}
-          bevelSize={0.008}
-          bevelSegments={2}
-          rotation={[-0.1, -0.14, 0]}
+          bevelThickness={0.025}
+          bevelSize={0.018}
+          bevelSegments={3}
+          rotation={[-0.14, -0.22, 0]}
           onAfterRender={onDrawn}
         >
           {text}

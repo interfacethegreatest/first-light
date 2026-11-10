@@ -10,6 +10,11 @@ const HtmlGlassCanvas = lazy(() => import('./HtmlGlassCanvas'))
 export interface HtmlGlassCardProps {
   error?: boolean
   inputHeight?: number | null
+  title?: string
+  children?: ReactNode
+  eyebrow?: string
+  noteLabel?: string
+  hint?: string
 }
 
 class SceneBoundary extends Component<{ children: ReactNode; onUnavailable: () => void }, { failed: boolean }> {
@@ -19,7 +24,11 @@ class SceneBoundary extends Component<{ children: ReactNode; onUnavailable: () =
   render() { return this.state.failed ? null : this.props.children }
 }
 
-export default function HtmlGlassCard({ error = false, inputHeight = 88 }: HtmlGlassCardProps) {
+export default function HtmlGlassCard({
+  error = false, inputHeight = 88, title = 'Hello from 3D.', children,
+  eyebrow = 'HTML / THREE.JS', noteLabel = 'Scene research note',
+  hint = 'Click or focus the field to see the Calendar4 highlight.',
+}: HtmlGlassCardProps) {
   const root = useRef<HTMLDivElement>(null)
   const nativeSlot = useRef<HTMLDivElement>(null)
   const htmlPortal = useRef<HTMLDivElement>(null)
@@ -104,7 +113,10 @@ export default function HtmlGlassCard({ error = false, inputHeight = 88 }: HtmlG
         <HtmlGlassCardContent
           fieldId={fieldId} value={value} onValueChange={setValue} error={error} inputHeight={inputHeight}
           onFocusWithinChange={onFocusWithinChange} onSize={onSize}
-        />, host,
+          title={title} eyebrow={eyebrow} noteLabel={noteLabel} hint={hint}
+        >
+          {children}
+        </HtmlGlassCardContent>, host,
       )}
       {canRender && (
         <div className={styles.canvasLayer}>

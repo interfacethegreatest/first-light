@@ -72,7 +72,7 @@ Watch the [animation preview](docs/previews/calendar-motion-demo.mp4) and see [t
 
 ## Three.js typography and reusable glass
 
-The application includes a compact 3D text scene above its existing footer. A separate [component example](https://interfacethegreatest.github.io/first-light/examples/glass-panel-3d/) demonstrates the reusable glass panel, mount/unmount hook, native HTML inside Drei's `Html`, gentle torus motion, and Calendar4's extracted input container with its outside-click hook. Both pages are included in the normal production build.
+The main page includes a glass **Idea draft** card below the workspace panels and a compact 3D text scene above the footer. The card's title and footer share bold, beveled Three.js typography through the reusable `ThreeDHeading`/text renderer. The idea draft is temporary and clears on reload; it is separate from saved research records. A separate [component example](https://interfacethegreatest.github.io/first-light/examples/glass-panel-3d/) demonstrates the reusable glass panel, mount/unmount hook, native HTML inside Drei's `Html`, gentle torus motion, and Calendar4's extracted input container with its outside-click hook. Both pages are included in the normal production build.
 
 See the [footer text](docs/footer-3d-text.md), [glass panel](docs/glass-panel-3d.md) and [HTML scene](docs/html-glass-card.md) documentation for component code, attribution and verification. Drafts remain local to the example and do not write research records. Motion respects reduced-motion preferences, page visibility and form focus; unavailable WebGL retains native content.
 

@@ -1,0 +1,39 @@
+.container {
+  position: relative;
+  min-width: 0;
+}
+
+/* Native heading semantics remain present without duplicating visual text. */
+.heading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.visual {
+  width: 100%;
+  min-width: 0;
+  pointer-events: none;
+}
+
+.visual .scene {
+  height: 90px;
+  margin: 0;
+}
+
+.visual .scene > p {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .visual .scene {
+    height: 72px;
+  }
+}

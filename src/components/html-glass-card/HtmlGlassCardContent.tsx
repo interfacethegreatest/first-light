@@ -1,5 +1,6 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef, type ReactNode } from 'react'
 import ModalInputContainer from '../input/ModalInput/ModalInputContainer'
+import ThreeDHeading from '../typography/ThreeDHeading'
 import '../../styles/glass.css'
 import styles from './HtmlGlassCard.module.css'
 
@@ -11,10 +12,16 @@ export interface HtmlGlassCardContentProps {
   onValueChange: (value: string) => void
   onFocusWithinChange: (focused: boolean) => void
   onSize: (width: number, height: number) => void
+  title: string
+  children?: ReactNode
+  eyebrow: string
+  noteLabel: string
+  hint: string
 }
 
 export default function HtmlGlassCardContent({
   fieldId, value, error, inputHeight, onValueChange, onFocusWithinChange, onSize,
+  title, children, eyebrow, noteLabel, hint,
 }: HtmlGlassCardContentProps) {
   const element = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
@@ -40,10 +47,11 @@ export default function HtmlGlassCardContent({
         if (!event.relatedTarget || !event.currentTarget.contains(event.relatedTarget as Node)) onFocusWithinChange(false)
       }}
     >
-      <p className={styles.eyebrow}>HTML / THREE.JS</p>
-      <h2 id={`${fieldId}-title`}>Hello from 3D.</h2>
-      <p>This is real HTML inside the scene. The glass and torus are Three.js objects.</p>
-      <label htmlFor={fieldId}>Scene research note</label>
+      <p className={styles.eyebrow}>{eyebrow}</p>
+      <ThreeDHeading id={`${fieldId}-title`} title={title}>
+        {children === undefined ? <p>This is real HTML inside the scene. The glass and torus are Three.js objects.</p> : children}
+      </ThreeDHeading>
+      <label htmlFor={fieldId}>{noteLabel}</label>
       <ModalInputContainer text={value} error={error} height={inputHeight}>
         <textarea
           id={fieldId}
@@ -56,7 +64,7 @@ export default function HtmlGlassCardContent({
         />
       </ModalInputContainer>
       <p className={styles.hint} id={`${fieldId}-hint`}>
-        {error ? 'Preview error: review this note.' : 'Click or focus the field to see the Calendar4 highlight.'}
+        {error ? 'Preview error: review this note.' : hint}
       </p>
     </div>
   )
