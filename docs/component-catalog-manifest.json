@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "snapshotKind": "local working-tree source; not deployment evidence",
-  "snapshotSha256": "dfdefb2aa69cdc7cb404daae66526ef15b1cfbdadacac4476763526409045968",
+  "snapshotSha256": "564b27f128991f409c5685033564fb342d292805ee2562d9af42193841597036",
   "sourceSelection": {
     "directory": "all files under src/",
     "explicitFiles": [
@@ -15,7 +15,7 @@
   },
   "fileCount": 103,
   "srcFileCount": 101,
-  "sourceBytes": 221607,
+  "sourceBytes": 221668,
   "componentModuleCount": 51,
   "components": [
     {
@@ -1158,8 +1158,8 @@
     },
     {
       "path": "src/components/misc/EarthMark/EarthMarkCanvas.tsx",
-      "bytes": 2851,
-      "sha256": "199688e18df08be63d9098794e5b9626232321fc6e3ff617124e846cdfb3f2eb",
+      "bytes": 2912,
+      "sha256": "a504b105d0fe9f9fe2d80291676ce86fe20661e3208038d9c1ef3ad9a3c402bd",
       "encoding": "utf8",
       "category": "Other supporting source",
       "anchor": "file-src-components-misc-earthmark-earthmarkcanvas-tsx-fb3e7fdd",
@@ -1547,13 +1547,13 @@
   "artifacts": {
     "markdown": {
       "path": "docs/component-catalog.md",
-      "bytes": 278266,
-      "sha256": "a46de284f5886b96b1d48f15d7f81da64d8d8417c79ebd830dd179c429e897cc"
+      "bytes": 278327,
+      "sha256": "526a6c4d8a8b83c9a17984b745b0b1bb64a0fc4d53f7d2fea1bef0388ddc2b15"
     },
     "zip": {
       "path": "docs/component-source.zip",
-      "bytes": 238669,
-      "sha256": "0e07974dade1444f0576c0273ca538c4e1e25ba7d6b73c8338ea1d3af056a45b",
+      "bytes": 238730,
+      "sha256": "49ecc673473f074638302e899f42ca54548219e6d8236177bf82a55591d14e9f",
       "entries": 103
     }
   }

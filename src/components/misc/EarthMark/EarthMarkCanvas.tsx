@@ -1,6 +1,7 @@
 import { Suspense, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import EarthModel, { type EarthRotationAxis } from './EarthModel'
+import { useMoonResolution } from '../MoonMark/useMoonResolution'
 
 export interface EarthMarkCanvasProps {
   animate?: boolean
@@ -19,7 +20,6 @@ const camera = {
   near: 0.1,
   far: 30,
 }
-const dpr: [number, number] = [1, 1.5]
 const glOptions = { alpha: true, antialias: true }
 
 export default function EarthMarkCanvas({
@@ -36,6 +36,7 @@ export default function EarthMarkCanvas({
   const readyCallback = useRef(onReady)
   const unavailableCallback = useRef(onUnavailable)
   const [unavailable, setUnavailable] = useState(false)
+  const dpr = useMoonResolution()
   const rotating = animate && Number.isFinite(rotationSpeed) && rotationSpeed !== 0
 
   useLayoutEffect(() => {

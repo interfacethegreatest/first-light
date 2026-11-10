@@ -2,7 +2,7 @@
 
 This is a **local working-tree snapshot, including uncommitted source**. It is not a deployment record or a claim about the live site.
 
-Snapshot SHA-256: `dfdefb2aa69cdc7cb404daae66526ef15b1cfbdadacac4476763526409045968`. All **101 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **103 selected source files**, with no source truncation.
+Snapshot SHA-256: `564b27f128991f409c5685033564fb342d292805ee2562d9af42193841597036`. All **101 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **103 selected source files**, with no source truncation.
 
 Additional files: `public/media/moon/Moon.jsx` and `examples/glass-panel-3d/main.tsx`. The example entry mounts the optional GlassPanelExample; it is supporting application code, not an additional React component.
 
@@ -7908,12 +7908,13 @@ export function EarthCredit() {
 <a id="file-src-components-misc-earthmark-earthmarkcanvas-tsx-fb3e7fdd"></a>
 ### src/components/misc/EarthMark/EarthMarkCanvas.tsx
 
-2851 bytes · SHA-256 `199688e18df08be63d9098794e5b9626232321fc6e3ff617124e846cdfb3f2eb` · utf8
+2912 bytes · SHA-256 `a504b105d0fe9f9fe2d80291676ce86fe20661e3208038d9c1ef3ad9a3c402bd` · utf8
 
 ```tsx
 import { Suspense, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import EarthModel, { type EarthRotationAxis } from './EarthModel'
+import { useMoonResolution } from '../MoonMark/useMoonResolution'
 
 export interface EarthMarkCanvasProps {
   animate?: boolean
@@ -7932,7 +7933,6 @@ const camera = {
   near: 0.1,
   far: 30,
 }
-const dpr: [number, number] = [1, 1.5]
 const glOptions = { alpha: true, antialias: true }
 
 export default function EarthMarkCanvas({
@@ -7949,6 +7949,7 @@ export default function EarthMarkCanvas({
   const readyCallback = useRef(onReady)
   const unavailableCallback = useRef(onUnavailable)
   const [unavailable, setUnavailable] = useState(false)
+  const dpr = useMoonResolution()
   const rotating = animate && Number.isFinite(rotationSpeed) && rotationSpeed !== 0
 
   useLayoutEffect(() => {
