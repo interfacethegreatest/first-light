@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "entry": "/first-light/assets/index-C7usU8cb.js",
+  "widths": [
+    1440,
+    320
+  ],
+  "surfacesCheckedPerWidth": [
+    16,
+    16
+  ],
+  "exactVisualValuesVerified": true,
+  "gradient": "none",
+  "blur": "direct 7px",
+  "focus": {
+    "visible": true,
+    "width": "2px"
+  },
+  "mouseAndKeyboardSourceCreation": true,
+  "draftAndStoragePreserved": true,
+  "errors": [],
+  "webkitNote": "The WebKit-prefixed declarations are retained in CSS; Chromium uses the standard property. Safari runtime was not tested.",
+  "fixture": "Actual application, isolated synthetic browser data, real scenes; software Chromium, not a performance benchmark."
+}

@@ -1,0 +1,16 @@
+.glass {
+  composes: appleGlass from './AppleGlass.module.css';
+}
+
+:where(.glass) {
+  box-sizing: border-box;
+  background-color: var(--workspace-glass-background);
+  background-image: none;
+  backdrop-filter: var(--glassy-backdrop, var(--workspace-glass-blur));
+  -webkit-backdrop-filter: var(--glassy-backdrop, var(--workspace-glass-blur));
+  border: var(--workspace-panel-border);
+  border-radius: var(--workspace-panel-radius);
+  box-shadow: var(--workspace-glass-shadow);
+  color: var(--workspace-glass-colour);
+  font-family: inherit;
+}

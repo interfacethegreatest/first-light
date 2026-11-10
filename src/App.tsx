@@ -9,6 +9,7 @@ import useSourceSections from './components/sources/useSourceSections'
 import MoonBanner from './components/header/MoonBanner'
 import { MoonCredit } from './components/misc/MoonMark/MoonMark'
 import SparkArt from './components/hero/SparkArt'
+import PaneBackground from './components/panes/PaneBackground'
 import './App.css'
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -133,20 +134,20 @@ export default function App() {
         {workspaceError && <div className="notice notice-error" role="alert">{workspaceError}</div>}
         <div className="workspace-feedback" role="status" aria-live="polite">{workspaceMessage}</div>
 
-        <section className="stats-grid" aria-label="Workspace overview">
+        <PaneBackground as="section" className="stats-grid" aria-label="Workspace overview">
           <div className="stat"><span className="stat-label">Research sources</span><span className="stat-value">{String(workspace.sources.length).padStart(2, '0')}</span><span className="stat-detail">The evidence behind your ideas</span></div>
           <div className="stat"><span className="stat-label">Implementation decisions</span><span className="stat-value">{String(workspace.decisions.length).padStart(2, '0')}</span><span className="stat-detail">Findings with a plan of action</span></div>
           <div className="stat"><span className="stat-label">Marked validated</span><span className="stat-value">{String(validated).padStart(2, '0')}<span className="stat-spark">✳</span></span><span className="stat-detail">Status reported by you</span></div>
-        </section>
+        </PaneBackground>
 
         <div className="workspace-grid">
           <CalendarPanel>
-          <section className="panel source-panel" aria-labelledby="sources-heading">
+          <PaneBackground as="section" className="panel source-panel" aria-labelledby="sources-heading">
             <div className="panel-heading"><span className="step-number">01</span><div><h3 id="sources-heading">Research library</h3><p>Start with something worth building on.</p></div></div>
             <form onSubmit={submitSource} noValidate className="entry-form">
-              <div className="field"><label htmlFor="source-title">Source title <span aria-hidden="true">*</span></label><input id="source-title" value={sourceTitle} onChange={(event) => setSourceTitle(event.target.value)} placeholder="A paper, study, or research article" required /></div>
-              <div className="field"><label htmlFor="source-url">Source URL <span aria-hidden="true">*</span></label><input id="source-url" type="url" value={sourceUrl} onChange={(event) => setSourceUrl(event.target.value)} placeholder="https://…" required /><span className="field-hint">Link to the original research where possible.</span></div>
-              <div className="field"><label htmlFor="source-notes">Source notes <span className="optional">optional</span></label><textarea id="source-notes" rows={3} value={sourceNotes} onChange={(event) => setSourceNotes(event.target.value)} placeholder="Why is this source useful? Note its context or limitations." /></div>
+              <div className="field"><label htmlFor="source-title">Source title <span aria-hidden="true">*</span></label><PaneBackground as="input" id="source-title" value={sourceTitle} onChange={(event) => setSourceTitle(event.target.value)} placeholder="A paper, study, or research article" required /></div>
+              <div className="field"><label htmlFor="source-url">Source URL <span aria-hidden="true">*</span></label><PaneBackground as="input" id="source-url" type="url" value={sourceUrl} onChange={(event) => setSourceUrl(event.target.value)} placeholder="https://…" required /><span className="field-hint">Link to the original research where possible.</span></div>
+              <div className="field"><label htmlFor="source-notes">Source notes <span className="optional">optional</span></label><PaneBackground as="textarea" id="source-notes" rows={3} value={sourceNotes} onChange={(event) => setSourceNotes(event.target.value)} placeholder="Why is this source useful? Note its context or limitations." /></div>
               {sourceError && <p className="form-error" role="alert">{sourceError}</p>}
               <p className="form-success" role="status" aria-live="polite">{sourceSuccess}</p>
               <div className="entry-form" style={{ padding: 0, gap: 0, minWidth: 0 }}>
@@ -157,15 +158,15 @@ export default function App() {
             <div className="library-section"><div className="list-heading"><h4>Your sources</h4><span>{workspace.sources.length}</span></div>
               {workspace.sources.length === 0 ? <div className="empty-state source-empty"><span className="empty-symbol" aria-hidden="true"><Arrow diagonal /></span><h4>A clean page. A clear beginning.</h4><p>Add your first source above. Your evidence will live here, ready to inform the next step.</p></div> : <ul className="source-list">{workspace.sources.map((source, index) => <li key={source.id}><span className="source-index">{String(index + 1).padStart(2, '0')}</span><div className="source-content"><a href={source.url} target="_blank" rel="noreferrer">{source.title}<Arrow diagonal /></a><span className="source-host">{new URL(source.url).hostname}</span>{source.notes && <p>{source.notes}</p>}</div></li>)}</ul>}
             </div>
-          </section>
+          </PaneBackground>
           </CalendarPanel>
 
           <CalendarPanel>
-          <section className="panel decision-panel" aria-labelledby="decisions-heading">
+          <PaneBackground as="section" className="panel decision-panel" aria-labelledby="decisions-heading">
             <div className="panel-heading"><span className="step-number">02</span><div><h3 id="decisions-heading">From finding to feature</h3><p>Make the connection between evidence and action.</p></div></div>
             <form onSubmit={submitDecision} noValidate className="entry-form">
-              <div className="field"><label htmlFor="decision-source">Research source <span aria-hidden="true">*</span></label><select id="decision-source" value={effectiveSource} onChange={(event) => setSelectedSource(event.target.value)} disabled={workspace.sources.length === 0} required>{workspace.sources.length === 0 && <option value="">Add a source to get started</option>}{workspace.sources.map((source) => <option value={source.id} key={source.id}>{source.title}</option>)}</select></div>
-              <div className="decision-field-grid"><div className="field"><label htmlFor="research-finding">Research finding <span aria-hidden="true">*</span></label><textarea id="research-finding" rows={4} value={finding} onChange={(event) => setFinding(event.target.value)} placeholder="What does the evidence suggest? Include the limits of the finding." required /></div><div className="field"><label htmlFor="implementation-plan">Implementation plan <span aria-hidden="true">*</span></label><textarea id="implementation-plan" rows={4} value={implementation} onChange={(event) => setImplementation(event.target.value)} placeholder="How will this inform your web application? What will you test?" required /></div></div>
+              <div className="field"><label htmlFor="decision-source">Research source <span aria-hidden="true">*</span></label><PaneBackground as="select" id="decision-source" value={effectiveSource} onChange={(event) => setSelectedSource(event.target.value)} disabled={workspace.sources.length === 0} required>{workspace.sources.length === 0 && <option value="">Add a source to get started</option>}{workspace.sources.map((source) => <option value={source.id} key={source.id}>{source.title}</option>)}</PaneBackground></div>
+              <div className="decision-field-grid"><div className="field"><label htmlFor="research-finding">Research finding <span aria-hidden="true">*</span></label><PaneBackground as="textarea" id="research-finding" rows={4} value={finding} onChange={(event) => setFinding(event.target.value)} placeholder="What does the evidence suggest? Include the limits of the finding." required /></div><div className="field"><label htmlFor="implementation-plan">Implementation plan <span aria-hidden="true">*</span></label><PaneBackground as="textarea" id="implementation-plan" rows={4} value={implementation} onChange={(event) => setImplementation(event.target.value)} placeholder="How will this inform your web application? What will you test?" required /></div></div>
               {decisionError && <p className="form-error" role="alert">{decisionError}</p>}
               <p className="form-success" role="status" aria-live="polite">{decisionSuccess}</p>
               <div className="decision-form-footer"><span className="field-hint">Every decision starts with a source.</span><CalendarButton className="button button-primary" type="submit" label="Add decision" hoverLabel="Plan feature" disabled={workspace.sources.length === 0} icon={<span aria-hidden="true">+</span>} /></div>
@@ -174,15 +175,15 @@ export default function App() {
             <div className="decisions-section"><div className="list-heading"><h4>Implementation decisions</h4><span>{workspace.decisions.length}</span></div>
               {workspace.decisions.length === 0 ? <div className="empty-state decision-empty"><div className="empty-orbit" aria-hidden="true"><span />→<span /></div><h4>Give your research a direction.</h4><p>Connect a finding to a concrete implementation. Then track it from the first plan to a result you have checked.</p><span className="empty-tag">RESEARCH → APPLICATION</span></div> : <ul className="decision-list">{workspace.decisions.map((decision, index) => {
                 const source = workspace.sources.find((item) => item.id === decision.sourceId)
-                return <li key={decision.id} className="decision-card"><div className="decision-card-top"><span className="decision-id">DECISION {String(index + 1).padStart(2, '0')}</span><span className={`status-badge status-${decision.status}`}><span />{statuses.find((status) => status.value === decision.status)?.label}</span></div><h5>Finding</h5><p className="decision-text">{decision.finding}</p><div className="implementation-block"><h5>Implementation</h5><p className="decision-text">{decision.implementation}</p></div><div className="decision-card-bottom">{source && <a className="decision-source-link" href={source.url} target="_blank" rel="noreferrer"><Arrow diagonal />{source.title}</a>}<label className="status-control">Status<select aria-label={`Status for decision ${index + 1}`} value={decision.status} onChange={(event) => changeStatus(decision.id, event.target.value as ImplementationStatus)}>{statuses.map((status) => <option key={status.value} value={status.value}>{status.label}</option>)}</select></label></div></li>
+                return <PaneBackground as="li" key={decision.id} className="decision-card"><div className="decision-card-top"><span className="decision-id">DECISION {String(index + 1).padStart(2, '0')}</span><span className={`status-badge status-${decision.status}`}><span />{statuses.find((status) => status.value === decision.status)?.label}</span></div><h5>Finding</h5><p className="decision-text">{decision.finding}</p><div className="implementation-block"><h5>Implementation</h5><p className="decision-text">{decision.implementation}</p></div><div className="decision-card-bottom">{source && <a className="decision-source-link" href={source.url} target="_blank" rel="noreferrer"><Arrow diagonal />{source.title}</a>}<label className="status-control">Status<PaneBackground as="select" aria-label={`Status for decision ${index + 1}`} value={decision.status} onChange={(event) => changeStatus(decision.id, event.target.value as ImplementationStatus)}>{statuses.map((status) => <option key={status.value} value={status.value}>{status.label}</option>)}</PaneBackground></label></div></PaneBackground>
               })}</ul>}
               <p className="validation-note">“Validated” is a status you set after checking an implementation. It does not establish scientific validity. Record the test and its results in the repository’s decision template.</p>
             </div>
-          </section>
+          </PaneBackground>
           </CalendarPanel>
         </div>
 
-        <aside className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></aside>
+        <PaneBackground as="aside" className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></PaneBackground>
         <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>Local browser storage · Export regularly for backup · No account needed<br /><MoonCredit /></p></footer>
       </main>
     </>

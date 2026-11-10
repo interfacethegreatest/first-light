@@ -1,0 +1,63 @@
+{
+  "result": "PASS",
+  "baselineEntry": "index-4tRpy0dg.js",
+  "entry": "index-CnX9M3oN.js",
+  "protectedWidths": [
+    1440,
+    320
+  ],
+  "protectedTargetsPerWidth": 16,
+  "protectedPaletteGeometryNativeHierarchyEqualExceptBackdropStrings": true,
+  "nativeActions": {
+    "mouseAndEnterSourceCount": 2,
+    "inputTextareaAndSelectDraftsRetained": true,
+    "focus": {
+      "visible": true,
+      "outline": "rgb(255, 148, 112) solid 2px",
+      "offset": "2px"
+    },
+    "exportJSONMatchesSeed": true,
+    "storageUnchanged": true
+  },
+  "navigationCounts": {
+    "radios": 0,
+    "tablists": 0,
+    "nav": 0
+  },
+  "lens": {
+    "id": "gls-liquid-glass-tab-bar-lens",
+    "idCount": 1,
+    "svgDefinitionsCount": 1,
+    "zeroSize": {
+      "width": 0,
+      "height": 0
+    },
+    "afterAppContent": true,
+    "svgParent": "root",
+    "scale": "20",
+    "xChannel": "R",
+    "yChannel": "G",
+    "rootTheme": "url(#gls-liquid-glass-tab-bar-lens)",
+    "supportsURL": true,
+    "mapMatchesSuppliedReference": true,
+    "mapSHA256": "1f24f23314f87311a3a4c893eecfb7a60208e73440983652e88a27bd5d6a8638",
+    "mapCharacters": 822
+  },
+  "lensTargetCount": 18,
+  "allTargetsHaveDeduplicatedComposedClasses": true,
+  "pixelProof": {
+    "fixture": "Deterministic coloured stripes on immediate source wrapper; original app surfaces and supplied SVG filter. Lens disabled only by removing the inherited root theme variable.",
+    "meanAbsoluteChannelDifference": 7.103,
+    "changedChannelsAbove2": 147669,
+    "maximumDifference": 27,
+    "fallbackEveryProtectedTarget": "blur(7px)",
+    "fixtureRemoved": true
+  },
+  "pageErrors": [],
+  "limitations": [
+    "Chromium only; no Safari claim.",
+    "DOM geometry and pixel diagnostic used labelled GPU isolation.",
+    "Striped fixture demonstrates a rendered filter difference; it is synthetic and separate from ordinary source screenshots."
+  ],
+  "resolvedFinding": "Initial build omitted shared glass token declarations. Parent fixed explicit global CSS import; corrected release passes the same strict comparison."
+}

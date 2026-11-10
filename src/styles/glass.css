@@ -1,62 +1,10 @@
 :root {
-  --workspace-glass-background: rgba(42, 44, 58, 0.5);
+  --workspace-glass-background: rgba(35, 37, 49, 0.5);
   --workspace-glass-blur: blur(7px);
   --workspace-glass-shadow:
-    inset 0 0 0 1000px rgba(42, 44, 58, 0.015),
-    0 10px 28px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.025);
-  --workspace-panel-border: 1px solid rgba(240, 248, 255, 0.1);
-  --workspace-panel-radius: 5px;
-}
-
-/* Neutral containers and text-entry surfaces share one glass recipe. */
-.panel,
-.workspace-panel-surface,
-.stats-grid,
-.decision-card,
-.next-step,
-.field input,
-.field textarea,
-.field select,
-.status-control select {
-  box-sizing: border-box;
-  background-color: var(--workspace-glass-background);
-  border: var(--workspace-panel-border);
-  border-radius: var(--workspace-panel-radius);
-  box-shadow: var(--workspace-glass-shadow);
-}
-
-.panel,
-.workspace-panel-surface,
-.stats-grid,
-.decision-card,
-.next-step {
-  position: relative;
-  isolation: isolate;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-}
-
-/* A separate blur layer avoids making nested panels sample a tinted parent. */
-.panel::after,
-.workspace-panel-surface::after,
-.stats-grid::after,
-.decision-card::after,
-.next-step::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: -1;
-  pointer-events: none;
-  backdrop-filter: var(--workspace-glass-blur);
-  -webkit-backdrop-filter: var(--workspace-glass-blur);
-}
-
-.field input,
-.field textarea,
-.field select,
-.status-control select {
-  backdrop-filter: var(--workspace-glass-blur);
-  -webkit-backdrop-filter: var(--workspace-glass-blur);
+    inset 0 0 0 1000px rgba(35, 37, 49, 0.015),
+    0 18px 45px rgba(0, 0, 0, 0.28);
+  --workspace-panel-border: 1px solid rgba(240, 248, 255, 0.12);
+  --workspace-panel-radius: 6px;
+  --workspace-glass-colour: rgba(240, 248, 255, 0.88);
 }

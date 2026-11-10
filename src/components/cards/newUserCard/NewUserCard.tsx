@@ -3,6 +3,7 @@ import { motion, type Variants } from 'framer-motion'
 import Tilt from 'react-parallax-tilt'
 import SunScene from '../../react three fibre/sunScene/SunScene'
 import { useCalendarMotionPreferences } from '../../calendarMotion/useCalendarMotionPreferences'
+import PaneBackground, { paneBackgroundClassName } from '../../panes/PaneBackground'
 import CardTiles from './CardTiles'
 import styles from './newUser.module.css'
 
@@ -85,7 +86,8 @@ export default function NewUserCard({
         tiltAngleXManual={tiltEnabled ? null : 0}
         tiltAngleYManual={tiltEnabled ? null : 0}
       >
-        <section
+        <PaneBackground
+          as="section"
           className={`${styles.main}${surfaceClassName ? ` ${surfaceClassName}` : ''}`}
           data-new-user-card
           aria-labelledby={headingId}
@@ -105,12 +107,12 @@ export default function NewUserCard({
             <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>
           </small>
 
-          <motion.div className={styles.planetContainer} variants={badgeVariants} aria-hidden="true">
+          <motion.div className={`${paneBackgroundClassName} ${styles.planetContainer}`} variants={badgeVariants} aria-hidden="true">
             <div className={styles.planet}><SunScene /></div>
           </motion.div>
 
           <motion.div className={`entry-form source-content ${styles.body}`} variants={contentVariants}>{children}</motion.div>
-        </section>
+        </PaneBackground>
       </Tilt>
     </motion.div>
   )

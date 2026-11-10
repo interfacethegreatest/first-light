@@ -1,24 +1,8 @@
 .frame {
+  composes: background from '../panes/PaneBackground.module.css';
+  font-family: inherit;
   position: relative;
   isolation: isolate;
   box-sizing: border-box;
-  border: var(--workspace-panel-border, 1px solid rgba(240, 248, 255, 0.1));
-  border-radius: var(--workspace-panel-radius, 5px);
-  background: var(--workspace-glass-background, rgba(42, 44, 58, 0.5));
-  box-shadow: var(--workspace-glass-shadow,
-    inset 0 0 0 1000px rgba(42, 44, 58, 0.015),
-    0 10px 28px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.025));
   overflow: visible;
-}
-
-.frame::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  backdrop-filter: var(--workspace-glass-blur, blur(7px));
-  -webkit-backdrop-filter: var(--workspace-glass-blur, blur(7px));
-  pointer-events: none;
 }

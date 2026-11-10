@@ -1,0 +1,12 @@
+/* Local CSS adaptation of the supplied Apple-style HTML/SVG reference.
+   No stylesheet or official Apple implementation was supplied. */
+.appleGlass {
+  --apple-glass-lens: inherit;
+  --glassy-backdrop: var(--workspace-glass-blur);
+}
+
+@supports (backdrop-filter: url('#gls-liquid-glass-tab-bar-lens')) {
+  .appleGlass {
+    --glassy-backdrop: var(--apple-glass-lens,) var(--workspace-glass-blur);
+  }
+}
