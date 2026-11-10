@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:4223/first-light/#top",
+  "scope": "Actual main-page WebGL Moon; Chromium/SwiftShader, no GPU performance measurement",
+  "centralMoonPixelChangeWhileSpinning": 0.886137648664457,
+  "centralMoonPixelChangeWithReducedMotion": 0.0,
+  "reducedMotionPaused": true,
+  "offscreenPausedAndResumed": true,
+  "nativeHomeKeyboardActionAndDraftPreserved": true,
+  "singleMoonCanvas": true,
+  "pageErrors": []
+}

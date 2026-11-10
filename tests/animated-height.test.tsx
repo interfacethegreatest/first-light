@@ -343,25 +343,27 @@ describe('AnimatedHeight layout lifecycle', () => {
     const user = userEvent.setup()
     render(<Feature />)
     const button = screen.getByRole('button', { name: 'Add source' })
-    environment.layout.intrinsic = 180
+    environment.layout.intrinsic = 540
     await user.click(button)
-    const first = screen.getByRole('region', { hidden: true })
+    const initialBatch = screen.getAllByRole('region', { hidden: true })
+    expect(initialBatch).toHaveLength(3)
+    const first = initialBatch[0]
     expect(screen.queryByRole('region', { name: 'Source section 1' })).not.toBeInTheDocument()
     const sun = first.querySelector('canvas')
     const outer = document.getElementById('height-test-sources')!.parentElement!.parentElement!
-    environment.resize(180)
+    environment.resize(540)
 
     expect(button).toHaveFocus()
     expect(outer.style.height).toBe('0px')
     complete()
     expect(outer.style.height).toBe('auto')
     expect(screen.getByRole('region', { name: 'Source section 1' })).toBe(first)
-    environment.layout.intrinsic = 360
+    environment.layout.intrinsic = 1080
     await user.click(button)
-    environment.resize(360)
-    expect(outer.style.height).toBe('180px')
-    expect(screen.getAllByRole('region', { hidden: true })).toHaveLength(2)
-    expect(screen.queryByRole('region', { name: 'Source section 2' })).not.toBeInTheDocument()
+    environment.resize(1080)
+    expect(outer.style.height).toBe('540px')
+    expect(screen.getAllByRole('region', { hidden: true })).toHaveLength(6)
+    expect(screen.queryByRole('region', { name: 'Source section 4' })).not.toBeInTheDocument()
     environment.reduce(true)
 
     expect(outer.style.height).toBe('auto')
@@ -369,6 +371,9 @@ describe('AnimatedHeight layout lifecycle', () => {
     expect(screen.getByRole('region', { name: 'Source section 1' })).toBe(first)
     expect(first.querySelector('canvas')).toBe(sun)
     expect(sun).toBeInTheDocument()
-    expect(screen.getByRole('region', { name: 'Source section 2' })).toBeInTheDocument()
+    for (let index = 0; index < 6; index++) {
+      const section = screen.getByRole('region', { name: `Source section ${index + 1}` })
+      if (index < 3) expect(section).toBe(initialBatch[index])
+    }
   })
 })

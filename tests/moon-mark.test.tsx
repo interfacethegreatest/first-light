@@ -9,6 +9,7 @@ import { moonMarkTemplate } from '../src/components/misc/MoonMark/moonMarkTempla
 import App from '../src/App'
 
 vi.mock('../src/components/misc/MoonMark/MoonMarkCanvas', () => ({ default: vi.fn() }))
+vi.mock('../src/components/glass-panel-3d/GlassPanelCanvas', () => ({ default: () => null }))
 vi.mock('@react-three/fiber', () => ({ Canvas: vi.fn() }))
 vi.mock('@react-three/drei', () => ({ useGLTF: Object.assign(vi.fn(), { preload: vi.fn() }) }))
 
@@ -57,6 +58,14 @@ function environment({ reduced = false, webgl = true, hidden = false, observe = 
 
 function mark(container: HTMLElement) { return container.querySelector('[data-moon-mark]')! }
 function latestRenderer() { return vi.mocked(MoonMarkCanvas).mock.calls.at(-1)![0] }
+function currentModelProps() {
+  const configured = vi.mocked(Canvas).mock.calls.at(-1)![0]
+  const suspense = Children.toArray(configured.children).find(child => isValidElement(child) && child.type === Suspense)
+  if (!isValidElement<{ children: { props: { animate?: boolean; rotationAxis?: 'x' | 'y' | 'z'; rotationSpeed?: number; onReady: () => void } } }>(suspense)) {
+    throw new Error('Missing Moon model suspense boundary')
+  }
+  return suspense.props.children.props
+}
 
 beforeEach(() => {
   vi.mocked(MoonMarkCanvas).mockImplementation(({ animate }) => <div data-testid="moon-gpu-boundary" data-animate={Boolean(animate)} />)
@@ -193,18 +202,34 @@ describe('reusable Moon scene', () => {
     expect(second).toHaveAttribute('data-moon-state', 'pending')
   })
 
-  it('keeps the actual header home anchor, name, Tab order, and unrelated form draft', async () => {
-    environment({ webgl: false })
+  it('opts the actual header into gated rotation while keeping its home anchor, Tab order, and unrelated form draft', async () => {
+    const activity = environment()
     const user = userEvent.setup()
     render(<App />)
     const home = screen.getByRole('link', { name: 'First Light home' })
     expect(home).toHaveAttribute('href', '#top')
     expect(home.querySelectorAll('[data-moon-mark]')).toHaveLength(1)
     expect(home.querySelector('svg')).not.toBeInTheDocument()
+    const element = home.querySelector('[data-moon-mark]')!
+    activity.intersect(element, true)
+    const renderer = await screen.findByTestId('moon-gpu-boundary')
+    expect(latestRenderer()).toMatchObject({ animate: true, rotationAxis: 'y', rotationSpeed: -0.12 })
     await user.tab()
     expect(screen.getByRole('link', { name: 'Skip to workspace' })).toHaveFocus()
     await user.tab()
     expect(home).toHaveFocus()
+    activity.intersect(element, false)
+    expect(renderer).toHaveAttribute('data-animate', 'false')
+    activity.intersect(element, true)
+    activity.visibility(true)
+    expect(renderer).toHaveAttribute('data-animate', 'false')
+    activity.visibility(false)
+    activity.reduced(true)
+    expect(renderer).toHaveAttribute('data-animate', 'false')
+    activity.reduced(false)
+    expect(renderer).toHaveAttribute('data-animate', 'true')
+    expect(home).toHaveFocus()
+    expect(screen.getByTestId('moon-gpu-boundary')).toBe(renderer)
     await user.tab()
     expect(screen.getByRole('button', { name: 'Export workspace' })).toHaveFocus()
     const title = screen.getByRole('textbox', { name: 'Source title' })
@@ -216,16 +241,39 @@ describe('reusable Moon scene', () => {
 })
 
 describe('actual Moon Canvas lifecycle at the GPU boundary', () => {
+  it('forwards changing axis and speed from the reusable mark through the actual Canvas to the model, keeping zero speed idle', async () => {
+    const { default: ActualMoonCanvas } = await vi.importActual<typeof import('../src/components/misc/MoonMark/MoonMarkCanvas')>('../src/components/misc/MoonMark/MoonMarkCanvas')
+    vi.mocked(MoonMarkCanvas).mockImplementation(ActualMoonCanvas)
+    const activity = environment()
+    const view = render(<MoonMark animate rotationAxis="x" rotationSpeed={0.3} />)
+    const element = mark(view.container)
+    activity.intersect(element, true)
+    const canvas = await screen.findByTestId('canvas-boundary')
+    expect(canvas).toHaveAttribute('data-frameloop', 'always')
+    expect(currentModelProps()).toMatchObject({ animate: true, rotationAxis: 'x', rotationSpeed: 0.3 })
+
+    view.rerender(<MoonMark animate rotationAxis="z" rotationSpeed={-0.6} />)
+    expect(currentModelProps()).toMatchObject({ animate: true, rotationAxis: 'z', rotationSpeed: -0.6 })
+    expect(screen.getByTestId('canvas-boundary')).toBe(canvas)
+
+    view.rerender(<MoonMark animate rotationAxis="z" rotationSpeed={0} />)
+    expect(element).toHaveAttribute('data-moon-animate', 'false')
+    expect(canvas).toHaveAttribute('data-frameloop', 'demand')
+    expect(currentModelProps()).toMatchObject({ animate: false, rotationAxis: 'z', rotationSpeed: 0 })
+
+    view.rerender(<MoonMark animate={false} rotationAxis="y" rotationSpeed={-0.12} />)
+    expect(canvas).toHaveAttribute('data-frameloop', 'demand')
+    expect(currentModelProps()).toMatchObject({ animate: false, rotationAxis: 'y', rotationSpeed: -0.12 })
+    expect(screen.getByTestId('canvas-boundary')).toBe(canvas)
+  })
+
   it('uses demand while idle, retains its Canvas, reports context loss once, and suppresses stale readiness', async () => {
     const { default: ActualMoonCanvas } = await vi.importActual<typeof import('../src/components/misc/MoonMark/MoonMarkCanvas')>('../src/components/misc/MoonMark/MoonMarkCanvas')
     const firstReady = vi.fn(), latestReady = vi.fn(), unavailable = vi.fn()
     const view = render(<ActualMoonCanvas onReady={firstReady} onUnavailable={unavailable} />)
     const canvas = screen.getByTestId('canvas-boundary')
     expect(canvas).toHaveAttribute('data-frameloop', 'demand')
-    const configured = vi.mocked(Canvas).mock.calls.at(-1)![0]
-    const suspense = Children.toArray(configured.children).find(child => isValidElement(child) && child.type === Suspense)
-    if (!isValidElement<{ children: { props: { onReady: () => void } } }>(suspense)) throw new Error('Missing Moon model suspense boundary')
-    const readyFromMesh = suspense.props.children.props.onReady
+    const readyFromMesh = currentModelProps().onReady
     expect(firstReady).not.toHaveBeenCalled()
     view.rerender(<ActualMoonCanvas animate onReady={latestReady} onUnavailable={unavailable} />)
     expect(screen.getByTestId('canvas-boundary')).toBe(canvas)
@@ -233,6 +281,10 @@ describe('actual Moon Canvas lifecycle at the GPU boundary', () => {
     act(() => readyFromMesh())
     expect(firstReady).not.toHaveBeenCalled()
     expect(latestReady).toHaveBeenCalledOnce()
+    view.rerender(<ActualMoonCanvas animate rotationSpeed={0} onReady={latestReady} onUnavailable={unavailable} />)
+    expect(screen.getByTestId('canvas-boundary')).toBe(canvas)
+    expect(canvas).toHaveAttribute('data-frameloop', 'demand')
+    expect(currentModelProps()).toMatchObject({ animate: false, rotationSpeed: 0 })
     const remove = vi.spyOn(canvas, 'removeEventListener')
     const lost = new Event('webglcontextlost', { cancelable: true })
     fireEvent(canvas, lost)

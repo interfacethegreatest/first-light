@@ -1,0 +1,1328 @@
+{
+  "formatVersion": 1,
+  "snapshotKind": "local working-tree source; not deployment evidence",
+  "snapshotSha256": "f4d98f12f01ce561b04411d90611af052910f12f7b43d91844fc53f7c7f5d2dd",
+  "sourceSelection": {
+    "directory": "all files under src/",
+    "explicitFiles": [
+      "public/media/moon/Moon.jsx",
+      "examples/glass-panel-3d/main.tsx"
+    ]
+  },
+  "exporter": {
+    "file": "scripts/export-component-catalog.mjs",
+    "sha256": "11f9cbc0526883bb75c3f39e4fdf49c34eebb295a37f444be9f3700fac9bbd5b"
+  },
+  "fileCount": 89,
+  "srcFileCount": 87,
+  "sourceBytes": 187046,
+  "componentModuleCount": 42,
+  "components": [
+    {
+      "module": "App",
+      "primaryExport": "App",
+      "namedExports": [],
+      "file": "src/App.tsx",
+      "category": "Application, workspace data and shared styles",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "Model",
+      "primaryExport": "Model",
+      "namedExports": [],
+      "file": "src/components/backgrounds/starsBackground/Model.tsx",
+      "category": "Star background",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "Scene",
+      "primaryExport": "Scene",
+      "namedExports": [],
+      "file": "src/components/backgrounds/starsBackground/Scene.tsx",
+      "category": "Star background",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "StarBackground",
+      "primaryExport": "StarBackground",
+      "namedExports": [],
+      "file": "src/components/backgrounds/starsBackground/StarBackground.tsx",
+      "category": "Star background",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "CalendarButton",
+      "primaryExport": "CalendarButton",
+      "namedExports": [],
+      "file": "src/components/calendarMotion/CalendarButton.tsx",
+      "category": "Calendar motion and preferences",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "CalendarPanel",
+      "primaryExport": "CalendarPanel",
+      "namedExports": [],
+      "file": "src/components/calendarMotion/CalendarPanel.tsx",
+      "category": "Calendar motion and preferences",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "CardTiles",
+      "primaryExport": "CardTiles",
+      "namedExports": [],
+      "file": "src/components/cards/newUserCard/CardTiles.tsx",
+      "category": "Source sections and reusable cards",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "NewUserCard",
+      "primaryExport": "NewUserCard",
+      "namedExports": [],
+      "file": "src/components/cards/newUserCard/NewUserCard.tsx",
+      "category": "Source sections and reusable cards",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "TileGrid",
+      "primaryExport": "TileGrid",
+      "namedExports": [],
+      "file": "src/components/decorations/TileGrid.tsx",
+      "category": "Header, hero and shared tile decoration",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "AppleGlassLens",
+      "primaryExport": "AppleGlassLens",
+      "namedExports": [],
+      "file": "src/components/glass/AppleGlassLens.tsx",
+      "category": "Shared glass surfaces and panes",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "GlassMaterial",
+      "primaryExport": "GlassMaterial",
+      "namedExports": [],
+      "file": "src/components/glass-panel-3d/GlassMaterial.tsx",
+      "category": "Three.js glass panel and example",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "GlassPanel3D",
+      "primaryExport": "GlassPanel3D",
+      "namedExports": [],
+      "file": "src/components/glass-panel-3d/GlassPanel3D.tsx",
+      "category": "Three.js glass panel and example",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "GlassPanelCanvas",
+      "primaryExport": "GlassPanelCanvas",
+      "namedExports": [],
+      "file": "src/components/glass-panel-3d/GlassPanelCanvas.tsx",
+      "category": "Three.js glass panel and example",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "GlassPanelExample",
+      "primaryExport": "GlassPanelExample",
+      "namedExports": [],
+      "file": "src/components/glass-panel-3d/GlassPanelExample.tsx",
+      "category": "Three.js glass panel and example",
+      "kind": "component-bearing module",
+      "importedFromMain": false,
+      "usage": "Optional example; not imported from application entry"
+    },
+    {
+      "module": "ResearchDraftPanel",
+      "primaryExport": "ResearchDraftPanel",
+      "namedExports": [],
+      "file": "src/components/glass-panel-3d/ResearchDraftPanel.tsx",
+      "category": "Three.js glass panel and example",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "HeaderExport",
+      "primaryExport": "HeaderExport",
+      "namedExports": [],
+      "file": "src/components/header/HeaderExport.tsx",
+      "category": "Header, hero and shared tile decoration",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "HeaderFrame",
+      "primaryExport": "HeaderFrame",
+      "namedExports": [],
+      "file": "src/components/header/HeaderFrame.tsx",
+      "category": "Header, hero and shared tile decoration",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "HeaderTitle",
+      "primaryExport": "HeaderTitle",
+      "namedExports": [],
+      "file": "src/components/header/HeaderTitle.tsx",
+      "category": "Header, hero and shared tile decoration",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "MoonBanner",
+      "primaryExport": "MoonBanner",
+      "namedExports": [],
+      "file": "src/components/header/MoonBanner.tsx",
+      "category": "Header, hero and shared tile decoration",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "SparkArt",
+      "primaryExport": "SparkArt",
+      "namedExports": [],
+      "file": "src/components/hero/SparkArt.tsx",
+      "category": "Header, hero and shared tile decoration",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "HtmlGlassCanvas",
+      "primaryExport": "HtmlGlassCanvas",
+      "namedExports": [],
+      "file": "src/components/html-glass-card/HtmlGlassCanvas.tsx",
+      "category": "HTML glass card and scene helpers",
+      "kind": "component-bearing module",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
+    },
+    {
+      "module": "HtmlGlassCard",
+      "primaryExport": "HtmlGlassCard",
+      "namedExports": [],
+      "file": "src/components/html-glass-card/HtmlGlassCard.tsx",
+      "category": "HTML glass card and scene helpers",
+      "kind": "component-bearing module",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
+    },
+    {
+      "module": "HtmlGlassCardContent",
+      "primaryExport": "HtmlGlassCardContent",
+      "namedExports": [],
+      "file": "src/components/html-glass-card/HtmlGlassCardContent.tsx",
+      "category": "HTML glass card and scene helpers",
+      "kind": "component-bearing module",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
+    },
+    {
+      "module": "ModalInputContainer",
+      "primaryExport": "ModalInputContainer",
+      "namedExports": [],
+      "file": "src/components/input/ModalInput/ModalInputContainer.tsx",
+      "category": "Modal input container and outside-click hook",
+      "kind": "component-bearing module",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
+    },
+    {
+      "module": "MoonMark",
+      "primaryExport": "MoonMark",
+      "namedExports": [
+        "MoonCredit"
+      ],
+      "file": "src/components/misc/MoonMark/MoonMark.tsx",
+      "category": "Moon mark and compatibility scene",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "MoonMarkCanvas",
+      "primaryExport": "MoonMarkCanvas",
+      "namedExports": [],
+      "file": "src/components/misc/MoonMark/MoonMarkCanvas.tsx",
+      "category": "Moon mark and compatibility scene",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "MoonModel",
+      "primaryExport": "MoonModel",
+      "namedExports": [],
+      "file": "src/components/misc/MoonMark/MoonModel.tsx",
+      "category": "Moon mark and compatibility scene",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "PaneBackground",
+      "primaryExport": "PaneBackground",
+      "namedExports": [],
+      "file": "src/components/panes/PaneBackground.tsx",
+      "category": "Shared glass surfaces and panes",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "MoonScene",
+      "primaryExport": "default re-export of MoonMarkCanvas",
+      "namedExports": [],
+      "file": "src/components/react three fibre/moonScene/MoonScene.tsx",
+      "category": "Moon mark and compatibility scene",
+      "kind": "compatibility alias",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
+    },
+    {
+      "module": "Sun",
+      "primaryExport": "Model",
+      "namedExports": [],
+      "file": "src/components/react three fibre/sunScene/Sun.tsx",
+      "category": "Calendar Sun scene",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "SunScene",
+      "primaryExport": "SunScene",
+      "namedExports": [],
+      "file": "src/components/react three fibre/sunScene/SunScene.tsx",
+      "category": "Calendar Sun scene",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "AddSourceButton",
+      "primaryExport": "AddSourceButton",
+      "namedExports": [],
+      "file": "src/components/sources/AddSourceButton.tsx",
+      "category": "Source sections and reusable cards",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "AnimatedHeight",
+      "primaryExport": "AnimatedHeight",
+      "namedExports": [],
+      "file": "src/components/sources/AnimatedHeight.tsx",
+      "category": "Source sections and reusable cards",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "SourceSection",
+      "primaryExport": "SourceSection",
+      "namedExports": [],
+      "file": "src/components/sources/SourceSection.tsx",
+      "category": "Source sections and reusable cards",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "SourceSections",
+      "primaryExport": "SourceSections",
+      "namedExports": [],
+      "file": "src/components/sources/SourceSections.tsx",
+      "category": "Source sections and reusable cards",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "GlassCards",
+      "primaryExport": "see full module",
+      "namedExports": [
+        "RoundedTransmissionCard",
+        "CinematicTransmissionCard",
+        "TransmissionGallery"
+      ],
+      "file": "src/components/transmission/GlassCards.tsx",
+      "category": "Transmission materials and scene cards",
+      "kind": "component-bearing module",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
+    },
+    {
+      "module": "GlassPrimitives",
+      "primaryExport": "see full module",
+      "namedExports": [
+        "TransmissionSurface",
+        "GlassSphere",
+        "GlassTorus"
+      ],
+      "file": "src/components/transmission/GlassPrimitives.tsx",
+      "category": "Transmission materials and scene cards",
+      "kind": "component-bearing module",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
+    },
+    {
+      "module": "TransmissionCanvas",
+      "primaryExport": "TransmissionCanvas",
+      "namedExports": [],
+      "file": "src/components/transmission/TransmissionCanvas.tsx",
+      "category": "Transmission materials and scene cards",
+      "kind": "component-bearing module",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
+    },
+    {
+      "module": "FooterTextCanvas",
+      "primaryExport": "FooterTextCanvas",
+      "namedExports": [],
+      "file": "src/components/typography/FooterTextCanvas.tsx",
+      "category": "3D typography and footer scene",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "FooterTextScene",
+      "primaryExport": "FooterTextScene",
+      "namedExports": [],
+      "file": "src/components/typography/FooterTextScene.tsx",
+      "category": "3D typography and footer scene",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "ThreeDHeading",
+      "primaryExport": "ThreeDHeading",
+      "namedExports": [],
+      "file": "src/components/typography/ThreeDHeading.tsx",
+      "category": "3D typography and footer scene",
+      "kind": "component-bearing module",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
+    },
+    {
+      "module": "Moon",
+      "primaryExport": "default re-export of MoonModel",
+      "namedExports": [],
+      "file": "public/media/moon/Moon.jsx",
+      "category": "Moon mark and compatibility scene",
+      "kind": "compatibility alias",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
+    }
+  ],
+  "hooks": [
+    {
+      "name": "useCalendarMotionPreferences",
+      "file": "src/components/calendarMotion/useCalendarMotionPreferences.ts"
+    },
+    {
+      "name": "useGlassPanelMount",
+      "file": "src/components/glass-panel-3d/useGlassPanelMount.ts"
+    },
+    {
+      "name": "useHtmlSceneActivity",
+      "file": "src/components/html-glass-card/useHtmlSceneActivity.ts"
+    },
+    {
+      "name": "useOutsideClick",
+      "file": "src/components/input/outsideClick.tsx"
+    },
+    {
+      "name": "useMoonActivity",
+      "file": "src/components/misc/MoonMark/useMoonActivity.ts"
+    },
+    {
+      "name": "useMoonResolution",
+      "file": "src/components/misc/MoonMark/useMoonResolution.ts"
+    },
+    {
+      "name": "useSourceSections",
+      "file": "src/components/sources/useSourceSections.ts"
+    },
+    {
+      "name": "useTransmissionActivity",
+      "file": "src/components/transmission/useTransmissionActivity.ts"
+    },
+    {
+      "name": "useFooterTextActivity",
+      "file": "src/components/typography/useFooterTextActivity.ts"
+    },
+    {
+      "name": "useWorkspace",
+      "file": "src/useWorkspace.ts"
+    }
+  ],
+  "templates": [
+    {
+      "name": "headerFrameTemplate",
+      "file": "src/components/header/headerFrameTemplate.tsx"
+    },
+    {
+      "name": "headerTitleTemplate",
+      "file": "src/components/header/headerTitleTemplate.tsx"
+    },
+    {
+      "name": "moonMarkTemplate",
+      "file": "src/components/misc/MoonMark/moonMarkTemplate.tsx"
+    },
+    {
+      "name": "sourceSectionTemplate",
+      "file": "src/components/sources/sourceSectionTemplate.tsx"
+    }
+  ],
+  "files": [
+    {
+      "path": "src/App.css",
+      "bytes": 16584,
+      "sha256": "79d03af7fda9a677eb02ac66aa3702b7cf0a55723c84e4f050b811bbd69fceb2",
+      "encoding": "utf8",
+      "category": "Application, workspace data and shared styles",
+      "anchor": "file-src-app-css-60f5dcfc",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/App.tsx",
+      "bytes": 15469,
+      "sha256": "926ec7363e388456b59699e1bd384c3ab54475e09fdc2d153cd00558e4fb2747",
+      "encoding": "utf8",
+      "category": "Application, workspace data and shared styles",
+      "anchor": "file-src-app-tsx-26ad4b83",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/backgrounds/starsBackground/Model.tsx",
+      "bytes": 1359,
+      "sha256": "e4ff2ee00f6c10439480b60c096c815a53531ad961faa13efecfa0032d5d64e9",
+      "encoding": "utf8",
+      "category": "Star background",
+      "anchor": "file-src-components-backgrounds-starsbackground-model-tsx-5e6c0430",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/backgrounds/starsBackground/Scene.tsx",
+      "bytes": 848,
+      "sha256": "07cfa89518faedb91714e0936130540961450092c42c93b259d51921f997dea2",
+      "encoding": "utf8",
+      "category": "Star background",
+      "anchor": "file-src-components-backgrounds-starsbackground-scene-tsx-0857e8dc",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/backgrounds/starsBackground/StarBackground.tsx",
+      "bytes": 1791,
+      "sha256": "16225bc21aca7070915ba6e7e56b9771ef15a45babfd1bc3145e0ca4d7dc228a",
+      "encoding": "utf8",
+      "category": "Star background",
+      "anchor": "file-src-components-backgrounds-starsbackground-starbackground-tsx-b6114512",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/calendarMotion/CalendarButton.tsx",
+      "bytes": 1839,
+      "sha256": "54524a473e09124da603aa1ae912081cebe9a86f6141c5b2f58036f245179dd9",
+      "encoding": "utf8",
+      "category": "Calendar motion and preferences",
+      "anchor": "file-src-components-calendarmotion-calendarbutton-tsx-59204ed1",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/calendarMotion/CalendarPanel.tsx",
+      "bytes": 1842,
+      "sha256": "b5c8796562ab39d52ab5400e748afee68ec002136c5313a186d77cdc64a8435b",
+      "encoding": "utf8",
+      "category": "Calendar motion and preferences",
+      "anchor": "file-src-components-calendarmotion-calendarpanel-tsx-72c451ec",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/calendarMotion/calendarMotion.css",
+      "bytes": 2871,
+      "sha256": "6939d53c65eb4df71c723e686bf99440ebbaffdd314389f7fd077c6ceb8c351e",
+      "encoding": "utf8",
+      "category": "Calendar motion and preferences",
+      "anchor": "file-src-components-calendarmotion-calendarmotion-css-8053ff84",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/calendarMotion/useCalendarMotionPreferences.ts",
+      "bytes": 1187,
+      "sha256": "80bab0383a72496c88823776d5b41d5fabdacb0ef97c24d18eb33d9c78dd336b",
+      "encoding": "utf8",
+      "category": "Calendar motion and preferences",
+      "anchor": "file-src-components-calendarmotion-usecalendarmotionpreferences-ts-d360d67a",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/cards/newUserCard/CardTiles.tsx",
+      "bytes": 928,
+      "sha256": "eee1bcd1326860c7bc66e841c9bf19dfc4c702856d563f992d83915c2cd2f8f0",
+      "encoding": "utf8",
+      "category": "Source sections and reusable cards",
+      "anchor": "file-src-components-cards-newusercard-cardtiles-tsx-c0d432f9",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/cards/newUserCard/NewUserCard.tsx",
+      "bytes": 4554,
+      "sha256": "f69dd8b6d5b5a36136f38fe8c6a4f44d1ef77dc5dbea40eb854cb270eecd2b65",
+      "encoding": "utf8",
+      "category": "Source sections and reusable cards",
+      "anchor": "file-src-components-cards-newusercard-newusercard-tsx-a9bb3792",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/cards/newUserCard/cardTiles.module.css",
+      "bytes": 4582,
+      "sha256": "ec16040ea7c54ff7bf1f88cf2c2ca983edf41e7a665327f146c3c5eade858755",
+      "encoding": "utf8",
+      "category": "Source sections and reusable cards",
+      "anchor": "file-src-components-cards-newusercard-cardtiles-module-css-58f31a0f",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/cards/newUserCard/newUser.module.css",
+      "bytes": 3365,
+      "sha256": "6bc6cbf9260bd687c427b2cea4766939949677ad18d4f8cc76492f95f2b7ed29",
+      "encoding": "utf8",
+      "category": "Source sections and reusable cards",
+      "anchor": "file-src-components-cards-newusercard-newuser-module-css-1bb7bfce",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/decorations/TileGrid.module.css",
+      "bytes": 685,
+      "sha256": "cfb70da7d3406c9141ead2617dd8357bd8541f730c2dcf23135d40867f9dae2b",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-decorations-tilegrid-module-css-2c841db1",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/decorations/TileGrid.tsx",
+      "bytes": 424,
+      "sha256": "98d1a9123e6c186502023a42fe6b78368b84334fefd984650ef16975ba142945",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-decorations-tilegrid-tsx-e0b092ce",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/glass/AppleGlass.module.css",
+      "bytes": 405,
+      "sha256": "a960296994f11671b01b8f04b5f4fea1c313f1ca328745e6ff9fd96667c5321b",
+      "encoding": "utf8",
+      "category": "Shared glass surfaces and panes",
+      "anchor": "file-src-components-glass-appleglass-module-css-ab4ba2bc",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/glass/AppleGlassLens.tsx",
+      "bytes": 1712,
+      "sha256": "563659543991514969be904d424e28943dfe6f5da7be0fb65db60bbf3c9bb4d0",
+      "encoding": "utf8",
+      "category": "Shared glass surfaces and panes",
+      "anchor": "file-src-components-glass-appleglasslens-tsx-80cc41c4",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/glass/GlassySurface.module.css",
+      "bytes": 543,
+      "sha256": "eeac3f0955b0fe071f3ebfcabab165aaeacbd61ec762b0dbbef806930e9383bc",
+      "encoding": "utf8",
+      "category": "Shared glass surfaces and panes",
+      "anchor": "file-src-components-glass-glassysurface-module-css-15793ca8",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/glass/appleGlassBoilerplate.html",
+      "bytes": 3011,
+      "sha256": "77a86e1a2797710b3c9e126bef8fd2dbe99a92b9a6d5cef941fa638613a63236",
+      "encoding": "utf8",
+      "category": "Shared glass surfaces and panes",
+      "anchor": "file-src-components-glass-appleglassboilerplate-html-8d84c597",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/glass-panel-3d/GlassMaterial.tsx",
+      "bytes": 459,
+      "sha256": "bf32dde8ee4cf389bd39700efc23439c5aeebccab131c585ebdf871ea663f8f4",
+      "encoding": "utf8",
+      "category": "Three.js glass panel and example",
+      "anchor": "file-src-components-glass-panel-3d-glassmaterial-tsx-92394bc8",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/glass-panel-3d/GlassPanel3D.module.css",
+      "bytes": 949,
+      "sha256": "60b12714aff4c9e8c3a9b1294b032202788be5f5679d926cc34c3a67875eced2",
+      "encoding": "utf8",
+      "category": "Three.js glass panel and example",
+      "anchor": "file-src-components-glass-panel-3d-glasspanel3d-module-css-8f2208a9",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/glass-panel-3d/GlassPanel3D.tsx",
+      "bytes": 2768,
+      "sha256": "1a3aedfcd395f777984f750fb7aad5439182160252e3ff5318e50a0cf2320348",
+      "encoding": "utf8",
+      "category": "Three.js glass panel and example",
+      "anchor": "file-src-components-glass-panel-3d-glasspanel3d-tsx-4820d591",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/glass-panel-3d/GlassPanelCanvas.tsx",
+      "bytes": 3724,
+      "sha256": "e6b63d4a9ece9f48ef8f27b0b99c75c093ad88de1d636437a3111986bc3e5970",
+      "encoding": "utf8",
+      "category": "Three.js glass panel and example",
+      "anchor": "file-src-components-glass-panel-3d-glasspanelcanvas-tsx-84952dc4",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/glass-panel-3d/GlassPanelExample.module.css",
+      "bytes": 1423,
+      "sha256": "8d6f311742324c3da79bafb838e3e819992a0dd8f704210181588680e96a4a41",
+      "encoding": "utf8",
+      "category": "Three.js glass panel and example",
+      "anchor": "file-src-components-glass-panel-3d-glasspanelexample-module-css-5c79b0ac",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/glass-panel-3d/GlassPanelExample.tsx",
+      "bytes": 2211,
+      "sha256": "533994d25d32b59ed8225ef14a777363db2802f0b1494ff46dbb8d50bf4dd6e4",
+      "encoding": "utf8",
+      "category": "Three.js glass panel and example",
+      "anchor": "file-src-components-glass-panel-3d-glasspanelexample-tsx-73100257",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/glass-panel-3d/ResearchDraftPanel.module.css",
+      "bytes": 893,
+      "sha256": "069fed4dc61b5e300d5bccd92da9b6553eeb9e6e91eb8a4896a6ae1f5111ee14",
+      "encoding": "utf8",
+      "category": "Three.js glass panel and example",
+      "anchor": "file-src-components-glass-panel-3d-researchdraftpanel-module-css-2a353987",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/glass-panel-3d/ResearchDraftPanel.tsx",
+      "bytes": 1323,
+      "sha256": "accd7512621a7ad658d244ced47b0d4a0b2906f7efce2f171b0a6bdcb5ebfd28",
+      "encoding": "utf8",
+      "category": "Three.js glass panel and example",
+      "anchor": "file-src-components-glass-panel-3d-researchdraftpanel-tsx-0a7c8199",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/glass-panel-3d/useGlassPanelMount.ts",
+      "bytes": 475,
+      "sha256": "a68f357aec8eaa4a9af496c3ec061f1bfdcb346f4a13bcbd1bb4f31c67d9b02f",
+      "encoding": "utf8",
+      "category": "Three.js glass panel and example",
+      "anchor": "file-src-components-glass-panel-3d-useglasspanelmount-ts-156e0735",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/header/HeaderExport.module.css",
+      "bytes": 964,
+      "sha256": "c2ef5da3ad0cf6c3b616ecf06e556f5cd6cb2bd498a61b4fdda1168d37a6d35e",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-header-headerexport-module-css-89cd3b52",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/header/HeaderExport.tsx",
+      "bytes": 982,
+      "sha256": "ce326a8a045f24cae6eea4191aa0b3e9d573d47619830c4cfc432badc9ff099e",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-header-headerexport-tsx-f32ff3f0",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/header/HeaderFrame.module.css",
+      "bytes": 192,
+      "sha256": "b5ddb048d119db6413bbe8c5d7bc03328dc7fab7c6b89e70fabfbb78d756dafb",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-header-headerframe-module-css-b61d3fa7",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/header/HeaderFrame.tsx",
+      "bytes": 520,
+      "sha256": "c79ce1d4e25170fa2719745209b57714da6a3e9fbed7ab1fd357418063ad5230",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-header-headerframe-tsx-f82d57d5",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/header/HeaderTitle.module.css",
+      "bytes": 787,
+      "sha256": "7c4fde9abc83b29103b399f57c7679e1ebfd5a2b387f9600c9e9d7692dd6a8d3",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-header-headertitle-module-css-c8d17dc9",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/header/HeaderTitle.tsx",
+      "bytes": 672,
+      "sha256": "eec818becda6b24a111071c345bc6dd622b69db8453ae3841efd7cff9ab8d145",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-header-headertitle-tsx-6e8b2481",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/header/MoonBanner.module.css",
+      "bytes": 1759,
+      "sha256": "79b95750dfd236f3bf62ef316b2bd142ae0b93f513567effbbab39b6181e110e",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-header-moonbanner-module-css-910bb8d8",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/header/MoonBanner.tsx",
+      "bytes": 889,
+      "sha256": "13867f0433270e1b7a79a67b444fea24314b359a07f43e4d19e8ddf0206e7659",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-header-moonbanner-tsx-91446d9d",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/header/headerFrameTemplate.tsx",
+      "bytes": 235,
+      "sha256": "7c36411f82a31ce0e5c3631f91d8531321864936e1b1cc3e8bb9a938ab284c46",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-header-headerframetemplate-tsx-cd627118",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/header/headerTitleTemplate.tsx",
+      "bytes": 313,
+      "sha256": "cef618cef89c8c0d6d4379ac9b001d4a7027a6ea90442659ba097770de09345c",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-header-headertitletemplate-tsx-f4573482",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/hero/SparkArt.module.css",
+      "bytes": 785,
+      "sha256": "631f8dd171c702222ebcead539ca40b76f8f04e3dc79e43febb0f051e899b520",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-hero-sparkart-module-css-61ef0c6c",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/hero/SparkArt.tsx",
+      "bytes": 671,
+      "sha256": "dca3c18b81279c81e71489d7f306cda41ed29266056d3fe27af0198304177cda",
+      "encoding": "utf8",
+      "category": "Header, hero and shared tile decoration",
+      "anchor": "file-src-components-hero-sparkart-tsx-cd70b642",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/html-glass-card/HtmlGlassCanvas.tsx",
+      "bytes": 4911,
+      "sha256": "4326cceb3140b97872d5c53ffb3d73e292baa3a22d4c5f463e203933cf0841f4",
+      "encoding": "utf8",
+      "category": "HTML glass card and scene helpers",
+      "anchor": "file-src-components-html-glass-card-htmlglasscanvas-tsx-68256d4e",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/html-glass-card/HtmlGlassCard.module.css",
+      "bytes": 1120,
+      "sha256": "2adda41b56e1b16c30d00d202b4b4bff607a33318671c328c04524ad10d02a5a",
+      "encoding": "utf8",
+      "category": "HTML glass card and scene helpers",
+      "anchor": "file-src-components-html-glass-card-htmlglasscard-module-css-655d53c6",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/html-glass-card/HtmlGlassCard.tsx",
+      "bytes": 5531,
+      "sha256": "ea34a8a5ebbcd6e9073e49426f3aaf8819585e97993b6eaded91cb1f294dfb03",
+      "encoding": "utf8",
+      "category": "HTML glass card and scene helpers",
+      "anchor": "file-src-components-html-glass-card-htmlglasscard-tsx-cc6acc96",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/html-glass-card/HtmlGlassCardContent.tsx",
+      "bytes": 2497,
+      "sha256": "6d6a16707967b66c4bee1ad0daf0c1aa358f1f65366019e3aaaff2dfb05063ca",
+      "encoding": "utf8",
+      "category": "HTML glass card and scene helpers",
+      "anchor": "file-src-components-html-glass-card-htmlglasscardcontent-tsx-bce2b899",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/html-glass-card/moveHtmlHost.ts",
+      "bytes": 1193,
+      "sha256": "0e9ce2e37e79319bd2e292c93128732a302346eddbbecd0006ae7dd7146fe1ff",
+      "encoding": "utf8",
+      "category": "HTML glass card and scene helpers",
+      "anchor": "file-src-components-html-glass-card-movehtmlhost-ts-fc90908f",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/html-glass-card/useHtmlSceneActivity.ts",
+      "bytes": 1852,
+      "sha256": "ab193a8397996b31752dc6cb8630552709ceffe45ae75f59f25ddd080a9b4539",
+      "encoding": "utf8",
+      "category": "HTML glass card and scene helpers",
+      "anchor": "file-src-components-html-glass-card-usehtmlsceneactivity-ts-87b6214d",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/input/ModalInput/ModalInputContainer.module.css",
+      "bytes": 977,
+      "sha256": "4fa3072e9a186416bfd3f1ea02b21f7424018075fd03b9bd4aaf3eba31da8ce9",
+      "encoding": "utf8",
+      "category": "Modal input container and outside-click hook",
+      "anchor": "file-src-components-input-modalinput-modalinputcontainer-module-css-6254925b",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/input/ModalInput/ModalInputContainer.tsx",
+      "bytes": 1746,
+      "sha256": "2f7980fa412fd966a1db104872275bc58b2445bf27a800302112406e20dddc61",
+      "encoding": "utf8",
+      "category": "Modal input container and outside-click hook",
+      "anchor": "file-src-components-input-modalinput-modalinputcontainer-tsx-4e26eac1",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/input/outsideClick.tsx",
+      "bytes": 871,
+      "sha256": "2788e739db4693875b1161e2b8e22e55d87d549bba7ca7a90e4ef4ee1c6a4497",
+      "encoding": "utf8",
+      "category": "Modal input container and outside-click hook",
+      "anchor": "file-src-components-input-outsideclick-tsx-418bbec8",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/misc/MoonMark/MoonMark.module.css",
+      "bytes": 598,
+      "sha256": "2675da56d08541ec6cc6b9f9a6a062499edb4c3fd36b59bb90d55bcba29cb4a3",
+      "encoding": "utf8",
+      "category": "Moon mark and compatibility scene",
+      "anchor": "file-src-components-misc-moonmark-moonmark-module-css-8925e135",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/misc/MoonMark/MoonMark.tsx",
+      "bytes": 3624,
+      "sha256": "aa340b2c3ea1c6c307c43ace62162fb1837079d1ddd09eee31f4667682f401a8",
+      "encoding": "utf8",
+      "category": "Moon mark and compatibility scene",
+      "anchor": "file-src-components-misc-moonmark-moonmark-tsx-5568e43c",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/misc/MoonMark/MoonMarkCanvas.tsx",
+      "bytes": 2803,
+      "sha256": "29dff10d4ba403909514b745cc69044d53ea6108f67ae674ea17ddf6a8664fd8",
+      "encoding": "utf8",
+      "category": "Moon mark and compatibility scene",
+      "anchor": "file-src-components-misc-moonmark-moonmarkcanvas-tsx-dbaa12ed",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/misc/MoonMark/MoonModel.tsx",
+      "bytes": 1892,
+      "sha256": "0b481cb5843812071c5326565acad0e2f17f87b87c952f873d2c469fba727533",
+      "encoding": "utf8",
+      "category": "Moon mark and compatibility scene",
+      "anchor": "file-src-components-misc-moonmark-moonmodel-tsx-ea70a7a5",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/misc/MoonMark/moonMarkTemplate.tsx",
+      "bytes": 297,
+      "sha256": "5a35b192464873ec4424962abc7efaef03cd7ba1e5c4d258418bf6090156899c",
+      "encoding": "utf8",
+      "category": "Moon mark and compatibility scene",
+      "anchor": "file-src-components-misc-moonmark-moonmarktemplate-tsx-6159c5b4",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/misc/MoonMark/useMoonActivity.ts",
+      "bytes": 1332,
+      "sha256": "adc3b8aad30e905426571eec96199b99c6e97257510931e899aa66c7262f9f0e",
+      "encoding": "utf8",
+      "category": "Moon mark and compatibility scene",
+      "anchor": "file-src-components-misc-moonmark-usemoonactivity-ts-4d569350",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/misc/MoonMark/useMoonResolution.ts",
+      "bytes": 2443,
+      "sha256": "cf35ed854043f3a680baa890a177993eb9e7643fa5450c99e0420f816e560fe1",
+      "encoding": "utf8",
+      "category": "Moon mark and compatibility scene",
+      "anchor": "file-src-components-misc-moonmark-usemoonresolution-ts-cf2037e9",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/panes/PaneBackground.module.css",
+      "bytes": 100,
+      "sha256": "69943706f1334baaff88dbe3e140676cb8e975d95adf996db4de3816282cebc4",
+      "encoding": "utf8",
+      "category": "Shared glass surfaces and panes",
+      "anchor": "file-src-components-panes-panebackground-module-css-b1828d9c",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/panes/PaneBackground.tsx",
+      "bytes": 874,
+      "sha256": "d32aa8fd21efc8e37057275e255b3145bd5d4e053686b941e848db968c194401",
+      "encoding": "utf8",
+      "category": "Shared glass surfaces and panes",
+      "anchor": "file-src-components-panes-panebackground-tsx-6489588a",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/react three fibre/moonScene/MoonScene.tsx",
+      "bytes": 61,
+      "sha256": "ecdda6a0f2fa3942dbbfea1bfc00fdafb913de328b546d111f0a66dc8f24af7f",
+      "encoding": "utf8",
+      "category": "Moon mark and compatibility scene",
+      "anchor": "file-src-components-react-three-fibre-moonscene-moonscene-tsx-2b0910dd",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/react three fibre/sunScene/Sun.tsx",
+      "bytes": 828,
+      "sha256": "9b8076f5e219638c5ebac614d55ed71e6c84c63ea8f37b5d8891e473e82356b2",
+      "encoding": "utf8",
+      "category": "Calendar Sun scene",
+      "anchor": "file-src-components-react-three-fibre-sunscene-sun-tsx-3d493c6f",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/react three fibre/sunScene/SunScene.tsx",
+      "bytes": 858,
+      "sha256": "b042ab34e9d0abb25df672808e9f79ae60140bedaddeceaf49c9c18dc234f170",
+      "encoding": "utf8",
+      "category": "Calendar Sun scene",
+      "anchor": "file-src-components-react-three-fibre-sunscene-sunscene-tsx-9facbfc3",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/react three fibre/sunScene/styles.module.css",
+      "bytes": 167,
+      "sha256": "dd7c0b89cf7185edd30ee488993ccfab19c4b01535ce7348591ce68bf0bbd64f",
+      "encoding": "utf8",
+      "category": "Calendar Sun scene",
+      "anchor": "file-src-components-react-three-fibre-sunscene-styles-module-css-072f41a8",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/sources/AddSourceButton.tsx",
+      "bytes": 521,
+      "sha256": "7a7c9336b4107948fa0003a886dbb4bb170c33460b9d3106884129e1e5967c66",
+      "encoding": "utf8",
+      "category": "Source sections and reusable cards",
+      "anchor": "file-src-components-sources-addsourcebutton-tsx-b6039eb7",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/sources/AnimatedHeight.tsx",
+      "bytes": 5397,
+      "sha256": "7f91250e40823ef0f7510c391e636c55054c6026c135f72fd8a14f9e8b1b00a3",
+      "encoding": "utf8",
+      "category": "Source sections and reusable cards",
+      "anchor": "file-src-components-sources-animatedheight-tsx-04002a1d",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/sources/SourceSection.tsx",
+      "bytes": 1193,
+      "sha256": "de8b3c8838b4cd986a3b08818940b6fa4d0dd1b8343c93a97f197df0c68117e0",
+      "encoding": "utf8",
+      "category": "Source sections and reusable cards",
+      "anchor": "file-src-components-sources-sourcesection-tsx-5ae105a6",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/sources/SourceSections.tsx",
+      "bytes": 3805,
+      "sha256": "6cbc48ad567164f97f5b0861a0b4d09204df7717828c5afb73b804a8a791de7a",
+      "encoding": "utf8",
+      "category": "Source sections and reusable cards",
+      "anchor": "file-src-components-sources-sourcesections-tsx-8083ead8",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/sources/sourceSectionTemplate.tsx",
+      "bytes": 1446,
+      "sha256": "d66913472b9279fe7df11bc4f48ab6a0fb1d9a7bd84123003bdb2046eecb225c",
+      "encoding": "utf8",
+      "category": "Source sections and reusable cards",
+      "anchor": "file-src-components-sources-sourcesectiontemplate-tsx-7f370d1e",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/sources/useSourceSections.ts",
+      "bytes": 581,
+      "sha256": "3bc6b3455836ae9ab13372f3360f1b8033268bbdd87def2fc6e66b360ab1b1cc",
+      "encoding": "utf8",
+      "category": "Source sections and reusable cards",
+      "anchor": "file-src-components-sources-usesourcesections-ts-b79d0cd7",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/transmission/GlassCards.css",
+      "bytes": 2347,
+      "sha256": "fdb2c17427f946ded26db41279facb370a2f41792bd7e4e828d3ec7ea094e063",
+      "encoding": "utf8",
+      "category": "Transmission materials and scene cards",
+      "anchor": "file-src-components-transmission-glasscards-css-c731421e",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/transmission/GlassCards.tsx",
+      "bytes": 9185,
+      "sha256": "0bdac200028febc96a5707e808867727b2a1d02ce2be8703976ec8095151c267",
+      "encoding": "utf8",
+      "category": "Transmission materials and scene cards",
+      "anchor": "file-src-components-transmission-glasscards-tsx-26d03c88",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/transmission/GlassPrimitives.tsx",
+      "bytes": 4429,
+      "sha256": "c6fbf9e1c7323eecba3c3b57f1937fcafdab33af6f083dfd7a63f020803f3edf",
+      "encoding": "utf8",
+      "category": "Transmission materials and scene cards",
+      "anchor": "file-src-components-transmission-glassprimitives-tsx-f38b34f5",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/transmission/TransmissionCanvas.tsx",
+      "bytes": 8793,
+      "sha256": "3755d397bf5b9855d732488ebf5247f1276580ed2f99376f638ba70802b420d4",
+      "encoding": "utf8",
+      "category": "Transmission materials and scene cards",
+      "anchor": "file-src-components-transmission-transmissioncanvas-tsx-a549c86f",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/transmission/transmissionAssets.ts",
+      "bytes": 644,
+      "sha256": "9ece30c098b00d51c2928856c3aa08aaa30cfd84e309567b8ec370f970c5893c",
+      "encoding": "utf8",
+      "category": "Transmission materials and scene cards",
+      "anchor": "file-src-components-transmission-transmissionassets-ts-aaaad7ce",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/transmission/transmissionTypes.ts",
+      "bytes": 583,
+      "sha256": "7883e5b1bff3393fc4b66a9f304bb760f97a70f7355488e2065ecd8cceb22896",
+      "encoding": "utf8",
+      "category": "Transmission materials and scene cards",
+      "anchor": "file-src-components-transmission-transmissiontypes-ts-54133895",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/transmission/useTransmissionActivity.ts",
+      "bytes": 2078,
+      "sha256": "952e64c7f7bb177491530d90fa42e5744757cbb92a735ea0b3ddb9a5f4412cfb",
+      "encoding": "utf8",
+      "category": "Transmission materials and scene cards",
+      "anchor": "file-src-components-transmission-usetransmissionactivity-ts-6c4da281",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/typography/FooterTextCanvas.tsx",
+      "bytes": 4496,
+      "sha256": "378843f43fa9f5eceea874e7c9cc44ff3a3096cfbf1b19b95c0694820684a2d4",
+      "encoding": "utf8",
+      "category": "3D typography and footer scene",
+      "anchor": "file-src-components-typography-footertextcanvas-tsx-619ac822",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/typography/FooterTextScene.module.css",
+      "bytes": 537,
+      "sha256": "0e4335b939739f1bb3b5d4a794ecf5749c93f28f28058bc6c14a0d9a02528f70",
+      "encoding": "utf8",
+      "category": "3D typography and footer scene",
+      "anchor": "file-src-components-typography-footertextscene-module-css-7ee8c7ed",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/typography/FooterTextScene.tsx",
+      "bytes": 2654,
+      "sha256": "1b9968adf43ce2c2e811c0726198dea9aa07160b1d8fe0eb3440dfbcdbbac2bf",
+      "encoding": "utf8",
+      "category": "3D typography and footer scene",
+      "anchor": "file-src-components-typography-footertextscene-tsx-8ca2a2d9",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/typography/ThreeDHeading.module.css",
+      "bytes": 579,
+      "sha256": "25f66ef6896eb71a06082b044a5b20d50277b48b125d094dcccba0722514d0ac",
+      "encoding": "utf8",
+      "category": "3D typography and footer scene",
+      "anchor": "file-src-components-typography-threedheading-module-css-5f49d170",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/typography/ThreeDHeading.tsx",
+      "bytes": 719,
+      "sha256": "5216cc7765fef1d2efad85c13965466689a6dfb4b00b2439d3abb7a1c0fdb00b",
+      "encoding": "utf8",
+      "category": "3D typography and footer scene",
+      "anchor": "file-src-components-typography-threedheading-tsx-c460028a",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/typography/useFooterTextActivity.ts",
+      "bytes": 1944,
+      "sha256": "98221697f1d680c89edbaa2e1918a1506210889f8f03b159c8411f7a4798c6b9",
+      "encoding": "utf8",
+      "category": "3D typography and footer scene",
+      "anchor": "file-src-components-typography-usefootertextactivity-ts-7e8a705d",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/index.css",
+      "bytes": 611,
+      "sha256": "9e2d2076f977f9057f1902abbf2c30deac701e7d4775076264255c766a638a1e",
+      "encoding": "utf8",
+      "category": "Application, workspace data and shared styles",
+      "anchor": "file-src-index-css-85da3662",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/main.tsx",
+      "bytes": 728,
+      "sha256": "66858a9c416e355f934be1175c403961653ec41f51dcd7034460016d31ed8cee",
+      "encoding": "utf8",
+      "category": "Application, workspace data and shared styles",
+      "anchor": "file-src-main-tsx-1cd8b187",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/styles/glass.css",
+      "bytes": 368,
+      "sha256": "cb95178d3923ad79794150bab7e59ed8e15547db7b4b3d55692a9c956ee53a7d",
+      "encoding": "utf8",
+      "category": "Application, workspace data and shared styles",
+      "anchor": "file-src-styles-glass-css-975b3a29",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/useWorkspace.ts",
+      "bytes": 3343,
+      "sha256": "c417c77cf0de427ceb887fbe1ac25dfc8dc77a061403b5c5a850571f05a12da1",
+      "encoding": "utf8",
+      "category": "Application, workspace data and shared styles",
+      "anchor": "file-src-useworkspace-ts-99acf686",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/workspace-contract.md",
+      "bytes": 1606,
+      "sha256": "7d0073c2cc388c7cadcadd447b7ed53587693ca0f1074e94bfc98eba1267ba38",
+      "encoding": "utf8",
+      "category": "Application, workspace data and shared styles",
+      "anchor": "file-src-workspace-contract-md-ef2e856e",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/workspace.ts",
+      "bytes": 4051,
+      "sha256": "3839119062435c0bb7cc64b5d4e755bf13256978d31e22a87b6447d975dd2b8a",
+      "encoding": "utf8",
+      "category": "Application, workspace data and shared styles",
+      "anchor": "file-src-workspace-ts-f008b068",
+      "importedFromMain": true
+    },
+    {
+      "path": "public/media/moon/Moon.jsx",
+      "bytes": 540,
+      "sha256": "b0c37c10520d9e9bedacfdd9321d90ad040393b2f1bdd74d2a923c032798b3e2",
+      "encoding": "utf8",
+      "category": "Moon mark and compatibility scene",
+      "anchor": "file-public-media-moon-moon-jsx-8bd8aa08",
+      "importedFromMain": false
+    },
+    {
+      "path": "examples/glass-panel-3d/main.tsx",
+      "bytes": 300,
+      "sha256": "6d1ba81dd1d843898f2aed396634eb06814d3d66a4968fb5891857f632f7764c",
+      "encoding": "utf8",
+      "category": "Three.js glass panel and example",
+      "anchor": "file-examples-glass-panel-3d-main-tsx-00f7f408",
+      "importedFromMain": false
+    }
+  ],
+  "artifacts": {
+    "markdown": {
+      "path": "docs/component-catalog.md",
+      "bytes": 235659,
+      "sha256": "f7f5e859204c96b3e935b24e1dd8648d28c5085aed1d8885aeb6d5ad14282ac3"
+    },
+    "zip": {
+      "path": "docs/component-source.zip",
+      "bytes": 201678,
+      "sha256": "dfef950f886d74e5e65fd0c3ce6c30ab83bb44b429800ba52e163c27466f486c",
+      "entries": 89
+    }
+  }
+}

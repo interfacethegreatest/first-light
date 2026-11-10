@@ -4,18 +4,26 @@ import SourceSection, { DEFAULT_SOURCE_SECTION_TEXT, type SourceSectionBorderTon
 const IPSUM_LENGTHS = [1, 4, 12] as const
 let nextIpsumLength = 0
 
+function createSection(repeats: number, borderTone?: SourceSectionBorderTone): SourceSectionInstance {
+  return {
+    id: crypto.randomUUID(),
+    text: Array(repeats).fill(DEFAULT_SOURCE_SECTION_TEXT).join(' '),
+    borderTone,
+  }
+}
+
 // Reusable boilerplate: create an instance, then render it with optional output
 // and title controls. This module does not depend on App or workspace storage.
 export const sourceSectionTemplate = {
   create: (borderTone?: SourceSectionBorderTone): SourceSectionInstance => {
     const repeats = IPSUM_LENGTHS[nextIpsumLength]
     nextIpsumLength = (nextIpsumLength + 1) % IPSUM_LENGTHS.length
-    return {
-      id: crypto.randomUUID(),
-      text: Array(repeats).fill(DEFAULT_SOURCE_SECTION_TEXT).join(' '),
-      borderTone,
-    }
+    return createSection(repeats, borderTone)
   },
+  // A complete ordered trio does not depend on or advance single-create state.
+  createBatch: (borderTone?: SourceSectionBorderTone): SourceSectionInstance[] => (
+    IPSUM_LENGTHS.map(repeats => createSection(repeats, borderTone))
+  ),
   render: (
     section: SourceSectionInstance,
     number: number,

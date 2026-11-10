@@ -6,10 +6,9 @@ export default function useSourceSections() {
   const [sourceSections, setSourceSections] = useState<SourceSectionInstance[]>([])
 
   function introduceSourceSection() {
-    // Creation advances the template's content sequence, so keep it outside
-    // React's replayable state updater.
-    const section = sourceSectionTemplate.create()
-    setSourceSections(current => [...current, section])
+    // Allocate each complete trio once, outside React's replayable updater.
+    const sections = sourceSectionTemplate.createBatch()
+    setSourceSections(current => [...current, ...sections])
   }
 
   return { sourceSections, introduceSourceSection }

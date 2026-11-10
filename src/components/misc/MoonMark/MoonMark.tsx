@@ -3,6 +3,7 @@ import {
   type CSSProperties, type ReactNode,
 } from 'react'
 import { useMoonActivity } from './useMoonActivity'
+import type { MoonRotationAxis } from './MoonModel'
 import styles from './MoonMark.module.css'
 
 const MoonMarkCanvas = lazy(() => import('./MoonMarkCanvas'))
@@ -10,6 +11,10 @@ const MoonMarkCanvas = lazy(() => import('./MoonMarkCanvas'))
 export interface MoonMarkProps {
   size?: number
   animate?: boolean
+  /** Axis in the Moon's parent group; keeps the source mesh orientation intact. */
+  rotationAxis?: MoonRotationAxis
+  /** Radians per second. The sign sets the direction; zero holds the angle. */
+  rotationSpeed?: number
   className?: string
 }
 
@@ -32,7 +37,9 @@ class MoonBoundary extends Component<{
   }
 }
 
-export default function MoonMark({ size = 112, animate = false, className }: MoonMarkProps) {
+export default function MoonMark({
+  size = 112, animate = false, rotationAxis, rotationSpeed, className,
+}: MoonMarkProps) {
   const element = useRef<HTMLDivElement>(null)
   const mounted = useRef(true)
   const { inViewport, pageVisible, reducedMotion } = useMoonActivity(element)
@@ -64,7 +71,7 @@ export default function MoonMark({ size = 112, animate = false, className }: Moo
   }, [])
 
   const canRender = requested && hasWebGL && !unavailable
-  const canAnimate = animate && inViewport && pageVisible && !reducedMotion
+  const canAnimate = animate && rotationSpeed !== 0 && inViewport && pageVisible && !reducedMotion
   const state = hasWebGL === false || unavailable
     ? 'unavailable'
     : ready ? 'loaded' : requested ? 'loading' : 'pending'
@@ -85,6 +92,8 @@ export default function MoonMark({ size = 112, animate = false, className }: Moo
             <Suspense fallback={null}>
               <MoonMarkCanvas
                 animate={canAnimate}
+                rotationAxis={rotationAxis}
+                rotationSpeed={rotationSpeed}
                 onReady={onReady}
                 onUnavailable={onUnavailable}
               />

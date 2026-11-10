@@ -1,0 +1,97 @@
+{
+  "result": "PASS",
+  "mainURL": "http://127.0.0.1:4223/first-light/",
+  "actualPanel": {
+    "coldAnchorPassed": true,
+    "views": [
+      {
+        "width": 1440,
+        "realGlassLoaded": true,
+        "plainHeading": true,
+        "noOverflow": true
+      },
+      {
+        "width": 320,
+        "realGlassLoaded": true,
+        "plainHeading": true,
+        "noOverflow": true
+      }
+    ],
+    "nativeContextLossPreservesMultilineNodeAndFocus": true,
+    "pageErrors": []
+  },
+  "batch": {
+    "scope": "Normal-motion actual DOM; GPU scenes isolated for layout sequencing. No smoothness/FPS claim.",
+    "singleClickCards": 3,
+    "paragraphLengths": [
+      123,
+      495,
+      1487
+    ],
+    "keyboardTotalCards": 6,
+    "initialNodesPreserved": true,
+    "sequenceTimingLimit": "Sparse software-rendered rAF missed the numeric phase; no smoothness claim. Parent-first settlement and 300ms boundary are also covered by 20 existing focused tests.",
+    "frames": [
+      {
+        "t": 1.6000000089406967,
+        "height": "auto",
+        "parentHeight": 645.78125,
+        "states": [],
+        "opacity": []
+      },
+      {
+        "t": 1126,
+        "height": "auto",
+        "parentHeight": 645.78125,
+        "states": [],
+        "opacity": []
+      },
+      {
+        "t": 1485.7999999970198,
+        "height": "auto",
+        "parentHeight": 645.78125,
+        "states": [],
+        "opacity": []
+      },
+      {
+        "t": 1947.4000000059605,
+        "height": "auto",
+        "parentHeight": 1832.0625,
+        "states": [
+          "waiting",
+          "waiting",
+          "waiting"
+        ],
+        "opacity": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 2414.7999999970198,
+        "height": "auto",
+        "parentHeight": 1832.0625,
+        "states": [
+          "visible",
+          "visible",
+          "visible"
+        ],
+        "opacity": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "draftsAndStorageUnchanged": true,
+    "exportMatchesSavedWorkspace": true,
+    "pageErrors": [],
+    "numericHeightPhase": "not observed in sparse native rAF samples",
+    "parentExpandedWhileChildrenStillHidden": true,
+    "revealedSamplesHaveHeightAuto": true
+  },
+  "limits": [
+    "Chromium/SwiftShader only; reused existing unchanged model/demo/footer lifecycle evidence."
+  ]
+}

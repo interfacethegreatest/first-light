@@ -35,26 +35,42 @@ beforeEach(() => {
 afterEach(() => { vi.unstubAllEnvs() })
 
 describe('actual Moon model behavior', () => {
-  it.each([30, 60, 120])('rotates by elapsed time over one second at %s FPS', async fps => {
+  const axes = ['x', 'y', 'z'] as const
+  it.each(axes.flatMap(axis => [30, 60, 120].map(fps => ({ axis, fps }))))('rotates around $axis by elapsed time over one second at $fps FPS', async ({ axis, fps }) => {
     const { default: MoonModel } = await import('../src/components/misc/MoonMark/MoonModel')
     const group = harness.rotation.current!
-    group.rotation.set(0.2, 0.4, -0.3)
-    MoonModel({ animate: true })
+    const initial = { x: 0.2, y: 0.4, z: -0.3 }
+    group.rotation.set(initial.x, initial.y, initial.z)
+    MoonModel({ animate: true, rotationAxis: axis })
     const frame = harness.frames.at(-1)!
 
     for (let index = 0; index < fps; index++) frame({}, 1 / fps)
 
-    expect(group.rotation.y).toBeCloseTo(0.28, 12)
-    expect(group.rotation.x).toBe(0.2)
-    expect(group.rotation.z).toBe(-0.3)
+    for (const component of axes) {
+      expect(group.rotation[component]).toBeCloseTo(initial[component] - (component === axis ? 0.12 : 0), 12)
+    }
   })
 
   it('handles irregular deltas and the supplied rotation speed', async () => {
     const { default: MoonModel } = await import('../src/components/misc/MoonMark/MoonModel')
-    MoonModel({ animate: true, rotationSpeed: 0.3 })
+    MoonModel({ animate: true, rotationAxis: 'x', rotationSpeed: 0.3 })
     const frame = harness.frames.at(-1)!
     for (const delta of [0.012, 0.038, 0.15, 0.3, 0.05, 0.2, 0.25]) frame({}, delta)
-    expect(harness.rotation.current!.rotation.y).toBeCloseTo(0.3, 12)
+    expect(harness.rotation.current!.rotation.x).toBeCloseTo(0.3, 12)
+    expect(harness.rotation.current!.rotation.y).toBe(0)
+    expect(harness.rotation.current!.rotation.z).toBe(0)
+  })
+
+  it.each([-0.45, 0, 0.45])('honors a signed or zero speed of %s without rotating other axes', async rotationSpeed => {
+    const { default: MoonModel } = await import('../src/components/misc/MoonMark/MoonModel')
+    const group = harness.rotation.current!
+    group.rotation.set(0.2, 0.4, -0.3)
+    MoonModel({ animate: true, rotationAxis: 'z', rotationSpeed })
+    const frame = harness.frames.at(-1)!
+    for (let index = 0; index < 60; index++) frame({}, 1 / 60)
+    expect(group.rotation.z).toBeCloseTo(-0.3 + rotationSpeed, 12)
+    expect(group.rotation.x).toBe(0.2)
+    expect(group.rotation.y).toBe(0.4)
   })
 
   it('stays stationary by default and safely waits for its current group ref', async () => {
@@ -62,6 +78,10 @@ describe('actual Moon model behavior', () => {
     const group = harness.rotation.current!
     group.rotation.set(0.2, 0.4, -0.3)
     MoonModel({})
+    harness.frames.at(-1)!({}, 1)
+    expect(group.rotation.toArray()).toEqual([0.2, 0.4, -0.3, 'XYZ'])
+
+    MoonModel({ animate: false, rotationAxis: 'x', rotationSpeed: 1 })
     harness.frames.at(-1)!({}, 1)
     expect(group.rotation.toArray()).toEqual([0.2, 0.4, -0.3, 'XYZ'])
 
