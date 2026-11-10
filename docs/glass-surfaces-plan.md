@@ -1,5 +1,7 @@
 # Shared glass surfaces and source section shape
 
+This records the TimeModal recipe published in PR 15. The later unpublished lighter-glass experiment was superseded by [the user's restored original glass recipe](exact-glass-pane.md).
+
 ## Requirements
 
 Apply the user's TimeModal visual recipe to the neutral dark surfaces and source cards: rgba(42,44,58,.5), blur7px, 1px Alice-blue/.1 border and the exact inset/10px28px/.34/inset-white/.025 shadow. Use its subtle5px radius consistently on page panels and source sections. Preserve responsive sizing, relative page layout, overflow needed by controls/scene badges, typography, tile design, native actions and focus indicators. Fixed modal width/height/position/z-index are not page-panel layout rules. Do not deploy without new approval.
@@ -23,7 +25,7 @@ The final response also gives three prioritized overall-app styling recommendati
 
 The [shared stylesheet](../src/styles/glass.css) isolates neutral surface selectors/tokens and is imported first by [App.css](../src/App.css). [SourceSection](../src/components/sources/SourceSection.tsx) supplies `surfaceClassName="workspace-panel-surface"` to [NewUserCard](../src/components/cards/newUserCard/NewUserCard.tsx); its [CSS](../src/components/cards/newUserCard/newUser.module.css) retains standalone fallbacks and uses the same recipe. [HeaderFrame CSS](../src/components/header/HeaderFrame.module.css) and the circular Sun-badge backing consume the same tokens.
 
-All 22 card/source/reveal tests, TypeScript and the Pages production build pass (`index-D8ms6c0i.js`). `git diff --check` passes; no lint script is configured. The glass update changes no runtime dependencies, models, scenes or typography. The existing bundle-size advisory remains. This task has not been deployed.
+All 22 card/source/reveal tests, TypeScript and the Pages production build pass (`index-D8ms6c0i.js`). `git diff --check` passes; no lint script is configured. The glass update changes no runtime dependencies, models, scenes or typography. The existing bundle-size advisory remains. This version was subsequently published in PR 15.
 
 The [browser verification report](glass-surfaces-browser-verification.json) passes at 1440, 390 and 320 pixels. All 15 neutral surfaces match the supplied tint, border, radius and three shadows. Eight containers retain a separate 7px blur layer; seven field/select surfaces blur directly. Source shadows match in normal, hover and focus states. Settled layout dimensions, typography, semantic colours, source identity and drafts are preserved. Source creation, reduced-motion content, keyboard focus, persisted status changes and JSON export pass with no page errors or horizontal overflow.
 

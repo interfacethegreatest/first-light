@@ -1,0 +1,4 @@
+.background {
+  composes: glass from '../glass/GlassySurface.module.css';
+  font-family: inherit;
+}
