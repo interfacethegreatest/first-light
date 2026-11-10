@@ -1,5 +1,7 @@
 # Calendar4 NewUserCard and SunScene
 
+The current source tile paint is documented in [matching-spark-tiles-plan.md](matching-spark-tiles-plan.md): fixed geometry and interactions are retained, while the shared spark-grid paint and 1px accents replace the earlier decorative palette/thickness.
+
 The generated source sections use the visual card and sun scene from `interfacethegreatest/Calendar4`, pinned to commit `7b7e533e587d4991c97b63259355d1a5e9141616`.
 
 ## Source files

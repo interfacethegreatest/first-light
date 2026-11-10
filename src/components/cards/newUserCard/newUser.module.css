@@ -40,15 +40,19 @@
 
 /* Standalone defaults yield to the app's shared panel surface utility. */
 :where(.main) {
-  border: var(--workspace-panel-border, 1px solid rgba(225, 231, 255, 0.16));
-  border-radius: var(--workspace-panel-radius, 7px);
-  background-color: var(--workspace-glass-background, rgba(35, 37, 49, 0.5));
-  box-shadow: var(--workspace-glass-shadow, inset 0 0 0 1000px rgba(35, 37, 49, 0.015), 0 18px 45px rgba(0, 0, 0, 0.28));
+  border: var(--workspace-panel-border, 1px solid rgba(240, 248, 255, 0.1));
+  border-radius: var(--workspace-panel-radius, 5px);
+  background-color: var(--workspace-glass-background, rgba(42, 44, 58, 0.5));
+  box-shadow: var(--workspace-glass-shadow,
+    inset 0 0 0 1000px rgba(42, 44, 58, 0.015),
+    0 10px 28px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025));
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
 
-:where(.main)::after {
+:where(.main)::after,
+.planetContainer::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -57,27 +61,6 @@
   pointer-events: none;
   backdrop-filter: var(--workspace-glass-blur, blur(7px));
   -webkit-backdrop-filter: var(--workspace-glass-blur, blur(7px));
-}
-
-/* Local elevation keeps the shared glass and border values in place. */
-.frame .main {
-  box-shadow:
-    var(--workspace-glass-shadow,
-      inset 0 0 0 1000px rgba(35, 37, 49, 0.015),
-      0 18px 45px rgba(0, 0, 0, 0.28)),
-    inset 0 1px 0 rgba(240, 248, 255, 0.12),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.24),
-    0 5px 12px rgba(0, 0, 0, 0.28);
-}
-
-.frame .main:is(:hover, :focus-within) {
-  box-shadow:
-    var(--workspace-glass-shadow,
-      inset 0 0 0 1000px rgba(35, 37, 49, 0.015),
-      0 18px 45px rgba(0, 0, 0, 0.28)),
-    inset 0 1px 0 rgba(240, 248, 255, 0.18),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.32),
-    0 9px 20px rgba(0, 0, 0, 0.38);
 }
 
 .main::before {
@@ -112,19 +95,20 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 30px 18px 12px;
+  padding: 30px 18px 12px 12px;
 }
 
 .titleText {
   flex: 1;
   min-width: 0;
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-family: inherit;
   font-weight: 600;
-  font-size: clamp(1.05rem, 2vw, 1.7rem);
+  font-size: 14px;
   line-height: 1.4;
-  text-decoration: underline;
-  text-align: center;
-  color: aliceblue;
+  letter-spacing: 1.55px;
+  text-decoration: none;
+  text-align: left;
+  color: var(--muted, #b5bbcc);
   user-select: text;
 }
 
@@ -158,12 +142,10 @@
 
 .main .body > p {
   margin: 0;
-  font-size: 0.85rem;
-  font-weight: 500;
-  line-height: 1.85;
+  font-family: inherit;
+  font-weight: inherit;
   text-align: left;
   white-space: pre-wrap;
-  color: rgba(240, 248, 255, 0.78);
   user-select: text;
 }
 
@@ -192,6 +174,7 @@
 
 .planetContainer {
   position: absolute;
+  isolation: isolate;
   z-index: 3;
   left: 50%;
   bottom: -26px;
@@ -199,8 +182,13 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #030304;
-  border: 2px solid rgba(131, 130, 130, 0.295);
+  background-color: var(--workspace-glass-background, rgba(42, 44, 58, 0.5));
+  border: var(--workspace-panel-border, 1px solid rgba(240, 248, 255, 0.1));
+  box-shadow: var(--workspace-glass-shadow,
+    inset 0 0 0 1000px rgba(42, 44, 58, 0.015),
+    0 10px 28px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025));
+  overflow: visible;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -213,13 +201,18 @@
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 1px 1px 1px 1px rgba(255, 255, 0, 0.185);
 }
 
 .reduced .main,
 .reduced .main::before {
   animation: none !important;
   transition: none !important;
+}
+
+@media (max-width: 720px) {
+  .titleText {
+    font-size: 15px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

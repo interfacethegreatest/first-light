@@ -4,7 +4,6 @@ import Tilt from 'react-parallax-tilt'
 import SunScene from '../../react three fibre/sunScene/SunScene'
 import { useCalendarMotionPreferences } from '../../calendarMotion/useCalendarMotionPreferences'
 import CardTiles from './CardTiles'
-import '@fontsource/poppins/latin-600.css'
 import styles from './newUser.module.css'
 
 interface NewUserCardProps {

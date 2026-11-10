@@ -1,5 +1,7 @@
 # Fixed source card decorations
 
+The fixed canvas, tracks, tile positions and loader travel endpoints remain current. The newer [matching spark tile design](matching-spark-tiles-plan.md) updates the paint and stroke thickness to the shared 1px hero-grid design; visual measurements below describe the earlier styling.
+
 ## Requirements and architecture
 
 Keep the section component, reusable template object and rendered card separate. Extract the decorative tile/loader markup into `CardTiles.tsx` and its own CSS module. NewUserCard continues to own its title, plaintext/output body, controls and copied Sun scene.

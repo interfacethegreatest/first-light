@@ -1,0 +1,163 @@
+{
+  "result": "PASS",
+  "beforeEntry": "index-CzKcGY4y.js",
+  "afterEntry": "index-D8ms6c0i.js",
+  "fixture": "Fresh browser storage seeded with one synthetic source/decision. Unchanged source Sun Canvas roots hidden and StarBackground import suppressed; no GPU/asset/performance validation.",
+  "cases": [
+    {
+      "width": 1440,
+      "typographyUnchanged": true,
+      "semanticColoursUnchanged": true,
+      "neutralTargets": 15,
+      "background": "rgba(42, 44, 58, 0.5)",
+      "border": "1px solid rgba(240, 248, 255, 0.1)",
+      "radius": "5px",
+      "resolvedThreeShadows": "rgba(42, 44, 58, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.34) 0px 10px 28px 0px, rgba(255, 255, 255, 0.024) 0px 1px 0px 0px inset",
+      "containerPseudoBlurAll7": true,
+      "fieldBlurAllDirect7": true,
+      "layoutDimensionsUnchanged": true,
+      "badge": {
+        "size": {
+          "width": 50,
+          "height": 50
+        },
+        "radius": "50%",
+        "background": "rgba(42, 44, 58, 0.5)",
+        "border": "1px solid rgba(240, 248, 255, 0.1)",
+        "shadow": "rgba(42, 44, 58, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.34) 0px 10px 28px 0px, rgba(255, 255, 255, 0.024) 0px 1px 0px 0px inset",
+        "blur": "blur(7px)",
+        "innerShadow": "none"
+      },
+      "source": {
+        "titleInset": 12,
+        "paragraphInset": 12,
+        "grid": {
+          "width": 374,
+          "height": 160
+        },
+        "reveal": "settled",
+        "titleOpacity": "1",
+        "bodyOpacity": "1"
+      },
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "typographyUnchanged": true,
+      "semanticColoursUnchanged": true,
+      "neutralTargets": 15,
+      "background": "rgba(42, 44, 58, 0.5)",
+      "border": "1px solid rgba(240, 248, 255, 0.1)",
+      "radius": "5px",
+      "resolvedThreeShadows": "rgba(42, 44, 58, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.34) 0px 10px 28px 0px, rgba(255, 255, 255, 0.024) 0px 1px 0px 0px inset",
+      "containerPseudoBlurAll7": true,
+      "fieldBlurAllDirect7": true,
+      "layoutDimensionsUnchanged": true,
+      "badge": {
+        "size": {
+          "width": 50,
+          "height": 50
+        },
+        "radius": "50%",
+        "background": "rgba(42, 44, 58, 0.5)",
+        "border": "1px solid rgba(240, 248, 255, 0.1)",
+        "shadow": "rgba(42, 44, 58, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.34) 0px 10px 28px 0px, rgba(255, 255, 255, 0.024) 0px 1px 0px 0px inset",
+        "blur": "blur(7px)",
+        "innerShadow": "none"
+      },
+      "source": {
+        "titleInset": 12,
+        "paragraphInset": 12,
+        "grid": {
+          "width": 374,
+          "height": 160
+        },
+        "reveal": "settled",
+        "titleOpacity": "1",
+        "bodyOpacity": "1"
+      },
+      "noOverflow": true
+    },
+    {
+      "width": 320,
+      "typographyUnchanged": true,
+      "semanticColoursUnchanged": true,
+      "neutralTargets": 15,
+      "background": "rgba(42, 44, 58, 0.5)",
+      "border": "1px solid rgba(240, 248, 255, 0.1)",
+      "radius": "5px",
+      "resolvedThreeShadows": "rgba(42, 44, 58, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.34) 0px 10px 28px 0px, rgba(255, 255, 255, 0.024) 0px 1px 0px 0px inset",
+      "containerPseudoBlurAll7": true,
+      "fieldBlurAllDirect7": true,
+      "layoutDimensionsUnchanged": true,
+      "badge": {
+        "size": {
+          "width": 50,
+          "height": 50
+        },
+        "radius": "50%",
+        "background": "rgba(42, 44, 58, 0.5)",
+        "border": "1px solid rgba(240, 248, 255, 0.1)",
+        "shadow": "rgba(42, 44, 58, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.34) 0px 10px 28px 0px, rgba(255, 255, 255, 0.024) 0px 1px 0px 0px inset",
+        "blur": "blur(7px)",
+        "innerShadow": "none"
+      },
+      "source": {
+        "titleInset": 12,
+        "paragraphInset": 12,
+        "grid": {
+          "width": 374,
+          "height": 160
+        },
+        "reveal": "settled",
+        "titleOpacity": "1",
+        "bodyOpacity": "1"
+      },
+      "noOverflow": true
+    }
+  ],
+  "actions": {
+    "sourceShadowStates": [
+      {
+        "state": "normal",
+        "shadow": "rgba(42, 44, 58, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.34) 0px 10px 28px 0px, rgba(255, 255, 255, 0.024) 0px 1px 0px 0px inset"
+      },
+      {
+        "state": "hover",
+        "shadow": "rgba(42, 44, 58, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.34) 0px 10px 28px 0px, rgba(255, 255, 255, 0.024) 0px 1px 0px 0px inset"
+      },
+      {
+        "state": "focus-within",
+        "shadow": "rgba(42, 44, 58, 0.016) 0px 0px 0px 1000px inset, rgba(0, 0, 0, 0.34) 0px 10px 28px 0px, rgba(255, 255, 255, 0.024) 0px 1px 0px 0px inset"
+      }
+    ],
+    "fieldFocus": {
+      "visible": true,
+      "style": "solid",
+      "width": "2px"
+    },
+    "statusChangePersisted": true,
+    "reducedCardCount": 2,
+    "reducedReadable": {
+      "titleInset": 12,
+      "paragraphInset": 12,
+      "grid": {
+        "width": 374,
+        "height": 160
+      },
+      "reveal": "settled",
+      "titleOpacity": "1",
+      "bodyOpacity": "1"
+    },
+    "draftsPreserved": true,
+    "firstSourceIdentityPreserved": true,
+    "exportedWorkspaceMatches": true,
+    "onlyIntentionalStorageChange": "Seed decision status planned\u2192building"
+  },
+  "errors": [],
+  "reports": [
+    "baseline.json",
+    "after.json"
+  ],
+  "measurementNote": "Responsive height animation is allowed to restore natural auto height before dimension comparison. Shadow equality uses a browser-computed reference of the exact supplied three-shadow CSS to account for browser alpha serialization."
+}

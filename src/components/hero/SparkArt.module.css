@@ -1,0 +1,61 @@
+.art {
+  position: relative;
+  width: 255px;
+  height: 232px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+}
+
+.sun {
+  color: #ff9470;
+  position: relative;
+  z-index: 1;
+  margin-top: -16px;
+}
+
+.caption {
+  position: absolute;
+  bottom: 21px;
+  font-size: 6.5px;
+  letter-spacing: 1.55px;
+  color: #b5bbcc;
+}
+
+@media (max-width: 1000px) {
+  .art {
+    width: 205px;
+  }
+}
+
+@media (max-width: 720px) {
+  .art {
+    width: 108px;
+    height: 188px;
+    opacity: 0.8;
+    margin-right: -6px;
+    align-self: flex-start;
+  }
+
+  .sun {
+    width: 100px;
+  }
+
+  .caption {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .art {
+    display: none;
+  }
+}
