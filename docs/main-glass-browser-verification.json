@@ -1,0 +1,184 @@
+{
+  "result": "PASS",
+  "mode": "cards",
+  "base": "http://127.0.0.1:4223/first-light/",
+  "actualMain": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "badResponses": [],
+    "scope": "Normal actual main page, no GPU suppression or network interception",
+    "coldMainAnchorPassed": true,
+    "desktopSideBySide": true,
+    "objects": [
+      {
+        "kind": "torus",
+        "shader": {
+          "kind": "torus",
+          "colors": {
+            "directionalLights[0].color": [
+              4.375,
+              4.375,
+              4.375
+            ],
+            "directionalLights[1].color": [
+              2.396600915456701,
+              3.6152756445809753,
+              5
+            ],
+            "pointLights[0].color": [
+              20,
+              5.922765415750515,
+              3.2405875125792445
+            ],
+            "diffuse": [
+              0.6104955708001716,
+              0.6444796819634361,
+              0.6938717612856897
+            ],
+            "ambientLightColor": [
+              0.875,
+              0.875,
+              0.875
+            ]
+          },
+          "connected": true,
+          "draws": 121,
+          "counts": {
+            "36": 57,
+            "384": 54,
+            "55296": 10
+          },
+          "uniforms": {
+            "chromaticAberration": 0.062,
+            "temporalDistortion": 0,
+            "roughness": 0.08,
+            "ior": 1.7,
+            "_transmission": 1,
+            "thickness": 0.41
+          },
+          "samples": [
+            4
+          ],
+          "squareTextureSizes": [
+            1,
+            128,
+            256
+          ],
+          "modelMatrix": [
+            1.35,
+            0,
+            0,
+            0,
+            0,
+            1.35,
+            0,
+            0,
+            0,
+            0,
+            1.35,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "matrixTime": 5826.79999999702,
+          "width": 616,
+          "height": 512,
+          "lost": false,
+          "error": 0
+        },
+        "geometry": "TorusGeometry",
+        "triangleCount": "18432"
+      },
+      {
+        "kind": "panel",
+        "shader": {
+          "kind": "panel",
+          "colors": {
+            "directionalLights[0].color": [
+              4.375,
+              4.375,
+              4.375
+            ],
+            "directionalLights[1].color": [
+              2.396600915456701,
+              3.6152756445809753,
+              5
+            ],
+            "pointLights[0].color": [
+              20,
+              5.922765415750515,
+              3.2405875125792445
+            ],
+            "diffuse": [
+              0.6104955708001716,
+              0.6444796819634361,
+              0.6938717612856897
+            ],
+            "ambientLightColor": [
+              0.875,
+              0.875,
+              0.875
+            ]
+          },
+          "connected": true,
+          "draws": 171,
+          "counts": {
+            "36": 76,
+            "384": 72,
+            "13860": 23
+          },
+          "uniforms": {
+            "chromaticAberration": 0.062,
+            "temporalDistortion": 0,
+            "roughness": 0.08,
+            "ior": 1.7,
+            "_transmission": 1,
+            "thickness": 0.41
+          },
+          "samples": [
+            6,
+            4
+          ],
+          "squareTextureSizes": [
+            1,
+            128,
+            512,
+            256
+          ],
+          "modelMatrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "matrixTime": 19516,
+          "width": 616,
+          "height": 512,
+          "lost": false,
+          "error": 0
+        },
+        "geometry": "ExtrudeGeometry",
+        "triangleCount": "4620"
+      }
+    ],
+    "mobileStacked": true,
+    "noMobileOverflow": true
+  },
+  "limits": [
+    "Chromium/SwiftShader only; no hardware-mobile/Safari/FPS guarantee."
+  ]
+}

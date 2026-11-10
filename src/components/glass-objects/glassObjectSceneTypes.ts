@@ -13,6 +13,8 @@ export interface GlassObjectCardProps {
   /** Radians per second. A negative value reverses the spin. */
   initialRotationSpeed?: number
   initialMaterial?: Partial<GlassSettings>
+  /** Multiplier for studio and local lights; 1 keeps the example's lighting. */
+  lightingIntensity?: number
 }
 
 export interface GlassObjectCanvasProps {
@@ -24,6 +26,7 @@ export interface GlassObjectCanvasProps {
   interactive: boolean
   coarse: boolean
   high: boolean
+  lightingIntensity?: number
   onReady: () => void
   onUnavailable: (reason?: 'renderer' | 'context') => void
 }

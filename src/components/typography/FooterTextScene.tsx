@@ -10,6 +10,8 @@ const FooterTextCanvas = lazy(() => import('./FooterTextCanvas'))
 export interface FooterTextSceneProps {
   text?: string
   motion?: boolean
+  /** Radians per second around the centered text's Y axis; zero keeps its pose. */
+  rotationSpeed?: number
   className?: string
 }
 
@@ -32,7 +34,7 @@ class FooterTextBoundary extends Component<{
   }
 }
 
-export default function FooterTextScene({ text = 'Make learning tangible.', motion = true, className }: FooterTextSceneProps) {
+export default function FooterTextScene({ text = 'Make learning tangible.', motion = true, rotationSpeed = 0, className }: FooterTextSceneProps) {
   const element = useRef<HTMLDivElement>(null)
   const mounted = useRef(true)
   const failed = useRef(false)
@@ -79,7 +81,7 @@ export default function FooterTextScene({ text = 'Make learning tangible.', moti
       {canRender && (
         <FooterTextBoundary onUnavailable={onUnavailable}>
           <Suspense fallback={null}>
-            <FooterTextCanvas text={text} animate={animate} onReady={onReady} onUnavailable={onUnavailable} />
+            <FooterTextCanvas text={text} animate={animate} rotationSpeed={rotationSpeed} onReady={onReady} onUnavailable={onUnavailable} />
           </Suspense>
         </FooterTextBoundary>
       )}

@@ -161,6 +161,26 @@ describe('isolated glass objects with native controls', () => {
     expect(latest().high).toBe(true)
   })
 
+  it('forwards an instance lighting multiplier without resetting controls, material state, focus or the renderer', async () => {
+    const activity = environment()
+    const user = userEvent.setup()
+    const material = { color: '#cdd2d9', thickness: 0.41 }
+    const view = render(<GlassTorusCard initialMaterial={material} />)
+    activity.intersect(true)
+    const renderer = await screen.findByTestId('glass-object-gpu-boundary')
+    expect(latest().lightingIntensity).toBe(1)
+    const settings = latest().settings
+    const axis = screen.getByRole('combobox', { name: 'Rotation axis' })
+    await user.selectOptions(axis, 'z')
+    view.rerender(<GlassTorusCard initialMaterial={material} lightingIntensity={1.25} />)
+    expect(latest()).toMatchObject({ lightingIntensity: 1.25, rotationAxis: 'z', settings: { color: '#cdd2d9', thickness: 0.41 } })
+    expect(latest().settings).toBe(settings)
+    expect(screen.getByTestId('glass-object-gpu-boundary')).toBe(renderer)
+    expect(screen.getByRole('combobox', { name: 'Rotation axis' })).toBe(axis)
+    expect(axis).toHaveFocus()
+    expect(material).toEqual({ color: '#cdd2d9', thickness: 0.41 })
+  })
+
   it('retains native values/focus through context and renderer failures, and rejects callbacks from previous attempts', async () => {
     const activity = environment()
     const user = userEvent.setup()

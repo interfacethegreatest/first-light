@@ -1,68 +1,82 @@
 import { Suspense, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import { Center, Float, Text3D } from '@react-three/drei'
-import type { OrthographicCamera } from 'three'
+import type { Group, OrthographicCamera } from 'three'
+import { useObjectRotation } from '../glass-objects/useObjectRotation'
 
 export const FOOTER_FONT_URL = `${import.meta.env.BASE_URL}fonts/helvetiker_bold.typeface.json`
 
 export interface FooterTextCanvasProps {
   text: string
   animate: boolean
+  /** Radians per second; zero preserves the existing non-spinning presentation. */
+  rotationSpeed?: number
   onReady?: () => void
   onUnavailable?: () => void
 }
 
 const cameraOptions = { position: [0, 0, 12] as [number, number, number], zoom: 40, near: 0.1, far: 100 }
 
-function FittedText({ text, animate, onDrawn }: { text: string; animate: boolean; onDrawn: () => void }) {
+function FittedText({ text, animate, rotationSpeed, onDrawn }: { text: string; animate: boolean; rotationSpeed: number; onDrawn: () => void }) {
   const camera = useThree(state => state.camera) as OrthographicCamera
   const width = useThree(state => state.size.width)
   const height = useThree(state => state.size.height)
   const invalidate = useThree(state => state.invalidate)
-  const textSize = useRef<{ width: number; height: number } | null>(null)
+  const rotation = useRef<Group>(null)
+  const textSize = useRef<{ width: number; height: number; depth: number } | null>(null)
+  useObjectRotation(rotation, { spin: animate, rotationAxis: 'y', rotationSpeed })
 
-  // Fit only after measurement or resize; no tween or frame subscription.
+  // Camera fitting runs only after measurement, resize, or a speed change.
   const fit = useCallback(() => {
     if (!textSize.current || !camera.isOrthographicCamera) return
-    const zoom = Math.min(width / (textSize.current.width * 1.15), height / (textSize.current.height * 1.15))
+    const size = textSize.current
+    const fullTurn = (Number.isFinite(rotationSpeed) && rotationSpeed !== 0) || (rotation.current?.rotation.y ?? 0) !== 0
+    // A Y turn projects both width and extrusion depth onto the horizontal axis.
+    // Keep that fit while paused, with room for the existing gentle Float motion.
+    const turnWidth = Math.hypot(size.width, size.depth)
+    const fittedWidth = fullTurn ? turnWidth * 1.04 : size.width
+    const fittedHeight = fullTurn ? size.height + turnWidth * 0.015 + 0.065 : size.height
+    const zoom = Math.min(width / (fittedWidth * 1.15), height / (fittedHeight * 1.15))
     if (!Number.isFinite(zoom) || zoom <= 0) return
     camera.zoom = zoom
     camera.updateProjectionMatrix()
     invalidate()
-  }, [camera, width, height, invalidate])
+  }, [camera, width, height, invalidate, rotationSpeed])
 
-  const onCentered = useCallback((size: { width: number; height: number }) => {
-    textSize.current = { width: size.width, height: size.height }
+  const onCentered = useCallback((size: { width: number; height: number; depth: number }) => {
+    textSize.current = { width: size.width, height: size.height, depth: size.depth }
     fit()
   }, [fit])
 
   useLayoutEffect(fit, [fit])
 
   return (
-    <Center cacheKey={text} onCentered={onCentered}>
-      <Float enabled={animate} autoInvalidate={false} speed={0.75} rotationIntensity={0.12} floatIntensity={0.65} floatingRange={[-0.05, 0.05]}>
-        <Text3D
-          font={FOOTER_FONT_URL}
-          size={0.8}
-          height={0.28}
-          curveSegments={8}
-          bevelEnabled
-          bevelThickness={0.025}
-          bevelSize={0.018}
-          bevelSegments={3}
-          rotation={[-0.14, -0.22, 0]}
-          onAfterRender={onDrawn}
-        >
-          {text}
-          <meshStandardMaterial attach="material-0" color="#f3f4f7" roughness={0.45} />
-          <meshStandardMaterial attach="material-1" color="#ff9470" roughness={0.5} />
-        </Text3D>
-      </Float>
-    </Center>
+    <group ref={rotation}>
+      <Center cacheKey={text} onCentered={onCentered}>
+        <Float enabled={animate} autoInvalidate={false} speed={0.75} rotationIntensity={0.12} floatIntensity={0.65} floatingRange={[-0.05, 0.05]}>
+          <Text3D
+            font={FOOTER_FONT_URL}
+            size={0.8}
+            height={0.28}
+            curveSegments={8}
+            bevelEnabled
+            bevelThickness={0.025}
+            bevelSize={0.018}
+            bevelSegments={3}
+            rotation={[-0.14, -0.22, 0]}
+            onAfterRender={onDrawn}
+          >
+            {text}
+            <meshStandardMaterial attach="material-0" color="#f3f4f7" roughness={0.45} />
+            <meshStandardMaterial attach="material-1" color="#ff9470" roughness={0.5} />
+          </Text3D>
+        </Float>
+      </Center>
+    </group>
   )
 }
 
-export default function FooterTextCanvas({ text, animate, onReady, onUnavailable }: FooterTextCanvasProps) {
+export default function FooterTextCanvas({ text, animate, rotationSpeed = 0, onReady, onUnavailable }: FooterTextCanvasProps) {
   const canvas = useRef<HTMLCanvasElement>(null)
   const mounted = useRef(true)
   const drawn = useRef(false)
@@ -119,7 +133,7 @@ export default function FooterTextCanvas({ text, animate, onReady, onUnavailable
       <directionalLight position={[3, 4, 6]} intensity={2} />
       <directionalLight position={[-4, -1, 2]} intensity={0.6} />
       <Suspense fallback={null}>
-        <FittedText text={text} animate={animate} onDrawn={reportDrawn} />
+        <FittedText text={text} animate={animate} rotationSpeed={rotationSpeed} onDrawn={reportDrawn} />
       </Suspense>
     </Canvas>
   )

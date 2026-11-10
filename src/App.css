@@ -259,6 +259,20 @@ h1>span {
   margin-top:32px;
   min-width:0;
 }
+.main-glass-objects {
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:24px;
+  margin-top:32px;
+  min-width:0;
+  scroll-margin-top:24px;
+  align-items:start;
+}
+@media (min-width:1000px) {
+  .main-glass-objects {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
 .panel,
 .workspace-panel-surface,
 .stats-grid,
