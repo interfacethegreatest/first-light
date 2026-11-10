@@ -2,6 +2,7 @@ import { useState } from 'react'
 import GlassPanel3D from './GlassPanel3D'
 import { useGlassPanelMount } from './useGlassPanelMount'
 import HtmlGlassCard from '../html-glass-card/HtmlGlassCard'
+import { TransmissionGallery } from '../transmission/GlassCards'
 import styles from './GlassPanelExample.module.css'
 
 /** Optional example. It is deliberately not mounted in the application. */
@@ -41,6 +42,7 @@ export default function GlassPanelExample() {
         </div>
         <HtmlGlassCard error={previewError} />
       </section>
+      <TransmissionGallery />
     </main>
   )
 }

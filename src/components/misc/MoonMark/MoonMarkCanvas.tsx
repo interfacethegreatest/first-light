@@ -1,10 +1,13 @@
 import { Suspense, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import MoonModel from './MoonModel'
+import type { MoonRotationAxis } from './MoonModel'
 import { useMoonResolution } from './useMoonResolution'
 
 interface MoonMarkCanvasProps {
   animate?: boolean
+  rotationAxis?: MoonRotationAxis
+  rotationSpeed?: number
   onReady?: () => void
   onUnavailable?: () => void
 }
@@ -23,6 +26,8 @@ const camera = {
 
 export default function MoonMarkCanvas({
   animate = false,
+  rotationAxis,
+  rotationSpeed,
   onReady,
   onUnavailable,
 }: MoonMarkCanvasProps) {
@@ -32,6 +37,7 @@ export default function MoonMarkCanvas({
   const reportedLoss = useRef(false)
   const [unavailable, setUnavailable] = useState(false)
   const dpr = useMoonResolution()
+  const rotating = animate && rotationSpeed !== 0
 
   useLayoutEffect(() => {
     readyCallback.current = onReady
@@ -68,7 +74,7 @@ export default function MoonMarkCanvas({
       camera={camera}
       gl={{ alpha: true, antialias: true }}
       dpr={dpr}
-      frameloop={animate ? 'always' : 'demand'}
+      frameloop={rotating ? 'always' : 'demand'}
       style={{
         width: '100%',
         height: '100%',
@@ -82,7 +88,7 @@ export default function MoonMarkCanvas({
       <directionalLight position={[3, 4, 5]} intensity={2} />
       <directionalLight position={[-4, -2, 1]} intensity={0.25} />
       <Suspense fallback={null}>
-        <MoonModel animate={animate} onReady={forwardReady} />
+        <MoonModel animate={rotating} rotationAxis={rotationAxis} rotationSpeed={rotationSpeed} onReady={forwardReady} />
       </Suspense>
     </Canvas>
   )

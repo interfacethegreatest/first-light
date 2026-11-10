@@ -6,6 +6,8 @@ Turn research findings into web applications, with a traceable path from evidenc
 
 **Glass and HTML scene example:** <https://interfacethegreatest.github.io/first-light/examples/glass-panel-3d/>
 
+**Transmission studies:** <https://interfacethegreatest.github.io/first-light/examples/glass-panel-3d/#transmission-studies>
+
 This is a new local React + TypeScript + Vite starter. Its first research topic and application audience are still open. The included web workspace lets you record sources, link findings to implementation decisions, track progress, and export your records. It starts empty, without sample papers or claims.
 
 ## Run locally
@@ -72,9 +74,17 @@ Watch the [animation preview](docs/previews/calendar-motion-demo.mp4) and see [t
 
 ## Three.js typography and reusable glass
 
-The main page includes a glass **Idea draft** card below the workspace panels and a compact 3D text scene above the footer. The card's title and footer share bold, beveled Three.js typography through the reusable `ThreeDHeading`/text renderer. The idea draft is temporary and clears on reload; it is separate from saved research records. A separate [component example](https://interfacethegreatest.github.io/first-light/examples/glass-panel-3d/) demonstrates the reusable glass panel, mount/unmount hook, native HTML inside Drei's `Html`, gentle torus motion, and Calendar4's extracted input container with its outside-click hook. Both pages are included in the normal production build.
+The main page includes a simple glass **Research draft** panel below the workspace panels and a compact 3D text scene above the footer. The panel follows the original reference design: a regular HTML heading, description and native draft field over the existing Three.js glass surface. The draft is temporary and clears on reload; it is separate from saved research records. The reusable `ThreeDHeading` and bold, beveled footer renderer remain available. A separate [component example](https://interfacethegreatest.github.io/first-light/examples/glass-panel-3d/) demonstrates the reusable glass panel, mount/unmount hook, native HTML inside Drei's `Html`, gentle torus motion, and Calendar4's extracted input container with its outside-click hook. Both pages are included in the normal production build.
+
+Each **Add source** activation appends all three source-section boilerplates together: short, medium and long. They expand below the button using the existing parent-height and staggered reveal animations. These are session-only UI sections and do not save a research record or reset the source form.
+
+See the [current change notes](docs/simple-glass-source-batches.md) and [complete component sourcebook](docs/component-catalog.md). Regenerate the sourcebook and source ZIP after edits with `node scripts/export-component-catalog.mjs`.
 
 See the [footer text](docs/footer-3d-text.md), [glass panel](docs/glass-panel-3d.md) and [HTML scene](docs/html-glass-card.md) documentation for component code, attribution and verification. Drafts remain local to the example and do not write research records. Motion respects reduced-motion preferences, page visibility and form focus; unavailable WebGL retains native content.
+
+The [glass and panes guide](docs/glass-and-panes-guide.md) explains CSS composition, native panes, decorative Three.js glass and the separate Drei `Html` scene. The header Moon now rotates around its Y axis at −0.12 radians per second; see [rotation options and checks](docs/moon-rotation.md). Its existing home action stays intact, and rotation pauses offscreen, in hidden tabs or with reduced motion enabled.
+
+The component example also contains two reusable transmission cards: a thick rounded glass panel, and a cinematic sphere/torus composition around bold extruded text. Their meshes and text share one scene for real shader-based refraction. Native controls adjust lettering, placement, glass text, optical settings, quality and motion. The gallery selects one active Canvas, reuses local assets and respects reduced motion, editing focus, visibility and mobile scrolling. See [implementation and verification](docs/transmission-scenes.md) and the [complete generation prompt](docs/transmission-scenes-generation-prompt.md). No dependencies were added.
 
 ## Storage and current limits
 

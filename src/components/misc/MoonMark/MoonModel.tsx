@@ -5,8 +5,11 @@ import { Mesh, type Group } from 'three'
 
 export const MOON_MODEL_URL = `${import.meta.env.BASE_URL}media/moon/moon.glb`
 
+export type MoonRotationAxis = 'x' | 'y' | 'z'
+
 interface MoonModelProps {
   animate?: boolean
+  rotationAxis?: MoonRotationAxis
   rotationSpeed?: number
   onReady?: () => void
 }
@@ -15,6 +18,7 @@ interface MoonModelProps {
 // Rx(-PI/2), and composed 0.028 × 100 scale. Framing belongs to the camera.
 export default function MoonModel({
   animate = false,
+  rotationAxis = 'y',
   rotationSpeed = -0.12,
   onReady,
 }: MoonModelProps) {
@@ -35,7 +39,8 @@ export default function MoonModel({
 
   useFrame((_, delta) => {
     if (animate && rotation.current) {
-      rotation.current.rotation.y += rotationSpeed * delta
+      // Radians per second, applied to the parent without changing the mesh's source alignment.
+      rotation.current.rotation[rotationAxis] += rotationSpeed * delta
     }
   })
 

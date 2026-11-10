@@ -62,16 +62,17 @@ describe('standalone source section feature', () => {
     expect(screen.queryByRole('region', { name: /^Source section \d+$/ })).not.toBeInTheDocument()
 
     await user.click(button)
-    expect(screen.getAllByRole('region', { name: /^Source section \d+$/ })).toHaveLength(1)
+    expect(screen.getAllByRole('region', { name: /^Source section \d+$/ })).toHaveLength(3)
     await user.keyboard('{Enter}')
-    expect(screen.getAllByRole('region', { name: /^Source section \d+$/ })).toHaveLength(2)
+    expect(screen.getAllByRole('region', { name: /^Source section \d+$/ })).toHaveLength(6)
     await user.keyboard(' ')
     const regions = screen.getAllByRole('region', { name: /^Source section \d+$/ })
-    expect(regions).toHaveLength(3)
-    expect(new Set(regions.map(region => region.getAttribute('aria-labelledby'))).size).toBe(3)
+    expect(regions).toHaveLength(9)
+    expect(new Set(regions.map(region => region.getAttribute('aria-labelledby'))).size).toBe(9)
     const paragraphs = regions.map(region => region.querySelector('p')!)
     const text = paragraphs.map(paragraph => paragraph.textContent)
     expect(new Set(text.map(value => value!.length)).size).toBe(3)
+    expect(text.map(value => value!.match(/Lorem ipsum /g)!.length)).toEqual([1, 4, 12, 1, 4, 12, 1, 4, 12])
     const container = document.getElementById(button.getAttribute('aria-controls')!)!
     expect(container.id).toBe('independent-source-sections')
     for (const region of regions) expect(container).toContainElement(region)
@@ -92,6 +93,7 @@ describe('standalone source section feature', () => {
   })
 
   it('keeps batched additions and hook instances independent under StrictMode', () => {
+    const createId = vi.spyOn(crypto, 'randomUUID')
     const first = renderHook(() => useSourceSections(), { wrapper: StrictMode })
     const second = renderHook(() => useSourceSections(), { wrapper: StrictMode })
     act(() => {
@@ -99,8 +101,9 @@ describe('standalone source section feature', () => {
       first.result.current.introduceSourceSection()
     })
 
-    expect(first.result.current.sourceSections).toHaveLength(2)
-    expect(new Set(first.result.current.sourceSections.map(section => section.id)).size).toBe(2)
+    expect(first.result.current.sourceSections).toHaveLength(6)
+    expect(new Set(first.result.current.sourceSections.map(section => section.id)).size).toBe(6)
+    expect(createId).toHaveBeenCalledTimes(6)
     expect(second.result.current.sourceSections).toHaveLength(0)
     const previous = first.result.current.sourceSections
     first.rerender()
@@ -112,7 +115,7 @@ describe('standalone source section feature', () => {
 })
 
 describe('Add source introduces session-only UI sections', () => {
-  it('immediately creates one section from a blank form without validation or a research-record write', () => {
+  it('immediately creates all three variants from a blank form without validation or a research-record write', () => {
     render(<App />)
     const write = vi.spyOn(Storage.prototype, 'setItem')
     const addSource = screen.getByRole('button', { name: 'Add source' })
@@ -121,19 +124,22 @@ describe('Add source introduces session-only UI sections', () => {
     expect(screen.queryByRole('region', { name: 'Source section 1' })).not.toBeInTheDocument()
     fireEvent.click(addSource)
 
-    const section = screen.getByRole('region', { name: 'Source section 1' })
-    const body = section.lastElementChild!
-    expect(body.children).toHaveLength(1)
-    expect(body.firstElementChild?.tagName).toBe('P')
-    expect(body.firstElementChild?.textContent).toMatch(/^Lorem ipsum /)
-    expect(body.firstElementChild?.children).toHaveLength(0)
+    const sections = screen.getAllByRole('region', { name: /^Source section \d+$/ })
+    expect(sections).toHaveLength(3)
+    for (const [index, section] of sections.entries()) {
+      const body = section.lastElementChild!
+      expect(body.children).toHaveLength(1)
+      expect(body.firstElementChild?.tagName).toBe('P')
+      expect(body.firstElementChild?.textContent?.match(/Lorem ipsum /g)).toHaveLength([1, 4, 12][index])
+      expect(body.firstElementChild?.children).toHaveLength(0)
+      expect(document.getElementById(addSource.getAttribute('aria-controls')!)).toContainElement(section)
+    }
     expect(screen.queryAllByRole('alert')).toHaveLength(0)
     expect(write).not.toHaveBeenCalled()
     expect(localStorage.getItem(STORAGE_KEY)).toBeNull()
     expect(screen.getByRole('textbox', { name: 'Source title' })).toHaveValue('')
     expect(screen.getByRole('textbox', { name: 'Source URL' })).toHaveValue('')
     expect(screen.getByRole('button', { name: 'Add decision' })).toBeDisabled()
-    expect(document.getElementById(addSource.getAttribute('aria-controls')!)).toContainElement(section)
   })
 
   it('creates distinct, stable regions for repeated mouse and keyboard activations', async () => {
@@ -142,18 +148,19 @@ describe('Add source introduces session-only UI sections', () => {
     const button = screen.getByRole('button', { name: 'Add source' })
 
     await user.click(button)
+    expect(screen.getAllByRole('region', { name: /^Source section \d+$/ })).toHaveLength(3)
     const firstSection = screen.getByRole('region', { name: 'Source section 1' })
     await user.click(button)
+    expect(screen.getAllByRole('region', { name: /^Source section \d+$/ })).toHaveLength(6)
     await user.keyboard('{Enter}')
-    await user.keyboard(' ')
 
     const sections = screen.getAllByRole('region', { name: /^Source section \d+$/ })
-    expect(sections).toHaveLength(4)
+    expect(sections).toHaveLength(9)
     expect(sections[0]).toBe(firstSection)
     const firstThreeLengths = sections.slice(0, 3).map(section => section.querySelector('p')!.textContent!.length)
     expect(new Set(firstThreeLengths).size).toBe(3)
     const headingIds = sections.map(section => section.getAttribute('aria-labelledby'))
-    expect(new Set(headingIds).size).toBe(4)
+    expect(new Set(headingIds).size).toBe(9)
     for (let index = 0; index < sections.length; index++) {
       expect(within(sections[index]).getByRole('heading', { name: `Source section ${index + 1}` })).toHaveAttribute('id', headingIds[index])
     }
@@ -164,14 +171,16 @@ describe('Add source introduces session-only UI sections', () => {
     const user = userEvent.setup()
     render(<App />)
     const button = screen.getByRole('button', { name: 'Add source' })
-    for (let index = 0; index < 3; index++) await user.click(button)
+    await user.click(button)
     const regions = screen.getAllByRole('region', { name: /^Source section \d+$/ })
+    expect(regions).toHaveLength(3)
     const paragraphs = regions.map(region => region.querySelector('p')!)
     const text = paragraphs.map(paragraph => paragraph.textContent)
 
     await user.type(screen.getByRole('textbox', { name: 'Source title' }), 'Unrelated source draft')
     await user.type(screen.getByRole('textbox', { name: /Source notes/ }), 'Unrelated notes')
     await user.click(button)
+    expect(screen.getAllByRole('region', { name: /^Source section \d+$/ })).toHaveLength(6)
 
     for (let index = 0; index < regions.length; index++) {
       const region = screen.getByRole('region', { name: `Source section ${index + 1}` })
@@ -202,7 +211,7 @@ describe('Add source introduces session-only UI sections', () => {
 
     await user.click(screen.getByRole('button', { name: 'Add source' }))
 
-    expect(screen.getByRole('region', { name: 'Source section 1' })).toBeInTheDocument()
+    expect(screen.getAllByRole('region', { name: /^Source section \d+$/ })).toHaveLength(3)
     expect(title).toHaveValue('Unsaved draft')
     expect(url).toHaveValue('not a valid research URL')
     expect(notes).toHaveValue('Draft notes')
@@ -221,7 +230,7 @@ describe('Add source introduces session-only UI sections', () => {
     const user = userEvent.setup()
     const first = render(<App />)
     await user.click(screen.getByRole('button', { name: 'Add source' }))
-    expect(screen.getByRole('region', { name: 'Source section 1' })).toBeInTheDocument()
+    expect(screen.getAllByRole('region', { name: /^Source section \d+$/ })).toHaveLength(3)
 
     first.unmount()
     render(<App />)
@@ -233,6 +242,21 @@ describe('Add source introduces session-only UI sections', () => {
 })
 
 describe('reusable source section template', () => {
+  it('creates ordered short/medium/long batches independently of legacy single-create calls', () => {
+    const batches = []
+    for (let offset = 0; offset < 3; offset++) {
+      const before = sourceSectionTemplate.create()
+      const batch = sourceSectionTemplate.createBatch('slatepurple')
+      batches.push(...batch)
+      expect(batch.map(section => section.text!.match(/Lorem ipsum /g)!.length)).toEqual([1, 4, 12])
+      expect(batch.map(section => section.borderTone)).toEqual(['slatepurple', 'slatepurple', 'slatepurple'])
+      const after = sourceSectionTemplate.create()
+      const beforeRepeats = before.text!.match(/Lorem ipsum /g)!.length
+      expect(after.text!.match(/Lorem ipsum /g)!.length).toBe([1, 4, 12][([1, 4, 12].indexOf(beforeRepeats) + 1) % 3])
+    }
+    expect(new Set(batches.map(section => section.id)).size).toBe(9)
+  })
+
   it('gives every consecutive trio distinct text lengths regardless of the cycle starting point', () => {
     for (let offset = 0; offset < 3; offset++) {
       for (let skip = 0; skip < offset; skip++) sourceSectionTemplate.create()
