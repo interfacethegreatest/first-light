@@ -1,0 +1,585 @@
+{
+  "result": "PASS",
+  "mode": "after",
+  "url": "http://127.0.0.1:4219/first-light/",
+  "scope": "Actual standalone glass surface; any later synthetic CSS backdrop is separately labelled. No HTML-WebGL refraction claim.",
+  "appearance": {
+    "entry": "/first-light/assets/index-ovJN4c8r.js",
+    "sizes": [
+      {
+        "width": 1440,
+        "protected": {
+          "box": {
+            "width": 720,
+            "height": 310.5
+          },
+          "padding": "28px",
+          "radius": "6px",
+          "borderWidth": "1px",
+          "fonts": [
+            {
+              "tag": "P",
+              "text": "FIRST LIGHT / REUSABLE COMPONENT",
+              "box": {
+                "x": 29,
+                "y": 29,
+                "width": 662,
+                "height": 16.640625
+              },
+              "style": {
+                "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+                "fontSize": "10.4px",
+                "fontWeight": "400",
+                "lineHeight": "16.64px",
+                "letterSpacing": "1.352px",
+                "textAlign": "start"
+              }
+            },
+            {
+              "tag": "H1",
+              "text": "A little more depth.",
+              "box": {
+                "x": 29,
+                "y": 81.234375,
+                "width": 662,
+                "height": 41.390625
+              },
+              "style": {
+                "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+                "fontSize": "36px",
+                "fontWeight": "500",
+                "lineHeight": "41.4px",
+                "letterSpacing": "-1.26px",
+                "textAlign": "start"
+              }
+            },
+            {
+              "tag": "P",
+              "text": "Your content stays in HTML. A separate Three.js layer gives this panel its glass surface.",
+              "box": {
+                "x": 29,
+                "y": 159.21875,
+                "width": 662,
+                "height": 25.59375
+              },
+              "style": {
+                "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "lineHeight": "25.6px",
+                "letterSpacing": "normal",
+                "textAlign": "start"
+              }
+            },
+            {
+              "tag": "LABEL",
+              "text": "Research draft",
+              "box": {
+                "x": 29,
+                "y": 202.40625,
+                "width": 662,
+                "height": 79.09375
+              },
+              "style": {
+                "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+                "fontSize": "13.6px",
+                "fontWeight": "400",
+                "lineHeight": "21.76px",
+                "letterSpacing": "normal",
+                "textAlign": "start"
+              }
+            },
+            {
+              "tag": "INPUT",
+              "text": "Keep an idea here\u2026",
+              "box": {
+                "x": 29,
+                "y": 232.15625,
+                "width": 662,
+                "height": 49.34375
+              },
+              "style": {
+                "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+                "fontSize": "13.6px",
+                "fontWeight": "400",
+                "lineHeight": "21.76px",
+                "letterSpacing": "normal",
+                "textAlign": "start"
+              }
+            }
+          ]
+        },
+        "surface": {
+          "tag": "DIV",
+          "box": {
+            "width": 720,
+            "height": 310.5
+          },
+          "style": {
+            "backgroundColor": "rgba(44, 45, 49, 0.44)",
+            "backgroundImage": "linear-gradient(135deg, rgba(255, 255, 255, 0.067), rgba(255, 255, 255, 0) 55%)",
+            "backdropFilter": "blur(18px) saturate(1.15)",
+            "border": "1px solid rgba(240, 248, 255, 0.12)",
+            "borderRadius": "6px",
+            "boxShadow": "rgba(255, 255, 255, 0.09) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.024) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.32) 0px 18px 45px 0px",
+            "padding": "28px",
+            "color": "rgba(240, 248, 255, 0.88)",
+            "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif"
+          },
+          "pageWidth": 1440,
+          "scrollWidth": 1440,
+          "canvas": {
+            "width": 718,
+            "height": 308,
+            "clientWidth": 718,
+            "clientHeight": 309,
+            "pointerEvents": "none"
+          }
+        },
+        "layer": {
+          "opacity": "0.16",
+          "pointerEvents": "none"
+        }
+      },
+      {
+        "width": 320,
+        "protected": {
+          "box": {
+            "width": 272,
+            "height": 339.53125
+          },
+          "padding": "16px",
+          "radius": "6px",
+          "borderWidth": "1px",
+          "fonts": [
+            {
+              "tag": "P",
+              "text": "FIRST LIGHT / REUSABLE COMPONENT",
+              "box": {
+                "x": 17,
+                "y": 17,
+                "width": 238,
+                "height": 33.28125
+              },
+              "style": {
+                "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+                "fontSize": "10.4px",
+                "fontWeight": "400",
+                "lineHeight": "16.64px",
+                "letterSpacing": "1.352px",
+                "textAlign": "start"
+              }
+            },
+            {
+              "tag": "H1",
+              "text": "A little more depth.",
+              "box": {
+                "x": 17,
+                "y": 84.875,
+                "width": 238,
+                "height": 27.59375
+              },
+              "style": {
+                "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+                "fontSize": "24px",
+                "fontWeight": "500",
+                "lineHeight": "27.6px",
+                "letterSpacing": "-0.84px",
+                "textAlign": "start"
+              }
+            },
+            {
+              "tag": "P",
+              "text": "Your content stays in HTML. A separate Three.js layer gives this panel its glass surface.",
+              "box": {
+                "x": 17,
+                "y": 149.0625,
+                "width": 238,
+                "height": 76.78125
+              },
+              "style": {
+                "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "lineHeight": "25.6px",
+                "letterSpacing": "normal",
+                "textAlign": "start"
+              }
+            },
+            {
+              "tag": "LABEL",
+              "text": "Research draft",
+              "box": {
+                "x": 17,
+                "y": 243.4375,
+                "width": 238,
+                "height": 79.09375
+              },
+              "style": {
+                "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+                "fontSize": "13.6px",
+                "fontWeight": "400",
+                "lineHeight": "21.76px",
+                "letterSpacing": "normal",
+                "textAlign": "start"
+              }
+            },
+            {
+              "tag": "INPUT",
+              "text": "Keep an idea here\u2026",
+              "box": {
+                "x": 17,
+                "y": 273.1875,
+                "width": 238,
+                "height": 49.34375
+              },
+              "style": {
+                "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif",
+                "fontSize": "13.6px",
+                "fontWeight": "400",
+                "lineHeight": "21.76px",
+                "letterSpacing": "normal",
+                "textAlign": "start"
+              }
+            }
+          ]
+        },
+        "surface": {
+          "tag": "DIV",
+          "box": {
+            "width": 272,
+            "height": 339.53125
+          },
+          "style": {
+            "backgroundColor": "rgba(44, 45, 49, 0.44)",
+            "backgroundImage": "linear-gradient(135deg, rgba(255, 255, 255, 0.067), rgba(255, 255, 255, 0) 55%)",
+            "backdropFilter": "blur(18px) saturate(1.15)",
+            "border": "1px solid rgba(240, 248, 255, 0.12)",
+            "borderRadius": "6px",
+            "boxShadow": "rgba(255, 255, 255, 0.09) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.024) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.32) 0px 18px 45px 0px",
+            "padding": "16px",
+            "color": "rgba(240, 248, 255, 0.88)",
+            "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif"
+          },
+          "pageWidth": 320,
+          "scrollWidth": 320,
+          "canvas": {
+            "width": 270,
+            "height": 337,
+            "clientWidth": 270,
+            "clientHeight": 338,
+            "pointerEvents": "none"
+          }
+        },
+        "layer": {
+          "opacity": "0.16",
+          "pointerEvents": "none"
+        }
+      }
+    ]
+  },
+  "healthy": {
+    "entry": "/first-light/assets/index-ovJN4c8r.js",
+    "environment": {
+      "url": "http://127.0.0.1:4219/first-light/environments/potsdamer_platz_1k.hdr",
+      "status": 200,
+      "bytes": 1540678,
+      "sha256": "7afe4c2f9700ee78c7477c53fa355463d7dda1fdede401432d6b5f9ff0a95696"
+    },
+    "initialStaticDraws": {
+      "before": [
+        {
+          "id": 1,
+          "connected": true,
+          "draws": 22,
+          "vertices": 4632,
+          "width": 718,
+          "height": 308,
+          "lost": false,
+          "error": 0
+        }
+      ],
+      "after": [
+        {
+          "id": 1,
+          "connected": true,
+          "draws": 22,
+          "vertices": 4632,
+          "width": 718,
+          "height": 308,
+          "lost": false,
+          "error": 0
+        }
+      ]
+    },
+    "actualLayerPixelDifference": {
+      "width": 720,
+      "height": 311,
+      "meanAbsoluteChannelDifference": 21.3214,
+      "changedChannelsAbove2": 655801,
+      "maximumDifference": 31
+    },
+    "unmountedResources": [
+      {
+        "id": 1,
+        "connected": false,
+        "draws": 22,
+        "vertices": 4632,
+        "width": 718,
+        "height": 308,
+        "lost": true,
+        "error": null
+      }
+    ],
+    "nativePreservation": {
+      "inputNodeIdentity": true,
+      "draftRetained": true,
+      "focusRetainedOnProgrammaticPublicControl": true,
+      "canvasRemovedAndRecreated": true
+    },
+    "sizes": [
+      {
+        "tag": "DIV",
+        "box": {
+          "width": 720,
+          "height": 310.5
+        },
+        "style": {
+          "backgroundColor": "rgba(44, 45, 49, 0.44)",
+          "backgroundImage": "linear-gradient(135deg, rgba(255, 255, 255, 0.067), rgba(255, 255, 255, 0) 55%)",
+          "backdropFilter": "blur(18px) saturate(1.15)",
+          "border": "1px solid rgba(240, 248, 255, 0.12)",
+          "borderRadius": "6px",
+          "boxShadow": "rgba(255, 255, 255, 0.09) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.024) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.32) 0px 18px 45px 0px",
+          "padding": "28px",
+          "color": "rgba(240, 248, 255, 0.88)",
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif"
+        },
+        "pageWidth": 1440,
+        "scrollWidth": 1440,
+        "canvas": {
+          "width": 718,
+          "height": 308,
+          "clientWidth": 718,
+          "clientHeight": 309,
+          "pointerEvents": "none"
+        }
+      },
+      {
+        "tag": "DIV",
+        "box": {
+          "width": 342,
+          "height": 322.890625
+        },
+        "style": {
+          "backgroundColor": "rgba(44, 45, 49, 0.44)",
+          "backgroundImage": "linear-gradient(135deg, rgba(255, 255, 255, 0.067), rgba(255, 255, 255, 0) 55%)",
+          "backdropFilter": "blur(18px) saturate(1.15)",
+          "border": "1px solid rgba(240, 248, 255, 0.12)",
+          "borderRadius": "6px",
+          "boxShadow": "rgba(255, 255, 255, 0.09) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.024) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.32) 0px 18px 45px 0px",
+          "padding": "16px",
+          "color": "rgba(240, 248, 255, 0.88)",
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif"
+        },
+        "pageWidth": 390,
+        "scrollWidth": 390,
+        "canvas": {
+          "width": 340,
+          "height": 320,
+          "clientWidth": 340,
+          "clientHeight": 321,
+          "pointerEvents": "none"
+        }
+      },
+      {
+        "tag": "DIV",
+        "box": {
+          "width": 272,
+          "height": 339.53125
+        },
+        "style": {
+          "backgroundColor": "rgba(44, 45, 49, 0.44)",
+          "backgroundImage": "linear-gradient(135deg, rgba(255, 255, 255, 0.067), rgba(255, 255, 255, 0) 55%)",
+          "backdropFilter": "blur(18px) saturate(1.15)",
+          "border": "1px solid rgba(240, 248, 255, 0.12)",
+          "borderRadius": "6px",
+          "boxShadow": "rgba(255, 255, 255, 0.09) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.024) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.32) 0px 18px 45px 0px",
+          "padding": "16px",
+          "color": "rgba(240, 248, 255, 0.88)",
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif"
+        },
+        "pageWidth": 320,
+        "scrollWidth": 320,
+        "canvas": {
+          "width": 270,
+          "height": 337,
+          "clientWidth": 270,
+          "clientHeight": 338,
+          "pointerEvents": "none"
+        }
+      }
+    ],
+    "contentGrowth": {
+      "before": {
+        "tag": "DIV",
+        "box": {
+          "width": 272,
+          "height": 339.53125
+        },
+        "style": {
+          "backgroundColor": "rgba(44, 45, 49, 0.44)",
+          "backgroundImage": "linear-gradient(135deg, rgba(255, 255, 255, 0.067), rgba(255, 255, 255, 0) 55%)",
+          "backdropFilter": "blur(18px) saturate(1.15)",
+          "border": "1px solid rgba(240, 248, 255, 0.12)",
+          "borderRadius": "6px",
+          "boxShadow": "rgba(255, 255, 255, 0.09) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.024) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.32) 0px 18px 45px 0px",
+          "padding": "16px",
+          "color": "rgba(240, 248, 255, 0.88)",
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif"
+        },
+        "pageWidth": 320,
+        "scrollWidth": 320,
+        "canvas": {
+          "width": 270,
+          "height": 337,
+          "clientWidth": 270,
+          "clientHeight": 338,
+          "pointerEvents": "none"
+        }
+      },
+      "after": {
+        "tag": "DIV",
+        "box": {
+          "width": 272,
+          "height": 485.09375
+        },
+        "style": {
+          "backgroundColor": "rgba(44, 45, 49, 0.44)",
+          "backgroundImage": "linear-gradient(135deg, rgba(255, 255, 255, 0.067), rgba(255, 255, 255, 0) 55%)",
+          "backdropFilter": "blur(18px) saturate(1.15)",
+          "border": "1px solid rgba(240, 248, 255, 0.12)",
+          "borderRadius": "6px",
+          "boxShadow": "rgba(255, 255, 255, 0.09) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.024) 0px -1px 0px 0px inset, rgba(0, 0, 0, 0.32) 0px 18px 45px 0px",
+          "padding": "16px",
+          "color": "rgba(240, 248, 255, 0.88)",
+          "fontFamily": "Inter, \"Segoe UI\", Arial, sans-serif"
+        },
+        "pageWidth": 320,
+        "scrollWidth": 320,
+        "canvas": {
+          "width": 270,
+          "height": 483,
+          "clientWidth": 270,
+          "clientHeight": 483,
+          "pointerEvents": "none"
+        }
+      }
+    },
+    "resizedStaticDraws": {
+      "before": [
+        {
+          "id": 1,
+          "connected": false,
+          "draws": 22,
+          "vertices": 4632,
+          "width": 718,
+          "height": 308,
+          "lost": true,
+          "error": null
+        },
+        {
+          "id": 2,
+          "connected": true,
+          "draws": 25,
+          "vertices": 16260,
+          "width": 270,
+          "height": 483,
+          "lost": false,
+          "error": 0
+        }
+      ],
+      "after": [
+        {
+          "id": 1,
+          "connected": false,
+          "draws": 22,
+          "vertices": 4632,
+          "width": 718,
+          "height": 308,
+          "lost": true,
+          "error": null
+        },
+        {
+          "id": 2,
+          "connected": true,
+          "draws": 25,
+          "vertices": 16260,
+          "width": 270,
+          "height": 483,
+          "lost": false,
+          "error": 0
+        }
+      ]
+    },
+    "contextLoss": {
+      "mechanism": "native WEBGL_lose_context",
+      "fallbackLayerState": "unavailable",
+      "htmlAndDimensionsPreserved": true
+    },
+    "explicitRecoveryAfterLoss": true,
+    "externalRequests": [],
+    "pageErrors": []
+  },
+  "failureCases": [
+    {
+      "case": "hdr-404",
+      "layerState": "unavailable",
+      "canvasCount": 0,
+      "nativeDraftAndControlsUsable": true,
+      "requestedHDR": [
+        "http://127.0.0.1:4219/first-light/environments/potsdamer_platz_1k.hdr"
+      ],
+      "pageErrors": [
+        "Could not load /first-light/environments/potsdamer_platz_1k.hdr: fetch for \"http://127.0.0.1:4219/first-light/environments/potsdamer_platz_1k.hdr\" responded with 404: Not Found"
+      ],
+      "expectedFaultConsoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Error: Could not load /first-light/environments/potsdamer_platz_1k.hdr: fetch for \"http://127.0.0.1:4219/first-light/environments/potsdamer_platz_1k.hdr\" responded with 404: Not Found\n    at Object.onError (http://127.0.0.1:4219/first-light/assets/GlassPanelCanvas-CYWDE-uT.js:3837:291234)\n    at http://127.0.0.1:4219/first-light/assets/GlassPanelCanvas-CYWDE-uT.js:3837:163895"
+      ],
+      "constructorsKeptPresent": false
+    },
+    {
+      "case": "webgl-context-unavailable",
+      "layerState": "unavailable",
+      "canvasCount": 0,
+      "nativeDraftAndControlsUsable": true,
+      "requestedHDR": [],
+      "pageErrors": [],
+      "expectedFaultConsoleErrors": [
+        "THREE.WebGLRenderer: Error creating WebGL context.",
+        "Error: Error creating WebGL context.\n    at new Vg (http://127.0.0.1:4219/first-light/assets/GlassPanelCanvas-CYWDE-uT.js:3837:20321)\n    at RN (http://127.0.0.1:4219/first-light/assets/GlassPanelCanvas-CYWDE-uT.js:3837:287254)\n    at M (http://127.0.0.1:4219/first-light/assets/GlassPanelCanvas-CYWDE-uT.js:3848:11837)\n    at Object.configure (http://127.0.0.1:4219/first-light/assets/GlassPanelCanvas-CYWDE-uT.js:3848:11951)\n    at http://127.0.0.1:4219/first-light/assets/GlassPanelCanvas-CYWDE-uT.js:3848:21535\n    at Qe (http://127.0.0.1:4219/first-light/assets/index-ovJN4c8r.js:8:95832)\n    at Es (http://127.0.0.1:4219/first-light/assets/index-ovJN4c8r.js:8:105387)\n    at Ft (http://127.0.0.1:4219/first-light/assets/index-ovJN4c8r.js:8:116721)\n    at Es (http://127.0.0.1:4219/first-light/assets/index-ovJN4c8r.js:8:106454)\n    at Ft (http://127.0.0.1:4219/first-light/assets/index-ovJN4c8r.js:8:116721)"
+      ],
+      "constructorsKeptPresent": true
+    }
+  ],
+  "cssFrostProof": {
+    "scope": "Labelled synthetic CSS-only test, GPU disabled; native glass styling remains. This measures DOM backdrop transmission and blur, never WebGL refraction of HTML.",
+    "blurredAdjacentPixelEnergy": 0.0373,
+    "unblurredAdjacentPixelEnergy": 1.354,
+    "blurEnergyRatio": 0.0276,
+    "colourSamples": [
+      [
+        156.5455882352941,
+        44.48088235294118,
+        65.01176470588236
+      ],
+      [
+        35.28529411764706,
+        86.56617647058823,
+        164.27205882352942
+      ]
+    ],
+    "meanChannelTransmission": 0.6199
+  }
+}

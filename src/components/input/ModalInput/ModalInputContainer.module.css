@@ -1,0 +1,43 @@
+/* Container rules copied verbatim from Calendar4 ModalInput.module.css,
+   blob bf1d9eb5808f1914e62fe67a02b85a5d380befa2. */
+#inputContainer{
+    width: 90%;
+    height: 50px;
+    border: 1px solid rgb(106, 106, 106);
+    border-radius: 6px;
+    margin-right: 5px;
+    padding-left: 2.5%;
+    padding-top: 2%;
+    position: relative;
+    z-index: 4;
+    pointer-events: auto;
+    background: black;
+}
+
+#glowingInputContainer{
+    width: 90%;
+    height: 50px;
+    border: 2px solid rgb(42, 111, 87);
+    border-radius: 6px;
+    margin-right: 5px;
+    padding-left: 2.5%;
+    padding-top: 2%;
+    position: relative;
+    z-index: 4;
+    pointer-events: auto;
+    background: black;
+}
+
+#glowingInputContainerError{
+    width: 90%;
+    height: 50px;
+    border: 2px solid rgb(200, 60, 60);
+    border-radius: 6px;
+    margin-right: 5px;
+    padding-left: 2.5%;
+    padding-top: 2%;
+    position: relative;
+    z-index: 4;
+    pointer-events: auto;
+    background-color: black;
+}

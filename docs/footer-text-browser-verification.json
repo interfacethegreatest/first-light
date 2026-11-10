@@ -1,0 +1,248 @@
+{
+  "result": "PASS",
+  "focusedTests": {
+    "file": "tests/footer-text-scene.test.tsx",
+    "passed": 7,
+    "scope": "Actual wrapper/activity/native DOM; only FooterTextCanvas GPU boundary mocked."
+  },
+  "protectedOriginalApp": {
+    "result": "PASS",
+    "entry": "index-Dd21p2hn.js",
+    "widths": [
+      1440,
+      320
+    ],
+    "surfaceTargetsPerWidth": 16,
+    "nativeActions": {
+      "mouseAndEnterSourceCount": 2,
+      "inputTextareaAndSelectDraftsRetained": true,
+      "focus": {
+        "visible": true,
+        "outline": "rgb(255, 148, 112) solid 2px",
+        "offset": "2px"
+      },
+      "exportJSONMatchesSeed": true,
+      "storageUnchanged": true
+    },
+    "originalTypographyPositionsAndSurfaceStylesSizesEqual": true,
+    "existingFooterContentStylesAndSizeEqual": true,
+    "intentionalException": "Existing footer Y offset changes to accommodate the new scene.",
+    "note": "Final subsequent corrections were confined to the new FooterTextCanvas module; App placement and CSS stayed unchanged."
+  },
+  "actualProduction": {
+    "result": "PASS",
+    "url": "http://127.0.0.1:4217/first-light/",
+    "entry": "index-r8Z0IJLl.js",
+    "realRenderer": {
+      "scope": "Actual production Text3D, local font, Moon and star background; no GPU isolation in showcase.",
+      "font": [
+        {
+          "url": "http://127.0.0.1:4217/first-light/fonts/helvetiker_regular.typeface.json",
+          "status": 200
+        }
+      ],
+      "visibleAnimation": {
+        "before": [
+          {
+            "draws": 138,
+            "vertices": 214308,
+            "connected": true,
+            "width": 660,
+            "height": 112,
+            "error": 0
+          }
+        ],
+        "after": [
+          {
+            "draws": 184,
+            "vertices": 285744,
+            "connected": true,
+            "width": 660,
+            "height": 112,
+            "error": 0
+          }
+        ]
+      },
+      "sizes": [
+        {
+          "width": 1440,
+          "pageScrollWidth": 1440,
+          "box": {
+            "x": 390,
+            "y": 792.375,
+            "width": 660,
+            "height": 112
+          },
+          "canvasCount": 1,
+          "canvas": {
+            "width": 660,
+            "height": 112,
+            "clientWidth": 660,
+            "clientHeight": 112
+          },
+          "fallbackParagraph": false,
+          "accessibleName": "Make learning tangible.",
+          "pointerEvents": "none",
+          "touchAction": "auto"
+        },
+        {
+          "width": 320,
+          "pageScrollWidth": 320,
+          "box": {
+            "x": 16,
+            "y": 767.796875,
+            "width": 288,
+            "height": 90
+          },
+          "canvasCount": 1,
+          "canvas": {
+            "width": 288,
+            "height": 90,
+            "clientWidth": 288,
+            "clientHeight": 90
+          },
+          "fallbackParagraph": false,
+          "accessibleName": "Make learning tangible.",
+          "pointerEvents": "none",
+          "touchAction": "auto"
+        }
+      ],
+      "reducedMotionIdle": {
+        "before": [
+          {
+            "draws": 276,
+            "vertices": 428616,
+            "connected": true,
+            "width": 660,
+            "height": 112,
+            "error": 0
+          }
+        ],
+        "after": [
+          {
+            "draws": 276,
+            "vertices": 428616,
+            "connected": true,
+            "width": 660,
+            "height": 112,
+            "error": 0
+          }
+        ]
+      },
+      "offscreenIdle": {
+        "before": [
+          {
+            "draws": 506,
+            "vertices": 785796,
+            "connected": true,
+            "width": 288,
+            "height": 90,
+            "error": 0
+          }
+        ],
+        "after": [
+          {
+            "draws": 506,
+            "vertices": 785796,
+            "connected": true,
+            "width": 288,
+            "height": 90,
+            "error": 0
+          }
+        ]
+      },
+      "controlledHiddenSignalIdle": {
+        "before": [
+          {
+            "draws": 552,
+            "vertices": 857232,
+            "connected": true,
+            "width": 288,
+            "height": 90,
+            "error": 0
+          }
+        ],
+        "after": [
+          {
+            "draws": 552,
+            "vertices": 857232,
+            "connected": true,
+            "width": 288,
+            "height": 90,
+            "error": 0
+          }
+        ]
+      },
+      "hiddenSignalLimitation": "Document visibility signal was controlled in Chromium; not a native browser minimization claim.",
+      "contextLoss": {
+        "mechanism": "native WEBGL_lose_context extension",
+        "fallbackText": "Make learning tangible.",
+        "stableDimensions": {
+          "width": 288,
+          "height": 90
+        }
+      },
+      "pageErrors": []
+    },
+    "unavailableCases": [
+      {
+        "case": "no-webgl",
+        "state": "unavailable",
+        "text": "Make learning tangible.",
+        "canvasCount": 0,
+        "nativeDraftAndHomeUsable": true,
+        "pageErrors": [],
+        "expectedRendererConsoleErrors": [
+          "Failed to load resource: net::ERR_FAILED"
+        ],
+        "scope": "Other GPU scenes isolated; footer is actual production implementation."
+      },
+      {
+        "case": "font-404",
+        "state": "unavailable",
+        "text": "Make learning tangible.",
+        "canvasCount": 0,
+        "nativeDraftAndHomeUsable": true,
+        "pageErrors": [
+          "Unexpected token 'D', \"Deliberate\"... is not valid JSON"
+        ],
+        "expectedRendererConsoleErrors": [
+          "Failed to load resource: net::ERR_FAILED",
+          "Failed to load resource: net::ERR_FAILED",
+          "TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:4217/first-light/assets/MoonMarkCanvas-OTa8FS9Y.js",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "SyntaxError: Unexpected token 'D', \"Deliberate\"... is not valid JSON"
+        ],
+        "scope": "Other GPU scenes isolated; footer is actual production implementation."
+      }
+    ]
+  },
+  "resolvedFindings": [
+    "Initial perspective Bounds fit made the text too small; final synchronous orthographic fit uses the available width.",
+    "Actual offscreen demand frames continued with Bounds; final synchronous fit removes its frame subscriber, and measured idle draws now stay constant."
+  ],
+  "screenshots": [
+    "actual-text3d-1440.png",
+    "actual-text3d-320.png",
+    "actual-footer-context-1440.png",
+    "actual-footer-context-320.png",
+    "fallback-no-webgl.png",
+    "fallback-font-404.png"
+  ],
+  "limitations": [
+    "Chromium with SwiftShader; no Safari or performance/FPS claim.",
+    "Hidden-document signal was controlled; native browser minimization was not verified.",
+    "Failure fixtures deliberately isolate unrelated GPU scenes and generate expected loader/404 console errors; actual font404 also reports a JSON parse pageerror while local fallback and native controls remain usable."
+  ],
+  "projectChecks": {
+    "applicationTestsPassed": 142,
+    "testFilesPassed": 15,
+    "finalRun": "npm test -- --maxWorkers=1 --minWorkers=1",
+    "typecheck": "PASS",
+    "pagesBuild": "PASS",
+    "entry": "index-r8Z0IJLl.js",
+    "lazyFooterChunk": "FooterTextCanvas-D39cuvoH.js",
+    "dependenciesChanged": false,
+    "deployed": false
+  }
+}

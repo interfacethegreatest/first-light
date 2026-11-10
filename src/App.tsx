@@ -10,6 +10,7 @@ import MoonBanner from './components/header/MoonBanner'
 import { MoonCredit } from './components/misc/MoonMark/MoonMark'
 import SparkArt from './components/hero/SparkArt'
 import PaneBackground from './components/panes/PaneBackground'
+import FooterTextScene from './components/typography/FooterTextScene'
 import './App.css'
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -184,6 +185,7 @@ export default function App() {
         </div>
 
         <PaneBackground as="aside" className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></PaneBackground>
+        <FooterTextScene />
         <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>Local browser storage · Export regularly for backup · No account needed<br /><MoonCredit /></p></footer>
       </main>
     </>

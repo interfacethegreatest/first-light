@@ -4,6 +4,8 @@ Turn research findings into web applications, with a traceable path from evidenc
 
 **Live application:** <https://interfacethegreatest.github.io/first-light/>
 
+**Glass and HTML scene example:** <https://interfacethegreatest.github.io/first-light/examples/glass-panel-3d/>
+
 This is a new local React + TypeScript + Vite starter. Its first research topic and application audience are still open. The included web workspace lets you record sources, link findings to implementation decisions, track progress, and export your records. It starts empty, without sample papers or claims.
 
 ## Run locally
@@ -67,6 +69,12 @@ See [the source and verification notes](docs/calendar-stars-provenance.md) and t
 First Light also reuses Calendar4's spring panel entrances, gentle pointer tilt, rolling button labels, and slow border-color cycle. Focused fields remain steady, touch disables tilt, and reduced motion suppresses the new animation while preserving form values and focus.
 
 Watch the [animation preview](docs/previews/calendar-motion-demo.mp4) and see [the source mapping and verification record](docs/calendar-motion-provenance.md). This update was published with the user's approval through [Pages workflow 42628705528](https://github.com/interfacethegreatest/first-light/actions/runs/42628705528).
+
+## Three.js typography and reusable glass
+
+The application includes a compact 3D text scene above its existing footer. A separate [component example](https://interfacethegreatest.github.io/first-light/examples/glass-panel-3d/) demonstrates the reusable glass panel, mount/unmount hook, native HTML inside Drei's `Html`, gentle torus motion, and Calendar4's extracted input container with its outside-click hook. Both pages are included in the normal production build.
+
+See the [footer text](docs/footer-3d-text.md), [glass panel](docs/glass-panel-3d.md) and [HTML scene](docs/html-glass-card.md) documentation for component code, attribution and verification. Drafts remain local to the example and do not write research records. Motion respects reduced-motion preferences, page visibility and form focus; unavailable WebGL retains native content.
 
 ## Storage and current limits
 

@@ -1,0 +1,69 @@
+.scene {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.canvasLayer, .nativeSlot, .htmlPortal {
+  position: absolute;
+  inset: 0;
+}
+
+.canvasLayer { pointer-events: none; }
+.htmlPortal { z-index: 1; pointer-events: none; }
+
+.nativeSlot {
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.host {
+  flex: none;
+  pointer-events: auto;
+}
+
+/* The canvas alone is decorative; the Html DOM and its controls stay opaque. */
+.canvasLayer canvas {
+  opacity: .22;
+  pointer-events: none;
+}
+
+.card {
+  composes: panel from '../glass-panel-3d/GlassPanel3D.module.css';
+  display: grid;
+  gap: .75rem;
+  width: 100%;
+  padding: 1.25rem;
+  line-height: 1.5;
+}
+
+.card h2 {
+  margin: 0;
+  font: inherit;
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -.025em;
+}
+
+.card p { margin: 0; }
+.card label { font-size: .8rem; }
+.eyebrow { font-size: .65rem; letter-spacing: .12em; color: #c3cad9; }
+.hint { font-size: .7rem; color: #c3cad9; }
+
+.note {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: .25rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: .85rem;
+  line-height: 1.5;
+  resize: none;
+}

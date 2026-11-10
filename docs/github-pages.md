@@ -24,6 +24,8 @@ gh workflow run pages.yml --repo interfacethegreatest/first-light --ref main
 
 The workflow installs from the lockfile, runs type checks, tests, and a production build, then uploads and deploys `dist/`. It uses Node.js 24. The build sets `VITE_BASE_PATH` to `/<repository-name>/` so JavaScript, CSS, and favicon URLs resolve at the Pages project path. Future deployments require manually dispatching this workflow.
 
+The Vite build includes the main application at `dist/index.html` and the reusable component example at `dist/examples/glass-panel-3d/index.html`. The published example is <https://interfacethegreatest.github.io/first-light/examples/glass-panel-3d/>. Its fonts and environment map use the same repository base path as the application.
+
 ## Verify the production path locally
 
 ```sh
