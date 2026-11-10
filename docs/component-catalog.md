@@ -2,7 +2,7 @@
 
 This is a **local working-tree snapshot, including uncommitted source**. It is not a deployment record or a claim about the live site.
 
-Snapshot SHA-256: `c7dd30b65a4acedf36beea948dd4a5b4184e85530874216cdf4df95ecb47651e`. All **96 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **98 selected source files**, with no source truncation.
+Snapshot SHA-256: `dfdefb2aa69cdc7cb404daae66526ef15b1cfbdadacac4476763526409045968`. All **101 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **103 selected source files**, with no source truncation.
 
 Additional files: `public/media/moon/Moon.jsx` and `examples/glass-panel-3d/main.tsx`. The example entry mounts the optional GlassPanelExample; it is supporting application code, not an additional React component.
 
@@ -131,11 +131,17 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
   - [src/components/typography/ThreeDHeading.module.css](#file-src-components-typography-threedheading-module-css-5f49d170)
   - [src/components/typography/ThreeDHeading.tsx](#file-src-components-typography-threedheading-tsx-c460028a)
   - [src/components/typography/useFooterTextActivity.ts](#file-src-components-typography-usefootertextactivity-ts-7e8a705d)
+- [Other supporting source](#group-other)
+  - [src/components/misc/EarthMark/EarthFallback.tsx](#file-src-components-misc-earthmark-earthfallback-tsx-f17f09f6)
+  - [src/components/misc/EarthMark/EarthMark.module.css](#file-src-components-misc-earthmark-earthmark-module-css-1a1c97ca)
+  - [src/components/misc/EarthMark/EarthMark.tsx](#file-src-components-misc-earthmark-earthmark-tsx-3b0b8513)
+  - [src/components/misc/EarthMark/EarthMarkCanvas.tsx](#file-src-components-misc-earthmark-earthmarkcanvas-tsx-fb3e7fdd)
+  - [src/components/misc/EarthMark/EarthModel.tsx](#file-src-components-misc-earthmark-earthmodel-tsx-b6de1981)
 
 <a id="component-inventory"></a>
 ## Component module inventory
 
-47 component-bearing or compatibility modules; 2 compatibility re-exports. This is a module inventory, not a speculative total of React functions.
+51 component-bearing or compatibility modules; 2 compatibility re-exports. This is a module inventory, not a speculative total of React functions.
 
 | Module | Primary / named exports | Complete source | Application use |
 | --- | --- | --- | --- |
@@ -167,6 +173,10 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 | HtmlGlassCard | HtmlGlassCard | [src/components/html-glass-card/HtmlGlassCard.tsx](#file-src-components-html-glass-card-htmlglasscard-tsx-cc6acc96) | Standalone/reusable; not imported from application entry |
 | HtmlGlassCardContent | HtmlGlassCardContent | [src/components/html-glass-card/HtmlGlassCardContent.tsx](#file-src-components-html-glass-card-htmlglasscardcontent-tsx-bce2b899) | Standalone/reusable; not imported from application entry |
 | ModalInputContainer | ModalInputContainer | [src/components/input/ModalInput/ModalInputContainer.tsx](#file-src-components-input-modalinput-modalinputcontainer-tsx-4e26eac1) | Standalone/reusable; not imported from application entry |
+| EarthFallback | EarthFallback | [src/components/misc/EarthMark/EarthFallback.tsx](#file-src-components-misc-earthmark-earthfallback-tsx-f17f09f6) | Imported from application entry (including lazy/conditional paths) |
+| EarthMark | EarthMark; EarthCredit | [src/components/misc/EarthMark/EarthMark.tsx](#file-src-components-misc-earthmark-earthmark-tsx-3b0b8513) | Imported from application entry (including lazy/conditional paths) |
+| EarthMarkCanvas | EarthMarkCanvas | [src/components/misc/EarthMark/EarthMarkCanvas.tsx](#file-src-components-misc-earthmark-earthmarkcanvas-tsx-fb3e7fdd) | Imported from application entry (including lazy/conditional paths) |
+| EarthModel | EarthModel | [src/components/misc/EarthMark/EarthModel.tsx](#file-src-components-misc-earthmark-earthmodel-tsx-b6de1981) | Imported from application entry (including lazy/conditional paths) |
 | MoonMark | MoonMark; MoonCredit | [src/components/misc/MoonMark/MoonMark.tsx](#file-src-components-misc-moonmark-moonmark-tsx-5568e43c) | Imported from application entry (including lazy/conditional paths) |
 | MoonMarkCanvas | MoonMarkCanvas | [src/components/misc/MoonMark/MoonMarkCanvas.tsx](#file-src-components-misc-moonmark-moonmarkcanvas-tsx-dbaa12ed) | Imported from application entry (including lazy/conditional paths) |
 | MoonModel | MoonModel | [src/components/misc/MoonMark/MoonModel.tsx](#file-src-components-misc-moonmark-moonmodel-tsx-ea70a7a5) | Imported from application entry (including lazy/conditional paths) |
@@ -214,7 +224,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 <a id="file-src-app-css-60f5dcfc"></a>
 ### src/App.css
 
-16865 bytes · SHA-256 `eb5a3b96cd0f8acb0ea53138ff4f933e80342e40cb5859ad2198683bdbdcca5f` · utf8
+16686 bytes · SHA-256 `a2594b7ef5518c430037623c2b533ecd23bb873c2cdfbb78448969a678e3895a` · utf8
 
 ```css
 :root {
@@ -297,13 +307,6 @@ ul {
 }
 .brand-dot {
   color:var(--accent)
-}
-.small-dot {
-  width:5px;
-  height:5px;
-  background:#c2d7ad;
-  border-radius:50%;
-  display:inline-block
 }
 .button {
   border:0;
@@ -1166,10 +1169,6 @@ h1>span {
     line-height:1.5;
     align-items:flex-start
   }
-  .privacy-note .small-dot {
-    flex-shrink:0;
-    margin-top:4px
-  }
   .stat-label {
     font-size:8px
   }
@@ -1215,7 +1214,7 @@ h1>span {
 <a id="file-src-app-tsx-26ad4b83"></a>
 ### src/App.tsx
 
-16157 bytes · SHA-256 `612690da865ea467d52b48ee7b9b04da0f106b002c5c78b4e6e5160a25f55860` · utf8
+16252 bytes · SHA-256 `b2be7b272e96966e39ae7bc4cfd849c7f5697bbd260003a43e64bf8790cb912a` · utf8
 
 ```tsx
 import { useEffect, useState, type FormEvent } from 'react'
@@ -1228,6 +1227,7 @@ import SourceSections from './components/sources/SourceSections'
 import useSourceSections from './components/sources/useSourceSections'
 import MoonBanner from './components/header/MoonBanner'
 import { MoonCredit } from './components/misc/MoonMark/MoonMark'
+import EarthMark, { EarthCredit } from './components/misc/EarthMark/EarthMark'
 import SparkArt from './components/hero/SparkArt'
 import PaneBackground from './components/panes/PaneBackground'
 import FooterTextScene from './components/typography/FooterTextScene'
@@ -1374,7 +1374,7 @@ export default function App() {
 
         <div className="workspace-heading" id="workspace">
           <div><p className="eyebrow">YOUR STARTING POINT</p><h2>The workspace</h2></div>
-          <span className="privacy-note"><span className="small-dot" />Stored in this browser</span>
+          <span className="privacy-note"><EarthMark size={14} />Stored in this browser</span>
         </div>
 
         {storageWarning && <div className="notice notice-warning" role="alert">{storageWarning}</div>}
@@ -1441,7 +1441,7 @@ export default function App() {
 
         <PaneBackground as="aside" className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></PaneBackground>
         <FooterTextScene rotationSpeed={0.12} />
-        <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>Local browser storage · Export regularly for backup · No account needed<br /><MoonCredit /></p></footer>
+        <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>Local browser storage · Export regularly for backup · No account needed<br /><MoonCredit />{' · '}<EarthCredit /></p></footer>
       </main>
     </>
   )
@@ -2056,7 +2056,7 @@ export default function HeaderTitle({ className }: HeaderTitleProps) {
 <a id="file-src-components-header-moonbanner-module-css-910bb8d8"></a>
 ### src/components/header/MoonBanner.module.css
 
-1759 bytes · SHA-256 `79b95750dfd236f3bf62ef316b2bd142ae0b93f513567effbbab39b6181e110e` · utf8
+1661 bytes · SHA-256 `c8108020b41ccc9ddc7b952c28752b75bbef3be7d9ebf0fc3c90c4a74cf81de8` · utf8
 
 ```css
 .banner:global(.site-header) {
@@ -2115,13 +2115,6 @@ export default function HeaderTitle({ className }: HeaderTitleProps) {
   white-space: nowrap;
 }
 
-.localBadge > span {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #c2d7ad;
-}
-
 .home:focus-visible {
   outline: 3px solid #ffaf86;
   outline-offset: 4px;
@@ -2168,10 +2161,11 @@ export default function HeaderTitle({ className }: HeaderTitleProps) {
 <a id="file-src-components-header-moonbanner-tsx-91446d9d"></a>
 ### src/components/header/MoonBanner.tsx
 
-889 bytes · SHA-256 `13867f0433270e1b7a79a67b444fea24314b359a07f43e4d19e8ddf0206e7659` · utf8
+937 bytes · SHA-256 `91ed5346e1d74a932faa456a0e52297a79c706a34944c324e73a06dbf54bc3fe` · utf8
 
 ```tsx
 import HeaderExport from './HeaderExport'
+import EarthMark from '../misc/EarthMark/EarthMark'
 import { headerFrameTemplate } from './headerFrameTemplate'
 import { headerTitleTemplate } from './headerTitleTemplate'
 import styles from './MoonBanner.module.css'
@@ -2190,7 +2184,7 @@ export default function MoonBanner({ onExport }: MoonBannerProps) {
           {headerTitleTemplate.render()}
           <div className={`header-context ${styles.context}`}>
             <span>Research workspace</span>
-            <span className={styles.localBadge}><span aria-hidden="true" />Local</span>
+            <span className={styles.localBadge}><EarthMark size={12} />Local</span>
           </div>
         </a>
         <HeaderExport onExport={onExport} />
@@ -7725,6 +7719,363 @@ export function useFooterTextActivity(target: RefObject<HTMLElement | null>) {
 
   return { inViewport, pageVisible, reducedMotion, hasWebGL }
 }
+```
+
+[Back to contents](#contents)
+
+
+<a id="group-other"></a>
+## Other supporting source
+
+<a id="file-src-components-misc-earthmark-earthfallback-tsx-f17f09f6"></a>
+### src/components/misc/EarthMark/EarthFallback.tsx
+
+445 bytes · SHA-256 `673d41dc7d9a5dc29875d999fedebe5faeb179bb0f0ec7a4863ecb657a681a7f` · utf8
+
+```tsx
+/** A quiet local placeholder, never presented as the textured Earth model. */
+export default function EarthFallback() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.15"
+      aria-hidden="true" focusable="false" data-earth-fallback>
+      <circle cx="12" cy="12" r="9.25" />
+      <ellipse cx="12" cy="12" rx="4.3" ry="9.25" />
+      <path d="M3 12h18M4.2 7.4h15.6M4.2 16.6h15.6" />
+    </svg>
+  )
+}
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-misc-earthmark-earthmark-module-css-1a1c97ca"></a>
+### src/components/misc/EarthMark/EarthMark.module.css
+
+667 bytes · SHA-256 `b4052583dc8f75cab4716885e5ac4e5475cab18618b6cc45f3834789d47ba2ce` · utf8
+
+```css
+.mark {
+  position: relative;
+  display: inline-block;
+  width: var(--earth-mark-size, 14px);
+  height: var(--earth-mark-size, 14px);
+  flex-shrink: 0;
+  vertical-align: middle;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.visual {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0.84;
+  filter: drop-shadow(0 0 2px rgba(232, 240, 255, 0.2));
+  background: transparent;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.visual > svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #8ba5a8;
+}
+
+.credit {
+  font: inherit;
+  color: inherit;
+}
+
+.credit a {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-misc-earthmark-earthmark-tsx-3b0b8513"></a>
+### src/components/misc/EarthMark/EarthMark.tsx
+
+3660 bytes · SHA-256 `911412432e863750295819e7410432911df4eaaf41f4466fadee95c1140e721f` · utf8
+
+```tsx
+import {
+  Component, lazy, memo, Suspense, useCallback, useEffect, useRef, useState,
+  type CSSProperties, type ReactNode,
+} from 'react'
+import { useMoonActivity } from '../MoonMark/useMoonActivity'
+import type { EarthRotationAxis } from './EarthModel'
+import EarthFallback from './EarthFallback'
+import styles from './EarthMark.module.css'
+
+const EarthMarkCanvas = lazy(() => import('./EarthMarkCanvas'))
+
+export interface EarthMarkProps {
+  size?: number
+  animate?: boolean
+  rotationAxis?: EarthRotationAxis
+  /** Radians per second; negative values reverse direction and zero holds the pose. */
+  rotationSpeed?: number
+  className?: string
+}
+
+class EarthBoundary extends Component<{
+  children: ReactNode
+  onUnavailable: () => void
+}, { failed: boolean }> {
+  state = { failed: false }
+  static getDerivedStateFromError() { return { failed: true } }
+  componentDidCatch() { this.props.onUnavailable() }
+  render() { return this.state.failed ? null : this.props.children }
+}
+
+function EarthMark({
+  size = 14, animate = true, rotationAxis = 'y', rotationSpeed = -0.12, className,
+}: EarthMarkProps) {
+  const element = useRef<HTMLSpanElement>(null)
+  const live = useRef(true)
+  const failed = useRef(false)
+  const { inViewport, pageVisible, reducedMotion } = useMoonActivity(element)
+  const [hasWebGL, setHasWebGL] = useState<boolean | null>(null)
+  const [requested, setRequested] = useState(false)
+  const [ready, setReady] = useState(false)
+  const [unavailable, setUnavailable] = useState(false)
+
+  useEffect(() => {
+    live.current = true
+    setHasWebGL(typeof WebGL2RenderingContext !== 'undefined' || typeof WebGLRenderingContext !== 'undefined')
+    return () => { live.current = false }
+  }, [])
+  useEffect(() => {
+    if (inViewport && pageVisible && hasWebGL) setRequested(true)
+  }, [inViewport, pageVisible, hasWebGL])
+
+  const onReady = useCallback(() => {
+    if (live.current && !failed.current) setReady(true)
+  }, [])
+  const onUnavailable = useCallback(() => {
+    if (!live.current || failed.current) return
+    failed.current = true
+    setReady(false)
+    setUnavailable(true)
+  }, [])
+
+  const canRender = requested && hasWebGL === true && !unavailable
+  const rotating = canRender && ready && animate && Number.isFinite(rotationSpeed) && rotationSpeed !== 0
+    && inViewport && pageVisible && !reducedMotion
+  const state = unavailable || hasWebGL === false
+    ? 'unavailable' : ready ? 'loaded' : requested ? 'loading' : 'pending'
+
+  return (
+    <span ref={element} className={`${styles.mark}${className ? ` ${className}` : ''}`}
+      style={{ '--earth-mark-size': `${size}px` } as CSSProperties}
+      aria-hidden="true" data-earth-mark data-earth-state={state} data-earth-animate={rotating}>
+      <span className={styles.visual} data-earth-visual>
+        {!ready && <EarthFallback />}
+        {canRender && (
+          <EarthBoundary onUnavailable={onUnavailable}>
+            <Suspense fallback={null}>
+              <EarthMarkCanvas animate={rotating} rotationAxis={rotationAxis} rotationSpeed={rotationSpeed}
+                onReady={onReady} onUnavailable={onUnavailable} />
+            </Suspense>
+          </EarthBoundary>
+        )}
+      </span>
+    </span>
+  )
+}
+
+export default memo(EarthMark)
+
+export function EarthCredit() {
+  return (
+    <span className={styles.credit}>
+      <a href="https://sketchfab.com/3d-models/earth-f7a76c63ff1846afb2d606e5c8369c15" target="_blank" rel="noreferrer">Earth by PatelDev</a>
+      {' · '}<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>
+      {' · packaged and adapted for First Light'}
+    </span>
+  )
+}
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-misc-earthmark-earthmarkcanvas-tsx-fb3e7fdd"></a>
+### src/components/misc/EarthMark/EarthMarkCanvas.tsx
+
+2851 bytes · SHA-256 `199688e18df08be63d9098794e5b9626232321fc6e3ff617124e846cdfb3f2eb` · utf8
+
+```tsx
+import { Suspense, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { Canvas } from '@react-three/fiber'
+import EarthModel, { type EarthRotationAxis } from './EarthModel'
+
+export interface EarthMarkCanvasProps {
+  animate?: boolean
+  rotationAxis?: EarthRotationAxis
+  rotationSpeed?: number
+  onReady?: () => void
+  onUnavailable?: () => void
+}
+
+const camera = {
+  position: [0, 0, 10] as [number, number, number],
+  left: -2.81,
+  right: 2.81,
+  top: 2.81,
+  bottom: -2.81,
+  near: 0.1,
+  far: 30,
+}
+const dpr: [number, number] = [1, 1.5]
+const glOptions = { alpha: true, antialias: true }
+
+export default function EarthMarkCanvas({
+  animate = false,
+  rotationAxis = 'y',
+  rotationSpeed = -0.12,
+  onReady,
+  onUnavailable,
+}: EarthMarkCanvasProps) {
+  const canvas = useRef<HTMLCanvasElement>(null)
+  const live = useRef(true)
+  const ready = useRef(false)
+  const lost = useRef(false)
+  const readyCallback = useRef(onReady)
+  const unavailableCallback = useRef(onUnavailable)
+  const [unavailable, setUnavailable] = useState(false)
+  const rotating = animate && Number.isFinite(rotationSpeed) && rotationSpeed !== 0
+
+  useLayoutEffect(() => {
+    readyCallback.current = onReady
+    unavailableCallback.current = onUnavailable
+  }, [onReady, onUnavailable])
+  useEffect(() => {
+    live.current = true
+    return () => { live.current = false }
+  }, [])
+
+  const forwardReady = useCallback(() => {
+    if (!live.current || lost.current || ready.current) return
+    ready.current = true
+    readyCallback.current?.()
+  }, [])
+
+  useEffect(() => {
+    const element = canvas.current
+    if (unavailable || !element) return
+    const onContextLost = (event: Event) => {
+      event.preventDefault()
+      if (!live.current || lost.current) return
+      lost.current = true
+      setUnavailable(true)
+      unavailableCallback.current?.()
+    }
+    element.addEventListener('webglcontextlost', onContextLost)
+    return () => element.removeEventListener('webglcontextlost', onContextLost)
+  }, [unavailable])
+
+  if (unavailable) return null
+
+  return (
+    <Canvas
+      ref={canvas}
+      data-testid="earth-scene"
+      aria-hidden="true"
+      orthographic
+      camera={camera}
+      gl={glOptions}
+      dpr={dpr}
+      frameloop={rotating ? 'always' : 'demand'}
+      style={{ width: '100%', height: '100%', background: 'transparent', pointerEvents: 'none', touchAction: 'auto' }}
+    >
+      <ambientLight intensity={0.35} />
+      <hemisphereLight args={['#ffffff', '#808080', 0.6]} />
+      <directionalLight position={[3, 4, 5]} intensity={2} />
+      <directionalLight position={[-4, -2, 1]} intensity={0.25} />
+      <Suspense fallback={null}>
+        <EarthModel animate={rotating} rotationAxis={rotationAxis} rotationSpeed={rotationSpeed} onReady={forwardReady} />
+      </Suspense>
+    </Canvas>
+  )
+}
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-misc-earthmark-earthmodel-tsx-b6de1981"></a>
+### src/components/misc/EarthMark/EarthModel.tsx
+
+2024 bytes · SHA-256 `db4c92d46a433963ac306d4e3c6ad48069fe8de77fcccdf9132274879262b05c` · utf8
+
+```tsx
+import { useCallback, useLayoutEffect, useRef } from 'react'
+import { useGLTF } from '@react-three/drei'
+import { Mesh, type Group, type WebGLRenderer } from 'three'
+import { useObjectRotation, type RotationAxis } from '../../glass-objects/useObjectRotation'
+
+export const EARTH_MODEL_URL = `${import.meta.env.BASE_URL}media/earth/earth-icon.glb`
+export type EarthRotationAxis = RotationAxis
+
+export interface EarthModelProps {
+  animate?: boolean
+  rotationAxis?: EarthRotationAxis
+  rotationSpeed?: number
+  onReady?: () => void
+}
+
+/** Calendar4's Earth mesh/material and 2.8 scale, without Moon-specific transforms. */
+export default function EarthModel({
+  animate = false,
+  rotationAxis = 'y',
+  rotationSpeed = -0.12,
+  onReady,
+}: EarthModelProps) {
+  const { nodes, materials } = useGLTF(EARTH_MODEL_URL, false, false)
+  const earth = nodes.Object_4
+  const material = materials['Scene_-_Root']
+  if (!(earth instanceof Mesh) || !earth.geometry || !material) {
+    throw new Error('The Earth asset is missing its source mesh or material.')
+  }
+
+  const rotation = useRef<Group>(null)
+  const reported = useRef(false)
+  const live = useRef(true)
+  const readyCallback = useRef(onReady)
+  useObjectRotation(rotation, { spin: animate, rotationAxis, rotationSpeed })
+
+  useLayoutEffect(() => {
+    live.current = true
+    return () => { live.current = false }
+  }, [])
+  useLayoutEffect(() => { readyCallback.current = onReady }, [onReady])
+
+  const afterRender = useCallback((renderer: WebGLRenderer) => {
+    if (!live.current || reported.current || renderer.getRenderTarget() !== null) return
+    reported.current = true
+    readyCallback.current?.()
+  }, [])
+
+  return (
+    <group ref={rotation} dispose={null}>
+      <mesh
+        geometry={earth.geometry}
+        material={material}
+        scale={2.8}
+        dispose={null}
+        onAfterRender={afterRender}
+      />
+    </group>
+  )
+}
+
+// This module is imported only by the lazily requested client renderer.
+useGLTF.preload(EARTH_MODEL_URL, false, false)
 ```
 
 [Back to contents](#contents)

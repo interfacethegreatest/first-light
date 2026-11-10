@@ -54,13 +54,6 @@
   white-space: nowrap;
 }
 
-.localBadge > span {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #c2d7ad;
-}
-
 .home:focus-visible {
   outline: 3px solid #ffaf86;
   outline-offset: 4px;

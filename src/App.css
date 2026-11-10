@@ -79,13 +79,6 @@ ul {
 .brand-dot {
   color:var(--accent)
 }
-.small-dot {
-  width:5px;
-  height:5px;
-  background:#c2d7ad;
-  border-radius:50%;
-  display:inline-block
-}
 .button {
   border:0;
   border-radius:5px;
@@ -946,10 +939,6 @@ h1>span {
     max-width:113px;
     line-height:1.5;
     align-items:flex-start
-  }
-  .privacy-note .small-dot {
-    flex-shrink:0;
-    margin-top:4px
   }
   .stat-label {
     font-size:8px

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "kind": "locally-downsampled-rendering-derivative",
+  "sourceRevision": "7b7e533e587d4991c97b63259355d1a5e9141616",
+  "tool": {
+    "name": "scripts/prepare-earth-icon.py",
+    "pillowVersion": "13.0.0",
+    "jpegLibraryVersion": "6.2",
+    "packer": "scripts/pack-moon-glb.mjs (reused unchanged)"
+  },
+  "sourceImage": {
+    "file": "textures/Scene_-_Root_baseColor.jpeg",
+    "bytes": 22492705,
+    "sha256": "f756869160529f667bbaf1316ce436a355d29d0b4b8a418eb141f79fe56b4f4f",
+    "gitBlob": "05dede73ba99f70be4ea4b87b22e167b5fbd840a",
+    "width": 8192,
+    "height": 4096
+  },
+  "image": {
+    "file": "icon/Scene_-_Root_baseColor.jpeg",
+    "bytes": 201206,
+    "sha256": "d2db5898b7b7be559fcc4daafffcee0ad0fc6a233e2acb7695821a3e34127dcf",
+    "gitBlob": "bd9bb4d3b1fd0b71375375557e4349ee34f7f8e3",
+    "width": 1024,
+    "height": 512
+  },
+  "output": {
+    "file": "earth-icon.glb",
+    "bytes": 2043928,
+    "sha256": "b4e0d0bea753e317578e3e6e90d06ca3d7426cb45deece70a37c33cc2a02b663",
+    "gitBlob": "5dd387127b1e5c0793ba492b35a5309b9e9bd2ea"
+  },
+  "resize": {
+    "filter": "LANCZOS",
+    "jpegQuality": 90,
+    "chromaSubsampling": "4:2:0",
+    "optimize": false,
+    "progressive": false,
+    "colorMode": "RGB",
+    "sourceHasIccProfile": false,
+    "colorTransformApplied": false,
+    "textureRgba8BaseLevelBytes": 2097152
+  },
+  "preservation": {
+    "originalFilesModified": false,
+    "stagedGltfAndBinByteIdentical": true,
+    "geometrySimplified": false,
+    "indicesConverted": false,
+    "transformsBaked": false,
+    "uvOrMaterialChanges": false,
+    "imageBytesIdenticalToOriginal": false,
+    "note": "Only the staged JPEG is replaced. Its relative URI remains the same inside the temporary source package; the icon pack report identifies derivative image bytes, not original image bytes."
+  }
+}

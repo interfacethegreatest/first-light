@@ -1,0 +1,376 @@
+{
+  "artifactStatus": "final-local-packer",
+  "sourceRevision": "7b7e533e587d4991c97b63259355d1a5e9141616",
+  "sourceRepository": "https://github.com/interfacethegreatest/Calendar4",
+  "originalSourceBlobsVerified": true,
+  "validatorVersion": "2.0.0-dev.3.10",
+  "files": {
+    "earth.gltf": {
+      "bytes": 4024,
+      "sha256": "edeba119bf0d440d2f6e5618b84d1f320dd748efabec7bcd7b9f6c8775ad0806",
+      "gitBlob": "b6b4f0e0e5800e2e59ffaefca0e9fb31e616f1ce"
+    },
+    "earth.bin": {
+      "bytes": 1840512,
+      "sha256": "1adaff7a2857ed14bb0749c9debb60262f544a5724a3e6b2e5f5d3e2fa8ed8f4",
+      "gitBlob": "ec3f96c2e3945e55dabfaecf7200423d68d268d4"
+    },
+    "textures/Scene_-_Root_baseColor.jpeg": {
+      "bytes": 22492705,
+      "sha256": "f756869160529f667bbaf1316ce436a355d29d0b4b8a418eb141f79fe56b4f4f",
+      "gitBlob": "05dede73ba99f70be4ea4b87b22e167b5fbd840a"
+    },
+    "license.txt": {
+      "bytes": 640,
+      "sha256": "0d1600fdefbe26be589b130f3ac8f34c21e5b53d204c3f9addd715bd708f0c00",
+      "gitBlob": "49bf5fedbee90d87f4012440b4366666f8b80e51"
+    },
+    "Earth.jsx": {
+      "bytes": 960,
+      "sha256": "3ab5cf64c4a7c65eba63290e4c28f41edfa275c2b97da8135dad7bb2c7db6fcc",
+      "gitBlob": "e2059bf0194ace086e0df3d3f83449b6768efda9"
+    },
+    "earth.glb": {
+      "bytes": 24335432,
+      "sha256": "3ac3a6c3bf6d0712fa89ca5c3c0236b7862ec74cc1da7cde97b12f6da9d36a12",
+      "gitBlob": "dfafeb4a8edcd76ec60c8f3e067d3042636ee639"
+    },
+    "earth.glb.pack-report.json": {
+      "bytes": 5638,
+      "sha256": "3046cdb7d4129612f9fe60e8d97940d83a37c830ad5b6d24dc822496e822473b",
+      "gitBlob": "55a3c62d94bb4dadeba08d0b9133c6df71b820e7"
+    },
+    "earth-icon.glb": {
+      "bytes": 2043928,
+      "sha256": "b4e0d0bea753e317578e3e6e90d06ca3d7426cb45deece70a37c33cc2a02b663",
+      "gitBlob": "5dd387127b1e5c0793ba492b35a5309b9e9bd2ea"
+    },
+    "earth-icon.glb.pack-report.json": {
+      "bytes": 5639,
+      "sha256": "80c73eff8ab8e8d128a6f91e587293ad482ac9d4a55c8bf9ef1c5f3f53584e4f",
+      "gitBlob": "6daaec12029b5702eca72bd2f1e31f228c0ecef0"
+    },
+    "icon/Scene_-_Root_baseColor.jpeg": {
+      "bytes": 201206,
+      "sha256": "d2db5898b7b7be559fcc4daafffcee0ad0fc6a233e2acb7695821a3e34127dcf",
+      "gitBlob": "bd9bb4d3b1fd0b71375375557e4349ee34f7f8e3"
+    },
+    "icon/preparation-report.json": {
+      "bytes": 1847,
+      "sha256": "44bfd7e274196c16697e57aff9d2ffd2b652ece47ec970158777e7fb5370e863",
+      "gitBlob": "df795320e6469a9ad71790517495fe1cae3db2f5"
+    }
+  },
+  "conversion": {
+    "tool": "scripts/pack-moon-glb.mjs (existing locally implemented generic single-BIN/JPEG packer, reused unchanged for Earth)",
+    "originalPayloadBytes": 24337241,
+    "glbBytes": 24335432,
+    "byteDifference": -1809,
+    "compression": "none; JSON minification and binary embedding only",
+    "externalUris": [],
+    "geometryBytesIdentical": true,
+    "imageBytesIdentical": true,
+    "jsonIdenticalExceptResourceEmbedding": true,
+    "imageMimeType": "image/jpeg",
+    "textureDimensions": {
+      "width": 8192,
+      "height": 4096
+    },
+    "textureRgba8BaseLevelBytes": 134217728
+  },
+  "geometry": {
+    "vertexCount": 33708,
+    "indexCount": 190464,
+    "triangleCount": 63488,
+    "positionBounds": {
+      "min": [
+        -0.9872310161590576,
+        -0.9975767135620117,
+        -0.9872310161590576
+      ],
+      "max": [
+        0.9872313737869263,
+        0.9975767135620117,
+        0.9872314929962158
+      ]
+    },
+    "accessors": {
+      "NORMAL": {
+        "count": 33708,
+        "components": 3,
+        "decodedValuesIdentical": true
+      },
+      "POSITION": {
+        "count": 33708,
+        "components": 3,
+        "decodedValuesIdentical": true
+      },
+      "TEXCOORD_0": {
+        "count": 33708,
+        "components": 2,
+        "decodedValuesIdentical": true
+      },
+      "INDICES": {
+        "count": 190464,
+        "components": 1,
+        "decodedValuesIdentical": true
+      }
+    },
+    "meshNames": [
+      "Object_0"
+    ],
+    "nodeNames": [
+      "Sketchfab_model",
+      "root",
+      "GLTF_SceneRootNode",
+      "Sphere_2",
+      "Object_4"
+    ],
+    "material": {
+      "doubleSided": true,
+      "name": "Scene_-_Root",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.4
+      }
+    },
+    "wrapperReference": {
+      "file": "Earth.jsx",
+      "node": "Object_4",
+      "material": "Scene_-_Root",
+      "meshScale": 2.8,
+      "explicitMeshRotation": null,
+      "ancestorTransformsBaked": false,
+      "note": "The archived wrapper directly uses node geometry; it does not mount the full glTF ancestor hierarchy or apply the Moon rotation."
+    }
+  },
+  "original": {
+    "requestedLocalResources": [
+      "earth.bin",
+      "textures/Scene_-_Root_baseColor.jpeg"
+    ],
+    "validation": {
+      "uri": "earth.gltf",
+      "mimeType": "model/gltf+json",
+      "validatorVersion": "2.0.0-dev.3.10",
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [],
+        "truncated": false
+      },
+      "info": {
+        "version": "2.0",
+        "generator": "Sketchfab-12.68.0",
+        "resources": [
+          {
+            "pointer": "/buffers/0",
+            "mimeType": "application/gltf-buffer",
+            "storage": "external",
+            "uri": "earth.bin",
+            "byteLength": 1840512
+          },
+          {
+            "pointer": "/images/0",
+            "mimeType": "image/jpeg",
+            "storage": "external",
+            "uri": "textures/Scene_-_Root_baseColor.jpeg",
+            "image": {
+              "width": 8192,
+              "height": 4096,
+              "format": "rgb",
+              "bits": 8
+            }
+          }
+        ],
+        "animationCount": 0,
+        "materialCount": 1,
+        "hasMorphTargets": false,
+        "hasSkins": false,
+        "hasTextures": true,
+        "hasDefaultScene": true,
+        "drawCallCount": 1,
+        "totalVertexCount": 33708,
+        "totalTriangleCount": 63488,
+        "maxUVs": 1,
+        "maxInfluences": 0,
+        "maxAttributes": 3
+      }
+    }
+  },
+  "converted": {
+    "validation": {
+      "uri": "earth.glb",
+      "mimeType": "model/gltf-binary",
+      "validatorVersion": "2.0.0-dev.3.10",
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [],
+        "truncated": false
+      },
+      "info": {
+        "version": "2.0",
+        "generator": "Sketchfab-12.68.0",
+        "resources": [
+          {
+            "pointer": "/buffers/0",
+            "mimeType": "application/gltf-buffer",
+            "storage": "glb",
+            "byteLength": 24333220
+          },
+          {
+            "pointer": "/images/0",
+            "mimeType": "image/jpeg",
+            "storage": "buffer-view",
+            "image": {
+              "width": 8192,
+              "height": 4096,
+              "format": "rgb",
+              "bits": 8
+            }
+          }
+        ],
+        "animationCount": 0,
+        "materialCount": 1,
+        "hasMorphTargets": false,
+        "hasSkins": false,
+        "hasTextures": true,
+        "hasDefaultScene": true,
+        "drawCallCount": 1,
+        "totalVertexCount": 33708,
+        "totalTriangleCount": 63488,
+        "maxUVs": 1,
+        "maxInfluences": 0,
+        "maxAttributes": 3
+      }
+    }
+  },
+  "icon": {
+    "intendedUse": "Small Earth UI marks; the full original-quality GLB remains archived separately",
+    "glbBytes": 2043928,
+    "glbSha256": "b4e0d0bea753e317578e3e6e90d06ca3d7426cb45deece70a37c33cc2a02b663",
+    "geometryBytesIdentical": true,
+    "decodedGeometryValuesIdentical": true,
+    "jsonIdenticalExceptResourceEmbedding": true,
+    "imageBytesIdenticalToOriginal": false,
+    "imageBytesIdenticalToPreparedDerivative": true,
+    "imageSha256": "d2db5898b7b7be559fcc4daafffcee0ad0fc6a233e2acb7695821a3e34127dcf",
+    "imageBytes": 201206,
+    "textureDimensions": {
+      "width": 1024,
+      "height": 512
+    },
+    "textureRgba8BaseLevelBytes": 2097152,
+    "externalUris": [],
+    "preparation": {
+      "schemaVersion": 1,
+      "kind": "locally-downsampled-rendering-derivative",
+      "sourceRevision": "7b7e533e587d4991c97b63259355d1a5e9141616",
+      "tool": {
+        "name": "scripts/prepare-earth-icon.py",
+        "pillowVersion": "13.0.0",
+        "jpegLibraryVersion": "6.2",
+        "packer": "scripts/pack-moon-glb.mjs (reused unchanged)"
+      },
+      "sourceImage": {
+        "file": "textures/Scene_-_Root_baseColor.jpeg",
+        "bytes": 22492705,
+        "sha256": "f756869160529f667bbaf1316ce436a355d29d0b4b8a418eb141f79fe56b4f4f",
+        "gitBlob": "05dede73ba99f70be4ea4b87b22e167b5fbd840a",
+        "width": 8192,
+        "height": 4096
+      },
+      "image": {
+        "file": "icon/Scene_-_Root_baseColor.jpeg",
+        "bytes": 201206,
+        "sha256": "d2db5898b7b7be559fcc4daafffcee0ad0fc6a233e2acb7695821a3e34127dcf",
+        "gitBlob": "bd9bb4d3b1fd0b71375375557e4349ee34f7f8e3",
+        "width": 1024,
+        "height": 512
+      },
+      "output": {
+        "file": "earth-icon.glb",
+        "bytes": 2043928,
+        "sha256": "b4e0d0bea753e317578e3e6e90d06ca3d7426cb45deece70a37c33cc2a02b663",
+        "gitBlob": "5dd387127b1e5c0793ba492b35a5309b9e9bd2ea"
+      },
+      "resize": {
+        "filter": "LANCZOS",
+        "jpegQuality": 90,
+        "chromaSubsampling": "4:2:0",
+        "optimize": false,
+        "progressive": false,
+        "colorMode": "RGB",
+        "sourceHasIccProfile": false,
+        "colorTransformApplied": false,
+        "textureRgba8BaseLevelBytes": 2097152
+      },
+      "preservation": {
+        "originalFilesModified": false,
+        "stagedGltfAndBinByteIdentical": true,
+        "geometrySimplified": false,
+        "indicesConverted": false,
+        "transformsBaked": false,
+        "uvOrMaterialChanges": false,
+        "imageBytesIdenticalToOriginal": false,
+        "note": "Only the staged JPEG is replaced. Its relative URI remains the same inside the temporary source package; the icon pack report identifies derivative image bytes, not original image bytes."
+      }
+    },
+    "validation": {
+      "uri": "earth-icon.glb",
+      "mimeType": "model/gltf-binary",
+      "validatorVersion": "2.0.0-dev.3.10",
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [],
+        "truncated": false
+      },
+      "info": {
+        "version": "2.0",
+        "generator": "Sketchfab-12.68.0",
+        "resources": [
+          {
+            "pointer": "/buffers/0",
+            "mimeType": "application/gltf-buffer",
+            "storage": "glb",
+            "byteLength": 2041720
+          },
+          {
+            "pointer": "/images/0",
+            "mimeType": "image/jpeg",
+            "storage": "buffer-view",
+            "image": {
+              "width": 1024,
+              "height": 512,
+              "format": "rgb",
+              "bits": 8
+            }
+          }
+        ],
+        "animationCount": 0,
+        "materialCount": 1,
+        "hasMorphTargets": false,
+        "hasSkins": false,
+        "hasTextures": true,
+        "hasDefaultScene": true,
+        "drawCallCount": 1,
+        "totalVertexCount": 33708,
+        "totalTriangleCount": 63488,
+        "maxUVs": 1,
+        "maxInfluences": 0,
+        "maxAttributes": 3
+      }
+    }
+  }
+}

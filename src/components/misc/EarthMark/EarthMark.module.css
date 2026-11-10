@@ -1,0 +1,40 @@
+.mark {
+  position: relative;
+  display: inline-block;
+  width: var(--earth-mark-size, 14px);
+  height: var(--earth-mark-size, 14px);
+  flex-shrink: 0;
+  vertical-align: middle;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.visual {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0.84;
+  filter: drop-shadow(0 0 2px rgba(232, 240, 255, 0.2));
+  background: transparent;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.visual > svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #8ba5a8;
+}
+
+.credit {
+  font: inherit;
+  color: inherit;
+}
+
+.credit a {
+  color: inherit;
+  text-underline-offset: 2px;
+}
