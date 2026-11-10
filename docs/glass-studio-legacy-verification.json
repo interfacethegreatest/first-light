@@ -1,0 +1,98 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:4223/first-light/examples/glass-panel-3d/#transmission-studies",
+  "scope": "Actual existing cinematic scene; other GPU cards hidden only for this focused fixture.",
+  "pageErrors": [],
+  "consoleErrors": [],
+  "hdrRequests": [],
+  "actualSteadyMainDraw": {
+    "before": [
+      {
+        "connected": true,
+        "draws": 299,
+        "counts": {
+          "6": 55,
+          "36": 78,
+          "384": 26,
+          "3876": 40,
+          "8928": 40,
+          "44112": 20,
+          "55296": 20,
+          "72960": 20
+        },
+        "uniforms": {
+          "chromaticAberration": 0.04,
+          "temporalDistortion": 0,
+          "ior": 1.4,
+          "_transmission": 1,
+          "thickness": 0.85
+        },
+        "samples": [
+          4
+        ],
+        "squareTextureSizes": [
+          1,
+          1024,
+          128,
+          256
+        ],
+        "width": 718,
+        "height": 512,
+        "lost": false,
+        "error": 0
+      }
+    ],
+    "after": [
+      {
+        "connected": true,
+        "draws": 299,
+        "counts": {
+          "6": 55,
+          "36": 78,
+          "384": 26,
+          "3876": 40,
+          "8928": 40,
+          "44112": 20,
+          "55296": 20,
+          "72960": 20
+        },
+        "uniforms": {
+          "chromaticAberration": 0.04,
+          "temporalDistortion": 0,
+          "ior": 1.4,
+          "_transmission": 1,
+          "thickness": 0.85
+        },
+        "samples": [
+          4
+        ],
+        "squareTextureSizes": [
+          1,
+          1024,
+          128,
+          256
+        ],
+        "width": 718,
+        "height": 512,
+        "lost": false,
+        "error": 0
+      }
+    ]
+  },
+  "localFont": {
+    "url": "http://127.0.0.1:4223/first-light/fonts/helvetiker_bold.typeface.json",
+    "status": 200,
+    "bytes": 61632,
+    "sha256": "bd68159ee0b8d10fe24b9daa2e32f19686f9d8269a79dc8d44203a66298bfa2f"
+  },
+  "annotationDisplay": "none",
+  "realSphereTorusAndTextVertexCounts": [
+    72960,
+    55296,
+    44112
+  ],
+  "singleCanvas": true,
+  "limits": [
+    "Chromium/SwiftShader reduced-motion smoke; previous detailed optical and motion evidence reused."
+  ]
+}

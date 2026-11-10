@@ -1,5 +1,7 @@
 # Transmission studies
 
+Follow-up: both transmission compositions now use brighter procedural studio lights instead of the photographic HDR, and their floating scene tags are hidden. The new [isolated glass objects](isolated-glass-objects.md) guide covers those changes and the separate single-mesh torus/panel gallery. The release verification below records the earlier published implementation; the follow-up's current checks are recorded in that guide.
+
 ## Requirements and acceptance
 
 Implement reusable higher-segment glass sphere/torus components, a RoundedBox transmission card, and a cinematic card combining those meshes with bold extruded typography in one scene. Preserve the main-page design, original glass examples, workspace records and earlier local changes. Use existing runtime versions and self-hosted assets; add no dependencies. The user has approved integration, testing and deployment in this turn.

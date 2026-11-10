@@ -1,0 +1,769 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:4223/first-light/examples/glass-panel-3d/#glass-objects",
+  "focusedGPU": {
+    "scope": "Real one-mesh GPU fixture; unchanged older examples hidden only here.",
+    "pageErrors": [],
+    "consoleErrors": [],
+    "externalModelFontOrHDRRequests": [],
+    "coldAnchorPassed": true,
+    "objects": [
+      {
+        "kind": "torus",
+        "visibleMainMeshCount": 1,
+        "actualGeometry": "TorusGeometry",
+        "actualTriangles": 18432.0,
+        "visiblePixels": {
+          "pixelsDifferentFromBackground": 27254,
+          "bounds": [
+            158,
+            56,
+            529,
+            449
+          ],
+          "imageSize": [
+            718,
+            513
+          ]
+        },
+        "actualSpin": {
+          "actualModelMatrixBefore": [
+            1.35,
+            0,
+            0,
+            0,
+            0,
+            1.35,
+            0,
+            0,
+            0,
+            0,
+            1.35,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "actualModelMatrixAfter": [
+            1.260106,
+            0,
+            -0.48439,
+            0,
+            0,
+            1.35,
+            0,
+            0,
+            0.48439,
+            0,
+            1.260106,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "reducedMotionIdle": {
+            "before": [
+              {
+                "connected": true,
+                "draws": 188,
+                "counts": {
+                  "36": 95,
+                  "384": 65,
+                  "55296": 28
+                },
+                "uniforms": {
+                  "chromaticAberration": 0.04,
+                  "temporalDistortion": 0,
+                  "ior": 1.4,
+                  "_transmission": 1,
+                  "thickness": 0.85
+                },
+                "samples": [
+                  4
+                ],
+                "squareTextureSizes": [
+                  1,
+                  128,
+                  256
+                ],
+                "modelMatrix": [
+                  1.051216,
+                  0,
+                  -0.847022,
+                  0,
+                  0,
+                  1.35,
+                  0,
+                  0,
+                  0.847022,
+                  0,
+                  1.051216,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "width": 718,
+                "height": 512,
+                "lost": false,
+                "error": 0
+              }
+            ],
+            "after": [
+              {
+                "connected": true,
+                "draws": 188,
+                "counts": {
+                  "36": 95,
+                  "384": 65,
+                  "55296": 28
+                },
+                "uniforms": {
+                  "chromaticAberration": 0.04,
+                  "temporalDistortion": 0,
+                  "ior": 1.4,
+                  "_transmission": 1,
+                  "thickness": 0.85
+                },
+                "samples": [
+                  4
+                ],
+                "squareTextureSizes": [
+                  1,
+                  128,
+                  256
+                ],
+                "modelMatrix": [
+                  1.051216,
+                  0,
+                  -0.847022,
+                  0,
+                  0,
+                  1.35,
+                  0,
+                  0,
+                  0.847022,
+                  0,
+                  1.051216,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "width": 718,
+                "height": 512,
+                "lost": false,
+                "error": 0
+              }
+            ]
+          }
+        },
+        "pixelsChangedAfterActualRotation": 68408,
+        "gpu": [
+          {
+            "connected": true,
+            "draws": 188,
+            "counts": {
+              "36": 95,
+              "384": 65,
+              "55296": 28
+            },
+            "uniforms": {
+              "chromaticAberration": 0.04,
+              "temporalDistortion": 0,
+              "ior": 1.4,
+              "_transmission": 1,
+              "thickness": 0.85
+            },
+            "samples": [
+              4
+            ],
+            "squareTextureSizes": [
+              1,
+              128,
+              256
+            ],
+            "modelMatrix": [
+              1.051216,
+              0,
+              -0.847022,
+              0,
+              0,
+              1.35,
+              0,
+              0,
+              0.847022,
+              0,
+              1.051216,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "width": 718,
+            "height": 512,
+            "lost": false,
+            "error": 0
+          }
+        ]
+      },
+      {
+        "kind": "panel",
+        "visibleMainMeshCount": 1,
+        "actualGeometry": "ExtrudeGeometry",
+        "actualTriangles": 4620.0,
+        "visiblePixels": {
+          "pixelsDifferentFromBackground": 5014,
+          "bounds": [
+            178,
+            144,
+            536,
+            360
+          ],
+          "imageSize": [
+            718,
+            513
+          ]
+        },
+        "actualSpin": {
+          "actualModelMatrixBefore": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "actualModelMatrixAfter": [
+            0.946033,
+            0,
+            -0.324071,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0.324071,
+            0,
+            0.946033,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "reducedMotionIdle": {
+            "before": [
+              {
+                "connected": true,
+                "draws": 660,
+                "counts": {
+                  "36": 304,
+                  "384": 260,
+                  "13860": 22,
+                  "55296": 74
+                },
+                "uniforms": {
+                  "chromaticAberration": 0.04,
+                  "temporalDistortion": 0,
+                  "ior": 1.4,
+                  "_transmission": 1,
+                  "thickness": 0.85
+                },
+                "samples": [
+                  4
+                ],
+                "squareTextureSizes": [
+                  1,
+                  128,
+                  256
+                ],
+                "modelMatrix": [
+                  0.830885,
+                  0,
+                  -0.556444,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0.556444,
+                  0,
+                  0.830885,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "width": 718,
+                "height": 512,
+                "lost": false,
+                "error": 0
+              }
+            ],
+            "after": [
+              {
+                "connected": true,
+                "draws": 660,
+                "counts": {
+                  "36": 304,
+                  "384": 260,
+                  "13860": 22,
+                  "55296": 74
+                },
+                "uniforms": {
+                  "chromaticAberration": 0.04,
+                  "temporalDistortion": 0,
+                  "ior": 1.4,
+                  "_transmission": 1,
+                  "thickness": 0.85
+                },
+                "samples": [
+                  4
+                ],
+                "squareTextureSizes": [
+                  1,
+                  128,
+                  256
+                ],
+                "modelMatrix": [
+                  0.830885,
+                  0,
+                  -0.556444,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0.556444,
+                  0,
+                  0.830885,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "width": 718,
+                "height": 512,
+                "lost": false,
+                "error": 0
+              }
+            ]
+          }
+        },
+        "pixelsChangedAfterActualRotation": 19770,
+        "gpu": [
+          {
+            "connected": true,
+            "draws": 694,
+            "counts": {
+              "36": 323,
+              "384": 273,
+              "13860": 24,
+              "55296": 74
+            },
+            "uniforms": {
+              "chromaticAberration": 0.04,
+              "temporalDistortion": 0,
+              "ior": 1.4,
+              "_transmission": 1,
+              "thickness": 0.85
+            },
+            "samples": [
+              4
+            ],
+            "squareTextureSizes": [
+              1,
+              128,
+              256
+            ],
+            "modelMatrix": [
+              0.830885,
+              0,
+              -0.556444,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0.556444,
+              0,
+              0.830885,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "width": 718,
+            "height": 512,
+            "lost": false,
+            "error": 0
+          }
+        ]
+      }
+    ],
+    "zeroSpeedIdle": {
+      "before": [
+        {
+          "connected": true,
+          "draws": 268,
+          "counts": {
+            "36": 133,
+            "384": 91,
+            "55296": 44
+          },
+          "uniforms": {
+            "chromaticAberration": 0.04,
+            "temporalDistortion": 0,
+            "ior": 1.4,
+            "_transmission": 1,
+            "thickness": 0.85
+          },
+          "samples": [
+            4
+          ],
+          "squareTextureSizes": [
+            1,
+            128,
+            256
+          ],
+          "modelMatrix": [
+            1.043036,
+            0,
+            -0.857074,
+            0,
+            0,
+            1.35,
+            0,
+            0,
+            0.857074,
+            0,
+            1.043036,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "width": 718,
+          "height": 512,
+          "lost": false,
+          "error": 0
+        }
+      ],
+      "after": [
+        {
+          "connected": true,
+          "draws": 268,
+          "counts": {
+            "36": 133,
+            "384": 91,
+            "55296": 44
+          },
+          "uniforms": {
+            "chromaticAberration": 0.04,
+            "temporalDistortion": 0,
+            "ior": 1.4,
+            "_transmission": 1,
+            "thickness": 0.85
+          },
+          "samples": [
+            4
+          ],
+          "squareTextureSizes": [
+            1,
+            128,
+            256
+          ],
+          "modelMatrix": [
+            1.043036,
+            0,
+            -0.857074,
+            0,
+            0,
+            1.35,
+            0,
+            0,
+            0.857074,
+            0,
+            1.043036,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "width": 718,
+          "height": 512,
+          "lost": false,
+          "error": 0
+        }
+      ]
+    },
+    "focusedIdle": {
+      "before": [
+        {
+          "connected": true,
+          "draws": 344,
+          "counts": {
+            "36": 171,
+            "384": 117,
+            "55296": 56
+          },
+          "uniforms": {
+            "chromaticAberration": 0.04,
+            "temporalDistortion": 0,
+            "ior": 1.4,
+            "_transmission": 1,
+            "thickness": 0.85
+          },
+          "samples": [
+            4
+          ],
+          "squareTextureSizes": [
+            1,
+            128,
+            256
+          ],
+          "modelMatrix": [
+            1.040279,
+            0,
+            -0.860418,
+            0,
+            0,
+            1.35,
+            0,
+            0,
+            0.860418,
+            0,
+            1.040279,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "width": 718,
+          "height": 512,
+          "lost": false,
+          "error": 0
+        }
+      ],
+      "after": [
+        {
+          "connected": true,
+          "draws": 344,
+          "counts": {
+            "36": 171,
+            "384": 117,
+            "55296": 56
+          },
+          "uniforms": {
+            "chromaticAberration": 0.04,
+            "temporalDistortion": 0,
+            "ior": 1.4,
+            "_transmission": 1,
+            "thickness": 0.85
+          },
+          "samples": [
+            4
+          ],
+          "squareTextureSizes": [
+            1,
+            128,
+            256
+          ],
+          "modelMatrix": [
+            1.040279,
+            0,
+            -0.860418,
+            0,
+            0,
+            1.35,
+            0,
+            0,
+            0.860418,
+            0,
+            1.040279,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "width": 718,
+          "height": 512,
+          "lost": false,
+          "error": 0
+        }
+      ]
+    },
+    "offscreenIdle": {
+      "before": [
+        {
+          "connected": true,
+          "draws": 435,
+          "counts": {
+            "36": 209,
+            "384": 156,
+            "55296": 70
+          },
+          "uniforms": {
+            "chromaticAberration": 0.04,
+            "temporalDistortion": 0,
+            "ior": 1.4,
+            "_transmission": 1,
+            "thickness": 0.85
+          },
+          "samples": [
+            4
+          ],
+          "squareTextureSizes": [
+            1,
+            128,
+            256
+          ],
+          "modelMatrix": [
+            0.885131,
+            0,
+            -1.019335,
+            0,
+            0,
+            1.35,
+            0,
+            0,
+            1.019335,
+            0,
+            0.885131,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "width": 718,
+          "height": 512,
+          "lost": false,
+          "error": 0
+        }
+      ],
+      "after": [
+        {
+          "connected": true,
+          "draws": 435,
+          "counts": {
+            "36": 209,
+            "384": 156,
+            "55296": 70
+          },
+          "uniforms": {
+            "chromaticAberration": 0.04,
+            "temporalDistortion": 0,
+            "ior": 1.4,
+            "_transmission": 1,
+            "thickness": 0.85
+          },
+          "samples": [
+            4
+          ],
+          "squareTextureSizes": [
+            1,
+            128,
+            256
+          ],
+          "modelMatrix": [
+            0.885131,
+            0,
+            -1.019335,
+            0,
+            0,
+            1.35,
+            0,
+            0,
+            1.019335,
+            0,
+            0.885131,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "width": 718,
+          "height": 512,
+          "lost": false,
+          "error": 0
+        }
+      ]
+    },
+    "mobile": [
+      {
+        "width": 390,
+        "kind": "torus",
+        "emulatedCoarseTouchContext": true,
+        "automaticBalanced": true,
+        "noOverflow": true,
+        "singleMesh": true,
+        "touchAction": "pan-y"
+      },
+      {
+        "width": 320,
+        "kind": "panel",
+        "emulatedCoarseTouchContext": true,
+        "automaticBalanced": true,
+        "noOverflow": true,
+        "singleMesh": true,
+        "touchAction": "pan-y"
+      }
+    ],
+    "desktopResizeTouchAssertion": "Original diagnostic wrongly assumed a resized fine-pointer desktop becomes a coarse pointer; separate true coarse context below.",
+    "sameViewActualTransmissionContrast": {
+      "size": [
+        270,
+        353
+      ],
+      "meanAbsoluteChannelDifference": 45.6282,
+      "channelsChangedAbove2": 81087
+    },
+    "contextLossAndRetryPreservedControlNodeValueFocus": true,
+    "legacyTagClassDisplay": "none",
+    "mobilePageErrors": [],
+    "mobileConsoleErrors": [],
+    "mobileHDRModelOr3DFontRequests": []
+  },
+  "unmodifiedHierarchy": {
+    "scope": "Unmodified example DOM; no GPU-hiding styles or WebGL overrides",
+    "priorNativeExamplesPresentAndNotHidden": true,
+    "newGalleryBeforeExistingTransmissionGallery": true
+  },
+  "mainSmoke": {
+    "scope": "Native main smoke with unchanged GPU regions isolated",
+    "threeSourceCards": true,
+    "draftMetadataStorageUnchanged": true,
+    "newGalleryAbsentFromMain": true,
+    "noOverflow": true
+  },
+  "limits": [
+    "Chromium/SwiftShader only; no hardware-mobile/Safari/FPS claim.",
+    "Procedural offscreen lightformers supply reflections; no photograph/HDR or3Dfont is loaded for these objects.",
+    "Two clean stills and actual GPU matrix/pixel rotation evidence supplied; no video."
+  ]
+}
