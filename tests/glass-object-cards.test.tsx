@@ -181,6 +181,34 @@ describe('isolated glass objects with native controls', () => {
     expect(material).toEqual({ color: '#cdd2d9', thickness: 0.41 })
   })
 
+  it('changes the backdrop without replacing a loaded renderer, resetting edited optics or losing native control focus', async () => {
+    const activity = environment()
+    const user = userEvent.setup()
+    const view = render(<GlassPanelCard />)
+    activity.intersect(true)
+    const renderer = await screen.findByTestId('glass-object-gpu-boundary')
+    act(() => latest().onReady())
+    expect(latest().backdrop).toBe('dark')
+    const axis = screen.getByRole('combobox', { name: 'Rotation axis' })
+    await user.selectOptions(axis, 'x')
+    fireEvent.change(screen.getByRole('slider', { name: /Thickness:/ }), { target: { value: '0.55' } })
+    const editedSettings = latest().settings
+
+    view.rerender(<GlassPanelCard backdrop="neutral" />)
+
+    expect(latest()).toMatchObject({ backdrop: 'neutral', rotationAxis: 'x', settings: { thickness: 0.55 } })
+    expect(latest().settings).toBe(editedSettings)
+    expect(card(view.container)).toHaveAttribute('data-glass-object-state', 'loaded')
+    expect(screen.getByTestId('glass-object-gpu-boundary')).toBe(renderer)
+    expect(screen.getByRole('combobox', { name: 'Rotation axis' })).toBe(axis)
+    expect(axis).toHaveFocus()
+    view.rerender(<GlassPanelCard backdrop="dark" />)
+    expect(latest().backdrop).toBe('dark')
+    expect(latest().settings).toBe(editedSettings)
+    expect(screen.getByTestId('glass-object-gpu-boundary')).toBe(renderer)
+    expect(axis).toHaveFocus()
+  })
+
   it('retains native values/focus through context and renderer failures, and rejects callbacks from previous attempts', async () => {
     const activity = environment()
     const user = userEvent.setup()

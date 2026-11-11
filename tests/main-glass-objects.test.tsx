@@ -71,8 +71,8 @@ describe('two glass objects on the actual main workspace',()=>{
     expect(await screen.findAllByTestId('main-object-gpu-boundary')).toHaveLength(2)
     for(const kind of ['torus','panel'] as const) {
       expect(latest(kind)).toMatchObject({
-        kind,rotationAxis:'y',rotationSpeed:0.25,lightingIntensity:1.25,
-        settings:{transmission:1,thickness:0.41,ior:1.7,chromaticAberration:0.062,roughness:0.08,color:'#cdd2d9'},
+        kind,rotationAxis:'y',rotationSpeed:0.25,lightingIntensity:1.25,backdrop:'neutral',
+        settings:{transmission:1,thickness:0.41,ior:1.45,chromaticAberration:0.02,roughness:0.03,anisotropicBlur:0.04,distortion:0.04,color:'#cdd2d9'},
       })
       const card=region.querySelector(`[data-glass-object-kind="${kind}"]`)!
       expect(within(card as HTMLElement).getByRole('checkbox',{name:'Spin'})).toBeChecked()

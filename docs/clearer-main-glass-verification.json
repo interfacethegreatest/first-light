@@ -1,0 +1,6355 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:4223/first-light/#glass-objects",
+  "scope": "Actual normal main page, all scene layers intact. Existing cdd2d9 tint, same one visible torus/panel mesh and real transmission; procedural512CanvasTexture background. Reduced motion for stills, separate bounded real-rotation observation.",
+  "focusedTests": {
+    "passed": 13,
+    "files": [
+      "tests/main-glass-objects.test.tsx",
+      "tests/glass-object-cards.test.tsx"
+    ],
+    "finalRoughness": 0.03
+  },
+  "desktop": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently",
+      "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently"
+    ],
+    "high": [
+      {
+        "kind": "torus",
+        "gpu": {
+          "record": {
+            "mainDraws": 5,
+            "backfaceDraws": 10,
+            "programs": [
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    -1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -1,
+                    0,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.0002,
+                    -1,
+                    0,
+                    0,
+                    -0.20002,
+                    0
+                  ],
+                  "diffuse": [
+                    3.75,
+                    3.392479,
+                    3.026071
+                  ],
+                  "opacity": 1,
+                  "modelViewMatrix": [
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    4.456688,
+                    11.14172,
+                    0,
+                    0,
+                    -0.928477,
+                    0.371391,
+                    0,
+                    0,
+                    5,
+                    -2,
+                    1
+                  ]
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {},
+                "source": {
+                  "samples6": false,
+                  "samples4": false,
+                  "flipSided": false
+                }
+              },
+              {
+                "uniforms": {
+                  "flipEnvMap": 1,
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "samples": 8,
+                  "latitudinal": false,
+                  "dTheta": 0.10471975511965977,
+                  "mipInt": -2,
+                  "poleAxis": [
+                    -1.618034,
+                    0.618034,
+                    0
+                  ],
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.360902,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.434783,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 0.6807000000029803,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.3,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 1,
+                  "envMap": 2,
+                  "modelViewMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.34871,
+                    0.059006,
+                    0,
+                    0,
+                    -0.059006,
+                    1.34871,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": true
+                }
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.360902,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.434783,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "toneMappingExposure": 1,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 15.17070000000298,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.41,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.34871,
+                    0.059006,
+                    0,
+                    0,
+                    -0.059006,
+                    1.34871,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": false
+                }
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.360902,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.434783,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 15.17070000000298,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.3,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.34871,
+                    0.059006,
+                    0,
+                    0,
+                    -0.059006,
+                    1.34871,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": true
+                }
+              }
+            ],
+            "fboReads": [
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0.007499032188206911,
+                  0.009134058840572834,
+                  0.014443843625485897,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "errors": [],
+            "drawCounts": {
+              "drawElements:384": 18,
+              "drawElements:6": 15,
+              "drawElements:55296": 15,
+              "drawArrays:36": 19
+            },
+            "lastFBO": {
+              "viewport": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "complete": true,
+              "readType": 5131,
+              "format": 6408,
+              "readHash": 3496861237,
+              "thickness": 0.3,
+              "flipSided": true,
+              "error": 0,
+              "clearRGB": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "main": {
+              "drawCall": "drawElements",
+              "vertexOrIndexCount": 55296,
+              "uniforms": {
+                "projectionMatrix": [
+                  0.360902,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.434783,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.050125,
+                  0,
+                  0,
+                  0,
+                  -1.005013,
+                  1
+                ],
+                "viewMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.999044,
+                  0.043708,
+                  0,
+                  0,
+                  -0.043708,
+                  0.999044,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "cameraPosition": [
+                  0,
+                  0.35,
+                  8
+                ],
+                "isOrthographic": true,
+                "toneMappingExposure": 1,
+                "directionalLights[0].direction": [
+                  0.358569,
+                  0.565698,
+                  0.742572
+                ],
+                "directionalLights[0].color": [
+                  4.375,
+                  4.375,
+                  4.375
+                ],
+                "directionalLights[1].direction": [
+                  -0.557086,
+                  0.403501,
+                  -0.725839
+                ],
+                "directionalLights[1].color": [
+                  2.396601,
+                  3.615276,
+                  5
+                ],
+                "pointLights[0].position": [
+                  -4,
+                  0.955336,
+                  -6.9649
+                ],
+                "pointLights[0].color": [
+                  20,
+                  5.922765,
+                  3.240588
+                ],
+                "pointLights[0].distance": 9,
+                "pointLights[0].decay": 2,
+                "chromaticAberration": 0.02,
+                "anisotropicBlur": 0.04,
+                "time": 15.17070000000298,
+                "distortion": 0.04,
+                "distortionScale": 0.3,
+                "temporalDistortion": 0,
+                "diffuse": [
+                  0.610496,
+                  0.64448,
+                  0.693872
+                ],
+                "emissive": [
+                  0,
+                  0,
+                  0
+                ],
+                "roughness": 0.03,
+                "metalness": 0,
+                "opacity": 1,
+                "ior": 1.45,
+                "specularIntensity": 1,
+                "specularColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "clearcoat": 0.75,
+                "clearcoatRoughness": 0.18,
+                "envMapIntensity": 1,
+                "ambientLightColor": [
+                  0.875,
+                  0.875,
+                  0.875
+                ],
+                "_transmission": 1,
+                "thickness": 0.41,
+                "attenuationDistance": null,
+                "attenuationColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "buffer": 0,
+                "envMap": 1,
+                "modelViewMatrix": [
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.34871,
+                  0.059006,
+                  0,
+                  0,
+                  -0.059006,
+                  1.34871,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "modelMatrix": [
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "source": {
+                "samples6": true,
+                "samples4": false,
+                "flipSided": false
+              }
+            }
+          },
+          "width": 616,
+          "height": 512,
+          "opacity": "1",
+          "meshCount": "1",
+          "touchAncestors": [
+            {
+              "tag": "CANVAS",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": "glass-object-canvas",
+              "touchAction": "none"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "pan-y"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "MAIN",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            }
+          ]
+        },
+        "actualScene": {
+          "frameloop": "demand",
+          "frames": 0,
+          "background": {
+            "isCanvasTexture": true,
+            "name": "first-light-neutral-glass-backdrop",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "midPixel": [
+              197,
+              205,
+              217,
+              255
+            ]
+          },
+          "environmentIsCubeTexture": true,
+          "meshes": [
+            {
+              "name": "",
+              "geometry": "TorusGeometry",
+              "vertexOrIndexCount": 55296
+            }
+          ],
+          "camera": {
+            "type": "OrthographicCamera",
+            "zoom": 111.30434782608697
+          }
+        }
+      },
+      {
+        "kind": "panel",
+        "gpu": {
+          "record": {
+            "mainDraws": 5,
+            "backfaceDraws": 10,
+            "programs": [
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    -1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -1,
+                    0,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.0002,
+                    -1,
+                    0,
+                    0,
+                    -0.20002,
+                    0
+                  ],
+                  "diffuse": [
+                    3.75,
+                    3.392479,
+                    3.026071
+                  ],
+                  "opacity": 1,
+                  "modelViewMatrix": [
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    4.456688,
+                    11.14172,
+                    0,
+                    0,
+                    -0.928477,
+                    0.371391,
+                    0,
+                    0,
+                    5,
+                    -2,
+                    1
+                  ]
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {},
+                "source": {
+                  "samples6": false,
+                  "samples4": false,
+                  "flipSided": false
+                }
+              },
+              {
+                "uniforms": {
+                  "flipEnvMap": 1,
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "samples": 8,
+                  "latitudinal": false,
+                  "dTheta": 0.10471975511965977,
+                  "mipInt": -2,
+                  "poleAxis": [
+                    -1.618034,
+                    0.618034,
+                    0
+                  ],
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.244139,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.294118,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 3.6060999999940395,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.3,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 1,
+                  "envMap": 2,
+                  "modelViewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": true
+                }
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.244139,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.294118,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "toneMappingExposure": 1,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 16.277,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.41,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": false
+                }
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.244139,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.294118,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 16.277,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.3,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": true
+                }
+              }
+            ],
+            "fboReads": [
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0.007499032188206911,
+                  0.009134058840572834,
+                  0.014443843625485897,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 530629962,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 530629962,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 530629962,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 530629962,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 530629962,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "errors": [],
+            "drawCounts": {
+              "drawElements:384": 18,
+              "drawElements:6": 15,
+              "drawArrays:13860": 15,
+              "drawArrays:36": 19
+            },
+            "lastFBO": {
+              "viewport": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "complete": true,
+              "readType": 5131,
+              "format": 6408,
+              "readHash": 530629962,
+              "thickness": 0.3,
+              "flipSided": true,
+              "error": 0,
+              "clearRGB": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "main": {
+              "drawCall": "drawArrays",
+              "vertexOrIndexCount": 13860,
+              "uniforms": {
+                "projectionMatrix": [
+                  0.244139,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.294118,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.050125,
+                  0,
+                  0,
+                  0,
+                  -1.005013,
+                  1
+                ],
+                "viewMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.999044,
+                  0.043708,
+                  0,
+                  0,
+                  -0.043708,
+                  0.999044,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "cameraPosition": [
+                  0,
+                  0.35,
+                  8
+                ],
+                "isOrthographic": true,
+                "toneMappingExposure": 1,
+                "directionalLights[0].direction": [
+                  0.358569,
+                  0.565698,
+                  0.742572
+                ],
+                "directionalLights[0].color": [
+                  4.375,
+                  4.375,
+                  4.375
+                ],
+                "directionalLights[1].direction": [
+                  -0.557086,
+                  0.403501,
+                  -0.725839
+                ],
+                "directionalLights[1].color": [
+                  2.396601,
+                  3.615276,
+                  5
+                ],
+                "pointLights[0].position": [
+                  -4,
+                  0.955336,
+                  -6.9649
+                ],
+                "pointLights[0].color": [
+                  20,
+                  5.922765,
+                  3.240588
+                ],
+                "pointLights[0].distance": 9,
+                "pointLights[0].decay": 2,
+                "chromaticAberration": 0.02,
+                "anisotropicBlur": 0.04,
+                "time": 16.277,
+                "distortion": 0.04,
+                "distortionScale": 0.3,
+                "temporalDistortion": 0,
+                "diffuse": [
+                  0.610496,
+                  0.64448,
+                  0.693872
+                ],
+                "emissive": [
+                  0,
+                  0,
+                  0
+                ],
+                "roughness": 0.03,
+                "metalness": 0,
+                "opacity": 1,
+                "ior": 1.45,
+                "specularIntensity": 1,
+                "specularColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "clearcoat": 0.75,
+                "clearcoatRoughness": 0.18,
+                "envMapIntensity": 1,
+                "ambientLightColor": [
+                  0.875,
+                  0.875,
+                  0.875
+                ],
+                "_transmission": 1,
+                "thickness": 0.41,
+                "attenuationDistance": null,
+                "attenuationColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "buffer": 0,
+                "envMap": 1,
+                "modelViewMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.999044,
+                  0.043708,
+                  0,
+                  0,
+                  -0.043708,
+                  0.999044,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "modelMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "source": {
+                "samples6": true,
+                "samples4": false,
+                "flipSided": false
+              }
+            }
+          },
+          "width": 616,
+          "height": 512,
+          "opacity": "1",
+          "meshCount": "1",
+          "touchAncestors": [
+            {
+              "tag": "CANVAS",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": "glass-object-canvas",
+              "touchAction": "none"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "pan-y"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "MAIN",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            }
+          ]
+        },
+        "actualScene": {
+          "frameloop": "demand",
+          "frames": 0,
+          "background": {
+            "isCanvasTexture": true,
+            "name": "first-light-neutral-glass-backdrop",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "midPixel": [
+              197,
+              205,
+              217,
+              255
+            ]
+          },
+          "environmentIsCubeTexture": true,
+          "meshes": [
+            {
+              "name": "",
+              "geometry": "ExtrudeGeometry",
+              "vertexOrIndexCount": 13860
+            }
+          ],
+          "camera": {
+            "type": "OrthographicCamera",
+            "zoom": 75.29411764705883
+          }
+        }
+      }
+    ],
+    "balanced": [
+      {
+        "kind": "torus",
+        "gpu": {
+          "record": {
+            "mainDraws": 9,
+            "backfaceDraws": 14,
+            "programs": [
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    -1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -1,
+                    0,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.0002,
+                    -1,
+                    0,
+                    0,
+                    -0.20002,
+                    0
+                  ],
+                  "diffuse": [
+                    3.75,
+                    3.392479,
+                    3.026071
+                  ],
+                  "opacity": 1,
+                  "modelViewMatrix": [
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    4.456688,
+                    11.14172,
+                    0,
+                    0,
+                    -0.928477,
+                    0.371391,
+                    0,
+                    0,
+                    5,
+                    -2,
+                    1
+                  ]
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {},
+                "source": {
+                  "samples6": false,
+                  "samples4": false,
+                  "flipSided": false
+                }
+              },
+              {
+                "uniforms": {
+                  "flipEnvMap": 1,
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "samples": 8,
+                  "latitudinal": false,
+                  "dTheta": 0.10471975511965977,
+                  "mipInt": -2,
+                  "poleAxis": [
+                    -1.618034,
+                    0.618034,
+                    0
+                  ],
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.360902,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.434783,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 0.6807000000029803,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.3,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 1,
+                  "envMap": 2,
+                  "modelViewMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.34871,
+                    0.059006,
+                    0,
+                    0,
+                    -0.059006,
+                    1.34871,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": true
+                }
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.360902,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.434783,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "toneMappingExposure": 1,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 15.17070000000298,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.41,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.34871,
+                    0.059006,
+                    0,
+                    0,
+                    -0.059006,
+                    1.34871,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": false
+                }
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.360902,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.434783,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 15.17070000000298,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.3,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.34871,
+                    0.059006,
+                    0,
+                    0,
+                    -0.059006,
+                    1.34871,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": true
+                }
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.360902,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.434783,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "toneMappingExposure": 1,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 28.998400000005958,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.41,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.34871,
+                    0.059006,
+                    0,
+                    0,
+                    -0.059006,
+                    1.34871,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": false,
+                  "samples4": true,
+                  "flipSided": false
+                }
+              }
+            ],
+            "fboReads": [
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0.007499032188206911,
+                  0.009134058840572834,
+                  0.014443843625485897,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "errors": [],
+            "drawCounts": {
+              "drawElements:384": 18,
+              "drawElements:6": 23,
+              "drawElements:55296": 23,
+              "drawArrays:36": 19
+            },
+            "lastFBO": {
+              "viewport": [
+                0,
+                0,
+                256,
+                256
+              ],
+              "complete": true,
+              "readType": 5131,
+              "format": 6408,
+              "readHash": 3357459669,
+              "thickness": null,
+              "flipSided": false,
+              "error": 0,
+              "clearRGB": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "main": {
+              "drawCall": "drawElements",
+              "vertexOrIndexCount": 55296,
+              "uniforms": {
+                "projectionMatrix": [
+                  0.360902,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.434783,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.050125,
+                  0,
+                  0,
+                  0,
+                  -1.005013,
+                  1
+                ],
+                "viewMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.999044,
+                  0.043708,
+                  0,
+                  0,
+                  -0.043708,
+                  0.999044,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "cameraPosition": [
+                  0,
+                  0.35,
+                  8
+                ],
+                "isOrthographic": true,
+                "toneMappingExposure": 1,
+                "directionalLights[0].direction": [
+                  0.358569,
+                  0.565698,
+                  0.742572
+                ],
+                "directionalLights[0].color": [
+                  4.375,
+                  4.375,
+                  4.375
+                ],
+                "directionalLights[1].direction": [
+                  -0.557086,
+                  0.403501,
+                  -0.725839
+                ],
+                "directionalLights[1].color": [
+                  2.396601,
+                  3.615276,
+                  5
+                ],
+                "pointLights[0].position": [
+                  -4,
+                  0.955336,
+                  -6.9649
+                ],
+                "pointLights[0].color": [
+                  20,
+                  5.922765,
+                  3.240588
+                ],
+                "pointLights[0].distance": 9,
+                "pointLights[0].decay": 2,
+                "chromaticAberration": 0.02,
+                "anisotropicBlur": 0.04,
+                "time": 28.998400000005958,
+                "distortion": 0.04,
+                "distortionScale": 0.3,
+                "temporalDistortion": 0,
+                "diffuse": [
+                  0.610496,
+                  0.64448,
+                  0.693872
+                ],
+                "emissive": [
+                  0,
+                  0,
+                  0
+                ],
+                "roughness": 0.03,
+                "metalness": 0,
+                "opacity": 1,
+                "ior": 1.45,
+                "specularIntensity": 1,
+                "specularColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "clearcoat": 0.75,
+                "clearcoatRoughness": 0.18,
+                "envMapIntensity": 1,
+                "ambientLightColor": [
+                  0.875,
+                  0.875,
+                  0.875
+                ],
+                "_transmission": 1,
+                "thickness": 0.41,
+                "attenuationDistance": null,
+                "attenuationColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "buffer": 0,
+                "envMap": 1,
+                "modelViewMatrix": [
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.34871,
+                  0.059006,
+                  0,
+                  0,
+                  -0.059006,
+                  1.34871,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "modelMatrix": [
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "source": {
+                "samples6": false,
+                "samples4": true,
+                "flipSided": false
+              }
+            }
+          },
+          "width": 616,
+          "height": 512,
+          "opacity": "1",
+          "meshCount": "1",
+          "touchAncestors": [
+            {
+              "tag": "CANVAS",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": "glass-object-canvas",
+              "touchAction": "none"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "pan-y"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "MAIN",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            }
+          ]
+        },
+        "actualScene": {
+          "frameloop": "demand",
+          "frames": 0,
+          "background": {
+            "isCanvasTexture": true,
+            "name": "first-light-neutral-glass-backdrop",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "midPixel": [
+              197,
+              205,
+              217,
+              255
+            ]
+          },
+          "environmentIsCubeTexture": true,
+          "meshes": [
+            {
+              "name": "",
+              "geometry": "TorusGeometry",
+              "vertexOrIndexCount": 55296
+            }
+          ],
+          "camera": {
+            "type": "OrthographicCamera",
+            "zoom": 111.30434782608697
+          }
+        },
+        "stageImageSHA256": "65eaefdb09ff6347d37bf86e6a6cd64d6a6dcfaac8fb08c408bb71a574334e42"
+      },
+      {
+        "kind": "panel",
+        "gpu": {
+          "record": {
+            "mainDraws": 9,
+            "backfaceDraws": 14,
+            "programs": [
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    -1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -1,
+                    0,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.0002,
+                    -1,
+                    0,
+                    0,
+                    -0.20002,
+                    0
+                  ],
+                  "diffuse": [
+                    3.75,
+                    3.392479,
+                    3.026071
+                  ],
+                  "opacity": 1,
+                  "modelViewMatrix": [
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    4.456688,
+                    11.14172,
+                    0,
+                    0,
+                    -0.928477,
+                    0.371391,
+                    0,
+                    0,
+                    5,
+                    -2,
+                    1
+                  ]
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {},
+                "source": {
+                  "samples6": false,
+                  "samples4": false,
+                  "flipSided": false
+                }
+              },
+              {
+                "uniforms": {
+                  "flipEnvMap": 1,
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "samples": 8,
+                  "latitudinal": false,
+                  "dTheta": 0.10471975511965977,
+                  "mipInt": -2,
+                  "poleAxis": [
+                    -1.618034,
+                    0.618034,
+                    0
+                  ],
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.244139,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.294118,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 3.6060999999940395,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.3,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 1,
+                  "envMap": 2,
+                  "modelViewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": true
+                }
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.244139,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.294118,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "toneMappingExposure": 1,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 16.277,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.41,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": false
+                }
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.244139,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.294118,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 16.277,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.3,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": true,
+                  "samples4": false,
+                  "flipSided": true
+                }
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.244139,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.294118,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "toneMappingExposure": 1,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 35.3205,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.41,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": false,
+                  "samples4": true,
+                  "flipSided": false
+                }
+              }
+            ],
+            "fboReads": [
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0.007499032188206911,
+                  0.009134058840572834,
+                  0.014443843625485897,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 530629962,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 530629962,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 530629962,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 530629962,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3496861237,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  512,
+                  512
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 530629962,
+                "thickness": 0.3,
+                "flipSided": true,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "errors": [],
+            "drawCounts": {
+              "drawElements:384": 18,
+              "drawElements:6": 23,
+              "drawArrays:13860": 23,
+              "drawArrays:36": 19
+            },
+            "lastFBO": {
+              "viewport": [
+                0,
+                0,
+                256,
+                256
+              ],
+              "complete": true,
+              "readType": 5131,
+              "format": 6408,
+              "readHash": 3357459669,
+              "thickness": null,
+              "flipSided": false,
+              "error": 0,
+              "clearRGB": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "main": {
+              "drawCall": "drawArrays",
+              "vertexOrIndexCount": 13860,
+              "uniforms": {
+                "projectionMatrix": [
+                  0.244139,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.294118,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.050125,
+                  0,
+                  0,
+                  0,
+                  -1.005013,
+                  1
+                ],
+                "viewMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.999044,
+                  0.043708,
+                  0,
+                  0,
+                  -0.043708,
+                  0.999044,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "cameraPosition": [
+                  0,
+                  0.35,
+                  8
+                ],
+                "isOrthographic": true,
+                "toneMappingExposure": 1,
+                "directionalLights[0].direction": [
+                  0.358569,
+                  0.565698,
+                  0.742572
+                ],
+                "directionalLights[0].color": [
+                  4.375,
+                  4.375,
+                  4.375
+                ],
+                "directionalLights[1].direction": [
+                  -0.557086,
+                  0.403501,
+                  -0.725839
+                ],
+                "directionalLights[1].color": [
+                  2.396601,
+                  3.615276,
+                  5
+                ],
+                "pointLights[0].position": [
+                  -4,
+                  0.955336,
+                  -6.9649
+                ],
+                "pointLights[0].color": [
+                  20,
+                  5.922765,
+                  3.240588
+                ],
+                "pointLights[0].distance": 9,
+                "pointLights[0].decay": 2,
+                "chromaticAberration": 0.02,
+                "anisotropicBlur": 0.04,
+                "time": 35.3205,
+                "distortion": 0.04,
+                "distortionScale": 0.3,
+                "temporalDistortion": 0,
+                "diffuse": [
+                  0.610496,
+                  0.64448,
+                  0.693872
+                ],
+                "emissive": [
+                  0,
+                  0,
+                  0
+                ],
+                "roughness": 0.03,
+                "metalness": 0,
+                "opacity": 1,
+                "ior": 1.45,
+                "specularIntensity": 1,
+                "specularColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "clearcoat": 0.75,
+                "clearcoatRoughness": 0.18,
+                "envMapIntensity": 1,
+                "ambientLightColor": [
+                  0.875,
+                  0.875,
+                  0.875
+                ],
+                "_transmission": 1,
+                "thickness": 0.41,
+                "attenuationDistance": null,
+                "attenuationColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "buffer": 0,
+                "envMap": 1,
+                "modelViewMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.999044,
+                  0.043708,
+                  0,
+                  0,
+                  -0.043708,
+                  0.999044,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "modelMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "source": {
+                "samples6": false,
+                "samples4": true,
+                "flipSided": false
+              }
+            }
+          },
+          "width": 616,
+          "height": 512,
+          "opacity": "1",
+          "meshCount": "1",
+          "touchAncestors": [
+            {
+              "tag": "CANVAS",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": "glass-object-canvas",
+              "touchAction": "none"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "pan-y"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "MAIN",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            }
+          ]
+        },
+        "actualScene": {
+          "frameloop": "demand",
+          "frames": 0,
+          "background": {
+            "isCanvasTexture": true,
+            "name": "first-light-neutral-glass-backdrop",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "midPixel": [
+              197,
+              205,
+              217,
+              255
+            ]
+          },
+          "environmentIsCubeTexture": true,
+          "meshes": [
+            {
+              "name": "",
+              "geometry": "ExtrudeGeometry",
+              "vertexOrIndexCount": 13860
+            }
+          ],
+          "camera": {
+            "type": "OrthographicCamera",
+            "zoom": 75.29411764705883
+          }
+        },
+        "stageImageSHA256": "1749fd27e91b1d89707ed192136601880c72c648219910dababa7f0df7cb6885"
+      }
+    ],
+    "actualTransmissionContrast": {
+      "meanAbsoluteRGBDifference": 17.45757364176995,
+      "materialOpacityAndCSSOpacity": 1
+    },
+    "focusIdle": [
+      [
+        33,
+        33,
+        33
+      ]
+    ],
+    "reducedIdle": [
+      [
+        57,
+        57,
+        57
+      ]
+    ],
+    "actualRotation": {
+      "before": [
+        1.35,
+        0,
+        0,
+        0,
+        0,
+        1.35,
+        0,
+        0,
+        0,
+        0,
+        1.35,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "after": [
+        0.224978,
+        0,
+        -1.331122,
+        0,
+        0,
+        1.35,
+        0,
+        0,
+        1.331122,
+        0,
+        0.224978,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "mobile": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "consoleWarnings": [],
+    "objects": [
+      {
+        "kind": "torus",
+        "gpu": {
+          "record": {
+            "mainDraws": 8,
+            "backfaceDraws": 8,
+            "programs": [
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    -1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -1,
+                    0,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.0002,
+                    -1,
+                    0,
+                    0,
+                    -0.20002,
+                    0
+                  ],
+                  "diffuse": [
+                    3.75,
+                    3.392479,
+                    3.026071
+                  ],
+                  "opacity": 1,
+                  "modelViewMatrix": [
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    4.456688,
+                    11.14172,
+                    0,
+                    0,
+                    -0.928477,
+                    0.371391,
+                    0,
+                    0,
+                    5,
+                    -2,
+                    1
+                  ]
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {},
+                "source": {
+                  "samples6": false,
+                  "samples4": false,
+                  "flipSided": false
+                }
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "flipEnvMap": 1,
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "samples": 8,
+                  "latitudinal": false,
+                  "dTheta": 0.10471975511965977,
+                  "mipInt": -2,
+                  "poleAxis": [
+                    -1.618034,
+                    0.618034,
+                    0
+                  ],
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.434783,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.431077,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "toneMappingExposure": 1,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 7.02210000000894,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.41,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.34871,
+                    0.059006,
+                    0,
+                    0,
+                    -0.059006,
+                    1.34871,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.35,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": false,
+                  "samples4": true,
+                  "flipSided": false
+                }
+              }
+            ],
+            "fboReads": [
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0.007499032188206911,
+                  0.009134058840572834,
+                  0.014443843625485897,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "errors": [],
+            "drawCounts": {
+              "drawElements:384": 18,
+              "drawElements:6": 16,
+              "drawElements:55296": 16,
+              "drawArrays:36": 19
+            },
+            "lastFBO": {
+              "viewport": [
+                0,
+                0,
+                256,
+                256
+              ],
+              "complete": true,
+              "readType": 5131,
+              "format": 6408,
+              "readHash": 3357459669,
+              "thickness": null,
+              "flipSided": false,
+              "error": 0,
+              "clearRGB": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "main": {
+              "drawCall": "drawElements",
+              "vertexOrIndexCount": 55296,
+              "uniforms": {
+                "projectionMatrix": [
+                  0.434783,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.431077,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.050125,
+                  0,
+                  0,
+                  0,
+                  -1.005013,
+                  1
+                ],
+                "viewMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.999044,
+                  0.043708,
+                  0,
+                  0,
+                  -0.043708,
+                  0.999044,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "cameraPosition": [
+                  0,
+                  0.35,
+                  8
+                ],
+                "isOrthographic": true,
+                "toneMappingExposure": 1,
+                "directionalLights[0].direction": [
+                  0.358569,
+                  0.565698,
+                  0.742572
+                ],
+                "directionalLights[0].color": [
+                  4.375,
+                  4.375,
+                  4.375
+                ],
+                "directionalLights[1].direction": [
+                  -0.557086,
+                  0.403501,
+                  -0.725839
+                ],
+                "directionalLights[1].color": [
+                  2.396601,
+                  3.615276,
+                  5
+                ],
+                "pointLights[0].position": [
+                  -4,
+                  0.955336,
+                  -6.9649
+                ],
+                "pointLights[0].color": [
+                  20,
+                  5.922765,
+                  3.240588
+                ],
+                "pointLights[0].distance": 9,
+                "pointLights[0].decay": 2,
+                "chromaticAberration": 0.02,
+                "anisotropicBlur": 0.04,
+                "time": 7.02210000000894,
+                "distortion": 0.04,
+                "distortionScale": 0.3,
+                "temporalDistortion": 0,
+                "diffuse": [
+                  0.610496,
+                  0.64448,
+                  0.693872
+                ],
+                "emissive": [
+                  0,
+                  0,
+                  0
+                ],
+                "roughness": 0.03,
+                "metalness": 0,
+                "opacity": 1,
+                "ior": 1.45,
+                "specularIntensity": 1,
+                "specularColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "clearcoat": 0.75,
+                "clearcoatRoughness": 0.18,
+                "envMapIntensity": 1,
+                "ambientLightColor": [
+                  0.875,
+                  0.875,
+                  0.875
+                ],
+                "_transmission": 1,
+                "thickness": 0.41,
+                "attenuationDistance": null,
+                "attenuationColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "buffer": 0,
+                "envMap": 1,
+                "modelViewMatrix": [
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.34871,
+                  0.059006,
+                  0,
+                  0,
+                  -0.059006,
+                  1.34871,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "modelMatrix": [
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.35,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "source": {
+                "samples6": false,
+                "samples4": true,
+                "flipSided": false
+              }
+            }
+          },
+          "width": 349,
+          "height": 352,
+          "opacity": "1",
+          "meshCount": "1",
+          "touchAncestors": [
+            {
+              "tag": "CANVAS",
+              "testid": null,
+              "touchAction": "pan-y"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": "glass-object-canvas",
+              "touchAction": "pan-y"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "pan-y"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "MAIN",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            }
+          ]
+        },
+        "actualScene": {
+          "frameloop": "demand",
+          "frames": 0,
+          "background": {
+            "isCanvasTexture": true,
+            "name": "first-light-neutral-glass-backdrop",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "midPixel": [
+              197,
+              205,
+              217,
+              255
+            ]
+          },
+          "environmentIsCubeTexture": true,
+          "meshes": [
+            {
+              "name": "",
+              "geometry": "TorusGeometry",
+              "vertexOrIndexCount": 55296
+            }
+          ],
+          "camera": {
+            "type": "OrthographicCamera",
+            "zoom": 75.86956521739131
+          }
+        }
+      },
+      {
+        "kind": "panel",
+        "gpu": {
+          "record": {
+            "mainDraws": 8,
+            "backfaceDraws": 8,
+            "programs": [
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    -1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -1,
+                    0,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.0002,
+                    -1,
+                    0,
+                    0,
+                    -0.20002,
+                    0
+                  ],
+                  "diffuse": [
+                    3.75,
+                    3.392479,
+                    3.026071
+                  ],
+                  "opacity": 1,
+                  "modelViewMatrix": [
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    4.456688,
+                    11.14172,
+                    0,
+                    0,
+                    -0.928477,
+                    0.371391,
+                    0,
+                    0,
+                    5,
+                    -2,
+                    1
+                  ]
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {},
+                "source": {
+                  "samples6": false,
+                  "samples4": false,
+                  "flipSided": false
+                }
+              },
+              {
+                "uniforms": {
+                  "backgroundIntensity": 1,
+                  "t2D": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "flipEnvMap": 1,
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "samples": 8,
+                  "latitudinal": false,
+                  "dTheta": 0.10471975511965977,
+                  "mipInt": -2,
+                  "poleAxis": [
+                    -1.618034,
+                    0.618034,
+                    0
+                  ],
+                  "envMap": 0
+                },
+                "source": null
+              },
+              {
+                "uniforms": {
+                  "projectionMatrix": [
+                    0.294118,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.291611,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.050125,
+                    0,
+                    -0.0,
+                    -0.0,
+                    -1.005013,
+                    1
+                  ],
+                  "viewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "cameraPosition": [
+                    0,
+                    0.35,
+                    8
+                  ],
+                  "isOrthographic": true,
+                  "toneMappingExposure": 1,
+                  "directionalLights[0].direction": [
+                    0.358569,
+                    0.565698,
+                    0.742572
+                  ],
+                  "directionalLights[0].color": [
+                    4.375,
+                    4.375,
+                    4.375
+                  ],
+                  "directionalLights[1].direction": [
+                    -0.557086,
+                    0.403501,
+                    -0.725839
+                  ],
+                  "directionalLights[1].color": [
+                    2.396601,
+                    3.615276,
+                    5
+                  ],
+                  "pointLights[0].position": [
+                    -4,
+                    0.955336,
+                    -6.9649
+                  ],
+                  "pointLights[0].color": [
+                    20,
+                    5.922765,
+                    3.240588
+                  ],
+                  "pointLights[0].distance": 9,
+                  "pointLights[0].decay": 2,
+                  "chromaticAberration": 0.02,
+                  "anisotropicBlur": 0.04,
+                  "time": 7.001100000008941,
+                  "distortion": 0.04,
+                  "distortionScale": 0.3,
+                  "temporalDistortion": 0,
+                  "diffuse": [
+                    0.610496,
+                    0.64448,
+                    0.693872
+                  ],
+                  "emissive": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "roughness": 0.03,
+                  "metalness": 0,
+                  "opacity": 1,
+                  "ior": 1.45,
+                  "specularIntensity": 1,
+                  "specularColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "clearcoat": 0.75,
+                  "clearcoatRoughness": 0.18,
+                  "envMapIntensity": 1,
+                  "ambientLightColor": [
+                    0.875,
+                    0.875,
+                    0.875
+                  ],
+                  "_transmission": 1,
+                  "thickness": 0.41,
+                  "attenuationDistance": "Infinity",
+                  "attenuationColor": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "buffer": 0,
+                  "envMap": 1,
+                  "modelViewMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.999044,
+                    0.043708,
+                    0,
+                    0,
+                    -0.043708,
+                    0.999044,
+                    0,
+                    0,
+                    0,
+                    -8.007652,
+                    1
+                  ],
+                  "modelMatrix": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "source": {
+                  "samples6": false,
+                  "samples4": true,
+                  "flipSided": false
+                }
+              }
+            ],
+            "fboReads": [
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0.007499032188206911,
+                  0.009134058840572834,
+                  0.014443843625485897,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "viewport": [
+                  0,
+                  0,
+                  256,
+                  256
+                ],
+                "complete": true,
+                "readType": 5131,
+                "format": 6408,
+                "readHash": 3357459669,
+                "thickness": null,
+                "flipSided": false,
+                "error": 0,
+                "clearRGB": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "errors": [],
+            "drawCounts": {
+              "drawElements:384": 18,
+              "drawElements:6": 16,
+              "drawArrays:13860": 16,
+              "drawArrays:36": 19
+            },
+            "lastFBO": {
+              "viewport": [
+                0,
+                0,
+                256,
+                256
+              ],
+              "complete": true,
+              "readType": 5131,
+              "format": 6408,
+              "readHash": 3357459669,
+              "thickness": null,
+              "flipSided": false,
+              "error": 0,
+              "clearRGB": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "main": {
+              "drawCall": "drawArrays",
+              "vertexOrIndexCount": 13860,
+              "uniforms": {
+                "projectionMatrix": [
+                  0.294118,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.291611,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.050125,
+                  0,
+                  0,
+                  0,
+                  -1.005013,
+                  1
+                ],
+                "viewMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.999044,
+                  0.043708,
+                  0,
+                  0,
+                  -0.043708,
+                  0.999044,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "cameraPosition": [
+                  0,
+                  0.35,
+                  8
+                ],
+                "isOrthographic": true,
+                "toneMappingExposure": 1,
+                "directionalLights[0].direction": [
+                  0.358569,
+                  0.565698,
+                  0.742572
+                ],
+                "directionalLights[0].color": [
+                  4.375,
+                  4.375,
+                  4.375
+                ],
+                "directionalLights[1].direction": [
+                  -0.557086,
+                  0.403501,
+                  -0.725839
+                ],
+                "directionalLights[1].color": [
+                  2.396601,
+                  3.615276,
+                  5
+                ],
+                "pointLights[0].position": [
+                  -4,
+                  0.955336,
+                  -6.9649
+                ],
+                "pointLights[0].color": [
+                  20,
+                  5.922765,
+                  3.240588
+                ],
+                "pointLights[0].distance": 9,
+                "pointLights[0].decay": 2,
+                "chromaticAberration": 0.02,
+                "anisotropicBlur": 0.04,
+                "time": 7.001100000008941,
+                "distortion": 0.04,
+                "distortionScale": 0.3,
+                "temporalDistortion": 0,
+                "diffuse": [
+                  0.610496,
+                  0.64448,
+                  0.693872
+                ],
+                "emissive": [
+                  0,
+                  0,
+                  0
+                ],
+                "roughness": 0.03,
+                "metalness": 0,
+                "opacity": 1,
+                "ior": 1.45,
+                "specularIntensity": 1,
+                "specularColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "clearcoat": 0.75,
+                "clearcoatRoughness": 0.18,
+                "envMapIntensity": 1,
+                "ambientLightColor": [
+                  0.875,
+                  0.875,
+                  0.875
+                ],
+                "_transmission": 1,
+                "thickness": 0.41,
+                "attenuationDistance": null,
+                "attenuationColor": [
+                  1,
+                  1,
+                  1
+                ],
+                "buffer": 0,
+                "envMap": 1,
+                "modelViewMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.999044,
+                  0.043708,
+                  0,
+                  0,
+                  -0.043708,
+                  0.999044,
+                  0,
+                  0,
+                  0,
+                  -8.007652,
+                  1
+                ],
+                "modelMatrix": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "source": {
+                "samples6": false,
+                "samples4": true,
+                "flipSided": false
+              }
+            }
+          },
+          "width": 349,
+          "height": 352,
+          "opacity": "1",
+          "meshCount": "1",
+          "touchAncestors": [
+            {
+              "tag": "CANVAS",
+              "testid": null,
+              "touchAction": "pan-y"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": "glass-object-canvas",
+              "touchAction": "pan-y"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "pan-y"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "SECTION",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "MAIN",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            },
+            {
+              "tag": "DIV",
+              "testid": null,
+              "touchAction": "auto"
+            }
+          ]
+        },
+        "actualScene": {
+          "frameloop": "demand",
+          "frames": 0,
+          "background": {
+            "isCanvasTexture": true,
+            "name": "first-light-neutral-glass-backdrop",
+            "width": 512,
+            "height": 512,
+            "colorSpace": "srgb",
+            "midPixel": [
+              197,
+              205,
+              217,
+              255
+            ]
+          },
+          "environmentIsCubeTexture": true,
+          "meshes": [
+            {
+              "name": "",
+              "geometry": "ExtrudeGeometry",
+              "vertexOrIndexCount": 13860
+            }
+          ],
+          "camera": {
+            "type": "OrthographicCamera",
+            "zoom": 51.32352941176471
+          }
+        }
+      }
+    ],
+    "actualCoarse": true,
+    "noOverflow": true
+  },
+  "warningClassification": {
+    "count": 2,
+    "source": "Read-only browser probe repeated getImageData inspection of the generated2D backdrop; normal application only paints it.",
+    "messages": [
+      "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently",
+      "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently"
+    ],
+    "healthyPageOrShaderErrors": 0,
+    "probeUpdatedToCacheInspectedPixel": true
+  },
+  "retainedDiagnostics": [
+    "probe-readback-warning-diagnostic.json",
+    "mobile-supplement.json"
+  ],
+  "screenshots": [
+    "main-two-cards-desktop.png",
+    "torus-high-card.png",
+    "panel-high-card.png",
+    "torus-balanced-stage.png",
+    "panel-balanced-stage.png",
+    "panel-transmission-1.png",
+    "panel-transmission-0.png",
+    "main-two-cards-mobile-390.png"
+  ],
+  "browserClosed": true,
+  "ownershipReturned": true,
+  "noDeployment": true,
+  "limits": [
+    "Linux Chromium/SwiftShader, no physical Safari/Apple GPU/FPS guarantee.",
+    "390px uses a true coarse/touch browser context for adaptive profile/layout; no touch-swipe measurement in this task.",
+    "No green reference/skeleton or DOM refraction claim; only the actual torus and blank panel in separate scenes.",
+    "Existing native workspace workflow and detailed failure/rotation coverage reused from focused13tests and prior verified behavior.",
+    "No HTTP/request-health assertions were made by this probe. The backdrop is verified as a generated CanvasTexture, rather than a fetched image.",
+    "Raw diagnostic preserves Infinity material values; final report renders nonfinite values as strings for strict JSON."
+  ]
+}

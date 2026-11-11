@@ -2,7 +2,7 @@
 
 This is a **local working-tree snapshot, including uncommitted source**. It is not a deployment record or a claim about the live site.
 
-Snapshot SHA-256: `564b27f128991f409c5685033564fb342d292805ee2562d9af42193841597036`. All **101 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **103 selected source files**, with no source truncation.
+Snapshot SHA-256: `79066121fc0b8608db780c0e54b5c9b847f7c332b1f531e83a8e2524ffec6cf2`. All **102 files under src/** plus **2 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **104 selected source files**, with no source truncation.
 
 Additional files: `public/media/moon/Moon.jsx` and `examples/glass-panel-3d/main.tsx`. The example entry mounts the optional GlassPanelExample; it is supporting application code, not an additional React component.
 
@@ -112,6 +112,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
   - [src/components/transmission/transmissionTypes.ts](#file-src-components-transmission-transmissiontypes-ts-54133895)
   - [src/components/transmission/useTransmissionActivity.ts](#file-src-components-transmission-usetransmissionactivity-ts-6c4da281)
 - [Isolated glass objects and rotation](#group-glass-objects)
+  - [src/components/glass-objects/GlassCaptureBackdrop.tsx](#file-src-components-glass-objects-glasscapturebackdrop-tsx-3c26583b)
   - [src/components/glass-objects/GlassObjectCanvas.tsx](#file-src-components-glass-objects-glassobjectcanvas-tsx-0ec44c1a)
   - [src/components/glass-objects/GlassObjectCards.css](#file-src-components-glass-objects-glassobjectcards-css-c8823ea3)
   - [src/components/glass-objects/GlassObjectCards.tsx](#file-src-components-glass-objects-glassobjectcards-tsx-6093911e)
@@ -141,7 +142,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 <a id="component-inventory"></a>
 ## Component module inventory
 
-51 component-bearing or compatibility modules; 2 compatibility re-exports. This is a module inventory, not a speculative total of React functions.
+52 component-bearing or compatibility modules; 2 compatibility re-exports. This is a module inventory, not a speculative total of React functions.
 
 | Module | Primary / named exports | Complete source | Application use |
 | --- | --- | --- | --- |
@@ -155,6 +156,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 | NewUserCard | NewUserCard | [src/components/cards/newUserCard/NewUserCard.tsx](#file-src-components-cards-newusercard-newusercard-tsx-a9bb3792) | Imported from application entry (including lazy/conditional paths) |
 | TileGrid | TileGrid | [src/components/decorations/TileGrid.tsx](#file-src-components-decorations-tilegrid-tsx-e0b092ce) | Imported from application entry (including lazy/conditional paths) |
 | AppleGlassLens | AppleGlassLens | [src/components/glass/AppleGlassLens.tsx](#file-src-components-glass-appleglasslens-tsx-80cc41c4) | Imported from application entry (including lazy/conditional paths) |
+| GlassCaptureBackdrop | GlassCaptureBackdrop | [src/components/glass-objects/GlassCaptureBackdrop.tsx](#file-src-components-glass-objects-glasscapturebackdrop-tsx-3c26583b) | Imported from application entry (including lazy/conditional paths) |
 | GlassObjectCanvas | GlassObjectCanvas | [src/components/glass-objects/GlassObjectCanvas.tsx](#file-src-components-glass-objects-glassobjectcanvas-tsx-0ec44c1a) | Imported from application entry (including lazy/conditional paths) |
 | GlassObjectCards | see full module; GlassTorusCard; GlassPanelCard; GlassObjectGallery | [src/components/glass-objects/GlassObjectCards.tsx](#file-src-components-glass-objects-glassobjectcards-tsx-6093911e) | Imported from application entry (including lazy/conditional paths) |
 | GlassPanelObject | see full module; GlassPanelObject | [src/components/glass-objects/GlassPanelObject.tsx](#file-src-components-glass-objects-glasspanelobject-tsx-4f9bd3ee) | Imported from application entry (including lazy/conditional paths) |
@@ -1214,7 +1216,7 @@ h1>span {
 <a id="file-src-app-tsx-26ad4b83"></a>
 ### src/App.tsx
 
-16252 bytes · SHA-256 `b2be7b272e96966e39ae7bc4cfd849c7f5697bbd260003a43e64bf8790cb912a` · utf8
+16333 bytes · SHA-256 `2da5c0f21d8fc8531f764697edca2bf5a506468823b3f4f9e6e2fa9dba526d5e` · utf8
 
 ```tsx
 import { useEffect, useState, type FormEvent } from 'react'
@@ -1240,12 +1242,15 @@ const MAIN_GLASS_PROPS = {
   initialRotationAxis: 'y' as const,
   initialRotationSpeed: 0.25,
   lightingIntensity: 1.25,
+  backdrop: 'neutral' as const,
   initialMaterial: {
     transmission: 1,
     thickness: 0.41,
-    ior: 1.7,
-    chromaticAberration: 0.062,
-    roughness: 0.08,
+    ior: 1.45,
+    chromaticAberration: 0.02,
+    roughness: 0.03,
+    anisotropicBlur: 0.04,
+    distortion: 0.04,
     color: '#cdd2d9',
   },
 }
@@ -6574,10 +6579,56 @@ export function useTransmissionActivity(target: RefObject<HTMLDivElement | null>
 <a id="group-glass-objects"></a>
 ## Isolated glass objects and rotation
 
+<a id="file-src-components-glass-objects-glasscapturebackdrop-tsx-3c26583b"></a>
+### src/components/glass-objects/GlassCaptureBackdrop.tsx
+
+1475 bytes · SHA-256 `1185f8a6125c9646d4532382094c42384da981a243dc75d71f2052c028ccf7e2` · utf8
+
+```tsx
+import { useEffect, useMemo } from 'react'
+import { CanvasTexture, LinearFilter, SRGBColorSpace } from 'three'
+
+/** Neutral studio radiance, visible and captured by transmission in one scene.
+ * No photographs, text, extra meshes or page-HTML capture are involved. */
+export default function GlassCaptureBackdrop() {
+  const texture = useMemo(() => {
+    const canvas = document.createElement('canvas')
+    canvas.width = 512
+    canvas.height = 512
+    const context = canvas.getContext('2d')
+    if (!context) throw new Error('The glass studio backdrop could not be created.')
+    const gradient = context.createLinearGradient(0, 0, 0, 512)
+    gradient.addColorStop(0, '#10151f')
+    gradient.addColorStop(0.2, '#3c4655')
+    gradient.addColorStop(0.47, '#b9c3d0')
+    gradient.addColorStop(0.58, '#e4eaf1')
+    gradient.addColorStop(0.7, '#6e7d91')
+    gradient.addColorStop(1, '#161d29')
+    context.fillStyle = gradient
+    context.fillRect(0, 0, 512, 512)
+    const result = new CanvasTexture(canvas)
+    result.colorSpace = SRGBColorSpace
+    result.minFilter = LinearFilter
+    result.magFilter = LinearFilter
+    result.generateMipmaps = false
+    result.name = 'first-light-neutral-glass-backdrop'
+    return result
+  }, [])
+  useEffect(() => {
+    // StrictMode may repeat effect setup after disposal; allow re-upload.
+    texture.needsUpdate = true
+    return () => texture.dispose()
+  }, [texture])
+  return <primitive attach="background" object={texture} />
+}
+```
+
+[Back to contents](#contents)
+
 <a id="file-src-components-glass-objects-glassobjectcanvas-tsx-0ec44c1a"></a>
 ### src/components/glass-objects/GlassObjectCanvas.tsx
 
-5019 bytes · SHA-256 `f07a593a4708b24bb712689145c5a2d6c909df8c842f510256683dcb922a74c1` · utf8
+5145 bytes · SHA-256 `c0fecb679df6fa485696c34673b8bc2eb22c86e3e875c6c1a3a6c1bc1f5e9c35` · utf8
 
 ```tsx
 import { Suspense, useCallback, useEffect, useLayoutEffect, useRef } from 'react'
@@ -6590,6 +6641,7 @@ import {
 import { GlassStudioEnvironment } from '../transmission/GlassStudioEnvironment'
 import GlassTorusObject from './GlassTorusObject'
 import GlassPanelObject from './GlassPanelObject'
+import GlassCaptureBackdrop from './GlassCaptureBackdrop'
 import type { GlassObjectCanvasProps } from './glassObjectSceneTypes'
 
 function ObjectScene(props: GlassObjectCanvasProps) {
@@ -6635,7 +6687,8 @@ function ObjectScene(props: GlassObjectCanvasProps) {
   const objectProps = { settings, spin, rotationAxis, rotationSpeed, onRendered: reportMainDraw }
   return (
     <>
-      <color attach="background" args={['#080b14']} />
+      {props.backdrop === 'neutral'
+        ? <GlassCaptureBackdrop /> : <color attach="background" args={['#080b14']} />}
       <GlassStudioEnvironment intensity={props.lightingIntensity} />
       {/* Exactly one visible mesh. No text, tags, shadow planes or extra shapes. */}
       {kind === 'torus'
@@ -6715,7 +6768,7 @@ export default function GlassObjectCanvas(props: GlassObjectCanvasProps) {
 <a id="file-src-components-glass-objects-glassobjectcards-tsx-6093911e"></a>
 ### src/components/glass-objects/GlassObjectCards.tsx
 
-8758 bytes · SHA-256 `04cfced1d3f0b5db72fb70da3bc43baf448898210b8ba5963c35a8ac1e5983be` · utf8
+8841 bytes · SHA-256 `9e9aedb19671e52f31592e9620eaaee6b66a39253cc34e05b8e76fd15524918c` · utf8
 
 ```tsx
 import {
@@ -6754,7 +6807,7 @@ const SLIDERS = [
 
 const GlassObjectCard = memo(function GlassObjectCard({
   kind, title, children, initialSpin = true, initialRotationAxis = 'y',
-  initialRotationSpeed = 0.3, initialMaterial, lightingIntensity = 1,
+  initialRotationSpeed = 0.3, initialMaterial, lightingIntensity = 1, backdrop = 'dark',
 }: GlassObjectCardProps & { kind: GlassObjectKind }) {
   const id = useId()
   const stage = useRef<HTMLDivElement>(null)
@@ -6813,6 +6866,7 @@ const GlassObjectCard = memo(function GlassObjectCard({
     <section className="transmission-card glass-object-card" aria-labelledby={`${id}-title`}
       data-glass-object-state={state} data-glass-object-spin={spin}
       data-glass-object-kind={kind} data-glass-object-quality={effectiveQuality}
+      data-glass-object-backdrop={backdrop}
       data-glass-object-lighting={lightingIntensity}>
       <header className="transmission-heading">
         <p>FIRST LIGHT / GLASS OBJECT</p>
@@ -6827,7 +6881,7 @@ const GlassObjectCard = memo(function GlassObjectCard({
               <GlassObjectCanvas kind={kind} settings={settings} spin={spin}
                 rotationAxis={axis} rotationSpeed={speed}
                 interactive={activity.inView && activity.pageVisible && !focused}
-                coarse={activity.coarse} high={high} lightingIntensity={lightingIntensity}
+                coarse={activity.coarse} high={high} lightingIntensity={lightingIntensity} backdrop={backdrop}
                 onReady={onReady} onUnavailable={onUnavailable} />
             </Suspense>
           </ObjectBoundary>
@@ -7008,7 +7062,7 @@ export default GlassTorusObject
 <a id="file-src-components-glass-objects-glassobjectscenetypes-ts-1e871685"></a>
 ### src/components/glass-objects/glassObjectSceneTypes.ts
 
-1020 bytes · SHA-256 `313ff5205163dc8ab1d5fc404a6d4287ff9bbd5e67e8cf8e4ede50c67d005a32` · utf8
+1170 bytes · SHA-256 `82c661ca43eb1c4a1cb2c28cb9e0d43c742eaa23e78ec9198b59921e2303d658` · utf8
 
 ```ts
 import type { ReactNode } from 'react'
@@ -7028,6 +7082,8 @@ export interface GlassObjectCardProps {
   initialMaterial?: Partial<GlassSettings>
   /** Multiplier for studio and local lights; 1 keeps the example's lighting. */
   lightingIntensity?: number
+  /** A procedural neutral backdrop gives the glass light and contrast to refract. */
+  backdrop?: 'dark' | 'neutral'
 }
 
 export interface GlassObjectCanvasProps {
@@ -7040,6 +7096,7 @@ export interface GlassObjectCanvasProps {
   coarse: boolean
   high: boolean
   lightingIntensity?: number
+  backdrop?: 'dark' | 'neutral'
   onReady: () => void
   onUnavailable: (reason?: 'renderer' | 'context') => void
 }

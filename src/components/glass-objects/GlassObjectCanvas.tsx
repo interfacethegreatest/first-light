@@ -8,6 +8,7 @@ import {
 import { GlassStudioEnvironment } from '../transmission/GlassStudioEnvironment'
 import GlassTorusObject from './GlassTorusObject'
 import GlassPanelObject from './GlassPanelObject'
+import GlassCaptureBackdrop from './GlassCaptureBackdrop'
 import type { GlassObjectCanvasProps } from './glassObjectSceneTypes'
 
 function ObjectScene(props: GlassObjectCanvasProps) {
@@ -53,7 +54,8 @@ function ObjectScene(props: GlassObjectCanvasProps) {
   const objectProps = { settings, spin, rotationAxis, rotationSpeed, onRendered: reportMainDraw }
   return (
     <>
-      <color attach="background" args={['#080b14']} />
+      {props.backdrop === 'neutral'
+        ? <GlassCaptureBackdrop /> : <color attach="background" args={['#080b14']} />}
       <GlassStudioEnvironment intensity={props.lightingIntensity} />
       {/* Exactly one visible mesh. No text, tags, shadow planes or extra shapes. */}
       {kind === 'torus'
