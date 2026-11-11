@@ -1,0 +1,68 @@
+{
+  "result": "PASS",
+  "visualAcceptedByCoordinator": true,
+  "acceptedCandidate": "Dark private capture with the new independent text preset; displayed canvas remains alpha-transparent.",
+  "presetActualGPU": {
+    "opacity": 1,
+    "_transmission": 1,
+    "thickness": 0.22,
+    "ior": 1.45,
+    "roughness": 0.008,
+    "chromaticAberration": 0.015,
+    "anisotropicBlur": 0.012,
+    "distortion": 0.01,
+    "diffuse": [
+      0.783538,
+      0.83077,
+      0.896269
+    ]
+  },
+  "matchedBaselinePoseCameraGeometry": true,
+  "desktopWords": [
+    {
+      "text": "LIGHT",
+      "meanAbsoluteRGBDifferenceFromBaseline": 1.7450898541234674
+    },
+    {
+      "text": "GLASS",
+      "meanAbsoluteRGBDifferenceFromBaseline": 1.5692331478045762
+    }
+  ],
+  "coarse390": {
+    "actualCoarse": true,
+    "noOverflow": true,
+    "inputAndCanvasPreserved": true
+  },
+  "mainProofRetained": {
+    "report": "after.json",
+    "scopes": [
+      "mainDesktop",
+      "main390"
+    ],
+    "reason": "Main neutral palette, geometry, controls and app source unchanged by text-only dark-capture selection; root verified file boundaries. Live phase will recheck main."
+  },
+  "evidence": {
+    "baseline": "baseline.json",
+    "rejectedOpticsOnly": {
+      "report": "after.json",
+      "functional": "PASS",
+      "visual": "NOT_ACCEPTED"
+    },
+    "acceptedDesktop": "after_dark.json",
+    "acceptedCoarse": "after_dark-mobile.json"
+  },
+  "frozenAssetManifest": {
+    "file": "final-asset-manifest.json",
+    "count": 21,
+    "sha256": "c5eb83b6397151d6ed3c0fad40ce1fc6de5591f4b819e3ed95800ef6cc3a3431",
+    "allMatchCurrentDarkCaptureDist": true
+  },
+  "browserClosed": true,
+  "gpuReleased": true,
+  "limitations": [
+    "Linux Chromium/SwiftShader only; no physical Apple/SafariGPU or FPS certification.",
+    "The text still uses material opacity1/transmission1; clearer appearance comes from optical settings and private capture radiance, not CSS transparency.",
+    "DOM is visible outside geometry; it is not captured/refracted inside the glyphs.",
+    "No broad motion/fault/20-character suite repeated; prior verified geometry/lifecycle evidence retained."
+  ]
+}

@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         app: fileURLToPath(new URL('./index.html', import.meta.url)),
         glassPanelExample: fileURLToPath(new URL('./examples/glass-panel-3d/index.html', import.meta.url)),
+        glassTextExample: fileURLToPath(new URL('./examples/transparent-glass/index.html', import.meta.url)),
       },
     },
   },

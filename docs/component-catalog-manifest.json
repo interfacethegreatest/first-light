@@ -1,22 +1,23 @@
 {
   "formatVersion": 1,
   "snapshotKind": "local working-tree source; not deployment evidence",
-  "snapshotSha256": "79066121fc0b8608db780c0e54b5c9b847f7c332b1f531e83a8e2524ffec6cf2",
+  "snapshotSha256": "b55699a39887c042079e49d3ed4177d56c7767b9ad00f00f0f8e9ea0ba7b806b",
   "sourceSelection": {
     "directory": "all files under src/",
     "explicitFiles": [
       "public/media/moon/Moon.jsx",
-      "examples/glass-panel-3d/main.tsx"
+      "examples/glass-panel-3d/main.tsx",
+      "examples/transparent-glass/main.tsx"
     ]
   },
   "exporter": {
     "file": "scripts/export-component-catalog.mjs",
-    "sha256": "06e857a77de25a1b5ee3d0c15a0c2190a6453f25fe4678a821b7872b6a258877"
+    "sha256": "6f028f299396234100a04e72230bf8dab0d201e66cb0432d545af9355327c9a6"
   },
-  "fileCount": 104,
-  "srcFileCount": 102,
-  "sourceBytes": 223583,
-  "componentModuleCount": 52,
+  "fileCount": 110,
+  "srcFileCount": 107,
+  "sourceBytes": 236033,
+  "componentModuleCount": 55,
   "components": [
     {
       "module": "App",
@@ -119,14 +120,24 @@
       "usage": "Imported from application entry (including lazy/conditional paths)"
     },
     {
+      "module": "CaptureStudioBackdrop",
+      "primaryExport": "CaptureStudioBackdrop",
+      "namedExports": [],
+      "file": "src/components/glass-objects/CaptureStudioBackdrop.tsx",
+      "category": "Isolated glass objects and rotation",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
       "module": "GlassCaptureBackdrop",
       "primaryExport": "GlassCaptureBackdrop",
       "namedExports": [],
       "file": "src/components/glass-objects/GlassCaptureBackdrop.tsx",
       "category": "Isolated glass objects and rotation",
       "kind": "component-bearing module",
-      "importedFromMain": true,
-      "usage": "Imported from application entry (including lazy/conditional paths)"
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
     },
     {
       "module": "GlassObjectCanvas",
@@ -163,6 +174,28 @@
       "kind": "component-bearing module",
       "importedFromMain": true,
       "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "GlassTextObject",
+      "primaryExport": "see full module",
+      "namedExports": [
+        "GlassTextObject"
+      ],
+      "file": "src/components/glass-objects/GlassTextObject.tsx",
+      "category": "Isolated glass objects and rotation",
+      "kind": "component-bearing module",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
+    },
+    {
+      "module": "GlassTextScene",
+      "primaryExport": "GlassTextScene",
+      "namedExports": [],
+      "file": "src/components/glass-objects/GlassTextScene.tsx",
+      "category": "Isolated glass objects and rotation",
+      "kind": "component-bearing module",
+      "importedFromMain": false,
+      "usage": "Standalone/reusable; not imported from application entry"
     },
     {
       "module": "GlassTorusObject",
@@ -798,18 +831,36 @@
       "importedFromMain": false
     },
     {
+      "path": "src/components/glass-objects/CaptureStudioBackdrop.tsx",
+      "bytes": 2702,
+      "sha256": "f24417d90354e5774dc4ed0a18b8643a01bc8376559d5b54a5474f642ca7fd2a",
+      "encoding": "utf8",
+      "category": "Isolated glass objects and rotation",
+      "anchor": "file-src-components-glass-objects-capturestudiobackdrop-tsx-c1633ad0",
+      "importedFromMain": true
+    },
+    {
       "path": "src/components/glass-objects/GlassCaptureBackdrop.tsx",
       "bytes": 1475,
       "sha256": "1185f8a6125c9646d4532382094c42384da981a243dc75d71f2052c028ccf7e2",
       "encoding": "utf8",
       "category": "Isolated glass objects and rotation",
       "anchor": "file-src-components-glass-objects-glasscapturebackdrop-tsx-3c26583b",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/glass-objects/GlassObjectCanvas.module.css",
+      "bytes": 268,
+      "sha256": "e92f8f1815f0ffc9b42627f6d1658f06afd9ec719af40616c07e2fce9f5ef853",
+      "encoding": "utf8",
+      "category": "Isolated glass objects and rotation",
+      "anchor": "file-src-components-glass-objects-glassobjectcanvas-module-css-8240e52e",
       "importedFromMain": true
     },
     {
       "path": "src/components/glass-objects/GlassObjectCanvas.tsx",
-      "bytes": 5145,
-      "sha256": "c0fecb679df6fa485696c34673b8bc2eb22c86e3e875c6c1a3a6c1bc1f5e9c35",
+      "bytes": 6005,
+      "sha256": "225078bbf4376d14b577f3b9447a7e257b894037026d71893337170ce751401b",
       "encoding": "utf8",
       "category": "Isolated glass objects and rotation",
       "anchor": "file-src-components-glass-objects-glassobjectcanvas-tsx-0ec44c1a",
@@ -841,6 +892,33 @@
       "category": "Isolated glass objects and rotation",
       "anchor": "file-src-components-glass-objects-glasspanelobject-tsx-4f9bd3ee",
       "importedFromMain": true
+    },
+    {
+      "path": "src/components/glass-objects/GlassTextObject.tsx",
+      "bytes": 2823,
+      "sha256": "10459323b49249afd2521edfee5c858ded087ae63c4e9f506bdd03fb784d4fd5",
+      "encoding": "utf8",
+      "category": "Isolated glass objects and rotation",
+      "anchor": "file-src-components-glass-objects-glasstextobject-tsx-857da568",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/glass-objects/GlassTextScene.module.css",
+      "bytes": 374,
+      "sha256": "612ca0d45acf38a3be25b48050cd46ec8d20f2b2578a082acd0556b82c19d320",
+      "encoding": "utf8",
+      "category": "Isolated glass objects and rotation",
+      "anchor": "file-src-components-glass-objects-glasstextscene-module-css-44384679",
+      "importedFromMain": false
+    },
+    {
+      "path": "src/components/glass-objects/GlassTextScene.tsx",
+      "bytes": 4140,
+      "sha256": "595aadeca9630c507801663dfa7e33655cd455879107dac1165aff6be7882178",
+      "encoding": "utf8",
+      "category": "Isolated glass objects and rotation",
+      "anchor": "file-src-components-glass-objects-glasstextscene-tsx-7e7008a2",
+      "importedFromMain": false
     },
     {
       "path": "src/components/glass-objects/GlassTorusObject.tsx",
@@ -1561,19 +1639,28 @@
       "category": "Three.js glass panel and example",
       "anchor": "file-examples-glass-panel-3d-main-tsx-00f7f408",
       "importedFromMain": false
+    },
+    {
+      "path": "examples/transparent-glass/main.tsx",
+      "bytes": 1283,
+      "sha256": "c84ea1a01a18989a5780f63ec5cba2597ef78eefdfb65f5167ceb39271792337",
+      "encoding": "utf8",
+      "category": "Isolated glass objects and rotation",
+      "anchor": "file-examples-transparent-glass-main-tsx-6a5f051a",
+      "importedFromMain": false
     }
   ],
   "artifacts": {
     "markdown": {
       "path": "docs/component-catalog.md",
-      "bytes": 280898,
-      "sha256": "ef4005bfcc343fea71214cae8fdb780083319647e94407f339dee2f26c4caed4"
+      "bytes": 296480,
+      "sha256": "7fe2083db4e00b1147998245d0576d9c4a04aee0714d6eb8a28e9ba7b8b6a9cc"
     },
     "zip": {
       "path": "docs/component-source.zip",
-      "bytes": 240827,
-      "sha256": "8cb2aa82aaabcc018c64ee5f5d397de0f9ecb8e47ba82b5a7a6947eb8992e93b",
-      "entries": 104
+      "bytes": 254323,
+      "sha256": "005bf1290b6d0148a00daffa6e979886b13c37cbed5ca81234ec2008657cd1e5",
+      "entries": 110
     }
   }
 }

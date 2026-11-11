@@ -1,5 +1,7 @@
 # Clearer main-page transmission glass
 
+This records the earlier clarity release. The [transparent canvas and typography update](transparent-glass.md) subsequently moves the studio backdrop into capture-only rendering and publishes the standalone text example.
+
 ## Requirements and acceptance
 
 Apply the user's selected reference to the **main-page torus and blank 3D panel**, keeping First Light's current colours. Preserve the shapes, single visible mesh per canvas, rotation, native controls, activity policy and wider application. No new dependencies are included. The user explicitly authorized deployment on 11 November 2026.

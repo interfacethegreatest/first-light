@@ -26,6 +26,8 @@ The workflow installs from the lockfile, runs type checks, tests, and a producti
 
 The Vite build includes the main application at `dist/index.html` and the reusable component example at `dist/examples/glass-panel-3d/index.html`. The published example is <https://interfacethegreatest.github.io/first-light/examples/glass-panel-3d/>. Its fonts and environment map use the same repository base path as the application.
 
+The rounded glass typography example is also included at `dist/examples/transparent-glass/index.html`, published at <https://interfacethegreatest.github.io/first-light/examples/transparent-glass/>. It reuses the existing local font and shared transmission material, with transparent display and a capture-only studio backdrop.
+
 ## Verify the production path locally
 
 ```sh
