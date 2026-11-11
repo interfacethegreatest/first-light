@@ -21,12 +21,15 @@ const MAIN_GLASS_PROPS = {
   initialRotationAxis: 'y' as const,
   initialRotationSpeed: 0.25,
   lightingIntensity: 1.25,
+  backdrop: 'neutral' as const,
   initialMaterial: {
     transmission: 1,
     thickness: 0.41,
-    ior: 1.7,
-    chromaticAberration: 0.062,
-    roughness: 0.08,
+    ior: 1.45,
+    chromaticAberration: 0.02,
+    roughness: 0.03,
+    anisotropicBlur: 0.04,
+    distortion: 0.04,
     color: '#cdd2d9',
   },
 }

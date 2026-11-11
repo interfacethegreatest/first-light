@@ -15,6 +15,8 @@ export interface GlassObjectCardProps {
   initialMaterial?: Partial<GlassSettings>
   /** Multiplier for studio and local lights; 1 keeps the example's lighting. */
   lightingIntensity?: number
+  /** A procedural neutral backdrop gives the glass light and contrast to refract. */
+  backdrop?: 'dark' | 'neutral'
 }
 
 export interface GlassObjectCanvasProps {
@@ -27,6 +29,7 @@ export interface GlassObjectCanvasProps {
   coarse: boolean
   high: boolean
   lightingIntensity?: number
+  backdrop?: 'dark' | 'neutral'
   onReady: () => void
   onUnavailable: (reason?: 'renderer' | 'context') => void
 }

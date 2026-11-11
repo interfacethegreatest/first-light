@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "snapshotKind": "local working-tree source; not deployment evidence",
-  "snapshotSha256": "564b27f128991f409c5685033564fb342d292805ee2562d9af42193841597036",
+  "snapshotSha256": "79066121fc0b8608db780c0e54b5c9b847f7c332b1f531e83a8e2524ffec6cf2",
   "sourceSelection": {
     "directory": "all files under src/",
     "explicitFiles": [
@@ -13,10 +13,10 @@
     "file": "scripts/export-component-catalog.mjs",
     "sha256": "06e857a77de25a1b5ee3d0c15a0c2190a6453f25fe4678a821b7872b6a258877"
   },
-  "fileCount": 103,
-  "srcFileCount": 101,
-  "sourceBytes": 221668,
-  "componentModuleCount": 51,
+  "fileCount": 104,
+  "srcFileCount": 102,
+  "sourceBytes": 223583,
+  "componentModuleCount": 52,
   "components": [
     {
       "module": "App",
@@ -114,6 +114,16 @@
       "namedExports": [],
       "file": "src/components/glass/AppleGlassLens.tsx",
       "category": "Shared glass surfaces and panes",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "GlassCaptureBackdrop",
+      "primaryExport": "GlassCaptureBackdrop",
+      "namedExports": [],
+      "file": "src/components/glass-objects/GlassCaptureBackdrop.tsx",
+      "category": "Isolated glass objects and rotation",
       "kind": "component-bearing module",
       "importedFromMain": true,
       "usage": "Imported from application entry (including lazy/conditional paths)"
@@ -627,8 +637,8 @@
     },
     {
       "path": "src/App.tsx",
-      "bytes": 16252,
-      "sha256": "b2be7b272e96966e39ae7bc4cfd849c7f5697bbd260003a43e64bf8790cb912a",
+      "bytes": 16333,
+      "sha256": "2da5c0f21d8fc8531f764697edca2bf5a506468823b3f4f9e6e2fa9dba526d5e",
       "encoding": "utf8",
       "category": "Application, workspace data and shared styles",
       "anchor": "file-src-app-tsx-26ad4b83",
@@ -788,9 +798,18 @@
       "importedFromMain": false
     },
     {
+      "path": "src/components/glass-objects/GlassCaptureBackdrop.tsx",
+      "bytes": 1475,
+      "sha256": "1185f8a6125c9646d4532382094c42384da981a243dc75d71f2052c028ccf7e2",
+      "encoding": "utf8",
+      "category": "Isolated glass objects and rotation",
+      "anchor": "file-src-components-glass-objects-glasscapturebackdrop-tsx-3c26583b",
+      "importedFromMain": true
+    },
+    {
       "path": "src/components/glass-objects/GlassObjectCanvas.tsx",
-      "bytes": 5019,
-      "sha256": "f07a593a4708b24bb712689145c5a2d6c909df8c842f510256683dcb922a74c1",
+      "bytes": 5145,
+      "sha256": "c0fecb679df6fa485696c34673b8bc2eb22c86e3e875c6c1a3a6c1bc1f5e9c35",
       "encoding": "utf8",
       "category": "Isolated glass objects and rotation",
       "anchor": "file-src-components-glass-objects-glassobjectcanvas-tsx-0ec44c1a",
@@ -807,8 +826,8 @@
     },
     {
       "path": "src/components/glass-objects/GlassObjectCards.tsx",
-      "bytes": 8758,
-      "sha256": "04cfced1d3f0b5db72fb70da3bc43baf448898210b8ba5963c35a8ac1e5983be",
+      "bytes": 8841,
+      "sha256": "9e9aedb19671e52f31592e9620eaaee6b66a39253cc34e05b8e76fd15524918c",
       "encoding": "utf8",
       "category": "Isolated glass objects and rotation",
       "anchor": "file-src-components-glass-objects-glassobjectcards-tsx-6093911e",
@@ -834,8 +853,8 @@
     },
     {
       "path": "src/components/glass-objects/glassObjectSceneTypes.ts",
-      "bytes": 1020,
-      "sha256": "313ff5205163dc8ab1d5fc404a6d4287ff9bbd5e67e8cf8e4ede50c67d005a32",
+      "bytes": 1170,
+      "sha256": "82c661ca43eb1c4a1cb2c28cb9e0d43c742eaa23e78ec9198b59921e2303d658",
       "encoding": "utf8",
       "category": "Isolated glass objects and rotation",
       "anchor": "file-src-components-glass-objects-glassobjectscenetypes-ts-1e871685",
@@ -1547,14 +1566,14 @@
   "artifacts": {
     "markdown": {
       "path": "docs/component-catalog.md",
-      "bytes": 278327,
-      "sha256": "526a6c4d8a8b83c9a17984b745b0b1bb64a0fc4d53f7d2fea1bef0388ddc2b15"
+      "bytes": 280898,
+      "sha256": "ef4005bfcc343fea71214cae8fdb780083319647e94407f339dee2f26c4caed4"
     },
     "zip": {
       "path": "docs/component-source.zip",
-      "bytes": 238730,
-      "sha256": "49ecc673473f074638302e899f42ca54548219e6d8236177bf82a55591d14e9f",
-      "entries": 103
+      "bytes": 240827,
+      "sha256": "8cb2aa82aaabcc018c64ee5f5d397de0f9ecb8e47ba82b5a7a6947eb8992e93b",
+      "entries": 104
     }
   }
 }

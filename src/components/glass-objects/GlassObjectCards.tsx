@@ -34,7 +34,7 @@ const SLIDERS = [
 
 const GlassObjectCard = memo(function GlassObjectCard({
   kind, title, children, initialSpin = true, initialRotationAxis = 'y',
-  initialRotationSpeed = 0.3, initialMaterial, lightingIntensity = 1,
+  initialRotationSpeed = 0.3, initialMaterial, lightingIntensity = 1, backdrop = 'dark',
 }: GlassObjectCardProps & { kind: GlassObjectKind }) {
   const id = useId()
   const stage = useRef<HTMLDivElement>(null)
@@ -93,6 +93,7 @@ const GlassObjectCard = memo(function GlassObjectCard({
     <section className="transmission-card glass-object-card" aria-labelledby={`${id}-title`}
       data-glass-object-state={state} data-glass-object-spin={spin}
       data-glass-object-kind={kind} data-glass-object-quality={effectiveQuality}
+      data-glass-object-backdrop={backdrop}
       data-glass-object-lighting={lightingIntensity}>
       <header className="transmission-heading">
         <p>FIRST LIGHT / GLASS OBJECT</p>
@@ -107,7 +108,7 @@ const GlassObjectCard = memo(function GlassObjectCard({
               <GlassObjectCanvas kind={kind} settings={settings} spin={spin}
                 rotationAxis={axis} rotationSpeed={speed}
                 interactive={activity.inView && activity.pageVisible && !focused}
-                coarse={activity.coarse} high={high} lightingIntensity={lightingIntensity}
+                coarse={activity.coarse} high={high} lightingIntensity={lightingIntensity} backdrop={backdrop}
                 onReady={onReady} onUnavailable={onUnavailable} />
             </Suspense>
           </ObjectBoundary>

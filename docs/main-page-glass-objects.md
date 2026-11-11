@@ -1,5 +1,7 @@
 # Main-page glass objects
 
+This records the original deployed integration. See [the newer clarity update](transmission-reference-debug.md) for the current main-page optical preset, neutral capture backdrop and release verification scope.
+
 ## Requirements and architecture
 
 Mount both reusable glass cards in the main First Light page, after the existing Research draft pane and before the next-step message. Preserve the research forms, source-section generation, draft, exports, header and existing example. Use two desktop columns and one mobile column without changing the surrounding layout.
