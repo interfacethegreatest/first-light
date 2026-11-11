@@ -75,7 +75,7 @@ export default function SourceSections({
         id={id}
         style={{
           display: 'grid',
-          gap: 24,
+          gap: 0,
           minWidth: 0,
           marginTop: sections.length ? 24 : 0,
           padding: sections.length ? 'clamp(8px, 1.5vw, 16px)' : 0,
@@ -94,7 +94,14 @@ export default function SourceSections({
               custom={reveal?.delay ?? 0}
               inert={!reveal || undefined}
               aria-hidden={!reveal || undefined}
-              style={{ width: '100%', minWidth: 0, visibility: reveal ? 'visible' : 'hidden' }}
+              style={{
+                width: '100%',
+                minWidth: 0,
+                visibility: reveal ? 'visible' : 'hidden',
+                // Let badges overlap the next row; retain the final badge's clearance.
+                marginBottom: index < sections.length - 1 ? -26 : 0,
+                zIndex: sections.length - index,
+              }}
               onFocusCapture={() => settleReveal(section.id)}
               onAnimationComplete={definition => {
                 if (definition === 'visible') settleReveal(section.id)

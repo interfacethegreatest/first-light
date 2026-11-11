@@ -1,0 +1,64 @@
+.trigger {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #c0c5d3;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.trigger:hover,
+.trigger[aria-expanded='true'] {
+  color: #f0f8ff;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid #c0c5d3;
+  outline-offset: 1px;
+}
+
+.menu {
+  position: fixed;
+  z-index: 1000;
+  box-sizing: border-box;
+  width: 240px;
+  max-width: calc(100vw - 16px);
+  padding: 4px 0;
+  border: 1px solid rgba(225, 231, 255, 0.16);
+  border-radius: 7px;
+  background: #242631;
+  color: #e0e3ea;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  font: inherit;
+}
+
+.item,
+.blank {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 36px;
+  margin: 0;
+  padding: 9px 12px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.item { cursor: pointer; }
+.item:hover { background: rgba(225, 231, 255, 0.06); }
+.item:focus-visible { outline: 2px solid #ff9470; outline-offset: -3px; }
+.blank { border-top: 1px solid rgba(225, 231, 255, 0.06); }

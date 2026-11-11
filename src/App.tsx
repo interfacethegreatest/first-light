@@ -5,6 +5,7 @@ import CalendarPanel from './components/calendarMotion/CalendarPanel'
 import CalendarButton from './components/calendarMotion/CalendarButton'
 import AddSourceButton from './components/sources/AddSourceButton'
 import SourceSections from './components/sources/SourceSections'
+import SourceSectionMenu from './components/sources/SourceSectionMenu'
 import useSourceSections from './components/sources/useSourceSections'
 import MoonBanner from './components/header/MoonBanner'
 import { MoonCredit } from './components/misc/MoonMark/MoonMark'
@@ -69,6 +70,8 @@ export default function App() {
   const [sourceError, setSourceError] = useState('')
   const [sourceSuccess, setSourceSuccess] = useState('')
   const { sourceSections, introduceSourceSection } = useSourceSections()
+  const [sourcePanelDismissed, setSourcePanelDismissed] = useState(false)
+  const [sourceMenuOpen, setSourceMenuOpen] = useState(false)
   const [selectedSource, setSelectedSource] = useState('')
   const [finding, setFinding] = useState('')
   const [implementation, setImplementation] = useState('')
@@ -172,9 +175,21 @@ export default function App() {
         </PaneBackground>
 
         <div className="workspace-grid">
-          <CalendarPanel>
+          {!sourcePanelDismissed && <CalendarPanel>
           <PaneBackground as="section" className="panel source-panel" aria-labelledby="sources-heading">
-            <div className="panel-heading"><span className="step-number">01</span><div><h3 id="sources-heading">Research library</h3><p>Start with something worth building on.</p></div></div>
+            <div className="panel-heading"><span className="step-number">01</span><div><h3 id="sources-heading">Research library</h3><p>Start with something worth building on.</p></div>
+              <SourceSectionMenu
+                sectionId="research-library"
+                label="Research library"
+                open={sourceMenuOpen}
+                onOpenChange={setSourceMenuOpen}
+                onDismiss={() => {
+                  setSourceMenuOpen(false)
+                  setSourcePanelDismissed(true)
+                  document.getElementById('research-finding')?.focus({ preventScroll: true })
+                }}
+              />
+            </div>
             <form onSubmit={submitSource} noValidate className="entry-form">
               <div className="field"><label htmlFor="source-title">Source title <span aria-hidden="true">*</span></label><PaneBackground as="input" id="source-title" value={sourceTitle} onChange={(event) => setSourceTitle(event.target.value)} placeholder="A paper, study, or research article" required /></div>
               <div className="field"><label htmlFor="source-url">Source URL <span aria-hidden="true">*</span></label><PaneBackground as="input" id="source-url" type="url" value={sourceUrl} onChange={(event) => setSourceUrl(event.target.value)} placeholder="https://…" required /><span className="field-hint">Link to the original research where possible.</span></div>
@@ -190,7 +205,7 @@ export default function App() {
               {workspace.sources.length === 0 ? <div className="empty-state source-empty"><span className="empty-symbol" aria-hidden="true"><Arrow diagonal /></span><h4>A clean page. A clear beginning.</h4><p>Add your first source above. Your evidence will live here, ready to inform the next step.</p></div> : <ul className="source-list">{workspace.sources.map((source, index) => <li key={source.id}><span className="source-index">{String(index + 1).padStart(2, '0')}</span><div className="source-content"><a href={source.url} target="_blank" rel="noreferrer">{source.title}<Arrow diagonal /></a><span className="source-host">{new URL(source.url).hostname}</span>{source.notes && <p>{source.notes}</p>}</div></li>)}</ul>}
             </div>
           </PaneBackground>
-          </CalendarPanel>
+          </CalendarPanel>}
 
           <CalendarPanel>
           <PaneBackground as="section" className="panel decision-panel" aria-labelledby="decisions-heading">
