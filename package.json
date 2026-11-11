@@ -9,9 +9,10 @@
   },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build && npm run perf:budget",
     "preview": "vite preview --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
+    "perf:budget": "node scripts/check-performance-budget.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "moon:pack": "node scripts/pack-moon-glb.mjs public/media/moon/moon.gltf public/media/moon/moon.glb",

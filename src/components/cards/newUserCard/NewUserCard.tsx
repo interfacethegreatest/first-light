@@ -1,11 +1,20 @@
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
-import { motion, type Variants } from 'framer-motion'
+import { Component, lazy, Suspense, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import type { Variants } from 'framer-motion'
+import { motion } from '../../calendarMotion/LightMotion'
+import { useContentPaintReady } from '../../performance/useContentPaintReady'
 import Tilt from 'react-parallax-tilt'
-import SunScene from '../../react three fibre/sunScene/SunScene'
 import { useCalendarMotionPreferences } from '../../calendarMotion/useCalendarMotionPreferences'
 import PaneBackground, { paneBackgroundClassName } from '../../panes/PaneBackground'
 import CardTiles from './CardTiles'
 import styles from './newUser.module.css'
+
+const SunScene = lazy(() => import('../../react three fibre/sunScene/SunScene'))
+
+class SunBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  state = { failed: false }
+  static getDerivedStateFromError() { return { failed: true } }
+  render() { return this.state.failed ? null : this.props.children }
+}
 
 interface NewUserCardProps {
   headingId: string
@@ -45,8 +54,12 @@ export default function NewUserCard({
   borderTone = 'aliceblue',
   surfaceClassName,
 }: NewUserCardProps) {
+  const contentPainted = useContentPaintReady()
   const { reducedMotion, coarsePointer } = useCalendarMotionPreferences()
   const frame = useRef<HTMLDivElement>(null)
+  const sunBadge = useRef<HTMLDivElement>(null)
+  const [sunInView, setSunInView] = useState(false)
+  const [pageVisible, setPageVisible] = useState(() => typeof document === 'undefined' || document.visibilityState !== 'hidden')
   const [insideParentTilt, setInsideParentTilt] = useState(false)
   const [focusWithin, setFocusWithin] = useState(false)
   const [settledOverride, setSettledOverride] = useState(reducedMotion)
@@ -59,6 +72,30 @@ export default function NewUserCard({
   useEffect(() => {
     if (reducedMotion) setSettledOverride(true)
   }, [reducedMotion])
+
+  useEffect(() => {
+    const element = sunBadge.current
+    if (!element) return
+    if (typeof IntersectionObserver === 'undefined') {
+      setSunInView(true)
+      return
+    }
+    let live = true
+    const observer = new IntersectionObserver(entries => {
+      if (!live) return
+      const entry = entries.find(value => value.target === element)
+      if (entry) setSunInView(entry.isIntersecting)
+    })
+    observer.observe(element)
+    return () => { live = false; observer.disconnect() }
+  }, [])
+
+  useEffect(() => {
+    const update = () => setPageVisible(document.visibilityState !== 'hidden')
+    update()
+    document.addEventListener('visibilitychange', update)
+    return () => document.removeEventListener('visibilitychange', update)
+  }, [])
 
   return (
     <motion.div
@@ -108,7 +145,11 @@ export default function NewUserCard({
           </small>
 
           <motion.div className={`${paneBackgroundClassName} ${styles.planetContainer}`} variants={badgeVariants} aria-hidden="true">
-            <div className={styles.planet}><SunScene /></div>
+            <div ref={sunBadge} className={styles.planet} data-source-sun>
+              <SunBoundary>
+                {contentPainted && sunInView && pageVisible && <Suspense fallback={null}><SunScene /></Suspense>}
+              </SunBoundary>
+            </div>
           </motion.div>
 
           <motion.div className={`entry-form source-content ${styles.body}`} variants={contentVariants}>{children}</motion.div>

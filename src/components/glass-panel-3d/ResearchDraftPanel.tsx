@@ -1,4 +1,4 @@
-import { useId, useState } from 'react'
+import { memo, useId, useState } from 'react'
 import GlassPanel3D from './GlassPanel3D'
 import styles from './ResearchDraftPanel.module.css'
 
@@ -8,7 +8,7 @@ export interface ResearchDraftPanelProps {
 }
 
 /** The original, simple glass-panel design, with a session-only native draft. */
-export default function ResearchDraftPanel({ mounted = true }: ResearchDraftPanelProps) {
+export default memo(function ResearchDraftPanel({ mounted = true }: ResearchDraftPanelProps) {
   const id = useId()
   const [draft, setDraft] = useState('')
 
@@ -31,4 +31,4 @@ export default function ResearchDraftPanel({ mounted = true }: ResearchDraftPane
       <span id={`${id}-hint`} className={styles.hint}>Temporary draft · Clears on reload</span>
     </GlassPanel3D>
   )
-}
+})

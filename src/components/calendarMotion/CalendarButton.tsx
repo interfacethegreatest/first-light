@@ -1,11 +1,11 @@
 import { useEffect, type ReactNode } from 'react'
 import {
   animate,
-  motion,
   useMotionTemplate,
   useMotionValue,
   type HTMLMotionProps,
 } from 'framer-motion'
+import { motion } from './LightMotion'
 import { useCalendarMotionPreferences } from './useCalendarMotionPreferences'
 import './calendarMotion.css'
 

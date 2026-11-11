@@ -9,8 +9,8 @@ import EarthMarkCanvas from '../src/components/misc/EarthMark/EarthMarkCanvas'
 vi.mock('@react-three/fiber', () => ({ Canvas: vi.fn() }))
 vi.mock('../src/components/misc/EarthMark/EarthModel', () => ({ default: () => null }))
 
-function environment() {
-  vi.stubGlobal('devicePixelRatio', 2)
+function environment(dpr = 2) {
+  vi.stubGlobal('devicePixelRatio', dpr)
   const visual = Object.assign(new EventTarget(), { scale: 1 })
   vi.stubGlobal('visualViewport', visual)
   const queries: Array<{ query: string; listeners: Set<() => void> }> = []
@@ -58,7 +58,7 @@ describe('Earth integration with the shared Moon renderer resolution policy', ()
     browser.desktopDpr(3)
 
     expect(screen.getByTestId('earth-render-boundary')).toBe(canvas)
-    expect(canvas).toHaveAttribute('data-dpr', '3')
+    expect(canvas).toHaveAttribute('data-dpr', '2')
     expect(canvas).toHaveAttribute('data-frameloop', 'demand')
     expect(currentCanvasProps().camera).toBe(camera)
     expect(currentCanvasProps().gl).toBe(gl)
@@ -69,18 +69,20 @@ describe('Earth integration with the shared Moon renderer resolution policy', ()
   })
 
   it('follows mobile pinch resolution and back while keeping rotation, native canvas, dimensions and listener cleanup intact', () => {
-    const browser = environment()
+    const browser = environment(1)
     const windowRemoved = vi.spyOn(window, 'removeEventListener')
     const viewportRemoved = vi.spyOn(browser.visual, 'removeEventListener')
     const view = render(<StrictMode><EarthMarkCanvas animate rotationAxis="y" rotationSpeed={-0.12} /></StrictMode>)
     const canvas = screen.getByTestId('earth-render-boundary')
-    expect(canvas).toHaveAttribute('data-dpr', '2')
+    expect(canvas).toHaveAttribute('data-dpr', '1')
     expect(canvas).toHaveAttribute('data-frameloop', 'always')
 
     browser.pinch(2)
-    expect(canvas).toHaveAttribute('data-dpr', '4')
-    browser.pinch(1)
     expect(canvas).toHaveAttribute('data-dpr', '2')
+    browser.pinch(8)
+    expect(canvas).toHaveAttribute('data-dpr', '2')
+    browser.pinch(1)
+    expect(canvas).toHaveAttribute('data-dpr', '1')
     expect(screen.getByTestId('earth-render-boundary')).toBe(canvas)
     expect(canvas).toHaveAttribute('data-frameloop', 'always')
     expect(canvas.style.width).toBe('100%');expect(canvas.style.height).toBe('100%')

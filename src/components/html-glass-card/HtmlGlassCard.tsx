@@ -1,3 +1,4 @@
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import { Component, lazy, Suspense, useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import HtmlGlassCardContent from './HtmlGlassCardContent'
@@ -29,6 +30,7 @@ export default function HtmlGlassCard({
   eyebrow = 'HTML / THREE.JS', noteLabel = 'Scene research note',
   hint = 'Click or focus the field to see the Calendar4 highlight.',
 }: HtmlGlassCardProps) {
+  const contentPainted = useContentPaintReady()
   const root = useRef<HTMLDivElement>(null)
   const nativeSlot = useRef<HTMLDivElement>(null)
   const htmlPortal = useRef<HTMLDivElement>(null)
@@ -75,8 +77,8 @@ export default function HtmlGlassCard({
     return () => { live.current = false }
   }, [])
   useEffect(() => {
-    if (activity.inViewport && activity.pageVisible && activity.hasWebGL) setRequested(true)
-  }, [activity.inViewport, activity.pageVisible, activity.hasWebGL])
+    if (contentPainted && activity.inViewport && activity.pageVisible && activity.hasWebGL) setRequested(true)
+  }, [contentPainted, activity.inViewport, activity.pageVisible, activity.hasWebGL])
 
   const onReady = useCallback(() => { if (live.current && !failed.current) setReady(true) }, [])
   const onUnavailable = useCallback(() => {

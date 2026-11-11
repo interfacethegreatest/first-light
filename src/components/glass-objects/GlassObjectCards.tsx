@@ -1,8 +1,9 @@
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import {
   Component, lazy, memo, Suspense, useCallback, useEffect, useId,
   useMemo, useRef, useState, type ReactNode,
 } from 'react'
-import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from '../transmission/GlassPrimitives'
+import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from '../transmission/glassSettings'
 import { useTransmissionActivity } from '../transmission/useTransmissionActivity'
 import type { TransmissionQuality } from '../transmission/transmissionTypes'
 import type { GlassObjectCardProps, GlassObjectKind } from './glassObjectSceneTypes'
@@ -36,6 +37,7 @@ const GlassObjectCard = memo(function GlassObjectCard({
   kind, title, children, initialSpin = true, initialRotationAxis = 'y',
   initialRotationSpeed = 0.3, initialMaterial, lightingIntensity = 1, backdrop = 'dark',
 }: GlassObjectCardProps & { kind: GlassObjectKind }) {
+  const contentPainted = useContentPaintReady()
   const id = useId()
   const stage = useRef<HTMLDivElement>(null)
   const activity = useTransmissionActivity(stage)
@@ -58,8 +60,8 @@ const GlassObjectCard = memo(function GlassObjectCard({
     return () => { alive.current = false }
   }, [])
   useEffect(() => {
-    if (activity.inView && activity.pageVisible && activity.webgl) setRequested(true)
-  }, [activity.inView, activity.pageVisible, activity.webgl])
+    if (contentPainted && activity.inView && activity.pageVisible && activity.webgl) setRequested(true)
+  }, [contentPainted, activity.inView, activity.pageVisible, activity.webgl])
 
   const effectiveQuality = quality === 'auto' ? activity.coarse ? 'balanced' : 'high' : quality
   const high = effectiveQuality === 'high'

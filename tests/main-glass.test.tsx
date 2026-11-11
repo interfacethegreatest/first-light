@@ -80,12 +80,14 @@ describe('glass card on the actual main workspace', () => {
   })
 
   it('preserves both native draft areas and saved data when the new card renderer fails', async () => {
-    environment(true);localStorage.setItem(KEY, JSON.stringify(SEED))
+    const intersect = environment(true)
+    localStorage.setItem(KEY, JSON.stringify(SEED))
     const user = userEvent.setup(), view = render(<App />)
     const idea = screen.getByRole('textbox', { name: 'Research draft' })
     const metadata = view.container.querySelector<HTMLInputElement>('#source-title')!
     await user.type(metadata, 'Keep source metadata')
     await user.type(idea, 'Keep the main idea')
+    intersect(view.container.querySelector('[data-main-glass] [data-glass-layer]')!)
     await screen.findByTestId('main-glass-gpu-boundary')
     const layer = view.container.querySelector('[data-main-glass] [data-glass-layer]')!
     const callbacks = vi.mocked(GlassPanelCanvas).mock.calls.at(-1)![0]
@@ -103,9 +105,10 @@ describe('glass card on the actual main workspace', () => {
   })
 
   it('toggles the reusable panel GPU layer while retaining its multiline draft node and focus', async () => {
-    environment(true)
+    const intersect = environment(true)
     const user = userEvent.setup()
     const view = render(<ResearchDraftPanel />)
+    intersect(view.container.querySelector('[data-glass-layer]')!)
     const firstCanvas = await screen.findByTestId('main-glass-gpu-boundary')
     const draft = screen.getByRole('textbox', { name: 'Research draft' })
     await user.type(draft, 'First line{Enter}Second line')
@@ -115,6 +118,7 @@ describe('glass card on the actual main workspace', () => {
     expect(screen.getByRole('textbox', { name: 'Research draft' })).toBe(draft)
     expect(draft).toHaveFocus()
     view.rerender(<ResearchDraftPanel mounted />)
+    intersect(view.container.querySelector('[data-glass-layer]')!)
     const secondCanvas = await screen.findByTestId('main-glass-gpu-boundary')
     expect(secondCanvas).not.toBe(firstCanvas)
     expect(screen.getByRole('textbox', { name: 'Research draft' })).toBe(draft)

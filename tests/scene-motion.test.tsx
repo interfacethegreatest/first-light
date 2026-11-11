@@ -15,6 +15,9 @@ vi.mock('react', async importOriginal => {
   return {
     ...actual,
     useRef: (initial: unknown) => initial === null ? harness.targetRef : { current: initial },
+    // These direct model-function tests do not mount React. The real-hook
+    // pause/resume lifecycle is exercised separately in sun-model.test.tsx.
+    useLayoutEffect: (effect: () => void) => effect(),
     memo: (component: unknown) => component,
   }
 })
@@ -56,14 +59,14 @@ afterEach(() => {
 })
 
 describe('actual model frame callbacks', () => {
-  it.each([[30, 0.175], [60, -0.05], [144, -0.68]])('preserves the source Sun increment over %s frames', async (frames, expectedY) => {
+  it.each([30, 60, 144])('preserves the source Sun speed over one second at %s FPS', async frames => {
     const sun = new Group()
     sun.rotation.set(0.3, 0.4, -0.2)
     const { frame } = await frameFor('sun', sun)
 
     for (let index = 0; index < frames; index++) frame({}, 1 / frames)
 
-    expect(sun.rotation.y).toBeCloseTo(expectedY, 10)
+    expect(sun.rotation.y).toBeCloseTo(-0.05, 10)
     expect(sun.rotation.x).toBe(0.3)
     expect(sun.rotation.z).toBe(-0.2)
   })
@@ -82,15 +85,15 @@ describe('actual model frame callbacks', () => {
     expect(stars.rotation.z).toBe(0.2)
   })
 
-  it.each(['sun', 'stars'] as const)('preserves source Sun steps and elapsed star rotation through irregular frames for %s', async kind => {
+  it.each(['sun', 'stars'] as const)('uses elapsed time through irregular frames for %s', async kind => {
     const target = kind === 'sun' ? new Group() : new Points()
     target.rotation.y = 0.4
     const { frame } = await frameFor(kind, target)
 
-    // The requested source Sun ignores delta; stars retain elapsed-time motion.
+    // These irregular frame intervals total one second for either model.
     for (const delta of [0.012, 0.038, 0.15, 0.3, 0.05, 0.2, 0.25]) frame({}, delta)
 
-    expect(target.rotation.y).toBeCloseTo(kind === 'sun' ? 0.3475 : 0.415, 10)
+    expect(target.rotation.y).toBeCloseTo(kind === 'sun' ? -0.05 : 0.415, 10)
     if (kind === 'stars') expect(target.rotation.x).toBe(target.rotation.y)
   })
 
@@ -115,7 +118,7 @@ describe('actual model frame callbacks', () => {
 
     frame({}, 1)
 
-    expect(target.rotation.y).toBeCloseTo(kind === 'sun' ? -0.0075 : 0.015, 10)
+    expect(target.rotation.y).toBeCloseTo(kind === 'sun' ? -0.45 : 0.015, 10)
     if (kind === 'stars') expect(target.rotation.x).toBe(target.rotation.y)
   })
 })

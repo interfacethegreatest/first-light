@@ -1,3 +1,4 @@
+import { useContentPaintReady } from '../../performance/useContentPaintReady'
 import {
   Component, lazy, Suspense, useCallback, useEffect, useRef, useState,
   type CSSProperties, type ReactNode,
@@ -40,6 +41,7 @@ class MoonBoundary extends Component<{
 export default function MoonMark({
   size = 112, animate = false, rotationAxis, rotationSpeed, className,
 }: MoonMarkProps) {
+  const contentPainted = useContentPaintReady()
   const element = useRef<HTMLDivElement>(null)
   const mounted = useRef(true)
   const { inViewport, pageVisible, reducedMotion } = useMoonActivity(element)
@@ -58,8 +60,8 @@ export default function MoonMark({
   }, [])
 
   useEffect(() => {
-    if (inViewport && pageVisible && hasWebGL) setRequested(true)
-  }, [inViewport, pageVisible, hasWebGL])
+    if (contentPainted && inViewport && pageVisible && hasWebGL) setRequested(true)
+  }, [contentPainted, inViewport, pageVisible, hasWebGL])
 
   const onReady = useCallback(() => {
     if (mounted.current) setReady(true)
@@ -71,7 +73,7 @@ export default function MoonMark({
   }, [])
 
   const canRender = requested && hasWebGL && !unavailable
-  const canAnimate = animate && rotationSpeed !== 0 && inViewport && pageVisible && !reducedMotion
+  const canAnimate = ready && animate && rotationSpeed !== 0 && inViewport && pageVisible && !reducedMotion
   const state = hasWebGL === false || unavailable
     ? 'unavailable'
     : ready ? 'loaded' : requested ? 'loading' : 'pending'

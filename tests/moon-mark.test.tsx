@@ -213,6 +213,8 @@ describe('reusable Moon scene', () => {
     const element = home.querySelector('[data-moon-mark]')!
     activity.intersect(element, true)
     const renderer = await screen.findByTestId('moon-gpu-boundary')
+    expect(renderer).toHaveAttribute('data-animate', 'false')
+    act(() => latestRenderer().onReady?.())
     expect(latestRenderer()).toMatchObject({ animate: true, rotationAxis: 'y', rotationSpeed: -0.12 })
     await user.tab()
     expect(screen.getByRole('link', { name: 'Skip to workspace' })).toHaveFocus()
@@ -249,6 +251,8 @@ describe('actual Moon Canvas lifecycle at the GPU boundary', () => {
     const element = mark(view.container)
     activity.intersect(element, true)
     const canvas = await screen.findByTestId('canvas-boundary')
+    expect(canvas).toHaveAttribute('data-frameloop', 'demand')
+    act(() => currentModelProps().onReady())
     expect(canvas).toHaveAttribute('data-frameloop', 'always')
     expect(currentModelProps()).toMatchObject({ animate: true, rotationAxis: 'x', rotationSpeed: 0.3 })
 

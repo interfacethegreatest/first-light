@@ -1,0 +1,4581 @@
+{
+  "scope": "Final candidate B, no deployment. Raw cold trials are distinct from matched ready and memory pairs. Superseded candidate A retained outside this report in artifact archive.",
+  "artifactsDirectory": "/workspace/artifacts/first-light-global-performance",
+  "evidence": {
+    "build-budget.json": {
+      "formatVersion": 1,
+      "entryHtml": "index.html",
+      "compression": "gzip-level-9",
+      "budgets": {
+        "initialJsGzipBytes": 122880,
+        "initialCssGzipBytes": 12288,
+        "maxJsChunkGzipBytes": 358400
+      },
+      "initial": {
+        "js": {
+          "rawBytes": 362016,
+          "gzipBytes": 116652,
+          "files": [
+            {
+              "file": "assets/App-C90Pz9U6.js",
+              "rawBytes": 10982,
+              "gzipBytes": 4014
+            },
+            {
+              "file": "assets/app-DxPngXEp.js",
+              "rawBytes": 124864,
+              "gzipBytes": 41999
+            },
+            {
+              "file": "assets/useTransmissionActivity-DyjnsfaE.js",
+              "rawBytes": 226170,
+              "gzipBytes": 70639
+            }
+          ]
+        },
+        "css": {
+          "rawBytes": 36029,
+          "gzipBytes": 8476,
+          "files": [
+            {
+              "file": "assets/App-1EJPQTEv.css",
+              "rawBytes": 17936,
+              "gzipBytes": 4540
+            },
+            {
+              "file": "assets/app-BF3oyZrT.css",
+              "rawBytes": 18093,
+              "gzipBytes": 3936
+            }
+          ]
+        }
+      },
+      "staticManifestEntries": [
+        "_App-C90Pz9U6.js",
+        "_useTransmissionActivity-DyjnsfaE.js",
+        "index.html"
+      ],
+      "jsChunks": [
+        {
+          "file": "assets/App-C90Pz9U6.js",
+          "rawBytes": 10982,
+          "gzipBytes": 4014,
+          "initial": true
+        },
+        {
+          "file": "assets/BufferGeometryUtils-CS33gtr-.js",
+          "rawBytes": 3331,
+          "gzipBytes": 1420,
+          "initial": false
+        },
+        {
+          "file": "assets/Center-zYEhYJN1.js",
+          "rawBytes": 2616,
+          "gzipBytes": 1303,
+          "initial": false
+        },
+        {
+          "file": "assets/EarthMarkCanvas-mxbeCrxV.js",
+          "rawBytes": 2620,
+          "gzipBytes": 1279,
+          "initial": false
+        },
+        {
+          "file": "assets/Environment-4slGYYi5.js",
+          "rawBytes": 54305,
+          "gzipBytes": 19487,
+          "initial": false
+        },
+        {
+          "file": "assets/Float-DBJahUPO.js",
+          "rawBytes": 900,
+          "gzipBytes": 539,
+          "initial": false
+        },
+        {
+          "file": "assets/FooterTextCanvas-D174tz8c.js",
+          "rawBytes": 3031,
+          "gzipBytes": 1515,
+          "initial": false
+        },
+        {
+          "file": "assets/GlassMaterial-M4GSHYW-.js",
+          "rawBytes": 262,
+          "gzipBytes": 220,
+          "initial": false
+        },
+        {
+          "file": "assets/GlassObjectCanvas-jnNL8u4o.js",
+          "rawBytes": 5066,
+          "gzipBytes": 2417,
+          "initial": false
+        },
+        {
+          "file": "assets/GlassPanelCanvas-ApfSzhZo.js",
+          "rawBytes": 2090,
+          "gzipBytes": 1146,
+          "initial": false
+        },
+        {
+          "file": "assets/GlassPrimitives-1OF2O7rF.js",
+          "rawBytes": 15792,
+          "gzipBytes": 4801,
+          "initial": false
+        },
+        {
+          "file": "assets/GlassStudioEnvironment-BAU6jkcs.js",
+          "rawBytes": 1954,
+          "gzipBytes": 932,
+          "initial": false
+        },
+        {
+          "file": "assets/GlassTextObject-BhMB65VN.js",
+          "rawBytes": 2836,
+          "gzipBytes": 1446,
+          "initial": false
+        },
+        {
+          "file": "assets/Gltf-sm7mDYIJ.js",
+          "rawBytes": 71157,
+          "gzipBytes": 20962,
+          "initial": false
+        },
+        {
+          "file": "assets/Html-D6u65jOh.js",
+          "rawBytes": 7771,
+          "gzipBytes": 3149,
+          "initial": false
+        },
+        {
+          "file": "assets/HtmlGlassCanvas-C2loaphc.js",
+          "rawBytes": 3891,
+          "gzipBytes": 1915,
+          "initial": false
+        },
+        {
+          "file": "assets/MoonMarkCanvas-efI9e4tu.js",
+          "rawBytes": 2281,
+          "gzipBytes": 1166,
+          "initial": false
+        },
+        {
+          "file": "assets/OrbitControls-BlqC-iyD.js",
+          "rawBytes": 15634,
+          "gzipBytes": 4814,
+          "initial": false
+        },
+        {
+          "file": "assets/RoundedBox-DOv2xZhw.js",
+          "rawBytes": 1220,
+          "gzipBytes": 616,
+          "initial": false
+        },
+        {
+          "file": "assets/Scene-Yk573_9H.js",
+          "rawBytes": 2964,
+          "gzipBytes": 1513,
+          "initial": false
+        },
+        {
+          "file": "assets/StarBackground-CJCEmOka.js",
+          "rawBytes": 2740,
+          "gzipBytes": 1253,
+          "initial": false
+        },
+        {
+          "file": "assets/Sun-BKLhvpqj.js",
+          "rawBytes": 680,
+          "gzipBytes": 456,
+          "initial": false
+        },
+        {
+          "file": "assets/SunScene-Dacl2Ble.js",
+          "rawBytes": 1893,
+          "gzipBytes": 999,
+          "initial": false
+        },
+        {
+          "file": "assets/TransmissionCanvas-DYljfGhT.js",
+          "rawBytes": 9865,
+          "gzipBytes": 3773,
+          "initial": false
+        },
+        {
+          "file": "assets/app-DxPngXEp.js",
+          "rawBytes": 124864,
+          "gzipBytes": 41999,
+          "initial": true
+        },
+        {
+          "file": "assets/constants-B_2BstCo.js",
+          "rawBytes": 96,
+          "gzipBytes": 111,
+          "initial": false
+        },
+        {
+          "file": "assets/events-e51d7528.esm-DlTA7Ql0.js",
+          "rawBytes": 173702,
+          "gzipBytes": 55092,
+          "initial": false
+        },
+        {
+          "file": "assets/extends-CF3RwP-h.js",
+          "rawBytes": 232,
+          "gzipBytes": 185,
+          "initial": false
+        },
+        {
+          "file": "assets/glassPanelExample-JMFr_vAY.js",
+          "rawBytes": 16140,
+          "gzipBytes": 5959,
+          "initial": false
+        },
+        {
+          "file": "assets/glassTextExample-79wccEYC.js",
+          "rawBytes": 3928,
+          "gzipBytes": 2002,
+          "initial": false
+        },
+        {
+          "file": "assets/index-CT8g1JCm.js",
+          "rawBytes": 681480,
+          "gzipBytes": 175361,
+          "initial": false
+        },
+        {
+          "file": "assets/react-three-fiber.esm-oTQTvaA8.js",
+          "rawBytes": 5456,
+          "gzipBytes": 2197,
+          "initial": false
+        },
+        {
+          "file": "assets/transmissionAssets-CqoI7Txg.js",
+          "rawBytes": 309,
+          "gzipBytes": 248,
+          "initial": false
+        },
+        {
+          "file": "assets/useFont-DCoC_7fU.js",
+          "rawBytes": 2272,
+          "gzipBytes": 1129,
+          "initial": false
+        },
+        {
+          "file": "assets/useMoonResolution-DeynErGe.js",
+          "rawBytes": 1055,
+          "gzipBytes": 495,
+          "initial": false
+        },
+        {
+          "file": "assets/useObjectRotation-kCwe72ZK.js",
+          "rawBytes": 454,
+          "gzipBytes": 320,
+          "initial": false
+        },
+        {
+          "file": "assets/useTransmissionActivity-DyjnsfaE.js",
+          "rawBytes": 226170,
+          "gzipBytes": 70639,
+          "initial": true
+        }
+      ],
+      "passed": true,
+      "violations": [],
+      "notes": [
+        "Static manifest imports plus actual HTML script/modulepreload/stylesheet references are counted once per output file. Dynamic imports are excluded unless explicitly preloaded by the HTML.",
+        "Every emitted JavaScript chunk, including other entry points and lazy chunks, also has an individual gzip budget.",
+        "Gzip sizes are reproducible level-9 estimates summed per asset, not observed transfer bytes, cache behavior or LCP/INP/CLS results."
+      ]
+    },
+    "module-audit.json": {
+      "initialGpuModules": [],
+      "renderedStatsGlOrNestedThree": [],
+      "unusedFramerDragLayout": [],
+      "renderedPostprocessing": []
+    },
+    "baseline-summary.json": {
+      "result": "PASS",
+      "mode": "baseline",
+      "runs": [
+        {
+          "index": 1,
+          "snapshotMs": 12045.09999999404,
+          "LCPms": 6432,
+          "CLS": 0,
+          "encodedJSBodyBytes": 440703,
+          "decodedJSBodyBytes": 1517243,
+          "requestCount": 25,
+          "createdRenderers": 5,
+          "canvasDOM": 5,
+          "completedJSRequests": 17,
+          "inflightJSRequests": 0,
+          "HDRRequests": [
+            "environments/potsdamer_platz_1k.hdr"
+          ],
+          "GLBRequests": [
+            "media/moon/moon.glb",
+            "media/earth/earth-icon.glb"
+          ]
+        },
+        {
+          "index": 2,
+          "snapshotMs": 12029.300000011921,
+          "LCPms": 4472,
+          "CLS": 0,
+          "encodedJSBodyBytes": 440703,
+          "decodedJSBodyBytes": 1517243,
+          "requestCount": 25,
+          "createdRenderers": 5,
+          "canvasDOM": 5,
+          "completedJSRequests": 17,
+          "inflightJSRequests": 0,
+          "HDRRequests": [
+            "environments/potsdamer_platz_1k.hdr"
+          ],
+          "GLBRequests": [
+            "media/earth/earth-icon.glb",
+            "media/moon/moon.glb"
+          ]
+        },
+        {
+          "index": 3,
+          "snapshotMs": 12021.09999999404,
+          "LCPms": 5796,
+          "CLS": 0,
+          "encodedJSBodyBytes": 440703,
+          "decodedJSBodyBytes": 1517243,
+          "requestCount": 25,
+          "createdRenderers": 5,
+          "canvasDOM": 5,
+          "completedJSRequests": 17,
+          "inflightJSRequests": 0,
+          "HDRRequests": [
+            "environments/potsdamer_platz_1k.hdr"
+          ],
+          "GLBRequests": [
+            "media/moon/moon.glb",
+            "media/earth/earth-icon.glb"
+          ]
+        }
+      ],
+      "median": {
+        "LCPms": 5796,
+        "CLS": 0,
+        "encodedJSBodyBytes": 440703,
+        "decodedJSBodyBytes": 1517243,
+        "requestCount": 25,
+        "createdRenderers": 5
+      },
+      "syntheticInteraction": {
+        "method": "One native key press in Source title; event to first/second rAF opportunity; NOT field INP or confirmed compositor presentation.",
+        "wallCallMs": 773.3954040159006,
+        "raw": {
+          "eventTime": 15281.59999999404,
+          "value": "x",
+          "firstRAF": 15531,
+          "secondRAF": 15731,
+          "done": true
+        },
+        "eventToFirstRAFMs": 249.40000000596046,
+        "eventToSecondRAFMs": 449.40000000596046
+      },
+      "torusFrames": [
+        {
+          "kind": "torus",
+          "connected": true,
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "vendor": "Google Inc. (Google)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "timerQuery": [
+            "EXT_disjoint_timer_query_webgl2"
+          ],
+          "lost": false,
+          "actualSubmittedFrames": 9,
+          "sampleSeconds": 8.043593332986347,
+          "submittedFramesPerSecond": 1.1189029115994067,
+          "medianFrameIntervalMs": 824.9000000000015,
+          "p95FrameIntervalMs": null,
+          "intervalSamples": 8,
+          "p95InsufficientSamples": true,
+          "note": "Main-framebuffer host-mesh draws deduplicated by rAF timestamp; CPU/software browser frame pacing, not hardware GPU time. No p95 with fewer than20intervals."
+        }
+      ],
+      "offscreenResidualDraws": [
+        {
+          "kind": "torus",
+          "main": 1,
+          "captures": 2,
+          "all": 3
+        }
+      ],
+      "nativeHidden": {
+        "supported": false,
+        "visibility": "visible",
+        "qualification": "Headless minimization did not change visibilityState; no native hidden gating conclusion."
+      },
+      "browserClosed": true,
+      "limits": [
+        "Linux Chromium/SwiftShader software GPU, no physical iPhone/Safari hardware or field-performance claim.",
+        "CPU4x is CDP slowdown, not a calibrated phone CPU. Gzip localhost throttling approximates a connection, not the production CDN.",
+        "LCP is the latest observed candidate at the recorded before-scroll snapshot; CLS is the observed window, not full-session CLS.",
+        "Actual torus main-framebuffer host draws deduplicated by rAF timestamp; they are CPU/submission pacing, not GPU execution time. p95 omitted below20 intervals."
+      ]
+    },
+    "after.json": {
+      "result": "PASS",
+      "mode": "after",
+      "url": "http://127.0.0.1:4181/first-light/",
+      "profile": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "deviceScaleFactor": 2,
+        "isMobile": true,
+        "hasTouch": true,
+        "reducedMotion": "no-preference",
+        "cpuSlowdownRate": 4,
+        "network": {
+          "latencyMs": 150,
+          "downloadBytesPerSecond": 200000,
+          "uploadBytesPerSecond": 93750,
+          "connectionType": "cellular4g"
+        },
+        "initialSampleTargetMs": 12000,
+        "staticServer": "No-store, deterministic gzip level6 for HTML/JS/CSS/JSON/SVG; all asset payloads otherwise unchanged. Actual encoded transfer bytes recorded, not a GitHub CDN bandwidth prediction."
+      },
+      "runs": [
+        {
+          "index": 1,
+          "errors": [],
+          "consoleErrors": [],
+          "badHTTP": [],
+          "beforeScroll": {
+            "metrics": {
+              "lcp": {
+                "startTime": 3740,
+                "size": 27918,
+                "tag": "H1",
+                "id": "hero-title",
+                "url": ""
+              },
+              "cls": 0,
+              "longTasks": [
+                {
+                  "startTime": 1078.7999999821186,
+                  "duration": 306
+                },
+                {
+                  "startTime": 1401.4000000059605,
+                  "duration": 719
+                },
+                {
+                  "startTime": 2124.199999988079,
+                  "duration": 69
+                },
+                {
+                  "startTime": 2498.9000000059605,
+                  "duration": 90
+                },
+                {
+                  "startTime": 2654.7999999821186,
+                  "duration": 53
+                },
+                {
+                  "startTime": 3738.2999999821186,
+                  "duration": 88
+                },
+                {
+                  "startTime": 5412.0999999940395,
+                  "duration": 181
+                },
+                {
+                  "startTime": 6044.199999988079,
+                  "duration": 667
+                },
+                {
+                  "startTime": 6712.0999999940395,
+                  "duration": 126
+                },
+                {
+                  "startTime": 10611.5,
+                  "duration": 50
+                },
+                {
+                  "startTime": 11182.90000000596,
+                  "duration": 54
+                }
+              ],
+              "paints": [
+                {
+                  "name": "first-paint",
+                  "startTime": 796
+                },
+                {
+                  "name": "first-contentful-paint",
+                  "startTime": 3740
+                }
+              ],
+              "synthetic": null,
+              "now": 12031.799999982119,
+              "visibility": "visible",
+              "navigation": [
+                {
+                  "domContentLoaded": 1382.0999999940395,
+                  "load": 1384.199999988079,
+                  "responseEnd": 171.90000000596046
+                }
+              ],
+              "resources": [
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/app-DxPngXEp.js",
+                  "startTime": 248.59999999403954,
+                  "initiator": "script",
+                  "transfer": 42243,
+                  "encoded": 41943,
+                  "decoded": 124864,
+                  "duration": 665
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/useTransmissionActivity-DyjnsfaE.js",
+                  "startTime": 252,
+                  "initiator": "other",
+                  "transfer": 71026,
+                  "encoded": 70726,
+                  "decoded": 226170,
+                  "duration": 811.6999999880791
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/App-C90Pz9U6.js",
+                  "startTime": 252.90000000596046,
+                  "initiator": "other",
+                  "transfer": 4313,
+                  "encoded": 4013,
+                  "decoded": 10982,
+                  "duration": 278.2999999821186
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/App-1EJPQTEv.css",
+                  "startTime": 253.19999998807907,
+                  "initiator": "link",
+                  "transfer": 4849,
+                  "encoded": 4549,
+                  "decoded": 17936,
+                  "duration": 248
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/app-BF3oyZrT.css",
+                  "startTime": 253.40000000596046,
+                  "initiator": "link",
+                  "transfer": 4252,
+                  "encoded": 3952,
+                  "decoded": 18093,
+                  "duration": 255.69999998807907
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/StarBackground-CJCEmOka.js",
+                  "startTime": 1431.9000000059605,
+                  "initiator": "script",
+                  "transfer": 1561,
+                  "encoded": 1261,
+                  "decoded": 2740,
+                  "duration": 157.5
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/first-light.svg",
+                  "startTime": 2639.5999999940395,
+                  "initiator": "other",
+                  "transfer": 511,
+                  "encoded": 211,
+                  "decoded": 282,
+                  "duration": 165.90000000596046
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/MoonMarkCanvas-efI9e4tu.js",
+                  "startTime": 3859.2999999821186,
+                  "initiator": "script",
+                  "transfer": 1465,
+                  "encoded": 1165,
+                  "decoded": 2281,
+                  "duration": 177.40000000596046
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/react-three-fiber.esm-oTQTvaA8.js",
+                  "startTime": 3864.9000000059605,
+                  "initiator": "script",
+                  "transfer": 2502,
+                  "encoded": 2202,
+                  "decoded": 5456,
+                  "duration": 208.89999997615814
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/events-e51d7528.esm-DlTA7Ql0.js",
+                  "startTime": 3872.0999999940395,
+                  "initiator": "script",
+                  "transfer": 55593,
+                  "encoded": 55293,
+                  "decoded": 173702,
+                  "duration": 888.8000000119209
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/index-CT8g1JCm.js",
+                  "startTime": 3875,
+                  "initiator": "script",
+                  "transfer": 175424,
+                  "encoded": 175124,
+                  "decoded": 681480,
+                  "duration": 1493.2999999821186
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/Gltf-sm7mDYIJ.js",
+                  "startTime": 3881.0999999940395,
+                  "initiator": "script",
+                  "transfer": 21097,
+                  "encoded": 20797,
+                  "decoded": 71157,
+                  "duration": 564.6999999880791
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/BufferGeometryUtils-CS33gtr-.js",
+                  "startTime": 3883.7999999821186,
+                  "initiator": "script",
+                  "transfer": 1722,
+                  "encoded": 1422,
+                  "decoded": 3331,
+                  "duration": 206.10000002384186
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/constants-B_2BstCo.js",
+                  "startTime": 3885.7999999821186,
+                  "initiator": "script",
+                  "transfer": 411,
+                  "encoded": 111,
+                  "decoded": 96,
+                  "duration": 314.90000000596046
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/useMoonResolution-DeynErGe.js",
+                  "startTime": 3887,
+                  "initiator": "script",
+                  "transfer": 795,
+                  "encoded": 495,
+                  "decoded": 1055,
+                  "duration": 364.7999999821186
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/EarthMarkCanvas-mxbeCrxV.js",
+                  "startTime": 3896.9000000059605,
+                  "initiator": "script",
+                  "transfer": 1574,
+                  "encoded": 1274,
+                  "decoded": 2620,
+                  "duration": 378.19999998807907
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/useObjectRotation-kCwe72ZK.js",
+                  "startTime": 3897.5,
+                  "initiator": "script",
+                  "transfer": 620,
+                  "encoded": 320,
+                  "decoded": 454,
+                  "duration": 481.90000000596046
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/Scene-Yk573_9H.js",
+                  "startTime": 5651.5,
+                  "initiator": "script",
+                  "transfer": 1811,
+                  "encoded": 1511,
+                  "decoded": 2964,
+                  "duration": 190.40000000596046
+                }
+              ],
+              "canvasDOM": 4
+            },
+            "wallSeconds": 12.084833245986374,
+            "requests": [
+              {
+                "url": "http://127.0.0.1:4181/first-light/",
+                "type": "Document",
+                "started": 176431.80008,
+                "mime": "text/html",
+                "status": 200,
+                "encodedTransferBytes": 671,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/app-DxPngXEp.js",
+                "type": "Script",
+                "started": 176432.039834,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 42162,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/useTransmissionActivity-DyjnsfaE.js",
+                "type": "Script",
+                "started": 176432.043268,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 70945,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/App-C90Pz9U6.js",
+                "type": "Script",
+                "started": 176432.044257,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 4231,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/App-1EJPQTEv.css",
+                "type": "Stylesheet",
+                "started": 176432.044514,
+                "mime": "text/css",
+                "status": 200,
+                "encodedTransferBytes": 4760,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/app-BF3oyZrT.css",
+                "type": "Stylesheet",
+                "started": 176432.044719,
+                "mime": "text/css",
+                "status": 200,
+                "encodedTransferBytes": 4163,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/StarBackground-CJCEmOka.js",
+                "type": "Script",
+                "started": 176433.221349,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1479,
+                "finished": true
+              },
+              {
+                "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3ClinearGradient id='x'%3E%3Cstop offset='0' stop-color='%23800000'/%3E%3Cstop offset='0.12' stop-color='%23cc0000'/%3E%3Cstop offset='0.5' stop-color='%23800000'/%3E%3Cstop offset='0.88' stop-color='%23330000'/%3E%3Cstop offset='1' stop-color='%23800000'/%3E%3C/linearGradient%3E%3ClinearGradient id='y' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23008000'/%3E%3Cstop offset='0.14' stop-color='%2300b300'/%3E%3Cstop offset='0.5' stop-color='%23008000'/%3E%3Cstop offset='0.86' stop-color='%23004d00'/%3E%3Cstop offset='1' stop-color='%23008000'/%3E%3C/linearGradient%3E%3Crect width='1' height='1' fill='url(%23x)'/%3E%3Crect width='1' height='1' fill='url(%23y)' style='mix-blend-mode:screen'/%3E%3C/svg%3E",
+                "type": "Image",
+                "started": 176433.478189,
+                "mime": "image/svg+xml",
+                "status": 200,
+                "encodedTransferBytes": 0,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/first-light.svg",
+                "type": "Other",
+                "started": 176434.429879,
+                "mime": "image/svg+xml",
+                "status": 200,
+                "encodedTransferBytes": 426,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/MoonMarkCanvas-efI9e4tu.js",
+                "type": "Script",
+                "started": 176435.649413,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1383,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/react-three-fiber.esm-oTQTvaA8.js",
+                "type": "Script",
+                "started": 176435.655969,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 2420,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/events-e51d7528.esm-DlTA7Ql0.js",
+                "type": "Script",
+                "started": 176435.662651,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 55512,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/index-CT8g1JCm.js",
+                "type": "Script",
+                "started": 176435.665964,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 175344,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/Gltf-sm7mDYIJ.js",
+                "type": "Script",
+                "started": 176435.671382,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 21016,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/BufferGeometryUtils-CS33gtr-.js",
+                "type": "Script",
+                "started": 176435.674485,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1640,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/constants-B_2BstCo.js",
+                "type": "Script",
+                "started": 176435.675597,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 328,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/useMoonResolution-DeynErGe.js",
+                "type": "Script",
+                "started": 176435.678391,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 712,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/EarthMarkCanvas-mxbeCrxV.js",
+                "type": "Script",
+                "started": 176435.687822,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1492,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/useObjectRotation-kCwe72ZK.js",
+                "type": "Script",
+                "started": 176435.68869,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 537,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/media/moon/moon.glb",
+                "type": "Fetch",
+                "started": 176437.381543,
+                "mime": "model/gltf-binary",
+                "status": 200
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/media/earth/earth-icon.glb",
+                "type": "Fetch",
+                "started": 176437.410727,
+                "mime": "model/gltf-binary",
+                "status": 200
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/Scene-Yk573_9H.js",
+                "type": "Script",
+                "started": 176437.441831,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1729,
+                "finished": true
+              }
+            ],
+            "requestCount": 22,
+            "completedJSRequests": 15,
+            "inflightJSRequests": 0,
+            "encodedJSBodyBytes": 377657,
+            "decodedJSBodyBytes": 1309352,
+            "cdpFinishedJSTransferBytes": 380930,
+            "renderers": [
+              {
+                "kind": "star-background",
+                "connected": true,
+                "createdAt": 6056.5,
+                "all": 44,
+                "captures": 0,
+                "main": 44,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "moon-scene",
+                "connected": true,
+                "createdAt": 6444,
+                "all": 0,
+                "captures": 0,
+                "main": 0,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "earth-scene",
+                "connected": true,
+                "createdAt": 6539.199999988079,
+                "all": 0,
+                "captures": 0,
+                "main": 0,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "earth-scene",
+                "connected": true,
+                "createdAt": 6619.299999982119,
+                "all": 0,
+                "captures": 0,
+                "main": 0,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              }
+            ]
+          },
+          "afterOnlyJSHeap": {
+            "usedSize": 9642284,
+            "totalSize": 13819904,
+            "embedderHeapUsedSize": 4639856,
+            "backingStorageSize": 2847817
+          },
+          "syntheticInteraction": {
+            "method": "One native key press in Source title; event to first/second rAF opportunity; NOT field INP or confirmed compositor presentation.",
+            "wallCallMs": 538.909174996661,
+            "raw": {
+              "eventTime": 15359.59999999404,
+              "value": "x",
+              "firstRAF": 15350.4,
+              "secondRAF": 15717,
+              "done": true
+            },
+            "eventToFirstRAFMs": -9.1999999940399,
+            "eventToSecondRAFMs": 357.40000000596046
+          },
+          "nativeControlledInputWorks": true,
+          "torusSubmittedHostFrames": [
+            {
+              "kind": "torus",
+              "connected": true,
+              "createdAt": 17335.69999998808,
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false,
+              "actualSubmittedFrames": 9,
+              "sampleSeconds": 8.022786529996665,
+              "submittedFramesPerSecond": 1.1218047453150597,
+              "medianFrameIntervalMs": 883.3500000000004,
+              "p95FrameIntervalMs": null,
+              "intervalSamples": 8,
+              "p95InsufficientSamples": true,
+              "note": "Main-framebuffer host-mesh draws deduplicated by rAF timestamp; CPU/software browser frame pacing, not hardware GPU time. No p95 with fewer than20intervals."
+            }
+          ],
+          "torusRawSnapshot": [
+            {
+              "kind": "torus",
+              "connected": true,
+              "createdAt": 17335.69999998808,
+              "all": 88,
+              "captures": 71,
+              "main": 17,
+              "frames": [
+                22750.1,
+                23250,
+                24316.7,
+                25433.3,
+                27033.2,
+                27066.6,
+                27766.6,
+                30116.5,
+                30183.1
+              ],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            }
+          ],
+          "offscreenTorusDrawDelta": [
+            {
+              "kind": "torus",
+              "main": 2,
+              "captures": 4,
+              "all": 6
+            }
+          ],
+          "nativeHiddenTorus": {
+            "supported": false,
+            "visibility": "visible"
+          },
+          "noOverflow": true,
+          "result": "PASS",
+          "browserContextClosed": true
+        },
+        {
+          "index": 2,
+          "errors": [],
+          "consoleErrors": [],
+          "badHTTP": [],
+          "beforeScroll": {
+            "metrics": {
+              "lcp": {
+                "startTime": 3136,
+                "size": 27918,
+                "tag": "H1",
+                "id": "hero-title",
+                "url": ""
+              },
+              "cls": 0,
+              "longTasks": [
+                {
+                  "startTime": 1226.5,
+                  "duration": 229
+                },
+                {
+                  "startTime": 1477.5,
+                  "duration": 1111
+                },
+                {
+                  "startTime": 2595.2000000178814,
+                  "duration": 124
+                },
+                {
+                  "startTime": 2910.9000000059605,
+                  "duration": 104
+                },
+                {
+                  "startTime": 3033.5,
+                  "duration": 87
+                },
+                {
+                  "startTime": 3569.2000000178814,
+                  "duration": 157
+                },
+                {
+                  "startTime": 3920.9000000059605,
+                  "duration": 64
+                },
+                {
+                  "startTime": 5443.5,
+                  "duration": 148
+                },
+                {
+                  "startTime": 5591.5,
+                  "duration": 497
+                },
+                {
+                  "startTime": 6290,
+                  "duration": 2057
+                },
+                {
+                  "startTime": 8347.100000023842,
+                  "duration": 167
+                },
+                {
+                  "startTime": 8617.200000017881,
+                  "duration": 93
+                },
+                {
+                  "startTime": 8998.700000017881,
+                  "duration": 59
+                },
+                {
+                  "startTime": 9082.600000023842,
+                  "duration": 1290
+                },
+                {
+                  "startTime": 10373.100000023842,
+                  "duration": 167
+                },
+                {
+                  "startTime": 11540.200000017881,
+                  "duration": 52
+                }
+              ],
+              "paints": [
+                {
+                  "name": "first-paint",
+                  "startTime": 660
+                },
+                {
+                  "name": "first-contentful-paint",
+                  "startTime": 3136
+                }
+              ],
+              "synthetic": null,
+              "now": 12054.300000011921,
+              "visibility": "visible",
+              "navigation": [
+                {
+                  "domContentLoaded": 1452.7000000178814,
+                  "load": 1452.9000000059605,
+                  "responseEnd": 183.60000002384186
+                }
+              ],
+              "resources": [
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/app-DxPngXEp.js",
+                  "startTime": 269.90000000596046,
+                  "initiator": "script",
+                  "transfer": 42243,
+                  "encoded": 41943,
+                  "decoded": 124864,
+                  "duration": 634.7000000178814
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/useTransmissionActivity-DyjnsfaE.js",
+                  "startTime": 274.80000001192093,
+                  "initiator": "other",
+                  "transfer": 71026,
+                  "encoded": 70726,
+                  "decoded": 226170,
+                  "duration": 915.5
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/App-C90Pz9U6.js",
+                  "startTime": 276.5,
+                  "initiator": "other",
+                  "transfer": 4313,
+                  "encoded": 4013,
+                  "decoded": 10982,
+                  "duration": 314.30000001192093
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/App-1EJPQTEv.css",
+                  "startTime": 277.7000000178814,
+                  "initiator": "link",
+                  "transfer": 4849,
+                  "encoded": 4549,
+                  "decoded": 17936,
+                  "duration": 327.09999999403954
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/app-BF3oyZrT.css",
+                  "startTime": 279.80000001192093,
+                  "initiator": "link",
+                  "transfer": 4252,
+                  "encoded": 3952,
+                  "decoded": 18093,
+                  "duration": 309.80000001192093
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/StarBackground-CJCEmOka.js",
+                  "startTime": 1521.800000011921,
+                  "initiator": "script",
+                  "transfer": 1561,
+                  "encoded": 1261,
+                  "decoded": 2740,
+                  "duration": 169.69999998807907
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/first-light.svg",
+                  "startTime": 3028.7000000178814,
+                  "initiator": "other",
+                  "transfer": 511,
+                  "encoded": 211,
+                  "decoded": 282,
+                  "duration": 398.2999999821186
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/MoonMarkCanvas-efI9e4tu.js",
+                  "startTime": 3880.2000000178814,
+                  "initiator": "script",
+                  "transfer": 1465,
+                  "encoded": 1165,
+                  "decoded": 2281,
+                  "duration": 159.19999998807907
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/react-three-fiber.esm-oTQTvaA8.js",
+                  "startTime": 3880.600000023842,
+                  "initiator": "script",
+                  "transfer": 2502,
+                  "encoded": 2202,
+                  "decoded": 5456,
+                  "duration": 198.19999998807907
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/events-e51d7528.esm-DlTA7Ql0.js",
+                  "startTime": 3880.7000000178814,
+                  "initiator": "script",
+                  "transfer": 55593,
+                  "encoded": 55293,
+                  "decoded": 173702,
+                  "duration": 894.7999999821186
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/index-CT8g1JCm.js",
+                  "startTime": 3880.9000000059605,
+                  "initiator": "script",
+                  "transfer": 175424,
+                  "encoded": 175124,
+                  "decoded": 681480,
+                  "duration": 1507.5999999940395
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/Gltf-sm7mDYIJ.js",
+                  "startTime": 3881.100000023842,
+                  "initiator": "script",
+                  "transfer": 21097,
+                  "encoded": 20797,
+                  "decoded": 71157,
+                  "duration": 555.2999999821186
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/BufferGeometryUtils-CS33gtr-.js",
+                  "startTime": 3885.4000000059605,
+                  "initiator": "script",
+                  "transfer": 1722,
+                  "encoded": 1422,
+                  "decoded": 3331,
+                  "duration": 228.80000001192093
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/constants-B_2BstCo.js",
+                  "startTime": 3886.600000023842,
+                  "initiator": "script",
+                  "transfer": 411,
+                  "encoded": 111,
+                  "decoded": 96,
+                  "duration": 333.69999998807907
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/useMoonResolution-DeynErGe.js",
+                  "startTime": 3886.800000011921,
+                  "initiator": "script",
+                  "transfer": 795,
+                  "encoded": 495,
+                  "decoded": 1055,
+                  "duration": 377.19999998807907
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/EarthMarkCanvas-mxbeCrxV.js",
+                  "startTime": 3891.600000023842,
+                  "initiator": "script",
+                  "transfer": 1574,
+                  "encoded": 1274,
+                  "decoded": 2620,
+                  "duration": 403.2999999821186
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/useObjectRotation-kCwe72ZK.js",
+                  "startTime": 3891.800000011921,
+                  "initiator": "script",
+                  "transfer": 620,
+                  "encoded": 320,
+                  "decoded": 454,
+                  "duration": 509.59999999403954
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/Scene-Yk573_9H.js",
+                  "startTime": 6224.9000000059605,
+                  "initiator": "script",
+                  "transfer": 1811,
+                  "encoded": 1511,
+                  "decoded": 2964,
+                  "duration": 190.30000001192093
+                }
+              ],
+              "canvasDOM": 4
+            },
+            "wallSeconds": 12.190305558993714,
+            "requests": [
+              {
+                "url": "http://127.0.0.1:4181/first-light/",
+                "type": "Document",
+                "started": 176470.953558,
+                "mime": "text/html",
+                "status": 200,
+                "encodedTransferBytes": 671,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/app-DxPngXEp.js",
+                "type": "Script",
+                "started": 176471.214066,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 42162,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/useTransmissionActivity-DyjnsfaE.js",
+                "type": "Script",
+                "started": 176471.218579,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 70945,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/App-C90Pz9U6.js",
+                "type": "Script",
+                "started": 176471.220843,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 4231,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/App-1EJPQTEv.css",
+                "type": "Stylesheet",
+                "started": 176471.222374,
+                "mime": "text/css",
+                "status": 200,
+                "encodedTransferBytes": 4760,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/app-BF3oyZrT.css",
+                "type": "Stylesheet",
+                "started": 176471.224439,
+                "mime": "text/css",
+                "status": 200,
+                "encodedTransferBytes": 4163,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/StarBackground-CJCEmOka.js",
+                "type": "Script",
+                "started": 176472.45923,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1479,
+                "finished": true
+              },
+              {
+                "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3ClinearGradient id='x'%3E%3Cstop offset='0' stop-color='%23800000'/%3E%3Cstop offset='0.12' stop-color='%23cc0000'/%3E%3Cstop offset='0.5' stop-color='%23800000'/%3E%3Cstop offset='0.88' stop-color='%23330000'/%3E%3Cstop offset='1' stop-color='%23800000'/%3E%3C/linearGradient%3E%3ClinearGradient id='y' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23008000'/%3E%3Cstop offset='0.14' stop-color='%2300b300'/%3E%3Cstop offset='0.5' stop-color='%23008000'/%3E%3Cstop offset='0.86' stop-color='%23004d00'/%3E%3Cstop offset='1' stop-color='%23008000'/%3E%3C/linearGradient%3E%3Crect width='1' height='1' fill='url(%23x)'/%3E%3Crect width='1' height='1' fill='url(%23y)' style='mix-blend-mode:screen'/%3E%3C/svg%3E",
+                "type": "Image",
+                "started": 176472.87728,
+                "mime": "image/svg+xml",
+                "status": 200,
+                "encodedTransferBytes": 0,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/first-light.svg",
+                "type": "Other",
+                "started": 176473.973302,
+                "mime": "image/svg+xml",
+                "status": 200,
+                "encodedTransferBytes": 426,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/MoonMarkCanvas-efI9e4tu.js",
+                "type": "Script",
+                "started": 176474.824724,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1383,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/react-three-fiber.esm-oTQTvaA8.js",
+                "type": "Script",
+                "started": 176474.825189,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 2420,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/events-e51d7528.esm-DlTA7Ql0.js",
+                "type": "Script",
+                "started": 176474.825371,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 55512,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/index-CT8g1JCm.js",
+                "type": "Script",
+                "started": 176474.825523,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 175344,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/Gltf-sm7mDYIJ.js",
+                "type": "Script",
+                "started": 176474.825665,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 21016,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/BufferGeometryUtils-CS33gtr-.js",
+                "type": "Script",
+                "started": 176474.829122,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1640,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/constants-B_2BstCo.js",
+                "type": "Script",
+                "started": 176474.831181,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 328,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/useMoonResolution-DeynErGe.js",
+                "type": "Script",
+                "started": 176474.83142,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 712,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/EarthMarkCanvas-mxbeCrxV.js",
+                "type": "Script",
+                "started": 176474.832985,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1492,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/useObjectRotation-kCwe72ZK.js",
+                "type": "Script",
+                "started": 176474.836492,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 537,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/media/earth/earth-icon.glb",
+                "type": "Fetch",
+                "started": 176477.015223,
+                "mime": "model/gltf-binary",
+                "status": 200
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/media/moon/moon.glb",
+                "type": "Fetch",
+                "started": 176477.055584,
+                "mime": "model/gltf-binary",
+                "status": 200
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/Scene-Yk573_9H.js",
+                "type": "Script",
+                "started": 176477.169409,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1729,
+                "finished": true
+              }
+            ],
+            "requestCount": 22,
+            "completedJSRequests": 15,
+            "inflightJSRequests": 0,
+            "encodedJSBodyBytes": 377657,
+            "decodedJSBodyBytes": 1309352,
+            "cdpFinishedJSTransferBytes": 380930,
+            "renderers": [
+              {
+                "kind": "moon-scene",
+                "connected": true,
+                "createdAt": 6298.800000011921,
+                "all": 0,
+                "captures": 0,
+                "main": 0,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "earth-scene",
+                "connected": true,
+                "createdAt": 7625,
+                "all": 0,
+                "captures": 0,
+                "main": 0,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "earth-scene",
+                "connected": true,
+                "createdAt": 8127.9000000059605,
+                "all": 0,
+                "captures": 0,
+                "main": 0,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "star-background",
+                "connected": true,
+                "createdAt": 9083.200000017881,
+                "all": 9,
+                "captures": 0,
+                "main": 9,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              }
+            ]
+          },
+          "afterOnlyJSHeap": {
+            "usedSize": 8072780,
+            "totalSize": 14082048,
+            "embedderHeapUsedSize": 4084264,
+            "backingStorageSize": 2721024
+          },
+          "result": "PASS",
+          "browserContextClosed": true
+        },
+        {
+          "index": 3,
+          "errors": [],
+          "consoleErrors": [],
+          "badHTTP": [],
+          "beforeScroll": {
+            "metrics": {
+              "lcp": {
+                "startTime": 3156,
+                "size": 27918,
+                "tag": "H1",
+                "id": "hero-title",
+                "url": ""
+              },
+              "cls": 0,
+              "longTasks": [
+                {
+                  "startTime": 1191.9000000059605,
+                  "duration": 512
+                },
+                {
+                  "startTime": 1710.9000000059605,
+                  "duration": 1109
+                },
+                {
+                  "startTime": 2829,
+                  "duration": 93
+                },
+                {
+                  "startTime": 3049.699999988079,
+                  "duration": 93
+                },
+                {
+                  "startTime": 3195.0999999940395,
+                  "duration": 78
+                },
+                {
+                  "startTime": 3492.5,
+                  "duration": 157
+                },
+                {
+                  "startTime": 3955.4000000059605,
+                  "duration": 55
+                },
+                {
+                  "startTime": 4444.199999988079,
+                  "duration": 56
+                },
+                {
+                  "startTime": 5133.299999982119,
+                  "duration": 222
+                },
+                {
+                  "startTime": 5530.4000000059605,
+                  "duration": 926
+                },
+                {
+                  "startTime": 6459.4000000059605,
+                  "duration": 80
+                },
+                {
+                  "startTime": 7039.0999999940395,
+                  "duration": 227
+                },
+                {
+                  "startTime": 7266.799999982119,
+                  "duration": 127
+                },
+                {
+                  "startTime": 11779.199999988079,
+                  "duration": 60
+                }
+              ],
+              "paints": [
+                {
+                  "name": "first-paint",
+                  "startTime": 712
+                },
+                {
+                  "name": "first-contentful-paint",
+                  "startTime": 3156
+                }
+              ],
+              "synthetic": null,
+              "now": 12035.5,
+              "visibility": "visible",
+              "navigation": [
+                {
+                  "domContentLoaded": 1701.199999988079,
+                  "load": 1703,
+                  "responseEnd": 168.69999998807907
+                }
+              ],
+              "resources": [
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/app-DxPngXEp.js",
+                  "startTime": 340.69999998807907,
+                  "initiator": "script",
+                  "transfer": 42243,
+                  "encoded": 41943,
+                  "decoded": 124864,
+                  "duration": 668.9000000059605
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/useTransmissionActivity-DyjnsfaE.js",
+                  "startTime": 341.40000000596046,
+                  "initiator": "other",
+                  "transfer": 71026,
+                  "encoded": 70726,
+                  "decoded": 226170,
+                  "duration": 822
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/App-C90Pz9U6.js",
+                  "startTime": 341.5,
+                  "initiator": "other",
+                  "transfer": 4313,
+                  "encoded": 4013,
+                  "decoded": 10982,
+                  "duration": 259
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/App-1EJPQTEv.css",
+                  "startTime": 341.59999999403954,
+                  "initiator": "link",
+                  "transfer": 4849,
+                  "encoded": 4549,
+                  "decoded": 17936,
+                  "duration": 278.69999998807907
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/app-BF3oyZrT.css",
+                  "startTime": 341.7999999821186,
+                  "initiator": "link",
+                  "transfer": 4252,
+                  "encoded": 3952,
+                  "decoded": 18093,
+                  "duration": 248.30000001192093
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/StarBackground-CJCEmOka.js",
+                  "startTime": 1770.7999999821186,
+                  "initiator": "script",
+                  "transfer": 1561,
+                  "encoded": 1261,
+                  "decoded": 2740,
+                  "duration": 162.2000000178814
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/first-light.svg",
+                  "startTime": 3153.5,
+                  "initiator": "other",
+                  "transfer": 511,
+                  "encoded": 211,
+                  "decoded": 282,
+                  "duration": 159.09999999403954
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/MoonMarkCanvas-efI9e4tu.js",
+                  "startTime": 3590.5999999940395,
+                  "initiator": "script",
+                  "transfer": 1465,
+                  "encoded": 1165,
+                  "decoded": 2281,
+                  "duration": 181.90000000596046
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/react-three-fiber.esm-oTQTvaA8.js",
+                  "startTime": 3605,
+                  "initiator": "script",
+                  "transfer": 2502,
+                  "encoded": 2202,
+                  "decoded": 5456,
+                  "duration": 202.59999999403954
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/events-e51d7528.esm-DlTA7Ql0.js",
+                  "startTime": 3616.199999988079,
+                  "initiator": "script",
+                  "transfer": 55593,
+                  "encoded": 55293,
+                  "decoded": 173702,
+                  "duration": 889.0999999940395
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/index-CT8g1JCm.js",
+                  "startTime": 3616.7999999821186,
+                  "initiator": "script",
+                  "transfer": 175424,
+                  "encoded": 175124,
+                  "decoded": 681480,
+                  "duration": 1489.9000000059605
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/Gltf-sm7mDYIJ.js",
+                  "startTime": 3617.2999999821186,
+                  "initiator": "script",
+                  "transfer": 21097,
+                  "encoded": 20797,
+                  "decoded": 71157,
+                  "duration": 535.4000000059605
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/BufferGeometryUtils-CS33gtr-.js",
+                  "startTime": 3630.4000000059605,
+                  "initiator": "script",
+                  "transfer": 1722,
+                  "encoded": 1422,
+                  "decoded": 3331,
+                  "duration": 224.89999997615814
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/constants-B_2BstCo.js",
+                  "startTime": 3637.0999999940395,
+                  "initiator": "script",
+                  "transfer": 411,
+                  "encoded": 111,
+                  "decoded": 96,
+                  "duration": 317.09999999403954
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/useMoonResolution-DeynErGe.js",
+                  "startTime": 3637.4000000059605,
+                  "initiator": "script",
+                  "transfer": 795,
+                  "encoded": 495,
+                  "decoded": 1055,
+                  "duration": 351.7999999821186
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/EarthMarkCanvas-mxbeCrxV.js",
+                  "startTime": 3645.5,
+                  "initiator": "script",
+                  "transfer": 1574,
+                  "encoded": 1274,
+                  "decoded": 2620,
+                  "duration": 390.90000000596046
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/useObjectRotation-kCwe72ZK.js",
+                  "startTime": 3647.5999999940395,
+                  "initiator": "script",
+                  "transfer": 620,
+                  "encoded": 320,
+                  "decoded": 454,
+                  "duration": 484.69999998807907
+                },
+                {
+                  "name": "http://127.0.0.1:4181/first-light/assets/Scene-Yk573_9H.js",
+                  "startTime": 6596.199999988079,
+                  "initiator": "script",
+                  "transfer": 1811,
+                  "encoded": 1511,
+                  "decoded": 2964,
+                  "duration": 196.80000001192093
+                }
+              ],
+              "canvasDOM": 4
+            },
+            "wallSeconds": 12.084080605010968,
+            "requests": [
+              {
+                "url": "http://127.0.0.1:4181/first-light/",
+                "type": "Document",
+                "started": 176483.781672,
+                "mime": "text/html",
+                "status": 200,
+                "encodedTransferBytes": 671,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/app-DxPngXEp.js",
+                "type": "Script",
+                "started": 176484.120968,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 42162,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/useTransmissionActivity-DyjnsfaE.js",
+                "type": "Script",
+                "started": 176484.121722,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 70945,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/App-C90Pz9U6.js",
+                "type": "Script",
+                "started": 176484.121863,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 4231,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/App-1EJPQTEv.css",
+                "type": "Stylesheet",
+                "started": 176484.122021,
+                "mime": "text/css",
+                "status": 200,
+                "encodedTransferBytes": 4760,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/app-BF3oyZrT.css",
+                "type": "Stylesheet",
+                "started": 176484.122148,
+                "mime": "text/css",
+                "status": 200,
+                "encodedTransferBytes": 4163,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/StarBackground-CJCEmOka.js",
+                "type": "Script",
+                "started": 176485.54303,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1479,
+                "finished": true
+              },
+              {
+                "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3ClinearGradient id='x'%3E%3Cstop offset='0' stop-color='%23800000'/%3E%3Cstop offset='0.12' stop-color='%23cc0000'/%3E%3Cstop offset='0.5' stop-color='%23800000'/%3E%3Cstop offset='0.88' stop-color='%23330000'/%3E%3Cstop offset='1' stop-color='%23800000'/%3E%3C/linearGradient%3E%3ClinearGradient id='y' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23008000'/%3E%3Cstop offset='0.14' stop-color='%2300b300'/%3E%3Cstop offset='0.5' stop-color='%23008000'/%3E%3Cstop offset='0.86' stop-color='%23004d00'/%3E%3Cstop offset='1' stop-color='%23008000'/%3E%3C/linearGradient%3E%3Crect width='1' height='1' fill='url(%23x)'/%3E%3Crect width='1' height='1' fill='url(%23y)' style='mix-blend-mode:screen'/%3E%3C/svg%3E",
+                "type": "Image",
+                "started": 176485.94994,
+                "mime": "image/svg+xml",
+                "status": 200,
+                "encodedTransferBytes": 0,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/first-light.svg",
+                "type": "Other",
+                "started": 176486.933865,
+                "mime": "image/svg+xml",
+                "status": 200,
+                "encodedTransferBytes": 426,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/MoonMarkCanvas-efI9e4tu.js",
+                "type": "Script",
+                "started": 176487.370094,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1383,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/react-three-fiber.esm-oTQTvaA8.js",
+                "type": "Script",
+                "started": 176487.385224,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 2420,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/events-e51d7528.esm-DlTA7Ql0.js",
+                "type": "Script",
+                "started": 176487.396412,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 55512,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/index-CT8g1JCm.js",
+                "type": "Script",
+                "started": 176487.397104,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 175344,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/Gltf-sm7mDYIJ.js",
+                "type": "Script",
+                "started": 176487.397616,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 21016,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/BufferGeometryUtils-CS33gtr-.js",
+                "type": "Script",
+                "started": 176487.410223,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1640,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/constants-B_2BstCo.js",
+                "type": "Script",
+                "started": 176487.417319,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 328,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/useMoonResolution-DeynErGe.js",
+                "type": "Script",
+                "started": 176487.417799,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 712,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/EarthMarkCanvas-mxbeCrxV.js",
+                "type": "Script",
+                "started": 176487.425733,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1492,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/useObjectRotation-kCwe72ZK.js",
+                "type": "Script",
+                "started": 176487.427051,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 537,
+                "finished": true
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/media/earth/earth-icon.glb",
+                "type": "Fetch",
+                "started": 176489.128958,
+                "mime": "model/gltf-binary",
+                "status": 200
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/media/moon/moon.glb",
+                "type": "Fetch",
+                "started": 176489.179866,
+                "mime": "model/gltf-binary",
+                "status": 200
+              },
+              {
+                "url": "http://127.0.0.1:4181/first-light/assets/Scene-Yk573_9H.js",
+                "type": "Script",
+                "started": 176490.372754,
+                "mime": "text/javascript",
+                "status": 200,
+                "encodedTransferBytes": 1729,
+                "finished": true
+              }
+            ],
+            "requestCount": 22,
+            "completedJSRequests": 15,
+            "inflightJSRequests": 0,
+            "encodedJSBodyBytes": 377657,
+            "decodedJSBodyBytes": 1309352,
+            "cdpFinishedJSTransferBytes": 380930,
+            "renderers": [
+              {
+                "kind": "moon-scene",
+                "connected": true,
+                "createdAt": 5537.4000000059605,
+                "all": 0,
+                "captures": 0,
+                "main": 0,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "earth-scene",
+                "connected": true,
+                "createdAt": 6132.4000000059605,
+                "all": 0,
+                "captures": 0,
+                "main": 0,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "earth-scene",
+                "connected": true,
+                "createdAt": 6258.299999982119,
+                "all": 0,
+                "captures": 0,
+                "main": 0,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "star-background",
+                "connected": true,
+                "createdAt": 7039.799999982119,
+                "all": 38,
+                "captures": 0,
+                "main": 38,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              }
+            ]
+          },
+          "afterOnlyJSHeap": {
+            "usedSize": 9320972,
+            "totalSize": 14606336,
+            "embedderHeapUsedSize": 4899824,
+            "backingStorageSize": 2849963
+          },
+          "result": "PASS",
+          "browserContextClosed": true
+        }
+      ],
+      "limits": [
+        "Linux Chromium/SwiftShader software GPU, no physical iPhone/Safari hardware or field-performance claim.",
+        "CPU4x is CDP slowdown, not a calibrated phone CPU. Gzip localhost throttling approximates a connection, not the production CDN.",
+        "LCP is the latest observed candidate at the recorded before-scroll snapshot; CLS is the observed window, not full-session CLS.",
+        "Actual torus main-framebuffer host draws deduplicated by rAF timestamp; they are CPU/submission pacing, not GPU execution time. p95 omitted below20 intervals."
+      ],
+      "browserClosed": true
+    },
+    "fcp-gpu-order.json": {
+      "result": "PASS",
+      "method": "After-only runtime startTime and nativegetContext start timestamps matched to rendered module IDs with renderedLength>0 in frozenVite metadata. Same performance.timeOrigin as nativeFCP. No elapsedGPU measurement.",
+      "runs": [
+        {
+          "index": 1,
+          "nativeFCPms": 3740,
+          "GPUResources": [
+            {
+              "file": "assets/react-three-fiber.esm-oTQTvaA8.js",
+              "startTime": 3864.9000000059605
+            },
+            {
+              "file": "assets/events-e51d7528.esm-DlTA7Ql0.js",
+              "startTime": 3872.0999999940395
+            },
+            {
+              "file": "assets/index-CT8g1JCm.js",
+              "startTime": 3875
+            },
+            {
+              "file": "assets/Gltf-sm7mDYIJ.js",
+              "startTime": 3881.0999999940395
+            },
+            {
+              "file": "assets/BufferGeometryUtils-CS33gtr-.js",
+              "startTime": 3883.7999999821186
+            },
+            {
+              "file": "assets/constants-B_2BstCo.js",
+              "startTime": 3885.7999999821186
+            },
+            {
+              "file": "assets/Scene-Yk573_9H.js",
+              "startTime": 5651.5
+            }
+          ],
+          "contexts": [
+            {
+              "kind": "star-background",
+              "contextStart": 6056.5
+            },
+            {
+              "kind": "moon-scene",
+              "contextStart": 6444
+            },
+            {
+              "kind": "earth-scene",
+              "contextStart": 6539.199999988079
+            },
+            {
+              "kind": "earth-scene",
+              "contextStart": 6619.299999982119
+            }
+          ],
+          "noGPUResourceBeforeFCP": true,
+          "noContextBeforeFCP": true
+        },
+        {
+          "index": 2,
+          "nativeFCPms": 3136,
+          "GPUResources": [
+            {
+              "file": "assets/react-three-fiber.esm-oTQTvaA8.js",
+              "startTime": 3880.600000023842
+            },
+            {
+              "file": "assets/events-e51d7528.esm-DlTA7Ql0.js",
+              "startTime": 3880.7000000178814
+            },
+            {
+              "file": "assets/index-CT8g1JCm.js",
+              "startTime": 3880.9000000059605
+            },
+            {
+              "file": "assets/Gltf-sm7mDYIJ.js",
+              "startTime": 3881.100000023842
+            },
+            {
+              "file": "assets/BufferGeometryUtils-CS33gtr-.js",
+              "startTime": 3885.4000000059605
+            },
+            {
+              "file": "assets/constants-B_2BstCo.js",
+              "startTime": 3886.600000023842
+            },
+            {
+              "file": "assets/Scene-Yk573_9H.js",
+              "startTime": 6224.9000000059605
+            }
+          ],
+          "contexts": [
+            {
+              "kind": "moon-scene",
+              "contextStart": 6298.800000011921
+            },
+            {
+              "kind": "earth-scene",
+              "contextStart": 7625
+            },
+            {
+              "kind": "earth-scene",
+              "contextStart": 8127.9000000059605
+            },
+            {
+              "kind": "star-background",
+              "contextStart": 9083.200000017881
+            }
+          ],
+          "noGPUResourceBeforeFCP": true,
+          "noContextBeforeFCP": true
+        },
+        {
+          "index": 3,
+          "nativeFCPms": 3156,
+          "GPUResources": [
+            {
+              "file": "assets/react-three-fiber.esm-oTQTvaA8.js",
+              "startTime": 3605
+            },
+            {
+              "file": "assets/events-e51d7528.esm-DlTA7Ql0.js",
+              "startTime": 3616.199999988079
+            },
+            {
+              "file": "assets/index-CT8g1JCm.js",
+              "startTime": 3616.7999999821186
+            },
+            {
+              "file": "assets/Gltf-sm7mDYIJ.js",
+              "startTime": 3617.2999999821186
+            },
+            {
+              "file": "assets/BufferGeometryUtils-CS33gtr-.js",
+              "startTime": 3630.4000000059605
+            },
+            {
+              "file": "assets/constants-B_2BstCo.js",
+              "startTime": 3637.0999999940395
+            },
+            {
+              "file": "assets/Scene-Yk573_9H.js",
+              "startTime": 6596.199999988079
+            }
+          ],
+          "contexts": [
+            {
+              "kind": "moon-scene",
+              "contextStart": 5537.4000000059605
+            },
+            {
+              "kind": "earth-scene",
+              "contextStart": 6132.4000000059605
+            },
+            {
+              "kind": "earth-scene",
+              "contextStart": 6258.299999982119
+            },
+            {
+              "kind": "star-background",
+              "contextStart": 7039.799999982119
+            }
+          ],
+          "noGPUResourceBeforeFCP": true,
+          "noContextBeforeFCP": true
+        }
+      ]
+    },
+    "memory-pair.json": {
+      "result": "PASS",
+      "profile": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "deviceScaleFactor": 2,
+        "isMobile": true,
+        "hasTouch": true,
+        "reducedMotion": "no-preference",
+        "cpuSlowdownRate": 4,
+        "network": {
+          "latencyMs": 150,
+          "downloadBytesPerSecond": 200000,
+          "uploadBytesPerSecond": 93750,
+          "connectionType": "cellular4g"
+        },
+        "initialSampleTargetMs": 12000,
+        "staticServer": "No-store, deterministic gzip level6 for HTML/JS/CSS/JSON/SVG; all asset payloads otherwise unchanged. Actual encoded transfer bytes recorded, not a GitHub CDN bandwidth prediction."
+      },
+      "method": "One matched initial-load JS-memory pair in separate fresh Chromium processes. Same12s target, cache-disabled network/CPU profile and instrumentation; no scrolling or GC forcing.",
+      "samples": [
+        {
+          "variant": "baseline",
+          "url": "http://127.0.0.1:4180/first-light/",
+          "errors": [],
+          "consoleErrors": [],
+          "sampleBeforeHeapRequest": 12033.09999999404,
+          "heap": {
+            "usedSize": 8566196,
+            "totalSize": 13819904,
+            "embedderHeapUsedSize": 2878368,
+            "backingStorageSize": 2684951
+          },
+          "DOMCounters": {
+            "documents": 2,
+            "nodes": 680,
+            "jsEventListeners": 317
+          },
+          "dom": {
+            "at": 12052.299999982119,
+            "elements": 315,
+            "canvas": 5,
+            "moonState": "loading",
+            "earthStates": [
+              "loading",
+              "loading"
+            ]
+          },
+          "contexts": [
+            {
+              "kind": "star-background",
+              "connected": true,
+              "createdAt": 7726.799999982119,
+              "all": 0,
+              "captures": 0,
+              "main": 0,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            },
+            {
+              "kind": "moon-scene",
+              "connected": true,
+              "createdAt": 8599.40000000596,
+              "all": 0,
+              "captures": 0,
+              "main": 0,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            },
+            {
+              "kind": "earth-scene",
+              "connected": true,
+              "createdAt": 8691.5,
+              "all": 0,
+              "captures": 0,
+              "main": 0,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            },
+            {
+              "kind": "earth-scene",
+              "connected": true,
+              "createdAt": 8814.09999999404,
+              "all": 0,
+              "captures": 0,
+              "main": 0,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            },
+            {
+              "kind": "glass-panel-canvas",
+              "connected": true,
+              "createdAt": 8908.40000000596,
+              "all": 0,
+              "captures": 0,
+              "main": 0,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            }
+          ],
+          "liveConnectedContexts": 5,
+          "wallSeconds": 12.094543111976236,
+          "result": "PASS",
+          "browserClosed": true
+        },
+        {
+          "variant": "after",
+          "url": "http://127.0.0.1:4181/first-light/",
+          "errors": [],
+          "consoleErrors": [],
+          "sampleBeforeHeapRequest": 12029.90000000596,
+          "heap": {
+            "usedSize": 8964932,
+            "totalSize": 12771328,
+            "embedderHeapUsedSize": 4367216,
+            "backingStorageSize": 2444123
+          },
+          "DOMCounters": {
+            "documents": 8,
+            "nodes": 712,
+            "jsEventListeners": 319
+          },
+          "dom": {
+            "at": 12057.09999999404,
+            "elements": 310,
+            "canvas": 4,
+            "moonState": "loading",
+            "earthStates": [
+              "loading",
+              "loading"
+            ]
+          },
+          "contexts": [
+            {
+              "kind": "star-background",
+              "connected": true,
+              "createdAt": 7653.700000017881,
+              "all": 30,
+              "captures": 0,
+              "main": 30,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            },
+            {
+              "kind": "moon-scene",
+              "connected": true,
+              "createdAt": 8100.4000000059605,
+              "all": 0,
+              "captures": 0,
+              "main": 0,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            },
+            {
+              "kind": "earth-scene",
+              "connected": true,
+              "createdAt": 8253,
+              "all": 0,
+              "captures": 0,
+              "main": 0,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            },
+            {
+              "kind": "earth-scene",
+              "connected": true,
+              "createdAt": 8441.09999999404,
+              "all": 0,
+              "captures": 0,
+              "main": 0,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            }
+          ],
+          "liveConnectedContexts": 4,
+          "wallSeconds": 12.11137191299349,
+          "result": "PASS",
+          "browserClosed": true
+        }
+      ],
+      "limits": [
+        "One pair is descriptive and cannot establish a repeatable memory-reduction guarantee.",
+        "Runtime.getHeapUsage is JS/runtime heap; embedder/backingStorage values are recorded when exposed and are NOT GPU resident memory.",
+        "GPU resident/peak memory, total browser/OS process RAM, and elapsed GPU execution time were not measured.",
+        "Different loaded assets/readiness at the same12s horizon are recorded explicitly.",
+        "Linux Chromium/SwiftShader, no physical Safari/Apple hardware claim."
+      ],
+      "allBrowsersClosed": true
+    },
+    "ready-frames-pair.json": {
+      "result": "PASS",
+      "profile": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "deviceScaleFactor": 2,
+        "isMobile": true,
+        "hasTouch": true,
+        "reducedMotion": "no-preference",
+        "cpuSlowdownRate": 4,
+        "network": {
+          "latencyMs": 150,
+          "downloadBytesPerSecond": 200000,
+          "uploadBytesPerSecond": 93750,
+          "connectionType": "cellular4g"
+        },
+        "initialSampleTargetMs": 12000,
+        "staticServer": "No-store, deterministic gzip level6 for HTML/JS/CSS/JSON/SVG; all asset payloads otherwise unchanged. Actual encoded transfer bytes recorded, not a GitHub CDN bandwidth prediction."
+      },
+      "method": "One matched READY pair: nativeMoon/Earthfirstdraw and bothglassfirstdraw +actualStarsdraw, thenBalancedtorus with native controls blurred/Starsactive, fixed8s; no layer isolation.",
+      "samples": [
+        {
+          "variant": "baseline",
+          "url": "http://127.0.0.1:4180/first-light/",
+          "errors": [],
+          "consoleErrors": [],
+          "ready": {
+            "warmSeconds": 66.01289946600446,
+            "moon": "loaded",
+            "earth": [
+              "loaded",
+              "loaded"
+            ],
+            "glassStates": [
+              "loaded",
+              "loaded"
+            ],
+            "activeElement": "BODY",
+            "snapshots": [
+              {
+                "kind": "star-background",
+                "connected": true,
+                "createdAt": 7673.699999988079,
+                "all": 522,
+                "captures": 493,
+                "main": 29,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "moon-scene",
+                "connected": true,
+                "createdAt": 9111.199999988079,
+                "all": 12,
+                "captures": 0,
+                "main": 12,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "earth-scene",
+                "connected": true,
+                "createdAt": 9316.40000000596,
+                "all": 12,
+                "captures": 0,
+                "main": 12,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "earth-scene",
+                "connected": true,
+                "createdAt": 9455.5,
+                "all": 12,
+                "captures": 0,
+                "main": 12,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "glass-panel-canvas",
+                "connected": true,
+                "createdAt": 9566.299999982119,
+                "all": 24,
+                "captures": 21,
+                "main": 3,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "panel",
+                "connected": true,
+                "createdAt": 48561.90000000596,
+                "all": 55,
+                "captures": 49,
+                "main": 6,
+                "frames": [
+                  49737,
+                  52936.9,
+                  54420.2,
+                  54436.9,
+                  55353.6,
+                  56070.1
+                ],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "torus",
+                "connected": true,
+                "createdAt": 56181.19999998808,
+                "all": 58,
+                "captures": 51,
+                "main": 7,
+                "frames": [
+                  56936.7,
+                  60620,
+                  61919.9,
+                  61953.3,
+                  63636.5,
+                  64303.1,
+                  65169.8
+                ],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              }
+            ],
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "DPR": 2
+          },
+          "hostFrames": [
+            {
+              "kind": "torus",
+              "connected": true,
+              "createdAt": 56181.19999998808,
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false,
+              "actualSubmittedFrames": 8,
+              "sampleSeconds": 8.004809952981304,
+              "submittedFramesPerSecond": 0.9993991171546162,
+              "medianFrameIntervalMs": 833.3000000000029,
+              "p95FrameIntervalMs": null,
+              "intervalSamples": 7,
+              "p95InsufficientSamples": true,
+              "note": "Main-framebuffer host-mesh draws deduplicated by rAF timestamp; CPU/software browser frame pacing, not hardware GPU time. No p95 with fewer than20intervals."
+            }
+          ],
+          "rawSnapshots": [
+            {
+              "kind": "torus",
+              "connected": true,
+              "createdAt": 56181.19999998808,
+              "all": 85,
+              "captures": 69,
+              "main": 16,
+              "frames": [
+                68019.7,
+                68036.3,
+                69336.3,
+                69836.3,
+                71069.5,
+                71536.2,
+                72419.5,
+                73252.8
+              ],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            }
+          ],
+          "actualDrawDelta": [
+            {
+              "kind": "torus",
+              "main": 8,
+              "captures": 16,
+              "all": 24
+            }
+          ],
+          "sampleSeconds": 8.004809952981304,
+          "noHiddenLayers": true,
+          "verifiedOffscreenRect": {
+            "x": 20.5,
+            "y": 2858.25,
+            "width": 349,
+            "height": 352
+          },
+          "verifiedOffscreenDrawDelta": [
+            {
+              "kind": "torus",
+              "main": 0,
+              "captures": 0,
+              "all": 0
+            }
+          ],
+          "result": "PASS",
+          "browserClosed": true
+        },
+        {
+          "variant": "after",
+          "url": "http://127.0.0.1:4181/first-light/",
+          "errors": [],
+          "consoleErrors": [],
+          "ready": {
+            "warmSeconds": 47.67848523700377,
+            "moon": "loaded",
+            "earth": [
+              "loaded",
+              "loaded"
+            ],
+            "glassStates": [
+              "loaded",
+              "loaded"
+            ],
+            "activeElement": "BODY",
+            "snapshots": [
+              {
+                "kind": "star-background",
+                "connected": true,
+                "createdAt": 9977.799999982119,
+                "all": 243,
+                "captures": 0,
+                "main": 243,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "moon-scene",
+                "connected": true,
+                "createdAt": 10293.5,
+                "all": 12,
+                "captures": 0,
+                "main": 12,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "earth-scene",
+                "connected": true,
+                "createdAt": 10426.299999982119,
+                "all": 15,
+                "captures": 0,
+                "main": 15,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "earth-scene",
+                "connected": true,
+                "createdAt": 10507.799999982119,
+                "all": 13,
+                "captures": 0,
+                "main": 13,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "panel",
+                "connected": true,
+                "createdAt": 35794.19999998808,
+                "all": 64,
+                "captures": 55,
+                "main": 9,
+                "frames": [
+                  35819.6,
+                  37402.9,
+                  38769.6,
+                  39036.2,
+                  39052.9,
+                  39286.1,
+                  39919.5,
+                  41319.4,
+                  42452.7
+                ],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "torus",
+                "connected": true,
+                "createdAt": 39367.40000000596,
+                "all": 73,
+                "captures": 61,
+                "main": 12,
+                "frames": [
+                  39919.5,
+                  41319.4,
+                  42452.7,
+                  42519.3,
+                  43452.7,
+                  44636,
+                  45219.3,
+                  45736,
+                  45769.2,
+                  46152.6,
+                  46619.2,
+                  47052.6
+                ],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              },
+              {
+                "kind": "glass-panel-canvas",
+                "connected": true,
+                "createdAt": 42525,
+                "all": 0,
+                "captures": 0,
+                "main": 0,
+                "frames": [],
+                "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+                "vendor": "Google Inc. (Google)",
+                "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+                "timerQuery": [
+                  "EXT_disjoint_timer_query_webgl2"
+                ],
+                "lost": false
+              }
+            ],
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "DPR": 2
+          },
+          "hostFrames": [
+            {
+              "kind": "torus",
+              "connected": true,
+              "createdAt": 39367.40000000596,
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false,
+              "actualSubmittedFrames": 18,
+              "sampleSeconds": 8.003547234024154,
+              "submittedFramesPerSecond": 2.2490027826011425,
+              "medianFrameIntervalMs": 400,
+              "p95FrameIntervalMs": null,
+              "intervalSamples": 17,
+              "p95InsufficientSamples": true,
+              "note": "Main-framebuffer host-mesh draws deduplicated by rAF timestamp; CPU/software browser frame pacing, not hardware GPU time. No p95 with fewer than20intervals."
+            }
+          ],
+          "rawSnapshots": [
+            {
+              "kind": "torus",
+              "connected": true,
+              "createdAt": 39367.40000000596,
+              "all": 130,
+              "captures": 99,
+              "main": 31,
+              "frames": [
+                48385.8,
+                48835.8,
+                49219.1,
+                49619.1,
+                50019.1,
+                50352.4,
+                50419.1,
+                50819.1,
+                51252.3,
+                52069,
+                52469,
+                52502.3,
+                52918.9,
+                53419,
+                54552.2,
+                54585.6,
+                55635.5,
+                56035.5
+              ],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            }
+          ],
+          "actualDrawDelta": [
+            {
+              "kind": "torus",
+              "main": 18,
+              "captures": 36,
+              "all": 54
+            }
+          ],
+          "sampleSeconds": 8.003547234024154,
+          "noHiddenLayers": true,
+          "verifiedOffscreenRect": {
+            "x": 20.5,
+            "y": 2858.25,
+            "width": 349,
+            "height": 352
+          },
+          "verifiedOffscreenDrawDelta": [
+            {
+              "kind": "torus",
+              "main": 0,
+              "captures": 0,
+              "all": 0
+            }
+          ],
+          "result": "PASS",
+          "browserClosed": true
+        }
+      ],
+      "limits": [
+        "One short pair is descriptive, not statistically reliable or hardware GPU performance.",
+        "Reported main-framebuffer host-mesh calls are deduplicated by rAF timestamp: submitted CPU/browser pacing, not GPU execution or confirmed presentation.",
+        "No p95 with fewer than20 frame intervals.",
+        "Linux Chromium/SwiftShader software renderer; no physical iPhone/Safari certification."
+      ],
+      "allBrowsersClosed": true
+    },
+    "source-supplement.json": {
+      "result": "PASS",
+      "url": "http://127.0.0.1:4181/first-light/",
+      "scope": "Remaining sourceSun/native3cards only; warmfocusproof retained in priorrawdiagnostic.",
+      "errors": [],
+      "consoleErrors": [],
+      "requests": [
+        "http://127.0.0.1:4181/first-light/",
+        "http://127.0.0.1:4181/first-light/assets/app-DxPngXEp.js",
+        "http://127.0.0.1:4181/first-light/assets/useTransmissionActivity-DyjnsfaE.js",
+        "http://127.0.0.1:4181/first-light/assets/App-C90Pz9U6.js",
+        "http://127.0.0.1:4181/first-light/assets/App-1EJPQTEv.css",
+        "http://127.0.0.1:4181/first-light/assets/app-BF3oyZrT.css",
+        "http://127.0.0.1:4181/first-light/assets/StarBackground-CJCEmOka.js",
+        "http://127.0.0.1:4181/first-light/first-light.svg",
+        "http://127.0.0.1:4181/first-light/assets/MoonMarkCanvas-efI9e4tu.js",
+        "http://127.0.0.1:4181/first-light/assets/react-three-fiber.esm-oTQTvaA8.js",
+        "http://127.0.0.1:4181/first-light/assets/events-e51d7528.esm-DlTA7Ql0.js",
+        "http://127.0.0.1:4181/first-light/assets/index-CT8g1JCm.js",
+        "http://127.0.0.1:4181/first-light/assets/Gltf-sm7mDYIJ.js",
+        "http://127.0.0.1:4181/first-light/assets/BufferGeometryUtils-CS33gtr-.js",
+        "http://127.0.0.1:4181/first-light/assets/constants-B_2BstCo.js",
+        "http://127.0.0.1:4181/first-light/assets/useMoonResolution-DeynErGe.js",
+        "http://127.0.0.1:4181/first-light/assets/EarthMarkCanvas-mxbeCrxV.js",
+        "http://127.0.0.1:4181/first-light/assets/useObjectRotation-kCwe72ZK.js",
+        "http://127.0.0.1:4181/first-light/media/moon/moon.glb",
+        "http://127.0.0.1:4181/first-light/media/earth/earth-icon.glb",
+        "blob:http://127.0.0.1:4181/fcebecd4-9237-44a7-a603-ca506b337820",
+        "blob:http://127.0.0.1:4181/83744d91-1740-43ca-bac2-c7debe04cc6d",
+        "http://127.0.0.1:4181/first-light/assets/GlassPanelCanvas-ApfSzhZo.js",
+        "http://127.0.0.1:4181/first-light/assets/GlassMaterial-M4GSHYW-.js",
+        "http://127.0.0.1:4181/first-light/assets/Environment-4slGYYi5.js",
+        "http://127.0.0.1:4181/first-light/assets/extends-CF3RwP-h.js",
+        "http://127.0.0.1:4181/first-light/assets/RoundedBox-DOv2xZhw.js",
+        "http://127.0.0.1:4181/first-light/assets/SunScene-Dacl2Ble.js",
+        "http://127.0.0.1:4181/first-light/assets/OrbitControls-BlqC-iyD.js",
+        "http://127.0.0.1:4181/first-light/assets/SunScene-BuVv-Z0X.css",
+        "http://127.0.0.1:4181/first-light/environments/potsdamer_platz_1k.hdr",
+        "http://127.0.0.1:4181/first-light/assets/Scene-Yk573_9H.js",
+        "http://127.0.0.1:4181/first-light/assets/Sun-BKLhvpqj.js",
+        "http://127.0.0.1:4181/first-light/environments/venice_sunset_1k.hdr",
+        "http://127.0.0.1:4181/first-light/media/sun/sun.gltf",
+        "http://127.0.0.1:4181/first-light/media/sun/sun.bin",
+        "http://127.0.0.1:4181/first-light/media/sun/textures/Material.002_baseColor.jpeg"
+      ],
+      "offscreenSourceSunCanvasCount": 0,
+      "visibleBadgeStates": [
+        {
+          "rect": {
+            "x": 302.90625,
+            "y": 476.28125,
+            "width": 48,
+            "height": 48
+          },
+          "intersects": true,
+          "visibility": "visible",
+          "canvas": 1
+        },
+        {
+          "rect": {
+            "x": 302.90625,
+            "y": 814.375,
+            "width": 48,
+            "height": 48
+          },
+          "intersects": true,
+          "visibility": "visible",
+          "canvas": 1
+        },
+        {
+          "rect": {
+            "x": 302.90625,
+            "y": 1379.96875,
+            "width": 48,
+            "height": 48
+          },
+          "intersects": false,
+          "visibility": "visible",
+          "canvas": 0
+        }
+      ],
+      "sourceSunUnmountedOnSimulatedHidden": true,
+      "sourceSunRemountedOnVisible": true,
+      "sourceSunUnmountedWhenOffscreen": true,
+      "sourceNodesPreserved": true,
+      "nativeSourceCreationAndDraftPreserved": true,
+      "trueTopReadyScreenshot": "after-warm-ready-header.png",
+      "browserClosed": true
+    },
+    "visibility-supplement.json": {
+      "result": "FAIL",
+      "url": "http://127.0.0.1:4181/first-light/",
+      "scope": "Actual unmodified desktop app/native source controls and decorators. VisibilityState getter + event are explicitly simulated because native headless minimization did not hide the page. No CPU/network throttling, no performance comparison.",
+      "errors": [],
+      "consoleErrors": [],
+      "requests": [
+        "http://127.0.0.1:4181/first-light/",
+        "http://127.0.0.1:4181/first-light/assets/app-DxPngXEp.js",
+        "http://127.0.0.1:4181/first-light/assets/useTransmissionActivity-DyjnsfaE.js",
+        "http://127.0.0.1:4181/first-light/assets/App-C90Pz9U6.js",
+        "http://127.0.0.1:4181/first-light/assets/App-1EJPQTEv.css",
+        "http://127.0.0.1:4181/first-light/assets/app-BF3oyZrT.css",
+        "http://127.0.0.1:4181/first-light/assets/StarBackground-CJCEmOka.js",
+        "http://127.0.0.1:4181/first-light/first-light.svg",
+        "http://127.0.0.1:4181/first-light/assets/MoonMarkCanvas-efI9e4tu.js",
+        "http://127.0.0.1:4181/first-light/assets/react-three-fiber.esm-oTQTvaA8.js",
+        "http://127.0.0.1:4181/first-light/assets/events-e51d7528.esm-DlTA7Ql0.js",
+        "http://127.0.0.1:4181/first-light/assets/index-CT8g1JCm.js",
+        "http://127.0.0.1:4181/first-light/assets/Gltf-sm7mDYIJ.js",
+        "http://127.0.0.1:4181/first-light/assets/BufferGeometryUtils-CS33gtr-.js",
+        "http://127.0.0.1:4181/first-light/assets/constants-B_2BstCo.js",
+        "http://127.0.0.1:4181/first-light/assets/useMoonResolution-DeynErGe.js",
+        "http://127.0.0.1:4181/first-light/assets/EarthMarkCanvas-mxbeCrxV.js",
+        "http://127.0.0.1:4181/first-light/assets/useObjectRotation-kCwe72ZK.js",
+        "http://127.0.0.1:4181/first-light/media/moon/moon.glb",
+        "http://127.0.0.1:4181/first-light/media/earth/earth-icon.glb",
+        "blob:http://127.0.0.1:4181/7bfb5320-c4c8-4cbc-a7c2-deb6c1f4774b",
+        "blob:http://127.0.0.1:4181/29a63c0f-22e8-4a6a-8fe0-022d413bf8d5",
+        "http://127.0.0.1:4181/first-light/assets/GlassPanelCanvas-ApfSzhZo.js",
+        "http://127.0.0.1:4181/first-light/assets/GlassMaterial-M4GSHYW-.js",
+        "http://127.0.0.1:4181/first-light/assets/Environment-4slGYYi5.js",
+        "http://127.0.0.1:4181/first-light/assets/extends-CF3RwP-h.js",
+        "http://127.0.0.1:4181/first-light/assets/RoundedBox-DOv2xZhw.js",
+        "http://127.0.0.1:4181/first-light/assets/GlassObjectCanvas-jnNL8u4o.js",
+        "http://127.0.0.1:4181/first-light/assets/GlassStudioEnvironment-BAU6jkcs.js",
+        "http://127.0.0.1:4181/first-light/assets/GlassPrimitives-1OF2O7rF.js",
+        "http://127.0.0.1:4181/first-light/assets/OrbitControls-BlqC-iyD.js",
+        "http://127.0.0.1:4181/first-light/assets/GlassObjectCanvas-Bsr79_HU.css",
+        "http://127.0.0.1:4181/first-light/assets/Scene-Yk573_9H.js",
+        "http://127.0.0.1:4181/first-light/environments/potsdamer_platz_1k.hdr"
+      ],
+      "untimedWarmReadyVisual": {
+        "moonLoaded": true,
+        "earthLoaded": 2,
+        "bothGlassHadActualMainDraw": true,
+        "screenshots": [
+          "after-warm-ready-desktop-top.png",
+          "after-warm-ready-main-full.png"
+        ],
+        "scope": "Real full native page, no hidden layers; readiness proof, not cold-load timing."
+      },
+      "nativeInputFocusDrain": [
+        [
+          22,
+          22
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          22,
+          22
+        ]
+      ],
+      "nativeInputFocusAdditionalDraws": 0,
+      "nativeInputBlurResumes": true,
+      "simulatedHiddenDrain": [
+        [
+          23,
+          24
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          24,
+          24
+        ]
+      ],
+      "simulatedHiddenAdditionalDraws": 0,
+      "restoredVisibleResumes": true,
+      "starCanvasPreservedThroughFocusAndSimulatedHidden": true,
+      "failure": "Traceback (most recent call last):\n  File \"/workspace/artifacts/first-light-global-performance/visibility_probe.py\", line 42, in main\n    assert not any('potsdamer' in q for q in r['requests']);r['unusedStarHDRNotRequested']=True\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "browserClosed": true
+    },
+    "footer-ready.json": {
+      "result": "PASS",
+      "scope": "Untimed actualmainFooterfirstdraw on frozenB/fullnativepage; noGPUisolation, no coldmeasurement claim.",
+      "errors": [],
+      "consoleErrors": [],
+      "renderers": [
+        {
+          "kind": "footer-text-scene",
+          "connected": true,
+          "createdAt": 8054.899999976158,
+          "all": 46,
+          "captures": 0,
+          "main": 46,
+          "frames": [],
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "vendor": "Google Inc. (Google)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "timerQuery": [
+            "EXT_disjoint_timer_query_webgl2"
+          ],
+          "lost": false
+        }
+      ],
+      "state": "loaded",
+      "visibleSceneRect": {
+        "x": 390,
+        "y": 792.4375,
+        "width": 660,
+        "height": 112
+      },
+      "fontResources": [
+        {
+          "url": "http://127.0.0.1:4181/first-light/fonts/helvetiker_bold.typeface.json",
+          "encoded": 21347,
+          "decoded": 61632
+        }
+      ],
+      "browserClosed": true
+    },
+    "final-ready.json": {
+      "result": "PASS",
+      "scope": "Untimed actualnativepage1440/reducedmotion; warmMoon/Earth/draftglass/bothobjects/footer, blur and explicitverifiedtop before finalfullcapture. NoGPUlayershidden.",
+      "errors": [],
+      "consoleErrors": [],
+      "readiness": {
+        "scrollY": 0,
+        "activeElement": "BODY",
+        "moon": "loaded",
+        "earth": [
+          "loaded",
+          "loaded"
+        ],
+        "draft": "loaded",
+        "objects": [
+          {
+            "kind": "torus",
+            "state": "loaded"
+          },
+          {
+            "kind": "panel",
+            "state": "loaded"
+          }
+        ],
+        "footer": "loaded"
+      },
+      "rendererProof": [
+        {
+          "kind": "star-background",
+          "connected": true,
+          "createdAt": 4203.0999999940395,
+          "all": 1,
+          "captures": 0,
+          "main": 1,
+          "frames": [],
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "vendor": "Google Inc. (Google)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "timerQuery": [
+            "EXT_disjoint_timer_query_webgl2"
+          ],
+          "lost": false
+        },
+        {
+          "kind": "moon-scene",
+          "connected": true,
+          "createdAt": 4441.5,
+          "all": 4,
+          "captures": 0,
+          "main": 4,
+          "frames": [],
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "vendor": "Google Inc. (Google)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "timerQuery": [
+            "EXT_disjoint_timer_query_webgl2"
+          ],
+          "lost": false
+        },
+        {
+          "kind": "earth-scene",
+          "connected": true,
+          "createdAt": 4779.699999988079,
+          "all": 4,
+          "captures": 0,
+          "main": 4,
+          "frames": [],
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "vendor": "Google Inc. (Google)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "timerQuery": [
+            "EXT_disjoint_timer_query_webgl2"
+          ],
+          "lost": false
+        },
+        {
+          "kind": "earth-scene",
+          "connected": true,
+          "createdAt": 4832.199999988079,
+          "all": 4,
+          "captures": 0,
+          "main": 4,
+          "frames": [],
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "vendor": "Google Inc. (Google)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "timerQuery": [
+            "EXT_disjoint_timer_query_webgl2"
+          ],
+          "lost": false
+        },
+        {
+          "kind": "glass-panel-canvas",
+          "connected": true,
+          "createdAt": 8737.199999988079,
+          "all": 24,
+          "captures": 21,
+          "main": 3,
+          "frames": [],
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "vendor": "Google Inc. (Google)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "timerQuery": [
+            "EXT_disjoint_timer_query_webgl2"
+          ],
+          "lost": false
+        },
+        {
+          "kind": "torus",
+          "connected": true,
+          "createdAt": 8958.799999982119,
+          "all": 67,
+          "captures": 61,
+          "main": 6,
+          "frames": [
+            8950.6,
+            11100.5,
+            14217.1,
+            14300.5,
+            21333.498,
+            23866.7
+          ],
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "vendor": "Google Inc. (Google)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "timerQuery": [
+            "EXT_disjoint_timer_query_webgl2"
+          ],
+          "lost": false
+        },
+        {
+          "kind": "panel",
+          "connected": true,
+          "createdAt": 9721.40000000596,
+          "all": 72,
+          "captures": 65,
+          "main": 7,
+          "frames": [
+            8950.6,
+            11100.5,
+            14217.1,
+            14300.5,
+            16483.6,
+            21333.498,
+            23866.7
+          ],
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "vendor": "Google Inc. (Google)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "timerQuery": [
+            "EXT_disjoint_timer_query_webgl2"
+          ],
+          "lost": false
+        },
+        {
+          "kind": "footer-text-scene",
+          "connected": true,
+          "createdAt": 24019.90000000596,
+          "all": 46,
+          "captures": 0,
+          "main": 46,
+          "frames": [],
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "vendor": "Google Inc. (Google)",
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "timerQuery": [
+            "EXT_disjoint_timer_query_webgl2"
+          ],
+          "lost": false
+        }
+      ],
+      "browserClosed": true
+    },
+    "css-ablation.json": {
+      "result": "PASS",
+      "scope": "One cold CSS-only preview ablation against unchanged Bdist; not production and not a before/after conclusion from one sample.",
+      "profile": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "deviceScaleFactor": 2,
+        "isMobile": true,
+        "hasTouch": true,
+        "reducedMotion": "no-preference",
+        "cpuSlowdownRate": 4,
+        "network": {
+          "latencyMs": 150,
+          "downloadBytesPerSecond": 200000,
+          "uploadBytesPerSecond": 93750,
+          "connectionType": "cellular4g"
+        },
+        "initialSampleTargetMs": 12000,
+        "staticServer": "No-store, deterministic gzip level6 for HTML/JS/CSS/JSON/SVG; all asset payloads otherwise unchanged. Actual encoded transfer bytes recorded, not a GitHub CDN bandwidth prediction."
+      },
+      "run": {
+        "index": 1,
+        "errors": [],
+        "consoleErrors": [],
+        "badHTTP": [],
+        "beforeScroll": {
+          "metrics": {
+            "lcp": {
+              "startTime": 5768,
+              "size": 27918,
+              "tag": "H1",
+              "id": "hero-title",
+              "url": ""
+            },
+            "cls": 0,
+            "longTasks": [
+              {
+                "startTime": 1190.7000000178814,
+                "duration": 328
+              },
+              {
+                "startTime": 1529.4000000059605,
+                "duration": 1256
+              },
+              {
+                "startTime": 2786.800000011921,
+                "duration": 68
+              },
+              {
+                "startTime": 3251.2000000178814,
+                "duration": 94
+              },
+              {
+                "startTime": 3587.0999999940395,
+                "duration": 53
+              },
+              {
+                "startTime": 7423.800000011921,
+                "duration": 258
+              },
+              {
+                "startTime": 7704.5,
+                "duration": 59
+              },
+              {
+                "startTime": 7982.5999999940395,
+                "duration": 1081
+              },
+              {
+                "startTime": 9066.700000017881,
+                "duration": 246
+              }
+            ],
+            "paints": [
+              {
+                "name": "first-paint",
+                "startTime": 928
+              },
+              {
+                "name": "first-contentful-paint",
+                "startTime": 5768
+              }
+            ],
+            "synthetic": null,
+            "now": 12045.5,
+            "visibility": "visible",
+            "navigation": [
+              {
+                "domContentLoaded": 1490.4000000059605,
+                "load": 1497.300000011921,
+                "responseEnd": 164.40000000596046
+              }
+            ],
+            "resources": [
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/app-DxPngXEp.js",
+                "startTime": 350.5,
+                "initiator": "script",
+                "transfer": 42243,
+                "encoded": 41943,
+                "decoded": 124864,
+                "duration": 665.4000000059605
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/useTransmissionActivity-DyjnsfaE.js",
+                "startTime": 358.09999999403954,
+                "initiator": "other",
+                "transfer": 71026,
+                "encoded": 70726,
+                "decoded": 226170,
+                "duration": 808.2000000178814
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/App-C90Pz9U6.js",
+                "startTime": 360.2000000178814,
+                "initiator": "other",
+                "transfer": 4313,
+                "encoded": 4013,
+                "decoded": 10982,
+                "duration": 242.59999999403954
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/App-1EJPQTEv.css",
+                "startTime": 361.30000001192093,
+                "initiator": "link",
+                "transfer": 4849,
+                "encoded": 4549,
+                "decoded": 17936,
+                "duration": 282.7999999821186
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/app-BF3oyZrT.css",
+                "startTime": 373.2000000178814,
+                "initiator": "link",
+                "transfer": 4252,
+                "encoded": 3952,
+                "decoded": 18093,
+                "duration": 251.09999999403954
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/StarBackground-CJCEmOka.js",
+                "startTime": 1565,
+                "initiator": "script",
+                "transfer": 1561,
+                "encoded": 1261,
+                "decoded": 2740,
+                "duration": 159.09999999403954
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/first-light.svg",
+                "startTime": 3416.800000011921,
+                "initiator": "other",
+                "transfer": 511,
+                "encoded": 211,
+                "decoded": 282,
+                "duration": 163.40000000596046
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/MoonMarkCanvas-efI9e4tu.js",
+                "startTime": 5847.5999999940395,
+                "initiator": "script",
+                "transfer": 1465,
+                "encoded": 1165,
+                "decoded": 2281,
+                "duration": 175.7000000178814
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/react-three-fiber.esm-oTQTvaA8.js",
+                "startTime": 5850.4000000059605,
+                "initiator": "script",
+                "transfer": 2502,
+                "encoded": 2202,
+                "decoded": 5456,
+                "duration": 188.59999999403954
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/events-e51d7528.esm-DlTA7Ql0.js",
+                "startTime": 5852.0999999940395,
+                "initiator": "script",
+                "transfer": 55593,
+                "encoded": 55293,
+                "decoded": 173702,
+                "duration": 889.7000000178814
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/index-CT8g1JCm.js",
+                "startTime": 5855.5,
+                "initiator": "script",
+                "transfer": 175424,
+                "encoded": 175124,
+                "decoded": 681480,
+                "duration": 1531.4000000059605
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/Gltf-sm7mDYIJ.js",
+                "startTime": 5855.700000017881,
+                "initiator": "script",
+                "transfer": 21097,
+                "encoded": 20797,
+                "decoded": 71157,
+                "duration": 555.0999999940395
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/BufferGeometryUtils-CS33gtr-.js",
+                "startTime": 5856,
+                "initiator": "script",
+                "transfer": 1722,
+                "encoded": 1422,
+                "decoded": 3331,
+                "duration": 227.80000001192093
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/constants-B_2BstCo.js",
+                "startTime": 5856.200000017881,
+                "initiator": "script",
+                "transfer": 411,
+                "encoded": 111,
+                "decoded": 96,
+                "duration": 345.09999999403954
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/useMoonResolution-DeynErGe.js",
+                "startTime": 5856.5999999940395,
+                "initiator": "script",
+                "transfer": 795,
+                "encoded": 495,
+                "decoded": 1055,
+                "duration": 367.40000000596046
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/EarthMarkCanvas-mxbeCrxV.js",
+                "startTime": 5857.5999999940395,
+                "initiator": "script",
+                "transfer": 1574,
+                "encoded": 1274,
+                "decoded": 2620,
+                "duration": 405
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/useObjectRotation-kCwe72ZK.js",
+                "startTime": 5857.9000000059605,
+                "initiator": "script",
+                "transfer": 620,
+                "encoded": 320,
+                "decoded": 454,
+                "duration": 525
+              },
+              {
+                "name": "http://127.0.0.1:4181/first-light/assets/Scene-Yk573_9H.js",
+                "startTime": 6605.4000000059605,
+                "initiator": "script",
+                "transfer": 1811,
+                "encoded": 1511,
+                "decoded": 2964,
+                "duration": 175.19999998807907
+              }
+            ],
+            "canvasDOM": 4,
+            "ablationComputed": {
+              "coarse": true,
+              "overrideStylePresent": true,
+              "targets": [
+                {
+                  "tag": "HEADER",
+                  "class": "_background_1s0ax_1 _glass_lwkaq_1 _appleGlass_joln2_3 _frame_usxlt_1 site-header _banner_1e02w_1",
+                  "custom": "blur(7px)",
+                  "main": "blur(7px)",
+                  "pseudo": "none",
+                  "background": "rgba(35, 37, 49, 0.5)",
+                  "border": "1px",
+                  "radius": "6px"
+                },
+                {
+                  "tag": "DIV",
+                  "class": "_background_1s0ax_1 _glass_lwkaq_1 _appleGlass_joln2_3 _frame_usxlt_1 _title_148lw_1",
+                  "custom": "blur(7px)",
+                  "main": "blur(7px)",
+                  "pseudo": "none",
+                  "background": "rgba(35, 37, 49, 0.5)",
+                  "border": "1px",
+                  "radius": "6px"
+                },
+                {
+                  "tag": "INPUT",
+                  "class": "_background_1s0ax_1 _glass_lwkaq_1 _appleGlass_joln2_3",
+                  "custom": "blur(7px)",
+                  "main": "blur(7px)",
+                  "pseudo": "none",
+                  "background": "rgba(35, 37, 49, 0.5)",
+                  "border": "1px",
+                  "radius": "6px"
+                }
+              ]
+            }
+          },
+          "wallSeconds": 12.07577316701645,
+          "requests": [
+            {
+              "url": "http://127.0.0.1:4181/first-light/",
+              "type": "Document",
+              "started": 176656.871215,
+              "mime": "text/html",
+              "status": 200,
+              "encodedTransferBytes": 671,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/app-DxPngXEp.js",
+              "type": "Script",
+              "started": 176657.216917,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 42162,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/useTransmissionActivity-DyjnsfaE.js",
+              "type": "Script",
+              "started": 176657.224043,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 70945,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/App-C90Pz9U6.js",
+              "type": "Script",
+              "started": 176657.226035,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 4231,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/App-1EJPQTEv.css",
+              "type": "Stylesheet",
+              "started": 176657.226981,
+              "mime": "text/css",
+              "status": 200,
+              "encodedTransferBytes": 4760,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/app-BF3oyZrT.css",
+              "type": "Stylesheet",
+              "started": 176657.236956,
+              "mime": "text/css",
+              "status": 200,
+              "encodedTransferBytes": 4163,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/StarBackground-CJCEmOka.js",
+              "type": "Script",
+              "started": 176658.42547,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 1479,
+              "finished": true
+            },
+            {
+              "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3ClinearGradient id='x'%3E%3Cstop offset='0' stop-color='%23800000'/%3E%3Cstop offset='0.12' stop-color='%23cc0000'/%3E%3Cstop offset='0.5' stop-color='%23800000'/%3E%3Cstop offset='0.88' stop-color='%23330000'/%3E%3Cstop offset='1' stop-color='%23800000'/%3E%3C/linearGradient%3E%3ClinearGradient id='y' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23008000'/%3E%3Cstop offset='0.14' stop-color='%2300b300'/%3E%3Cstop offset='0.5' stop-color='%23008000'/%3E%3Cstop offset='0.86' stop-color='%23004d00'/%3E%3Cstop offset='1' stop-color='%23008000'/%3E%3C/linearGradient%3E%3Crect width='1' height='1' fill='url(%23x)'/%3E%3Crect width='1' height='1' fill='url(%23y)' style='mix-blend-mode:screen'/%3E%3C/svg%3E",
+              "type": "Image",
+              "started": 176658.730662,
+              "mime": "image/svg+xml",
+              "status": 200,
+              "encodedTransferBytes": 0,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/first-light.svg",
+              "type": "Other",
+              "started": 176660.282133,
+              "mime": "image/svg+xml",
+              "status": 200,
+              "encodedTransferBytes": 426,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/MoonMarkCanvas-efI9e4tu.js",
+              "type": "Script",
+              "started": 176662.711767,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 1383,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/react-three-fiber.esm-oTQTvaA8.js",
+              "type": "Script",
+              "started": 176662.71687,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 2420,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/events-e51d7528.esm-DlTA7Ql0.js",
+              "type": "Script",
+              "started": 176662.718571,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 55512,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/index-CT8g1JCm.js",
+              "type": "Script",
+              "started": 176662.721896,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 175344,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/Gltf-sm7mDYIJ.js",
+              "type": "Script",
+              "started": 176662.722286,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 21016,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/BufferGeometryUtils-CS33gtr-.js",
+              "type": "Script",
+              "started": 176662.722553,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 1640,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/constants-B_2BstCo.js",
+              "type": "Script",
+              "started": 176662.722798,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 328,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/useMoonResolution-DeynErGe.js",
+              "type": "Script",
+              "started": 176662.72308,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 712,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/EarthMarkCanvas-mxbeCrxV.js",
+              "type": "Script",
+              "started": 176662.724042,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 1492,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/useObjectRotation-kCwe72ZK.js",
+              "type": "Script",
+              "started": 176662.724344,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 537,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/assets/Scene-Yk573_9H.js",
+              "type": "Script",
+              "started": 176663.471645,
+              "mime": "text/javascript",
+              "status": 200,
+              "encodedTransferBytes": 1729,
+              "finished": true
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/media/moon/moon.glb",
+              "type": "Fetch",
+              "started": 176664.626823,
+              "mime": "model/gltf-binary",
+              "status": 200
+            },
+            {
+              "url": "http://127.0.0.1:4181/first-light/media/earth/earth-icon.glb",
+              "type": "Fetch",
+              "started": 176664.636518,
+              "mime": "model/gltf-binary",
+              "status": 200
+            }
+          ],
+          "requestCount": 22,
+          "completedJSRequests": 15,
+          "inflightJSRequests": 0,
+          "encodedJSBodyBytes": 377657,
+          "decodedJSBodyBytes": 1309352,
+          "cdpFinishedJSTransferBytes": 380930,
+          "renderers": [
+            {
+              "kind": "star-background",
+              "connected": true,
+              "createdAt": 8007.300000011921,
+              "all": 23,
+              "captures": 0,
+              "main": 23,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            },
+            {
+              "kind": "moon-scene",
+              "connected": true,
+              "createdAt": 8687.40000000596,
+              "all": 0,
+              "captures": 0,
+              "main": 0,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            },
+            {
+              "kind": "earth-scene",
+              "connected": true,
+              "createdAt": 8850.40000000596,
+              "all": 0,
+              "captures": 0,
+              "main": 0,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            },
+            {
+              "kind": "earth-scene",
+              "connected": true,
+              "createdAt": 8958.800000011921,
+              "all": 0,
+              "captures": 0,
+              "main": 0,
+              "frames": [],
+              "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+              "vendor": "Google Inc. (Google)",
+              "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+              "timerQuery": [
+                "EXT_disjoint_timer_query_webgl2"
+              ],
+              "lost": false
+            }
+          ]
+        },
+        "result": "PASS",
+        "browserContextClosed": true
+      },
+      "browserClosed": true,
+      "reportingCorrection": "Initial post-run assertion incorrectly required headerpseudo blur; actual component recipe applies blur7 directly on header/title/input. Raw run was healthy, computeddirectblur/noURL proves intendedablation. No repeatbrowser needed.",
+      "ablationAssessment": "Single sampleLCP/FCP5768ms,CLS0; no improvement demonstrated relative to Bthree-run median3156ms. This one sample is noisy and does not justify a CSS change."
+    }
+  },
+  "strictAcceptance": {
+    "criticalBuildBudgets": "pass",
+    "nativePaintBeforeGPU": "pass in 3 cold runs",
+    "observed12sCLS": "0 both variants",
+    "labLCPUnder2500ms": false,
+    "fieldINPUnder200ms": "not established",
+    "physicalSafariAndroidSmoothness": "not tested",
+    "gpuResidentMemory": "not measured",
+    "deployment": "not performed"
+  },
+  "diagnosticQualifications": {
+    "visibility-supplement.json": "Native focus/controlled-hidden draw checks passed; script later rejected a legitimate HDR loaded by static GlassPanelCanvas. This overbroad harness assertion is not a product failure. Source checks were completed separately.",
+    "css-ablation.json": "Healthy single CSS experiment showed no gain, so source CSS was not changed. Invalid setup/assertion attempts retained in artifact directory and excluded.",
+    "after.json.offscreenTorusDrawDelta": "Counts retained, but original scroll-to-main did not establish viewport exclusion; do not use as scheduling verdict. Use verified offscreen rectangles in ready-frames-pair.json.",
+    "after.json.syntheticInteraction.raw.firstRAF": "Timestamp precedes event in one sample; invalid as nonnegative input latency. Retained but excluded; second rAF remains only a synthetic opportunity proxy, not INP."
+  },
+  "criticalBaselineNodeLevel9": {
+    "jsRawBytes": 1352879,
+    "jsGzipBytes": 391205,
+    "cssRawBytes": 36171,
+    "cssGzipBytes": 8520,
+    "method": "Node zlib.gzipSync level9 over unique initial HTML scripts/modulepreloads/styles, same compressor as final budget. Prior Python-gzip level9 estimate was389440 JS/8517 CSS; do not mix compressors in a delta."
+  },
+  "independentVerifierReport": {
+    "result": "VERIFIED_WITH_PERFORMANCE_TARGET_MISS",
+    "candidate": "FrozenB; candidateA preserved separately and not accepted as final.",
+    "deployment": "None performed by verification; local build only.",
+    "scope": "Actual native FirstLightmain page, no layers hidden. Mobile cold measurements and one matched memory/READY-frame pair in software Chromium; separate fully-ready native desktop/mobile screenshots and focus/visibility/source behavior.",
+    "environment": {
+      "python": "3.12.14",
+      "playwright": "1.62.0",
+      "system": "Linux",
+      "kernel": "6.18.57",
+      "architecture": "x86_64",
+      "visibleCPUCount": 5,
+      "devDriExposed": false,
+      "cpuSlowdownMeaning": "CDPEmulation4xrenderermainthreadslowdown; not a calibrated mobileCPU/GPU.",
+      "renderer": "ANGLE GoogleVulkan1.3.0 SwiftShaderDeviceSubzero/software (actualWebGLdebugrenderer fromready-framepair)",
+      "measurement": "NativeWebGLdrawsubmissionintervals only; no GPUelapsedqueries or residentGPU-memory measurements.",
+      "chromium": "156.0.8078.79 / Debian13trixie"
+    },
+    "profile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "isMobile": true,
+      "hasTouch": true,
+      "reducedMotion": "no-preference",
+      "cpuSlowdownRate": 4,
+      "network": {
+        "latencyMs": 150,
+        "downloadBytesPerSecond": 200000,
+        "uploadBytesPerSecond": 93750,
+        "connectionType": "cellular4g"
+      },
+      "initialSampleTargetMs": 12000,
+      "staticServer": "No-store, deterministic gzip level6 for HTML/JS/CSS/JSON/SVG; all asset payloads otherwise unchanged. Actual encoded transfer bytes recorded, not a GitHub CDN bandwidth prediction."
+    },
+    "coldDefinition": "Three fresh network-cache-disabled browser contexts in one fresh Chromium process per build. Browser/GPU-driver process caches are not a cold OS/physical device. Deterministic local gzip6 static delivery, identical CPU/network/viewport/action settings.",
+    "baselineCold": {
+      "runs": [
+        {
+          "run": 1,
+          "observedLCPms": 6432,
+          "LCPElement": "hero-title",
+          "LCPSize": 27918,
+          "observedCLS": 0,
+          "snapshotMs": 12045.09999999404,
+          "encodedJSBodyBytes": 440703,
+          "decodedJSBodyBytes": 1517243,
+          "requestCount": 25,
+          "createdRendererContexts": 5,
+          "completedJS": 17,
+          "inflightJS": 0,
+          "HDRRequests": [
+            "environments/potsdamer_platz_1k.hdr"
+          ],
+          "pageErrors": [],
+          "consoleErrors": [],
+          "badHTTP": []
+        },
+        {
+          "run": 2,
+          "observedLCPms": 4472,
+          "LCPElement": "hero-title",
+          "LCPSize": 27918,
+          "observedCLS": 0,
+          "snapshotMs": 12029.300000011921,
+          "encodedJSBodyBytes": 440703,
+          "decodedJSBodyBytes": 1517243,
+          "requestCount": 25,
+          "createdRendererContexts": 5,
+          "completedJS": 17,
+          "inflightJS": 0,
+          "HDRRequests": [
+            "environments/potsdamer_platz_1k.hdr"
+          ],
+          "pageErrors": [],
+          "consoleErrors": [],
+          "badHTTP": []
+        },
+        {
+          "run": 3,
+          "observedLCPms": 5796,
+          "LCPElement": "hero-title",
+          "LCPSize": 27918,
+          "observedCLS": 0,
+          "snapshotMs": 12021.09999999404,
+          "encodedJSBodyBytes": 440703,
+          "decodedJSBodyBytes": 1517243,
+          "requestCount": 25,
+          "createdRendererContexts": 5,
+          "completedJS": 17,
+          "inflightJS": 0,
+          "HDRRequests": [
+            "environments/potsdamer_platz_1k.hdr"
+          ],
+          "pageErrors": [],
+          "consoleErrors": [],
+          "badHTTP": []
+        }
+      ],
+      "median": {
+        "observedLCPms": 5796,
+        "observedCLS": 0,
+        "encodedJSBodyBytes": 440703,
+        "decodedJSBodyBytes": 1517243,
+        "requestCount": 25,
+        "createdRendererContexts": 5
+      }
+    },
+    "candidateBCold": {
+      "runs": [
+        {
+          "run": 1,
+          "observedLCPms": 3740,
+          "LCPElement": "hero-title",
+          "LCPSize": 27918,
+          "observedCLS": 0,
+          "snapshotMs": 12031.799999982119,
+          "encodedJSBodyBytes": 377657,
+          "decodedJSBodyBytes": 1309352,
+          "requestCount": 22,
+          "createdRendererContexts": 4,
+          "completedJS": 15,
+          "inflightJS": 0,
+          "HDRRequests": [],
+          "pageErrors": [],
+          "consoleErrors": [],
+          "badHTTP": []
+        },
+        {
+          "run": 2,
+          "observedLCPms": 3136,
+          "LCPElement": "hero-title",
+          "LCPSize": 27918,
+          "observedCLS": 0,
+          "snapshotMs": 12054.300000011921,
+          "encodedJSBodyBytes": 377657,
+          "decodedJSBodyBytes": 1309352,
+          "requestCount": 22,
+          "createdRendererContexts": 4,
+          "completedJS": 15,
+          "inflightJS": 0,
+          "HDRRequests": [],
+          "pageErrors": [],
+          "consoleErrors": [],
+          "badHTTP": []
+        },
+        {
+          "run": 3,
+          "observedLCPms": 3156,
+          "LCPElement": "hero-title",
+          "LCPSize": 27918,
+          "observedCLS": 0,
+          "snapshotMs": 12035.5,
+          "encodedJSBodyBytes": 377657,
+          "decodedJSBodyBytes": 1309352,
+          "requestCount": 22,
+          "createdRendererContexts": 4,
+          "completedJS": 15,
+          "inflightJS": 0,
+          "HDRRequests": [],
+          "pageErrors": [],
+          "consoleErrors": [],
+          "badHTTP": []
+        }
+      ],
+      "median": {
+        "observedLCPms": 3156,
+        "observedCLS": 0,
+        "encodedJSBodyBytes": 377657,
+        "decodedJSBodyBytes": 1309352,
+        "requestCount": 22,
+        "createdRendererContexts": 4
+      }
+    },
+    "beforeAfterObservedCold": {
+      "observedLCPms": {
+        "baseline": 5796,
+        "after": 3156,
+        "change": -2640,
+        "changePercent": -45.54865424430642
+      },
+      "observedCLS": {
+        "baseline": 0,
+        "after": 0,
+        "change": 0,
+        "changePercent": null
+      },
+      "encodedJSBodyBytes": {
+        "baseline": 440703,
+        "after": 377657,
+        "change": -63046,
+        "changePercent": -14.3057796293649
+      },
+      "decodedJSBodyBytes": {
+        "baseline": 1517243,
+        "after": 1309352,
+        "change": -207891,
+        "changePercent": -13.701892182069715
+      },
+      "requestCount": {
+        "baseline": 25,
+        "after": 22,
+        "change": -3,
+        "changePercent": -12.0
+      },
+      "createdRendererContexts": {
+        "baseline": 5,
+        "after": 4,
+        "change": -1,
+        "changePercent": -20.0
+      }
+    },
+    "loadingTarget": {
+      "thresholdMs": 2500,
+      "medianObservedAfterMs": 3156,
+      "met": false,
+      "qualification": "Latest native LCPcandidate at12s before scroll, sameheroH1/same27918pxcandidate; not a fieldCWV or statistical guarantee. AllB3samples stillabove2.5s."
+    },
+    "staticCriticalJS": {
+      "method": "Consistent Nodezlib.gzipSync(level9), HTMLentry+modulepreload JS refs; same estimator for both frozenbuilds. Different from actual gzip6 wirebytes by12s.",
+      "gzip9Bytes": {
+        "baseline": 391205,
+        "after": 116652,
+        "change": -274553,
+        "changePercent": -70.18136271264427
+      },
+      "pythonGzip9Alternative": {
+        "baseline": 389440,
+        "after": 116413,
+        "note": "Pythonzliboutputdiffersslightly; do not mix implementations."
+      },
+      "budgetChecks": "Coordinator reported278tests/34files+strict/exampletypes+Pagesbuild/budget/Safari15.4syntax gates PASS; agent did not repeat those checks."
+    },
+    "FCPOrder": {
+      "result": "PASS",
+      "raw": "fcp-gpu-order.json",
+      "conclusion": "All observed requested chunks containing renderedThree/Fiber/Drei code and all instrumented appWebGLcontextcreation started AFTER nativeFCP,3/3B runs. Browser compositorGPUwork is outside this statement."
+    },
+    "matchedReadyFramePair": {
+      "raw": "ready-frames-pair.json",
+      "method": "One matched READY pair: nativeMoon/Earthfirstdraw and bothglassfirstdraw +actualStarsdraw, thenBalancedtorus with native controls blurred/Starsactive, fixed8s; no layer isolation.",
+      "baseline": {
+        "kind": "torus",
+        "connected": true,
+        "createdAt": 56181.19999998808,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "vendor": "Google Inc. (Google)",
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "timerQuery": [
+          "EXT_disjoint_timer_query_webgl2"
+        ],
+        "lost": false,
+        "actualSubmittedFrames": 8,
+        "sampleSeconds": 8.004809952981304,
+        "submittedFramesPerSecond": 0.9993991171546162,
+        "medianFrameIntervalMs": 833.3000000000029,
+        "p95FrameIntervalMs": null,
+        "intervalSamples": 7,
+        "p95InsufficientSamples": true,
+        "note": "Main-framebuffer host-mesh draws deduplicated by rAF timestamp; CPU/software browser frame pacing, not hardware GPU time. No p95 with fewer than20intervals."
+      },
+      "after": {
+        "kind": "torus",
+        "connected": true,
+        "createdAt": 39367.40000000596,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "vendor": "Google Inc. (Google)",
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "timerQuery": [
+          "EXT_disjoint_timer_query_webgl2"
+        ],
+        "lost": false,
+        "actualSubmittedFrames": 18,
+        "sampleSeconds": 8.003547234024154,
+        "submittedFramesPerSecond": 2.2490027826011425,
+        "medianFrameIntervalMs": 400,
+        "p95FrameIntervalMs": null,
+        "intervalSamples": 17,
+        "p95InsufficientSamples": true,
+        "note": "Main-framebuffer host-mesh draws deduplicated by rAF timestamp; CPU/software browser frame pacing, not hardware GPU time. No p95 with fewer than20intervals."
+      },
+      "submittedRateChange": {
+        "baseline": 0.9993991171546162,
+        "after": 2.2490027826011425,
+        "change": 1.2496036654465263,
+        "changePercent": 125.03549823060342
+      },
+      "medianIntervalChangeMs": {
+        "baseline": 833.3000000000029,
+        "after": 400,
+        "change": -433.3000000000029,
+        "changePercent": -51.998079923197096
+      },
+      "warmupSeconds": [
+        66.01289946600446,
+        47.67848523700377
+      ],
+      "noP95Reason": "Only7baseline/17afterframeintervals; less than20 both.",
+      "verifiedOffscreen": [
+        {
+          "variant": "baseline",
+          "stageRect": {
+            "x": 20.5,
+            "y": 2858.25,
+            "width": 349,
+            "height": 352
+          },
+          "additionalDraws": [
+            {
+              "kind": "torus",
+              "main": 0,
+              "captures": 0,
+              "all": 0
+            }
+          ]
+        },
+        {
+          "variant": "after",
+          "stageRect": {
+            "x": 20.5,
+            "y": 2858.25,
+            "width": 349,
+            "height": 352
+          },
+          "additionalDraws": [
+            {
+              "kind": "torus",
+              "main": 0,
+              "captures": 0,
+              "all": 0
+            }
+          ]
+        }
+      ],
+      "qualification": "One8s READYpair with actualdefault-framebuffer hostdraws, not bare rAF count. Submission/browser pacing only, not GPUexecution/actualpresentation/hardware60FPS or statistical guarantee."
+    },
+    "matchedInitialMemoryPair": {
+      "raw": "memory-pair.json",
+      "targetSnapshotMs": 12000,
+      "actualSnapshotMs": [
+        12033.09999999404,
+        12029.90000000596
+      ],
+      "usedJSHeapBytes": {
+        "baseline": 8566196,
+        "after": 8964932,
+        "change": 398736,
+        "changePercent": 4.6547615767839075
+      },
+      "totalJSHeapBytes": {
+        "baseline": 13819904,
+        "after": 12771328,
+        "change": -1048576,
+        "changePercent": -7.587433313574392
+      },
+      "embedderHeapBytes": {
+        "baseline": 2878368,
+        "after": 4367216,
+        "change": 1488848,
+        "changePercent": 51.725422183681864
+      },
+      "backingStorageBytes": {
+        "baseline": 2684951,
+        "after": 2444123,
+        "change": -240828,
+        "changePercent": -8.969549164956828
+      },
+      "samples": [
+        {
+          "variant": "baseline",
+          "DOMCounters": {
+            "documents": 2,
+            "nodes": 680,
+            "jsEventListeners": 317
+          },
+          "dom": {
+            "at": 12052.299999982119,
+            "elements": 315,
+            "canvas": 5,
+            "moonState": "loading",
+            "earthStates": [
+              "loading",
+              "loading"
+            ]
+          },
+          "liveConnectedContexts": 5,
+          "wallSeconds": 12.094543111976236
+        },
+        {
+          "variant": "after",
+          "DOMCounters": {
+            "documents": 8,
+            "nodes": 712,
+            "jsEventListeners": 319
+          },
+          "dom": {
+            "at": 12057.09999999404,
+            "elements": 310,
+            "canvas": 4,
+            "moonState": "loading",
+            "earthStates": [
+              "loading",
+              "loading"
+            ]
+          },
+          "liveConnectedContexts": 4,
+          "wallSeconds": 12.11137191299349
+        }
+      ],
+      "conclusion": "Mixed: allocatedJSheap/backingstoragelower, usedJSheap/embedderhigher in this singlepair. No blanket memory-reduction claim. Both Moon/Earthstillloadingat12s; noGCforcing.",
+      "unmeasured": "Resident/peakGPUmemory, totalbrowser/OSRAM and elapsedGPUexecution were NOT measured, even though timer-query extension is present."
+    },
+    "syntheticColdInput": {
+      "baseline": {
+        "method": "One native key press in Source title; event to first/second rAF opportunity; NOT field INP or confirmed compositor presentation.",
+        "wallCallMs": 773.3954040159006,
+        "raw": {
+          "eventTime": 15281.59999999404,
+          "value": "x",
+          "firstRAF": 15531,
+          "secondRAF": 15731,
+          "done": true
+        },
+        "eventToFirstRAFMs": 249.40000000596046,
+        "eventToSecondRAFMs": 449.40000000596046
+      },
+      "after": {
+        "method": "One native key press in Source title; event to first/second rAF opportunity; NOT field INP or confirmed compositor presentation.",
+        "wallCallMs": 538.909174996661,
+        "raw": {
+          "eventTime": 15359.59999999404,
+          "value": "x",
+          "firstRAF": 15350.4,
+          "secondRAF": 15717,
+          "done": true
+        },
+        "eventToFirstRAFMs": -9.1999999940399,
+        "eventToSecondRAFMs": 357.40000000596046
+      },
+      "invalidAfterFirstRAFLatency": true,
+      "conclusion": "Single synthetic nativekeypress+twoRAFopportunity sample, not INP. BfirstRAFtimestamp is9.2ms before inputevent because timestamps represent frame start rather than callbackexecution; exclude it as a latency value. Asset/readiness differed during coldinteraction; do not infer steady-state responsiveness or fieldINP."
+    },
+    "coldFrameAndOffscreenCaveat": "Original coldframe samples did not wait for equalasset/readiness, so use READYpair for framecomparison. Original coldscript used hugeMAIN#top.scrollIntoViewIfNeeded without verifyingviewport; its offscreen-labelled deltas are UNVERIFIED and not used for conclusions. READYpair explicitscrollY0+rectY2858>844 proves0offscreen draws both.",
+    "behavior": {
+      "nativeSourceInput": "One nativekeypress worked in everyfirstcoldscenario; SourceTitle remainedcontrolled.",
+      "starsNativeFocusAdditionalDrawsAfterDrain": 0,
+      "starsNativeBlurResumes": true,
+      "starsSimulatedHiddenAdditionalDrawsAfterDrain": 0,
+      "starsVisibleRestoreResumes": true,
+      "sameStarCanvasPreserved": true,
+      "visibilityQualification": "Controlled document.visibilityState getter +visibilitychange event are SIMULATED. Native headless windowminimize remainedvisible, so realtab/backgroundbehavior is not physicallyproven.",
+      "source": "Source supplementPASS: oneAddsource creates3, fielddraft/cardnodes retained; onlyintersecting/visuallyvisiblebadge hasSunCanvas; hiddenevent/offscreen unmountdecorativeSun; visible remountcache withoutremountingcard.",
+      "sourceRaw": "source-supplement.json",
+      "footer": "ActualFooterloaded+defaultframebufferdraw andboldfontresource verified; footer-ready.json.",
+      "finalReady": {
+        "scrollY": 0,
+        "activeElement": "BODY",
+        "moon": "loaded",
+        "earth": [
+          "loaded",
+          "loaded"
+        ],
+        "draft": "loaded",
+        "objects": [
+          {
+            "kind": "torus",
+            "state": "loaded"
+          },
+          {
+            "kind": "panel",
+            "state": "loaded"
+          }
+        ],
+        "footer": "loaded"
+      },
+      "healthyPageConsoleErrors": [],
+      "exportDecisionWorkflow": "Not broadly rerun in thisperformancepass; coordinatorfullregression and priorbrowsercoverage coverunchangedflow."
+    },
+    "CSSAblation": {
+      "raw": "css-ablation.json",
+      "result": "DiagnosticexecutionPASS; no improvement demonstrated",
+      "unchangedBSource": true,
+      "injectedCSSOnly": "coarse [class*=_appleGlass_] --glassy-backdrop:blur7!important; actualheader/title/inputdirectblur7/nourl confirmed; background/border/radius retained",
+      "observedLCPms": 5768,
+      "observedCLS": 0,
+      "qualification": "One noisy sample5768ms vsBmedian3156ms; no justified CSSchange. Initial delimitererror and reportingpseudo-onlyassertion were invalidharnessdiagnostics and are retained."
+    },
+    "screenshots": {
+      "baselineColdMobile": "baseline-mobile-top.png",
+      "candidateColdMobile": "after-mobile-top.png",
+      "finalReadyDesktopHeader": "after-final-ready-desktop-header.png",
+      "finalReadyDesktopFull": "after-final-ready-main-full.png",
+      "actualReadyMobileHeader": "after-ready-mobile-header.png",
+      "actualReadyMobileTorus": "after-ready-torus-mobile.png",
+      "actualReadyFooter": "after-warm-ready-footer.png",
+      "nativeSourceWithVisibleSun": "after-source-native-card.png",
+      "qualification": "Cold12s screenshots may showpendingMoon/Earth and are not finaltextureproof. Finalready shots have actualMoon/2Earth/draftglass/Torus/Panel/Footerdraws and explicittop0/blur. No app layers hidden or scene mocks."
+    },
+    "artifacts": {
+      "baselineManifest": "baseline-dist-manifest.json",
+      "candidateManifest": "after-dist-manifest.json",
+      "baselineExactScript": "baseline-probe-recorded.py",
+      "currentProbe": "probe.py",
+      "firstScriptSHA256": "d2c43f34e7f09d0752a08eeeae52af40d49fd4d4f39dcf16844be84d6ac8bbba",
+      "currentScriptSHA256": "db3a45f71ce4d3081f7903240d02c4b69b803184f4320ed6a55d39712c92eb04",
+      "candidateA": "candidate-a/report.json"
+    },
+    "diagnosticCorrections": [
+      "CandidateA retained as rejectedintermediate, not overwritten.",
+      "Original initIIFEdelimitererror in CSSablation invalidated thatattempt; correctedcasehealthy.",
+      "Headerusesdirectblur, so initialpseudo-onlypostassertion corrected fromrecordedcomputedstyles without claiming an appfix.",
+      "Potsdamerafterwarmviewport can legitimatelycome fromResearchDraftPanel, so the overlyglobalnoHDRassertion was invalid; noHDRbeforeScroll is proved fromrawcoldrequests.",
+      "HugeMAIN#topscrolltarget didnotguarantee top/offscreen. Allfinaloffscreenproof/screenshots use explicitnative scroll0+positionchecks; earlierraw leftuntouched."
+    ],
+    "remainingLimits": [
+      "No physicaliPhone/Safarihardware or fieldCWV/INP data. User realdevice test remains pending.",
+      "ObservedLCPmedian3.156s improved45.5% but still misses2.5s labtarget. No60FPS promise.",
+      "Only3coldruns and oneREADYframe/memorypair; lowstatisticalconfidence, GC/cache/readiness differences documented.",
+      "SoftwareANGLE/SwiftShader,5visibleCPUs/no/dev/dri; CPU4x is a simulation, not a calibrated phone.",
+      "GPU resident/peakmemory and elapsedGPUexecution unmeasured.",
+      "NoWebKit/SafariGPUbenchmark or fullfault/oldnativeworkflow suite repeated."
+    ],
+    "allBrowsersClosed": true,
+    "ownershipReturned": true
+  }
+}

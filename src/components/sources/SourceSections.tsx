@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
-import { motion, type Variants } from 'framer-motion'
+import type { Variants } from 'framer-motion'
+import { motion } from '../calendarMotion/LightMotion'
 import type { SourceSectionInstance } from './SourceSection'
 import { sourceSectionTemplate } from './sourceSectionTemplate'
 import AnimatedHeight, { type HeightSettlement } from './AnimatedHeight'

@@ -55,7 +55,7 @@ export default function SunScene() {
       <ambientLight intensity={2} />
       <OrbitControls enableZoom={false} enabled={interactive} />
       <Suspense fallback={null}>
-        <Sun />
+        <Sun animate={interactive && !reducedMotion} />
       </Suspense>
       <Environment files={`${import.meta.env.BASE_URL}environments/venice_sunset_1k.hdr`} />
     </Canvas>

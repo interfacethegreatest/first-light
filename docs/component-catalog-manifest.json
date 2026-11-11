@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "snapshotKind": "local working-tree source; not deployment evidence",
-  "snapshotSha256": "b55699a39887c042079e49d3ed4177d56c7767b9ad00f00f0f8e9ea0ba7b806b",
+  "snapshotSha256": "5e21f771d3d0ce93d6e7a8a29dabe22a9a87a2bb0316283bbb11f80991ab65f6",
   "sourceSelection": {
     "directory": "all files under src/",
     "explicitFiles": [
@@ -14,10 +14,10 @@
     "file": "scripts/export-component-catalog.mjs",
     "sha256": "6f028f299396234100a04e72230bf8dab0d201e66cb0432d545af9355327c9a6"
   },
-  "fileCount": 110,
-  "srcFileCount": 107,
-  "sourceBytes": 236033,
-  "componentModuleCount": 55,
+  "fileCount": 113,
+  "srcFileCount": 110,
+  "sourceBytes": 246759,
+  "componentModuleCount": 56,
   "components": [
     {
       "module": "App",
@@ -74,6 +74,16 @@
       "primaryExport": "CalendarPanel",
       "namedExports": [],
       "file": "src/components/calendarMotion/CalendarPanel.tsx",
+      "category": "Calendar motion and preferences",
+      "kind": "component-bearing module",
+      "importedFromMain": true,
+      "usage": "Imported from application entry (including lazy/conditional paths)"
+    },
+    {
+      "module": "LightMotion",
+      "primaryExport": "see full module",
+      "namedExports": [],
+      "file": "src/components/calendarMotion/LightMotion.tsx",
       "category": "Calendar motion and preferences",
       "kind": "component-bearing module",
       "importedFromMain": true,
@@ -251,7 +261,7 @@
     },
     {
       "module": "ResearchDraftPanel",
-      "primaryExport": "ResearchDraftPanel",
+      "primaryExport": "function",
       "namedExports": [],
       "file": "src/components/glass-panel-3d/ResearchDraftPanel.tsx",
       "category": "Three.js glass panel and example",
@@ -624,6 +634,10 @@
       "file": "src/components/misc/MoonMark/useMoonResolution.ts"
     },
     {
+      "name": "useContentPaintReady",
+      "file": "src/components/performance/useContentPaintReady.ts"
+    },
+    {
       "name": "useSourceSections",
       "file": "src/components/sources/useSourceSections.ts"
     },
@@ -679,8 +693,8 @@
     },
     {
       "path": "src/components/backgrounds/starsBackground/Model.tsx",
-      "bytes": 1359,
-      "sha256": "e4ff2ee00f6c10439480b60c096c815a53531ad961faa13efecfa0032d5d64e9",
+      "bytes": 1140,
+      "sha256": "41421eaadfaea25b3f543cd8ca3d49e806b196e904701a1f642a18b7503d154b",
       "encoding": "utf8",
       "category": "Star background",
       "anchor": "file-src-components-backgrounds-starsbackground-model-tsx-5e6c0430",
@@ -688,8 +702,8 @@
     },
     {
       "path": "src/components/backgrounds/starsBackground/Scene.tsx",
-      "bytes": 848,
-      "sha256": "07cfa89518faedb91714e0936130540961450092c42c93b259d51921f997dea2",
+      "bytes": 824,
+      "sha256": "2e1ef1565e2beb07bcdd7e5f4df240796f0082cec1055119f5f1506230e9a47d",
       "encoding": "utf8",
       "category": "Star background",
       "anchor": "file-src-components-backgrounds-starsbackground-scene-tsx-0857e8dc",
@@ -697,8 +711,8 @@
     },
     {
       "path": "src/components/backgrounds/starsBackground/StarBackground.tsx",
-      "bytes": 1791,
-      "sha256": "16225bc21aca7070915ba6e7e56b9771ef15a45babfd1bc3145e0ca4d7dc228a",
+      "bytes": 4299,
+      "sha256": "ab82e3a0d5fe3ee32ae2a085f7e9516e875b4a503965f5966e2dcc9a9e0780f1",
       "encoding": "utf8",
       "category": "Star background",
       "anchor": "file-src-components-backgrounds-starsbackground-starbackground-tsx-b6114512",
@@ -706,8 +720,8 @@
     },
     {
       "path": "src/components/calendarMotion/CalendarButton.tsx",
-      "bytes": 1839,
-      "sha256": "54524a473e09124da603aa1ae912081cebe9a86f6141c5b2f58036f245179dd9",
+      "bytes": 1868,
+      "sha256": "de3e8aec24c6bec193528cca39c8cea92ee7f8c64812d2d0ffb58016da2c9393",
       "encoding": "utf8",
       "category": "Calendar motion and preferences",
       "anchor": "file-src-components-calendarmotion-calendarbutton-tsx-59204ed1",
@@ -715,11 +729,20 @@
     },
     {
       "path": "src/components/calendarMotion/CalendarPanel.tsx",
-      "bytes": 1842,
-      "sha256": "b5c8796562ab39d52ab5400e748afee68ec002136c5313a186d77cdc64a8435b",
+      "bytes": 1873,
+      "sha256": "f088edd806c9fef4db6d069252c480fc89c07e89658aca8d54f6d07ac4b9b2da",
       "encoding": "utf8",
       "category": "Calendar motion and preferences",
       "anchor": "file-src-components-calendarmotion-calendarpanel-tsx-72c451ec",
+      "importedFromMain": true
+    },
+    {
+      "path": "src/components/calendarMotion/LightMotion.tsx",
+      "bytes": 673,
+      "sha256": "4cd30ce619990b49d7698121f843881ec6e9e957c5a33926d70633554ed3a122",
+      "encoding": "utf8",
+      "category": "Calendar motion and preferences",
+      "anchor": "file-src-components-calendarmotion-lightmotion-tsx-0ac88a48",
       "importedFromMain": true
     },
     {
@@ -751,8 +774,8 @@
     },
     {
       "path": "src/components/cards/newUserCard/NewUserCard.tsx",
-      "bytes": 4554,
-      "sha256": "f69dd8b6d5b5a36136f38fe8c6a4f44d1ef77dc5dbea40eb854cb270eecd2b65",
+      "bytes": 6216,
+      "sha256": "9477843f82e8abac1b2e1170d338e9ac3b5b08ff8aec5f881246e42e624884fe",
       "encoding": "utf8",
       "category": "Source sections and reusable cards",
       "anchor": "file-src-components-cards-newusercard-newusercard-tsx-a9bb3792",
@@ -877,8 +900,8 @@
     },
     {
       "path": "src/components/glass-objects/GlassObjectCards.tsx",
-      "bytes": 8841,
-      "sha256": "9e9aedb19671e52f31592e9620eaaee6b66a39253cc34e05b8e76fd15524918c",
+      "bytes": 8996,
+      "sha256": "b2bad21e159167895666ad10c34367b2ae4ec62641d45e1a996cdfbf0265ece1",
       "encoding": "utf8",
       "category": "Isolated glass objects and rotation",
       "anchor": "file-src-components-glass-objects-glassobjectcards-tsx-6093911e",
@@ -913,8 +936,8 @@
     },
     {
       "path": "src/components/glass-objects/GlassTextScene.tsx",
-      "bytes": 4140,
-      "sha256": "595aadeca9630c507801663dfa7e33655cd455879107dac1165aff6be7882178",
+      "bytes": 4326,
+      "sha256": "878f3a08c5374e6c97e5dbf8ce2ca7ace585fa9e8355398c11c4959c931de692",
       "encoding": "utf8",
       "category": "Isolated glass objects and rotation",
       "anchor": "file-src-components-glass-objects-glasstextscene-tsx-7e7008a2",
@@ -976,8 +999,8 @@
     },
     {
       "path": "src/components/glass-panel-3d/GlassPanel3D.tsx",
-      "bytes": 2768,
-      "sha256": "1a3aedfcd395f777984f750fb7aad5439182160252e3ff5318e50a0cf2320348",
+      "bytes": 4100,
+      "sha256": "8db7ff7ddb976479aa4a6c21cbd062d559067cd93cd7740de48dd407adf8f9a3",
       "encoding": "utf8",
       "category": "Three.js glass panel and example",
       "anchor": "file-src-components-glass-panel-3d-glasspanel3d-tsx-4820d591",
@@ -1021,8 +1044,8 @@
     },
     {
       "path": "src/components/glass-panel-3d/ResearchDraftPanel.tsx",
-      "bytes": 1323,
-      "sha256": "accd7512621a7ad658d244ced47b0d4a0b2906f7efce2f171b0a6bdcb5ebfd28",
+      "bytes": 1335,
+      "sha256": "f5db16fecdc63e69a7a97e202bb74c477975e0afeb550654fa744142001be151",
       "encoding": "utf8",
       "category": "Three.js glass panel and example",
       "anchor": "file-src-components-glass-panel-3d-researchdraftpanel-tsx-0a7c8199",
@@ -1165,8 +1188,8 @@
     },
     {
       "path": "src/components/html-glass-card/HtmlGlassCard.tsx",
-      "bytes": 5531,
-      "sha256": "ea34a8a5ebbcd6e9073e49426f3aaf8819585e97993b6eaded91cb1f294dfb03",
+      "bytes": 5688,
+      "sha256": "c500c368fc561658db333996ec09f4923a4164b86d235c7b9f72503fae1870a2",
       "encoding": "utf8",
       "category": "HTML glass card and scene helpers",
       "anchor": "file-src-components-html-glass-card-htmlglasscard-tsx-cc6acc96",
@@ -1246,8 +1269,8 @@
     },
     {
       "path": "src/components/misc/EarthMark/EarthMark.tsx",
-      "bytes": 3660,
-      "sha256": "911412432e863750295819e7410432911df4eaaf41f4466fadee95c1140e721f",
+      "bytes": 3820,
+      "sha256": "9f6cc33a2c871af9c873a4b85ac3db9d4e85c8e972c129799f6ab839ce57a5b8",
       "encoding": "utf8",
       "category": "Other supporting source",
       "anchor": "file-src-components-misc-earthmark-earthmark-tsx-3b0b8513",
@@ -1282,8 +1305,8 @@
     },
     {
       "path": "src/components/misc/MoonMark/MoonMark.tsx",
-      "bytes": 3624,
-      "sha256": "aa340b2c3ea1c6c307c43ace62162fb1837079d1ddd09eee31f4667682f401a8",
+      "bytes": 3793,
+      "sha256": "7a8286c7c2ec1bed79d7201603ee09c906f0669cc6f0d66cf405dde9e71e6da1",
       "encoding": "utf8",
       "category": "Moon mark and compatibility scene",
       "anchor": "file-src-components-misc-moonmark-moonmark-tsx-5568e43c",
@@ -1328,7 +1351,7 @@
     {
       "path": "src/components/misc/MoonMark/useMoonResolution.ts",
       "bytes": 2443,
-      "sha256": "cf35ed854043f3a680baa890a177993eb9e7643fa5450c99e0420f816e560fe1",
+      "sha256": "d3323de6b422155279ad95a9f76a477b790e6bfb273a402bf57d201d088a9c28",
       "encoding": "utf8",
       "category": "Moon mark and compatibility scene",
       "anchor": "file-src-components-misc-moonmark-usemoonresolution-ts-cf2037e9",
@@ -1353,6 +1376,15 @@
       "importedFromMain": true
     },
     {
+      "path": "src/components/performance/useContentPaintReady.ts",
+      "bytes": 2527,
+      "sha256": "47bb7de0fc54407c42b340a781e1081839d7b52ea6cec490bfcd0a70dc0fff90",
+      "encoding": "utf8",
+      "category": "Other supporting source",
+      "anchor": "file-src-components-performance-usecontentpaintready-ts-b42bc676",
+      "importedFromMain": true
+    },
+    {
       "path": "src/components/react three fibre/moonScene/MoonScene.tsx",
       "bytes": 61,
       "sha256": "ecdda6a0f2fa3942dbbfea1bfc00fdafb913de328b546d111f0a66dc8f24af7f",
@@ -1363,8 +1395,8 @@
     },
     {
       "path": "src/components/react three fibre/sunScene/Sun.tsx",
-      "bytes": 828,
-      "sha256": "9b8076f5e219638c5ebac614d55ed71e6c84c63ea8f37b5d8891e473e82356b2",
+      "bytes": 1062,
+      "sha256": "463892df42edef3cb6987989e970e5798f7062bec2c107a5da2a7069f02a5cc6",
       "encoding": "utf8",
       "category": "Calendar Sun scene",
       "anchor": "file-src-components-react-three-fibre-sunscene-sun-tsx-3d493c6f",
@@ -1372,8 +1404,8 @@
     },
     {
       "path": "src/components/react three fibre/sunScene/SunScene.tsx",
-      "bytes": 2012,
-      "sha256": "860ef3f7594a7c493d8c31cd433ed8c969eb21dda90c7ac5c6a7d18ead9a3194",
+      "bytes": 2052,
+      "sha256": "aad6fe9aa9613bb45400a2d2205e466cb838b7df79a52fd5e8e1a1eac1593bbe",
       "encoding": "utf8",
       "category": "Calendar Sun scene",
       "anchor": "file-src-components-react-three-fibre-sunscene-sunscene-tsx-9facbfc3",
@@ -1399,8 +1431,8 @@
     },
     {
       "path": "src/components/sources/AnimatedHeight.tsx",
-      "bytes": 5397,
-      "sha256": "7f91250e40823ef0f7510c391e636c55054c6026c135f72fd8a14f9e8b1b00a3",
+      "bytes": 5444,
+      "sha256": "f7d4147239da3f3cf26983d6bc9566805bad3c16fd5a06f51949aea6a9442a2d",
       "encoding": "utf8",
       "category": "Source sections and reusable cards",
       "anchor": "file-src-components-sources-animatedheight-tsx-04002a1d",
@@ -1417,8 +1449,8 @@
     },
     {
       "path": "src/components/sources/SourceSections.tsx",
-      "bytes": 3805,
-      "sha256": "6cbc48ad567164f97f5b0861a0b4d09204df7717828c5afb73b804a8a791de7a",
+      "bytes": 3852,
+      "sha256": "c19060fedf785ef61bef3dff42105cc3d161070aeb4a62d12293c6c258e6a076",
       "encoding": "utf8",
       "category": "Source sections and reusable cards",
       "anchor": "file-src-components-sources-sourcesections-tsx-8083ead8",
@@ -1453,8 +1485,8 @@
     },
     {
       "path": "src/components/transmission/GlassCards.tsx",
-      "bytes": 9185,
-      "sha256": "0bdac200028febc96a5707e808867727b2a1d02ce2be8703976ec8095151c267",
+      "bytes": 9818,
+      "sha256": "d37d87cb3179cd1658bcd5fa4181bf91047a92ab511f6c3c67f1f5f2ba8f7733",
       "encoding": "utf8",
       "category": "Transmission materials and scene cards",
       "anchor": "file-src-components-transmission-glasscards-tsx-26d03c88",
@@ -1462,8 +1494,8 @@
     },
     {
       "path": "src/components/transmission/GlassPrimitives.tsx",
-      "bytes": 4429,
-      "sha256": "c6fbf9e1c7323eecba3c3b57f1937fcafdab33af6f083dfd7a63f020803f3edf",
+      "bytes": 3865,
+      "sha256": "aa178cc65737bc3829cfc7cbd37151834c1d25705cc378d04b3658fe86031be8",
       "encoding": "utf8",
       "category": "Transmission materials and scene cards",
       "anchor": "file-src-components-transmission-glassprimitives-tsx-f38b34f5",
@@ -1488,9 +1520,18 @@
       "importedFromMain": false
     },
     {
+      "path": "src/components/transmission/glassSettings.ts",
+      "bytes": 774,
+      "sha256": "33b305603be848188ca35b53bc805bf76c8397ee69815f8b0ecb2d31a543e782",
+      "encoding": "utf8",
+      "category": "Transmission materials and scene cards",
+      "anchor": "file-src-components-transmission-glasssettings-ts-0b9ba314",
+      "importedFromMain": true
+    },
+    {
       "path": "src/components/transmission/transmissionAssets.ts",
-      "bytes": 644,
-      "sha256": "9ece30c098b00d51c2928856c3aa08aaa30cfd84e309567b8ec370f970c5893c",
+      "bytes": 635,
+      "sha256": "f784ae7b0bccdba4c8b8c85683e39f77ef994bec8d59e37be1ac5090d56d6d2e",
       "encoding": "utf8",
       "category": "Transmission materials and scene cards",
       "anchor": "file-src-components-transmission-transmissionassets-ts-aaaad7ce",
@@ -1534,8 +1575,8 @@
     },
     {
       "path": "src/components/typography/FooterTextScene.tsx",
-      "bytes": 2812,
-      "sha256": "f89208787bbc00b7a1e0a3e494231bd40ff671e39af693af7cc263a4fa4914f1",
+      "bytes": 2978,
+      "sha256": "63cb4ae28ddba5635ce6dadc061a38799cf65eff55c85db506929be3e9a1e4d3",
       "encoding": "utf8",
       "category": "3D typography and footer scene",
       "anchor": "file-src-components-typography-footertextscene-tsx-8ca2a2d9",
@@ -1653,14 +1694,14 @@
   "artifacts": {
     "markdown": {
       "path": "docs/component-catalog.md",
-      "bytes": 296480,
-      "sha256": "7fe2083db4e00b1147998245d0576d9c4a04aee0714d6eb8a28e9ba7b8b6a9cc"
+      "bytes": 308715,
+      "sha256": "5f91b3e89f1342808048a89593a9ad9a28e90e23d9e9e48d341ec1bfd2c3fe72"
     },
     "zip": {
       "path": "docs/component-source.zip",
-      "bytes": 254323,
-      "sha256": "005bf1290b6d0148a00daffa6e979886b13c37cbed5ca81234ec2008657cd1e5",
-      "entries": 110
+      "bytes": 265555,
+      "sha256": "103e087ad94a8aee4144846f1a902df81f3d2d95967ea1e9332ac7f10fa79a74",
+      "entries": 113
     }
   }
 }

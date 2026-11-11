@@ -1,13 +1,15 @@
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import {
   Component, lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type ReactNode,
 } from 'react'
-import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from '../transmission/GlassPrimitives'
+import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from '../transmission/glassSettings'
 import { useTransmissionActivity } from '../transmission/useTransmissionActivity'
 import type { SceneObjectProps } from './GlassObjectCanvas'
-import GlassTextObject, { type GlassTextBounds } from './GlassTextObject'
+import type { GlassTextBounds } from './GlassTextObject'
 import styles from './GlassTextScene.module.css'
 
 const GlassObjectCanvas = lazy(() => import('./GlassObjectCanvas'))
+const GlassTextObject = lazy(() => import('./GlassTextObject'))
 
 class TextSceneBoundary extends Component<{
   children: ReactNode
@@ -31,6 +33,7 @@ export interface GlassTextSceneProps {
 export default function GlassTextScene({
   text = 'LIGHT', spin = false, rotationSpeed = 0.12, material,
 }: GlassTextSceneProps) {
+  const contentPainted = useContentPaintReady()
   const stage = useRef<HTMLDivElement>(null)
   const activity = useTransmissionActivity(stage)
   const [ready, setReady] = useState(false)
@@ -63,7 +66,7 @@ export default function GlassTextScene({
   ), [text, onBounds])
   const animate = spin && ready && !failed && !focused && activity.inView
     && activity.pageVisible && !activity.reduced
-  const eligible = activity.inView && activity.pageVisible && activity.webgl
+  const eligible = contentPainted && activity.inView && activity.pageVisible && activity.webgl
   // Retain the scene after its first visible request; hidden scenes use demand mode.
   useEffect(() => { if (eligible) setRequested(true) }, [eligible])
   const fitSize = bounds ? Math.hypot(bounds.width, bounds.height, bounds.depth) * 1.2 : 6.8

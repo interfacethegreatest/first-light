@@ -47,6 +47,48 @@ describe('public glass panel mounting hook', () => {
 })
 
 describe('reusable native glass panel', () => {
+  it('defers offscreen and hidden GPU work while native HTML is immediately usable', async () => {
+    let visibility: DocumentVisibilityState = 'hidden'
+    vi.spyOn(document, 'visibilityState', 'get').mockImplementation(() => visibility)
+    let callback!: IntersectionObserverCallback
+    let target!: Element
+    const disconnect = vi.fn()
+    vi.stubGlobal('IntersectionObserver', class {
+      constructor(next: IntersectionObserverCallback) { callback = next }
+      observe(element: Element) { target = element }
+      disconnect = disconnect
+    })
+    const view = render(<GlassPanel3D><label>Immediate draft<input defaultValue="Keep me" /></label></GlassPanel3D>)
+    const input = screen.getByRole('textbox', { name: 'Immediate draft' })
+    input.focus()
+    expect(GlassPanelCanvas).not.toHaveBeenCalled()
+    expect(layer(view.container)).toHaveAttribute('data-glass-state', 'pending')
+    act(() => callback([{ target, isIntersecting: true } as IntersectionObserverEntry], {} as IntersectionObserver))
+    expect(GlassPanelCanvas).not.toHaveBeenCalled()
+    act(() => { visibility = 'visible'; document.dispatchEvent(new Event('visibilitychange')) })
+    await screen.findByTestId('glass-gpu-boundary')
+    expect(disconnect).toHaveBeenCalledOnce()
+    expect(screen.getByRole('textbox', { name: 'Immediate draft' })).toBe(input)
+    expect(input).toHaveValue('Keep me')
+    expect(input).toHaveFocus()
+  })
+
+  it('disconnects pending activation on unmount and ignores late observer delivery', () => {
+    let callback!: IntersectionObserverCallback
+    let target!: Element
+    const disconnect = vi.fn()
+    vi.stubGlobal('IntersectionObserver', class {
+      constructor(next: IntersectionObserverCallback) { callback = next }
+      observe(element: Element) { target = element }
+      disconnect = disconnect
+    })
+    const view = render(<GlassPanel3D>Native content</GlassPanel3D>)
+    view.unmount()
+    expect(disconnect).toHaveBeenCalledOnce()
+    act(() => callback([{ target, isIntersecting: true } as IntersectionObserverEntry], {} as IntersectionObserver))
+    expect(GlassPanelCanvas).not.toHaveBeenCalled()
+  })
+
   it('forwards native div props, ref, classes and events without replacing its content', () => {
     webgl(false)
     const ref = createRef<HTMLDivElement>()

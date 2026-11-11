@@ -71,7 +71,8 @@ function expectPending(node: HTMLElement) {
   expect(wrapper).toHaveAttribute('inert')
   expect(wrapper).toHaveStyle({ visibility: 'hidden' })
   expect(wrapper).not.toHaveStyle({ display: 'none' })
-  expect(node.querySelector('canvas')).toBeInTheDocument()
+  // The native badge exists while its renderer is allowed to load lazily.
+  expect(node.querySelector('[data-source-sun]')).toBeInTheDocument()
 }
 
 beforeEach(() => { heightPlayback.runs.length = 0 })

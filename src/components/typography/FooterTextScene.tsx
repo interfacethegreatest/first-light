@@ -1,3 +1,4 @@
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import {
   Component, lazy, Suspense, useCallback, useEffect, useRef, useState,
   type ReactNode,
@@ -35,6 +36,7 @@ class FooterTextBoundary extends Component<{
 }
 
 export default function FooterTextScene({ text = 'Make learning tangible.', motion = true, rotationSpeed = 0, className }: FooterTextSceneProps) {
+  const contentPainted = useContentPaintReady()
   const element = useRef<HTMLDivElement>(null)
   const mounted = useRef(true)
   const failed = useRef(false)
@@ -49,8 +51,8 @@ export default function FooterTextScene({ text = 'Make learning tangible.', moti
   }, [])
 
   useEffect(() => {
-    if (inViewport && pageVisible && hasWebGL) setRequested(true)
-  }, [inViewport, pageVisible, hasWebGL])
+    if (contentPainted && inViewport && pageVisible && hasWebGL) setRequested(true)
+  }, [contentPainted, inViewport, pageVisible, hasWebGL])
 
   const onReady = useCallback(() => {
     if (mounted.current && !failed.current) setReady(true)
@@ -63,7 +65,7 @@ export default function FooterTextScene({ text = 'Make learning tangible.', moti
   }, [])
 
   const canRender = requested && hasWebGL === true && !unavailable
-  const animate = motion && canRender && inViewport && pageVisible && !reducedMotion
+  const animate = ready && motion && canRender && inViewport && pageVisible && !reducedMotion
   const state = unavailable || hasWebGL === false
     ? 'unavailable'
     : ready ? 'loaded' : requested ? 'loading' : 'pending'
