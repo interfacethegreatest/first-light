@@ -1,16 +1,21 @@
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Environment } from '@react-three/drei'
 import Model from './Model'
 
 interface SceneProps {
   reducedMotion: boolean
+  pageVisible?: boolean
+  editing?: boolean
 }
 
-export default function Scene({ reducedMotion }: SceneProps) {
+export default function Scene({ reducedMotion, pageVisible = true, editing = false }: SceneProps) {
+  const paused = reducedMotion || !pageVisible || editing
   return (
     <Canvas
-      frameloop={reducedMotion ? 'demand' : 'always'}
+      frameloop={paused ? 'demand' : 'always'}
+      dpr={[1, 1.5]}
+      gl={{ alpha: false, antialias: false }}
+      flat
       fallback={null}
       style={{
         position: 'absolute',
@@ -22,11 +27,7 @@ export default function Scene({ reducedMotion }: SceneProps) {
       }}
     >
       <Suspense fallback={null}>
-        <directionalLight intensity={3} position={[0, 3, 2]} />
-        <Environment
-          files={`${import.meta.env.BASE_URL}environments/potsdamer_platz_1k.hdr`}
-        />
-        <Model reducedMotion={reducedMotion} />
+        <Model reducedMotion={paused} />
       </Suspense>
     </Canvas>
   )

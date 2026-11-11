@@ -1,11 +1,15 @@
 import {
   Component,
+  lazy,
+  Suspense,
   useEffect,
   useState,
   type ErrorInfo,
   type ReactNode,
 } from 'react'
-import Scene from './Scene'
+import { useContentPaintReady } from '../../performance/useContentPaintReady'
+
+const Scene = lazy(() => import('./Scene'))
 
 interface BoundaryProps {
   children: ReactNode
@@ -54,7 +58,55 @@ function useReducedMotion() {
 }
 
 export default function StarBackground() {
+  const contentPainted = useContentPaintReady()
   const reducedMotion = useReducedMotion()
+  const [pageVisible, setPageVisible] = useState(() => typeof document === 'undefined' || document.visibilityState !== 'hidden')
+  const [editing, setEditing] = useState(() => typeof document !== 'undefined' && isEditable(document.activeElement))
+  const [requested, setRequested] = useState(false)
+
+  useEffect(() => {
+    const visibility = () => setPageVisible(document.visibilityState !== 'hidden')
+    const focus = (event: FocusEvent) => setEditing(isEditable(
+      event.type === 'focusout' ? event.relatedTarget : event.target,
+    ))
+    visibility()
+    document.addEventListener('visibilitychange', visibility)
+    document.addEventListener('focusin', focus)
+    document.addEventListener('focusout', focus)
+    return () => {
+      document.removeEventListener('visibilitychange', visibility)
+      document.removeEventListener('focusin', focus)
+      document.removeEventListener('focusout', focus)
+    }
+  }, [])
+
+  // Native content gets two paint opportunities before this optional GPU chunk.
+  useEffect(() => {
+    if (requested || !contentPainted || !pageVisible || editing) return
+    let live = true
+    let secondFrame: number | undefined
+    let idle: number | undefined
+    let timer: number | undefined
+    const request = () => { if (live) setRequested(true) }
+    const firstFrame = window.requestAnimationFrame(() => {
+      if (!live) return
+      secondFrame = window.requestAnimationFrame(() => {
+        if (!live) return
+        if (typeof window.requestIdleCallback === 'function') {
+          idle = window.requestIdleCallback(request, { timeout: 1500 })
+        } else {
+          timer = window.setTimeout(request, 0)
+        }
+      })
+    })
+    return () => {
+      live = false
+      window.cancelAnimationFrame(firstFrame)
+      if (secondFrame !== undefined) window.cancelAnimationFrame(secondFrame)
+      if (idle !== undefined) window.cancelIdleCallback?.(idle)
+      if (timer !== undefined) window.clearTimeout(timer)
+    }
+  }, [requested, contentPainted, pageVisible, editing])
 
   return (
     <div
@@ -70,8 +122,16 @@ export default function StarBackground() {
       }}
     >
       <BackgroundBoundary>
-        <Scene reducedMotion={reducedMotion} />
+        <Suspense fallback={null}>
+          {requested && <Scene reducedMotion={reducedMotion} pageVisible={pageVisible} editing={editing} />}
+        </Suspense>
       </BackgroundBoundary>
     </div>
   )
+}
+
+function isEditable(target: EventTarget | null) {
+  return target instanceof Element && Boolean(target.closest(
+    'input, textarea, select, [contenteditable]:not([contenteditable="false"])',
+  ))
 }

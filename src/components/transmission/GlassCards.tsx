@@ -1,10 +1,10 @@
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import {
   Component, lazy, Suspense, useCallback, useEffect, useId,
   useMemo, useRef, useState, type ReactNode,
 } from 'react'
-import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from './GlassPrimitives'
+import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from './glassSettings'
 import { useTransmissionActivity } from './useTransmissionActivity'
-import { clearTransmissionAssetCache } from './transmissionAssets'
 import type { TextPlacement, TransmissionQuality, TransmissionVariant } from './transmissionTypes'
 import './GlassCards.css'
 
@@ -37,6 +37,7 @@ const SLIDERS = [
 function TransmissionCard({
   variant, title, initialText = 'GLASS', children,
 }: TransmissionCardProps & { variant: TransmissionVariant }) {
+  const contentPainted = useContentPaintReady()
   const id = useId()
   const stage = useRef<HTMLDivElement>(null)
   const activity = useTransmissionActivity(stage)
@@ -62,8 +63,8 @@ function TransmissionCard({
     return () => { alive.current = false }
   }, [])
   useEffect(() => {
-    if (activity.inView && activity.pageVisible && activity.webgl) setRequested(true)
-  }, [activity.inView, activity.pageVisible, activity.webgl])
+    if (contentPainted && activity.inView && activity.pageVisible && activity.webgl) setRequested(true)
+  }, [contentPainted, activity.inView, activity.pageVisible, activity.webgl])
 
   const effectiveQuality = quality === 'auto'
     ? activity.coarse ? 'balanced' : 'high'
@@ -86,11 +87,23 @@ function TransmissionCard({
     setFailed(true)
     setReady(false)
   }, [attempt])
-  const retry = () => {
-    if (failed && failureReason.current !== 'context') clearTransmissionAssetCache()
-    epoch.current += 1
+  const retry = async () => {
+    const nextAttempt = ++epoch.current
+    if (failed && failureReason.current !== 'context') {
+      // Asset-loader helpers belong to the failed-scene retry, not the native
+      // card's initial dependency graph. Evict before mounting the new scene.
+      try {
+        const { clearTransmissionAssetCache } = await import('./transmissionAssets')
+        if (!alive.current || epoch.current !== nextAttempt) return
+        clearTransmissionAssetCache()
+      } catch {
+        // Leave the native controls and retry action usable if this chunk fails.
+        return
+      }
+    }
+    if (!alive.current || epoch.current !== nextAttempt) return
     blocked.current = false
-    setAttempt(epoch.current)
+    setAttempt(nextAttempt)
     setFailed(false)
     setReady(false)
   }

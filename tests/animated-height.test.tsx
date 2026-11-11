@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { act, cleanup, render, screen } from '@testing-library/react'
+import { act, cleanup, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import AnimatedHeight from '../src/components/sources/AnimatedHeight'
 import SourceSections from '../src/components/sources/SourceSections'
@@ -349,6 +349,7 @@ describe('AnimatedHeight layout lifecycle', () => {
     expect(initialBatch).toHaveLength(3)
     const first = initialBatch[0]
     expect(screen.queryByRole('region', { name: 'Source section 1' })).not.toBeInTheDocument()
+    await waitFor(() => expect(first.querySelector('canvas')).toBeInTheDocument())
     const sun = first.querySelector('canvas')
     const outer = document.getElementById('height-test-sources')!.parentElement!.parentElement!
     environment.resize(540)

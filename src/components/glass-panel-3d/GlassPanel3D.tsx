@@ -2,6 +2,7 @@ import {
   Component, lazy, Suspense, useCallback, useEffect, useRef, useState,
   type ComponentPropsWithRef, type ReactNode,
 } from 'react'
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import '../../styles/glass.css'
 import styles from './GlassPanel3D.module.css'
 
@@ -26,11 +27,42 @@ class GlassLayerBoundary extends Component<{
 
 /** Each explicit mount gets fresh readiness/error state and callback guards. */
 function MountedGlassLayer() {
+  const contentPainted = useContentPaintReady()
+  const element = useRef<HTMLDivElement>(null)
   const live = useRef(true)
   const failed = useRef(false)
   const [hasWebGL, setHasWebGL] = useState<boolean | null>(null)
   const [ready, setReady] = useState(false)
   const [unavailable, setUnavailable] = useState(false)
+  const [requested, setRequested] = useState(false)
+
+  useEffect(() => {
+    if (!contentPainted || !hasWebGL || requested) return
+    const target = element.current
+    if (!target) return
+    let live = true
+    let inView = typeof IntersectionObserver === 'undefined'
+    const activate = () => {
+      if (live && inView && document.visibilityState !== 'hidden') setRequested(true)
+    }
+    const observer = typeof IntersectionObserver !== 'undefined'
+      ? new IntersectionObserver(entries => {
+          const entry = entries.find(value => value.target === target)
+          if (entry) inView = entry.isIntersecting
+          activate()
+        })
+      : null
+    observer?.observe(target)
+    document.addEventListener('visibilitychange', activate)
+    activate()
+    // This stationary scene stays mounted once requested. Drop activation
+    // observers then; demand rendering already needs no continuous callbacks.
+    return () => {
+      live = false
+      observer?.disconnect()
+      document.removeEventListener('visibilitychange', activate)
+    }
+  }, [contentPainted, hasWebGL, requested])
 
   useEffect(() => {
     live.current = true
@@ -51,11 +83,11 @@ function MountedGlassLayer() {
     setUnavailable(true)
   }, [])
 
-  const state = unavailable || hasWebGL === false ? 'unavailable' : ready ? 'loaded' : 'loading'
+  const state = unavailable || hasWebGL === false ? 'unavailable' : ready ? 'loaded' : requested ? 'loading' : 'pending'
 
   return (
-    <div className={styles.visual} aria-hidden="true" data-glass-layer="" data-glass-state={state}>
-      {hasWebGL && !unavailable && (
+    <div ref={element} className={styles.visual} aria-hidden="true" data-glass-layer="" data-glass-state={state}>
+      {requested && hasWebGL && !unavailable && (
         <GlassLayerBoundary onUnavailable={onUnavailable}>
           <Suspense fallback={null}>
             <GlassPanelCanvas onReady={onReady} onUnavailable={onUnavailable} />

@@ -2,7 +2,7 @@
 
 This is a **local working-tree snapshot, including uncommitted source**. It is not a deployment record or a claim about the live site.
 
-Snapshot SHA-256: `b55699a39887c042079e49d3ed4177d56c7767b9ad00f00f0f8e9ea0ba7b806b`. All **107 files under src/** plus **3 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **110 selected source files**, with no source truncation.
+Snapshot SHA-256: `5e21f771d3d0ce93d6e7a8a29dabe22a9a87a2bb0316283bbb11f80991ab65f6`. All **110 files under src/** plus **3 explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **113 selected source files**, with no source truncation.
 
 Additional files: `public/media/moon/Moon.jsx` and `examples/glass-panel-3d/main.tsx` and `examples/transparent-glass/main.tsx`. The example entries mount the glass panel and transparent typography demonstrations; they are supporting application code, not additional component implementations.
 
@@ -57,6 +57,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 - [Calendar motion and preferences](#group-motion)
   - [src/components/calendarMotion/CalendarButton.tsx](#file-src-components-calendarmotion-calendarbutton-tsx-59204ed1)
   - [src/components/calendarMotion/CalendarPanel.tsx](#file-src-components-calendarmotion-calendarpanel-tsx-72c451ec)
+  - [src/components/calendarMotion/LightMotion.tsx](#file-src-components-calendarmotion-lightmotion-tsx-0ac88a48)
   - [src/components/calendarMotion/calendarMotion.css](#file-src-components-calendarmotion-calendarmotion-css-8053ff84)
   - [src/components/calendarMotion/useCalendarMotionPreferences.ts](#file-src-components-calendarmotion-usecalendarmotionpreferences-ts-d360d67a)
 - [Moon mark and compatibility scene](#group-moon)
@@ -108,6 +109,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
   - [src/components/transmission/GlassPrimitives.tsx](#file-src-components-transmission-glassprimitives-tsx-f38b34f5)
   - [src/components/transmission/GlassStudioEnvironment.tsx](#file-src-components-transmission-glassstudioenvironment-tsx-21c64c8f)
   - [src/components/transmission/TransmissionCanvas.tsx](#file-src-components-transmission-transmissioncanvas-tsx-a549c86f)
+  - [src/components/transmission/glassSettings.ts](#file-src-components-transmission-glasssettings-ts-0b9ba314)
   - [src/components/transmission/transmissionAssets.ts](#file-src-components-transmission-transmissionassets-ts-aaaad7ce)
   - [src/components/transmission/transmissionTypes.ts](#file-src-components-transmission-transmissiontypes-ts-54133895)
   - [src/components/transmission/useTransmissionActivity.ts](#file-src-components-transmission-usetransmissionactivity-ts-6c4da281)
@@ -144,11 +146,12 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
   - [src/components/misc/EarthMark/EarthMark.tsx](#file-src-components-misc-earthmark-earthmark-tsx-3b0b8513)
   - [src/components/misc/EarthMark/EarthMarkCanvas.tsx](#file-src-components-misc-earthmark-earthmarkcanvas-tsx-fb3e7fdd)
   - [src/components/misc/EarthMark/EarthModel.tsx](#file-src-components-misc-earthmark-earthmodel-tsx-b6de1981)
+  - [src/components/performance/useContentPaintReady.ts](#file-src-components-performance-usecontentpaintready-ts-b42bc676)
 
 <a id="component-inventory"></a>
 ## Component module inventory
 
-55 component-bearing or compatibility modules; 2 compatibility re-exports. This is a module inventory, not a speculative total of React functions.
+56 component-bearing or compatibility modules; 2 compatibility re-exports. This is a module inventory, not a speculative total of React functions.
 
 | Module | Primary / named exports | Complete source | Application use |
 | --- | --- | --- | --- |
@@ -158,6 +161,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 | StarBackground | StarBackground | [src/components/backgrounds/starsBackground/StarBackground.tsx](#file-src-components-backgrounds-starsbackground-starbackground-tsx-b6114512) | Imported from application entry (including lazy/conditional paths) |
 | CalendarButton | CalendarButton | [src/components/calendarMotion/CalendarButton.tsx](#file-src-components-calendarmotion-calendarbutton-tsx-59204ed1) | Imported from application entry (including lazy/conditional paths) |
 | CalendarPanel | CalendarPanel | [src/components/calendarMotion/CalendarPanel.tsx](#file-src-components-calendarmotion-calendarpanel-tsx-72c451ec) | Imported from application entry (including lazy/conditional paths) |
+| LightMotion | see full module | [src/components/calendarMotion/LightMotion.tsx](#file-src-components-calendarmotion-lightmotion-tsx-0ac88a48) | Imported from application entry (including lazy/conditional paths) |
 | CardTiles | CardTiles | [src/components/cards/newUserCard/CardTiles.tsx](#file-src-components-cards-newusercard-cardtiles-tsx-c0d432f9) | Imported from application entry (including lazy/conditional paths) |
 | NewUserCard | NewUserCard | [src/components/cards/newUserCard/NewUserCard.tsx](#file-src-components-cards-newusercard-newusercard-tsx-a9bb3792) | Imported from application entry (including lazy/conditional paths) |
 | TileGrid | TileGrid | [src/components/decorations/TileGrid.tsx](#file-src-components-decorations-tilegrid-tsx-e0b092ce) | Imported from application entry (including lazy/conditional paths) |
@@ -174,7 +178,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 | GlassPanel3D | GlassPanel3D | [src/components/glass-panel-3d/GlassPanel3D.tsx](#file-src-components-glass-panel-3d-glasspanel3d-tsx-4820d591) | Imported from application entry (including lazy/conditional paths) |
 | GlassPanelCanvas | GlassPanelCanvas | [src/components/glass-panel-3d/GlassPanelCanvas.tsx](#file-src-components-glass-panel-3d-glasspanelcanvas-tsx-84952dc4) | Imported from application entry (including lazy/conditional paths) |
 | GlassPanelExample | GlassPanelExample | [src/components/glass-panel-3d/GlassPanelExample.tsx](#file-src-components-glass-panel-3d-glasspanelexample-tsx-73100257) | Optional example; not imported from application entry |
-| ResearchDraftPanel | ResearchDraftPanel | [src/components/glass-panel-3d/ResearchDraftPanel.tsx](#file-src-components-glass-panel-3d-researchdraftpanel-tsx-0a7c8199) | Imported from application entry (including lazy/conditional paths) |
+| ResearchDraftPanel | function | [src/components/glass-panel-3d/ResearchDraftPanel.tsx](#file-src-components-glass-panel-3d-researchdraftpanel-tsx-0a7c8199) | Imported from application entry (including lazy/conditional paths) |
 | HeaderExport | HeaderExport | [src/components/header/HeaderExport.tsx](#file-src-components-header-headerexport-tsx-f32ff3f0) | Imported from application entry (including lazy/conditional paths) |
 | HeaderFrame | HeaderFrame | [src/components/header/HeaderFrame.tsx](#file-src-components-header-headerframe-tsx-f82d57d5) | Imported from application entry (including lazy/conditional paths) |
 | HeaderTitle | HeaderTitle | [src/components/header/HeaderTitle.tsx](#file-src-components-header-headertitle-tsx-6e8b2481) | Imported from application entry (including lazy/conditional paths) |
@@ -220,6 +224,7 @@ Regenerate with `node scripts/export-component-catalog.mjs`; verify without writ
 | Hook | useOutsideClick | [src/components/input/outsideClick.tsx](#file-src-components-input-outsideclick-tsx-418bbec8) |
 | Hook | useMoonActivity | [src/components/misc/MoonMark/useMoonActivity.ts](#file-src-components-misc-moonmark-usemoonactivity-ts-4d569350) |
 | Hook | useMoonResolution | [src/components/misc/MoonMark/useMoonResolution.ts](#file-src-components-misc-moonmark-usemoonresolution-ts-cf2037e9) |
+| Hook | useContentPaintReady | [src/components/performance/useContentPaintReady.ts](#file-src-components-performance-usecontentpaintready-ts-b42bc676) |
 | Hook | useSourceSections | [src/components/sources/useSourceSections.ts](#file-src-components-sources-usesourcesections-ts-b79d0cd7) |
 | Hook | useTransmissionActivity | [src/components/transmission/useTransmissionActivity.ts](#file-src-components-transmission-usetransmissionactivity-ts-6c4da281) |
 | Hook | useFooterTextActivity | [src/components/typography/useFooterTextActivity.ts](#file-src-components-typography-usefootertextactivity-ts-7e8a705d) |
@@ -2387,17 +2392,26 @@ export default function CardTiles({ reducedMotion = false }: { reducedMotion?: b
 <a id="file-src-components-cards-newusercard-newusercard-tsx-a9bb3792"></a>
 ### src/components/cards/newUserCard/NewUserCard.tsx
 
-4554 bytes · SHA-256 `f69dd8b6d5b5a36136f38fe8c6a4f44d1ef77dc5dbea40eb854cb270eecd2b65` · utf8
+6216 bytes · SHA-256 `9477843f82e8abac1b2e1170d338e9ac3b5b08ff8aec5f881246e42e624884fe` · utf8
 
 ```tsx
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
-import { motion, type Variants } from 'framer-motion'
+import { Component, lazy, Suspense, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import type { Variants } from 'framer-motion'
+import { motion } from '../../calendarMotion/LightMotion'
+import { useContentPaintReady } from '../../performance/useContentPaintReady'
 import Tilt from 'react-parallax-tilt'
-import SunScene from '../../react three fibre/sunScene/SunScene'
 import { useCalendarMotionPreferences } from '../../calendarMotion/useCalendarMotionPreferences'
 import PaneBackground, { paneBackgroundClassName } from '../../panes/PaneBackground'
 import CardTiles from './CardTiles'
 import styles from './newUser.module.css'
+
+const SunScene = lazy(() => import('../../react three fibre/sunScene/SunScene'))
+
+class SunBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  state = { failed: false }
+  static getDerivedStateFromError() { return { failed: true } }
+  render() { return this.state.failed ? null : this.props.children }
+}
 
 interface NewUserCardProps {
   headingId: string
@@ -2437,8 +2451,12 @@ export default function NewUserCard({
   borderTone = 'aliceblue',
   surfaceClassName,
 }: NewUserCardProps) {
+  const contentPainted = useContentPaintReady()
   const { reducedMotion, coarsePointer } = useCalendarMotionPreferences()
   const frame = useRef<HTMLDivElement>(null)
+  const sunBadge = useRef<HTMLDivElement>(null)
+  const [sunInView, setSunInView] = useState(false)
+  const [pageVisible, setPageVisible] = useState(() => typeof document === 'undefined' || document.visibilityState !== 'hidden')
   const [insideParentTilt, setInsideParentTilt] = useState(false)
   const [focusWithin, setFocusWithin] = useState(false)
   const [settledOverride, setSettledOverride] = useState(reducedMotion)
@@ -2451,6 +2469,30 @@ export default function NewUserCard({
   useEffect(() => {
     if (reducedMotion) setSettledOverride(true)
   }, [reducedMotion])
+
+  useEffect(() => {
+    const element = sunBadge.current
+    if (!element) return
+    if (typeof IntersectionObserver === 'undefined') {
+      setSunInView(true)
+      return
+    }
+    let live = true
+    const observer = new IntersectionObserver(entries => {
+      if (!live) return
+      const entry = entries.find(value => value.target === element)
+      if (entry) setSunInView(entry.isIntersecting)
+    })
+    observer.observe(element)
+    return () => { live = false; observer.disconnect() }
+  }, [])
+
+  useEffect(() => {
+    const update = () => setPageVisible(document.visibilityState !== 'hidden')
+    update()
+    document.addEventListener('visibilitychange', update)
+    return () => document.removeEventListener('visibilitychange', update)
+  }, [])
 
   return (
     <motion.div
@@ -2500,7 +2542,11 @@ export default function NewUserCard({
           </small>
 
           <motion.div className={`${paneBackgroundClassName} ${styles.planetContainer}`} variants={badgeVariants} aria-hidden="true">
-            <div className={styles.planet}><SunScene /></div>
+            <div ref={sunBadge} className={styles.planet} data-source-sun>
+              <SunBoundary>
+                {contentPainted && sunInView && pageVisible && <Suspense fallback={null}><SunScene /></Suspense>}
+              </SunBoundary>
+            </div>
           </motion.div>
 
           <motion.div className={`entry-form source-content ${styles.body}`} variants={contentVariants}>{children}</motion.div>
@@ -2938,11 +2984,12 @@ export default function AddSourceButton({
 <a id="file-src-components-sources-animatedheight-tsx-04002a1d"></a>
 ### src/components/sources/AnimatedHeight.tsx
 
-5397 bytes · SHA-256 `7f91250e40823ef0f7510c391e636c55054c6026c135f72fd8a14f9e8b1b00a3` · utf8
+5444 bytes · SHA-256 `f7d4147239da3f3cf26983d6bc9566805bad3c16fd5a06f51949aea6a9442a2d` · utf8
 
 ```tsx
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
-import { animate, motion, useMotionValue, type AnimationPlaybackControls } from 'framer-motion'
+import { animate, useMotionValue, type AnimationPlaybackControls } from 'framer-motion'
+import { motion } from '../calendarMotion/LightMotion'
 import { useCalendarMotionPreferences } from '../calendarMotion/useCalendarMotionPreferences'
 
 export type HeightSettlement = { immediate: boolean }
@@ -3151,11 +3198,12 @@ export default function SourceSection({ id, number, text = DEFAULT_SOURCE_SECTIO
 <a id="file-src-components-sources-sourcesections-tsx-8083ead8"></a>
 ### src/components/sources/SourceSections.tsx
 
-3805 bytes · SHA-256 `6cbc48ad567164f97f5b0861a0b4d09204df7717828c5afb73b804a8a791de7a` · utf8
+3852 bytes · SHA-256 `c19060fedf785ef61bef3dff42105cc3d161070aeb4a62d12293c6c258e6a076` · utf8
 
 ```tsx
 import { useCallback, useState } from 'react'
-import { motion, type Variants } from 'framer-motion'
+import type { Variants } from 'framer-motion'
+import { motion } from '../calendarMotion/LightMotion'
 import type { SourceSectionInstance } from './SourceSection'
 import { sourceSectionTemplate } from './sourceSectionTemplate'
 import AnimatedHeight, { type HeightSettlement } from './AnimatedHeight'
@@ -3352,17 +3400,17 @@ export default function useSourceSections() {
 <a id="file-src-components-calendarmotion-calendarbutton-tsx-59204ed1"></a>
 ### src/components/calendarMotion/CalendarButton.tsx
 
-1839 bytes · SHA-256 `54524a473e09124da603aa1ae912081cebe9a86f6141c5b2f58036f245179dd9` · utf8
+1868 bytes · SHA-256 `de3e8aec24c6bec193528cca39c8cea92ee7f8c64812d2d0ffb58016da2c9393` · utf8
 
 ```tsx
 import { useEffect, type ReactNode } from 'react'
 import {
   animate,
-  motion,
   useMotionTemplate,
   useMotionValue,
   type HTMLMotionProps,
 } from 'framer-motion'
+import { motion } from './LightMotion'
 import { useCalendarMotionPreferences } from './useCalendarMotionPreferences'
 import './calendarMotion.css'
 
@@ -3439,11 +3487,12 @@ export default function CalendarButton({
 <a id="file-src-components-calendarmotion-calendarpanel-tsx-72c451ec"></a>
 ### src/components/calendarMotion/CalendarPanel.tsx
 
-1842 bytes · SHA-256 `b5c8796562ab39d52ab5400e748afee68ec002136c5313a186d77cdc64a8435b` · utf8
+1873 bytes · SHA-256 `f088edd806c9fef4db6d069252c480fc89c07e89658aca8d54f6d07ac4b9b2da` · utf8
 
 ```tsx
 import { useEffect, useState, type ReactNode } from 'react'
-import { motion, useAnimationControls } from 'framer-motion'
+import { useAnimationControls } from 'framer-motion'
+import { motion } from './LightMotion'
 import Tilt from 'react-parallax-tilt'
 import { useCalendarMotionPreferences } from './useCalendarMotionPreferences'
 import './calendarMotion.css'
@@ -3497,6 +3546,30 @@ export default function CalendarPanel({ children }: { children: ReactNode }) {
     </motion.div>
   )
 }
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-calendarmotion-lightmotion-tsx-0ac88a48"></a>
+### src/components/calendarMotion/LightMotion.tsx
+
+673 bytes · SHA-256 `4cd30ce619990b49d7698121f843881ec6e9e957c5a33926d70633554ed3a122` · utf8
+
+```tsx
+import { domAnimation, LazyMotion, m, type HTMLMotionProps } from 'framer-motion'
+
+// These reusable elements need variants/gestures, not Framer's drag/layout
+// projection engine. Each supplies its own features so standalone card/button
+// consumers keep working without an application-specific provider or DOM layer.
+function MotionDiv(props: HTMLMotionProps<'div'>) {
+  return <LazyMotion features={domAnimation} strict><m.div {...props} /></LazyMotion>
+}
+
+function MotionButton(props: HTMLMotionProps<'button'>) {
+  return <LazyMotion features={domAnimation} strict><m.button {...props} /></LazyMotion>
+}
+
+export const motion = { div: MotionDiv, button: MotionButton }
 ```
 
 [Back to contents](#contents)
@@ -3731,9 +3804,10 @@ export function useCalendarMotionPreferences() {
 <a id="file-src-components-misc-moonmark-moonmark-tsx-5568e43c"></a>
 ### src/components/misc/MoonMark/MoonMark.tsx
 
-3624 bytes · SHA-256 `aa340b2c3ea1c6c307c43ace62162fb1837079d1ddd09eee31f4667682f401a8` · utf8
+3793 bytes · SHA-256 `7a8286c7c2ec1bed79d7201603ee09c906f0669cc6f0d66cf405dde9e71e6da1` · utf8
 
 ```tsx
+import { useContentPaintReady } from '../../performance/useContentPaintReady'
 import {
   Component, lazy, Suspense, useCallback, useEffect, useRef, useState,
   type CSSProperties, type ReactNode,
@@ -3776,6 +3850,7 @@ class MoonBoundary extends Component<{
 export default function MoonMark({
   size = 112, animate = false, rotationAxis, rotationSpeed, className,
 }: MoonMarkProps) {
+  const contentPainted = useContentPaintReady()
   const element = useRef<HTMLDivElement>(null)
   const mounted = useRef(true)
   const { inViewport, pageVisible, reducedMotion } = useMoonActivity(element)
@@ -3794,8 +3869,8 @@ export default function MoonMark({
   }, [])
 
   useEffect(() => {
-    if (inViewport && pageVisible && hasWebGL) setRequested(true)
-  }, [inViewport, pageVisible, hasWebGL])
+    if (contentPainted && inViewport && pageVisible && hasWebGL) setRequested(true)
+  }, [contentPainted, inViewport, pageVisible, hasWebGL])
 
   const onReady = useCallback(() => {
     if (mounted.current) setReady(true)
@@ -3807,7 +3882,7 @@ export default function MoonMark({
   }, [])
 
   const canRender = requested && hasWebGL && !unavailable
-  const canAnimate = animate && rotationSpeed !== 0 && inViewport && pageVisible && !reducedMotion
+  const canAnimate = ready && animate && rotationSpeed !== 0 && inViewport && pageVisible && !reducedMotion
   const state = hasWebGL === false || unavailable
     ? 'unavailable'
     : ready ? 'loaded' : requested ? 'loading' : 'pending'
@@ -4106,12 +4181,12 @@ export function useMoonActivity(target: RefObject<HTMLElement | null>) {
 <a id="file-src-components-misc-moonmark-usemoonresolution-ts-cf2037e9"></a>
 ### src/components/misc/MoonMark/useMoonResolution.ts
 
-2443 bytes · SHA-256 `cf35ed854043f3a680baa890a177993eb9e7643fa5450c99e0420f816e560fe1` · utf8
+2443 bytes · SHA-256 `d3323de6b422155279ad95a9f76a477b790e6bfb273a402bf57d201d088a9c28` · utf8
 
 ```ts
 import { useEffect, useState } from 'react'
 
-const MAX_RENDERER_DPR = 4
+const MAX_RENDERER_DPR = 2
 
 function positiveFinite(value: unknown): number {
   return typeof value === 'number' && Number.isFinite(value) && value > 0 ? value : 1
@@ -4222,25 +4297,24 @@ export { default } from '../../../src/components/misc/MoonMark/MoonModel'
 <a id="file-src-components-react-three-fibre-sunscene-sun-tsx-3d493c6f"></a>
 ### src/components/react three fibre/sunScene/Sun.tsx
 
-828 bytes · SHA-256 `9b8076f5e219638c5ebac614d55ed71e6c84c63ea8f37b5d8891e473e82356b2` · utf8
+1062 bytes · SHA-256 `463892df42edef3cb6987989e970e5798f7062bec2c107a5da2a7069f02a5cc6` · utf8
 
 ```tsx
 import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { useFrame, type ThreeElements } from '@react-three/fiber'
+import type { ThreeElements } from '@react-three/fiber'
 import type { Group, Mesh } from 'three'
+import { useObjectRotation } from '../../glass-objects/useObjectRotation'
 
 const SUN_MODEL_URL = `${import.meta.env.BASE_URL}media/sun/sun.gltf`
 
-export default function Model(props: ThreeElements['group']) {
+export default function Model({ animate = true, ...props }: ThreeElements['group'] & { animate?: boolean }) {
   const { nodes, materials } = useGLTF(SUN_MODEL_URL)
   const sunRef = useRef<Group>(null)
 
-  useFrame(() => {
-    if (sunRef.current) {
-      sunRef.current.rotation.y += -0.0075
-    }
-  })
+  // Match Calendar4's 0.0075 radians/frame at 60 FPS without speeding up on
+  // high-refresh displays or jumping over a paused demand-render interval.
+  useObjectRotation(sunRef, { spin: animate, rotationSpeed: -0.45 })
 
   return (
     <group ref={sunRef} scale={0.0285} {...props} dispose={null}>
@@ -4262,7 +4336,7 @@ useGLTF.preload(SUN_MODEL_URL)
 <a id="file-src-components-react-three-fibre-sunscene-sunscene-tsx-9facbfc3"></a>
 ### src/components/react three fibre/sunScene/SunScene.tsx
 
-2012 bytes · SHA-256 `860ef3f7594a7c493d8c31cd433ed8c969eb21dda90c7ac5c6a7d18ead9a3194` · utf8
+2052 bytes · SHA-256 `aad6fe9aa9613bb45400a2d2205e466cb838b7df79a52fd5e8e1a1eac1593bbe` · utf8
 
 ```tsx
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
@@ -4322,7 +4396,7 @@ export default function SunScene() {
       <ambientLight intensity={2} />
       <OrbitControls enableZoom={false} enabled={interactive} />
       <Suspense fallback={null}>
-        <Sun />
+        <Sun animate={interactive && !reducedMotion} />
       </Suspense>
       <Environment files={`${import.meta.env.BASE_URL}environments/venice_sunset_1k.hdr`} />
     </Canvas>
@@ -4358,13 +4432,12 @@ export default function SunScene() {
 <a id="file-src-components-backgrounds-starsbackground-model-tsx-5e6c0430"></a>
 ### src/components/backgrounds/starsBackground/Model.tsx
 
-1359 bytes · SHA-256 `e4ff2ee00f6c10439480b60c096c815a53531ad961faa13efecfa0032d5d64e9` · utf8
+1140 bytes · SHA-256 `41421eaadfaea25b3f543cd8ca3d49e806b196e904701a1f642a18b7503d154b` · utf8
 
 ```tsx
 import { memo, useRef } from 'react'
 import { Stars } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import type { Points } from 'three'
 
 interface ModelProps {
@@ -4388,21 +4461,16 @@ function Model({ reducedMotion }: ModelProps) {
 
   return (
     <group>
-      <mesh>
-        <ambientLight intensity={1} />
-        {/* The optional shooting star remains disabled, as in Calendar4. */}
-        <Stars
-          {...sourceStarProps}
-          radius={200}
-          count={7500}
-          factor={4}
-          fade
-          ref={stars}
-        />
-        <EffectComposer>
-          <Bloom mipmapBlur luminanceThreshold={1} />
-        </EffectComposer>
-      </mesh>
+      {/* The optional shooting star remains disabled, as in Calendar4. */}
+      <Stars
+        {...sourceStarProps}
+        radius={200}
+        count={7500}
+        factor={4}
+        fade
+        speed={reducedMotion ? 0 : 1}
+        ref={stars}
+      />
     </group>
   )
 }
@@ -4415,22 +4483,27 @@ export default memo(Model)
 <a id="file-src-components-backgrounds-starsbackground-scene-tsx-0857e8dc"></a>
 ### src/components/backgrounds/starsBackground/Scene.tsx
 
-848 bytes · SHA-256 `07cfa89518faedb91714e0936130540961450092c42c93b259d51921f997dea2` · utf8
+824 bytes · SHA-256 `2e1ef1565e2beb07bcdd7e5f4df240796f0082cec1055119f5f1506230e9a47d` · utf8
 
 ```tsx
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Environment } from '@react-three/drei'
 import Model from './Model'
 
 interface SceneProps {
   reducedMotion: boolean
+  pageVisible?: boolean
+  editing?: boolean
 }
 
-export default function Scene({ reducedMotion }: SceneProps) {
+export default function Scene({ reducedMotion, pageVisible = true, editing = false }: SceneProps) {
+  const paused = reducedMotion || !pageVisible || editing
   return (
     <Canvas
-      frameloop={reducedMotion ? 'demand' : 'always'}
+      frameloop={paused ? 'demand' : 'always'}
+      dpr={[1, 1.5]}
+      gl={{ alpha: false, antialias: false }}
+      flat
       fallback={null}
       style={{
         position: 'absolute',
@@ -4442,11 +4515,7 @@ export default function Scene({ reducedMotion }: SceneProps) {
       }}
     >
       <Suspense fallback={null}>
-        <directionalLight intensity={3} position={[0, 3, 2]} />
-        <Environment
-          files={`${import.meta.env.BASE_URL}environments/potsdamer_platz_1k.hdr`}
-        />
-        <Model reducedMotion={reducedMotion} />
+        <Model reducedMotion={paused} />
       </Suspense>
     </Canvas>
   )
@@ -4458,17 +4527,21 @@ export default function Scene({ reducedMotion }: SceneProps) {
 <a id="file-src-components-backgrounds-starsbackground-starbackground-tsx-b6114512"></a>
 ### src/components/backgrounds/starsBackground/StarBackground.tsx
 
-1791 bytes · SHA-256 `16225bc21aca7070915ba6e7e56b9771ef15a45babfd1bc3145e0ca4d7dc228a` · utf8
+4299 bytes · SHA-256 `ab82e3a0d5fe3ee32ae2a085f7e9516e875b4a503965f5966e2dcc9a9e0780f1` · utf8
 
 ```tsx
 import {
   Component,
+  lazy,
+  Suspense,
   useEffect,
   useState,
   type ErrorInfo,
   type ReactNode,
 } from 'react'
-import Scene from './Scene'
+import { useContentPaintReady } from '../../performance/useContentPaintReady'
+
+const Scene = lazy(() => import('./Scene'))
 
 interface BoundaryProps {
   children: ReactNode
@@ -4517,7 +4590,55 @@ function useReducedMotion() {
 }
 
 export default function StarBackground() {
+  const contentPainted = useContentPaintReady()
   const reducedMotion = useReducedMotion()
+  const [pageVisible, setPageVisible] = useState(() => typeof document === 'undefined' || document.visibilityState !== 'hidden')
+  const [editing, setEditing] = useState(() => typeof document !== 'undefined' && isEditable(document.activeElement))
+  const [requested, setRequested] = useState(false)
+
+  useEffect(() => {
+    const visibility = () => setPageVisible(document.visibilityState !== 'hidden')
+    const focus = (event: FocusEvent) => setEditing(isEditable(
+      event.type === 'focusout' ? event.relatedTarget : event.target,
+    ))
+    visibility()
+    document.addEventListener('visibilitychange', visibility)
+    document.addEventListener('focusin', focus)
+    document.addEventListener('focusout', focus)
+    return () => {
+      document.removeEventListener('visibilitychange', visibility)
+      document.removeEventListener('focusin', focus)
+      document.removeEventListener('focusout', focus)
+    }
+  }, [])
+
+  // Native content gets two paint opportunities before this optional GPU chunk.
+  useEffect(() => {
+    if (requested || !contentPainted || !pageVisible || editing) return
+    let live = true
+    let secondFrame: number | undefined
+    let idle: number | undefined
+    let timer: number | undefined
+    const request = () => { if (live) setRequested(true) }
+    const firstFrame = window.requestAnimationFrame(() => {
+      if (!live) return
+      secondFrame = window.requestAnimationFrame(() => {
+        if (!live) return
+        if (typeof window.requestIdleCallback === 'function') {
+          idle = window.requestIdleCallback(request, { timeout: 1500 })
+        } else {
+          timer = window.setTimeout(request, 0)
+        }
+      })
+    })
+    return () => {
+      live = false
+      window.cancelAnimationFrame(firstFrame)
+      if (secondFrame !== undefined) window.cancelAnimationFrame(secondFrame)
+      if (idle !== undefined) window.cancelIdleCallback?.(idle)
+      if (timer !== undefined) window.clearTimeout(timer)
+    }
+  }, [requested, contentPainted, pageVisible, editing])
 
   return (
     <div
@@ -4533,10 +4654,18 @@ export default function StarBackground() {
       }}
     >
       <BackgroundBoundary>
-        <Scene reducedMotion={reducedMotion} />
+        <Suspense fallback={null}>
+          {requested && <Scene reducedMotion={reducedMotion} pageVisible={pageVisible} editing={editing} />}
+        </Suspense>
       </BackgroundBoundary>
     </div>
   )
+}
+
+function isEditable(target: EventTarget | null) {
+  return target instanceof Element && Boolean(target.closest(
+    'input, textarea, select, [contenteditable]:not([contenteditable="false"])',
+  ))
 }
 ```
 
@@ -4803,13 +4932,14 @@ export default function GlassMaterial() {
 <a id="file-src-components-glass-panel-3d-glasspanel3d-tsx-4820d591"></a>
 ### src/components/glass-panel-3d/GlassPanel3D.tsx
 
-2768 bytes · SHA-256 `1a3aedfcd395f777984f750fb7aad5439182160252e3ff5318e50a0cf2320348` · utf8
+4100 bytes · SHA-256 `8db7ff7ddb976479aa4a6c21cbd062d559067cd93cd7740de48dd407adf8f9a3` · utf8
 
 ```tsx
 import {
   Component, lazy, Suspense, useCallback, useEffect, useRef, useState,
   type ComponentPropsWithRef, type ReactNode,
 } from 'react'
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import '../../styles/glass.css'
 import styles from './GlassPanel3D.module.css'
 
@@ -4834,11 +4964,42 @@ class GlassLayerBoundary extends Component<{
 
 /** Each explicit mount gets fresh readiness/error state and callback guards. */
 function MountedGlassLayer() {
+  const contentPainted = useContentPaintReady()
+  const element = useRef<HTMLDivElement>(null)
   const live = useRef(true)
   const failed = useRef(false)
   const [hasWebGL, setHasWebGL] = useState<boolean | null>(null)
   const [ready, setReady] = useState(false)
   const [unavailable, setUnavailable] = useState(false)
+  const [requested, setRequested] = useState(false)
+
+  useEffect(() => {
+    if (!contentPainted || !hasWebGL || requested) return
+    const target = element.current
+    if (!target) return
+    let live = true
+    let inView = typeof IntersectionObserver === 'undefined'
+    const activate = () => {
+      if (live && inView && document.visibilityState !== 'hidden') setRequested(true)
+    }
+    const observer = typeof IntersectionObserver !== 'undefined'
+      ? new IntersectionObserver(entries => {
+          const entry = entries.find(value => value.target === target)
+          if (entry) inView = entry.isIntersecting
+          activate()
+        })
+      : null
+    observer?.observe(target)
+    document.addEventListener('visibilitychange', activate)
+    activate()
+    // This stationary scene stays mounted once requested. Drop activation
+    // observers then; demand rendering already needs no continuous callbacks.
+    return () => {
+      live = false
+      observer?.disconnect()
+      document.removeEventListener('visibilitychange', activate)
+    }
+  }, [contentPainted, hasWebGL, requested])
 
   useEffect(() => {
     live.current = true
@@ -4859,11 +5020,11 @@ function MountedGlassLayer() {
     setUnavailable(true)
   }, [])
 
-  const state = unavailable || hasWebGL === false ? 'unavailable' : ready ? 'loaded' : 'loading'
+  const state = unavailable || hasWebGL === false ? 'unavailable' : ready ? 'loaded' : requested ? 'loading' : 'pending'
 
   return (
-    <div className={styles.visual} aria-hidden="true" data-glass-layer="" data-glass-state={state}>
-      {hasWebGL && !unavailable && (
+    <div ref={element} className={styles.visual} aria-hidden="true" data-glass-layer="" data-glass-state={state}>
+      {requested && hasWebGL && !unavailable && (
         <GlassLayerBoundary onUnavailable={onUnavailable}>
           <Suspense fallback={null}>
             <GlassPanelCanvas onReady={onReady} onUnavailable={onUnavailable} />
@@ -5226,10 +5387,10 @@ export default function GlassPanelExample() {
 <a id="file-src-components-glass-panel-3d-researchdraftpanel-tsx-0a7c8199"></a>
 ### src/components/glass-panel-3d/ResearchDraftPanel.tsx
 
-1323 bytes · SHA-256 `accd7512621a7ad658d244ced47b0d4a0b2906f7efce2f171b0a6bdcb5ebfd28` · utf8
+1335 bytes · SHA-256 `f5db16fecdc63e69a7a97e202bb74c477975e0afeb550654fa744142001be151` · utf8
 
 ```tsx
-import { useId, useState } from 'react'
+import { memo, useId, useState } from 'react'
 import GlassPanel3D from './GlassPanel3D'
 import styles from './ResearchDraftPanel.module.css'
 
@@ -5239,7 +5400,7 @@ export interface ResearchDraftPanelProps {
 }
 
 /** The original, simple glass-panel design, with a session-only native draft. */
-export default function ResearchDraftPanel({ mounted = true }: ResearchDraftPanelProps) {
+export default memo(function ResearchDraftPanel({ mounted = true }: ResearchDraftPanelProps) {
   const id = useId()
   const [draft, setDraft] = useState('')
 
@@ -5262,7 +5423,7 @@ export default function ResearchDraftPanel({ mounted = true }: ResearchDraftPane
       <span id={`${id}-hint`} className={styles.hint}>Temporary draft · Clears on reload</span>
     </GlassPanel3D>
   )
-}
+})
 ```
 
 [Back to contents](#contents)
@@ -5527,9 +5688,10 @@ export default function HtmlGlassCanvas(props: HtmlGlassCanvasProps) {
 <a id="file-src-components-html-glass-card-htmlglasscard-tsx-cc6acc96"></a>
 ### src/components/html-glass-card/HtmlGlassCard.tsx
 
-5531 bytes · SHA-256 `ea34a8a5ebbcd6e9073e49426f3aaf8819585e97993b6eaded91cb1f294dfb03` · utf8
+5688 bytes · SHA-256 `c500c368fc561658db333996ec09f4923a4164b86d235c7b9f72503fae1870a2` · utf8
 
 ```tsx
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import { Component, lazy, Suspense, useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import HtmlGlassCardContent from './HtmlGlassCardContent'
@@ -5561,6 +5723,7 @@ export default function HtmlGlassCard({
   eyebrow = 'HTML / THREE.JS', noteLabel = 'Scene research note',
   hint = 'Click or focus the field to see the Calendar4 highlight.',
 }: HtmlGlassCardProps) {
+  const contentPainted = useContentPaintReady()
   const root = useRef<HTMLDivElement>(null)
   const nativeSlot = useRef<HTMLDivElement>(null)
   const htmlPortal = useRef<HTMLDivElement>(null)
@@ -5607,8 +5770,8 @@ export default function HtmlGlassCard({
     return () => { live.current = false }
   }, [])
   useEffect(() => {
-    if (activity.inViewport && activity.pageVisible && activity.hasWebGL) setRequested(true)
-  }, [activity.inViewport, activity.pageVisible, activity.hasWebGL])
+    if (contentPainted && activity.inViewport && activity.pageVisible && activity.hasWebGL) setRequested(true)
+  }, [contentPainted, activity.inViewport, activity.pageVisible, activity.hasWebGL])
 
   const onReady = useCallback(() => { if (live.current && !failed.current) setReady(true) }, [])
   const onUnavailable = useCallback(() => {
@@ -5871,16 +6034,16 @@ export function useHtmlSceneActivity(target: RefObject<HTMLElement | null>) {
 <a id="file-src-components-transmission-glasscards-tsx-26d03c88"></a>
 ### src/components/transmission/GlassCards.tsx
 
-9185 bytes · SHA-256 `0bdac200028febc96a5707e808867727b2a1d02ce2be8703976ec8095151c267` · utf8
+9818 bytes · SHA-256 `d37d87cb3179cd1658bcd5fa4181bf91047a92ab511f6c3c67f1f5f2ba8f7733` · utf8
 
 ```tsx
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import {
   Component, lazy, Suspense, useCallback, useEffect, useId,
   useMemo, useRef, useState, type ReactNode,
 } from 'react'
-import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from './GlassPrimitives'
+import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from './glassSettings'
 import { useTransmissionActivity } from './useTransmissionActivity'
-import { clearTransmissionAssetCache } from './transmissionAssets'
 import type { TextPlacement, TransmissionQuality, TransmissionVariant } from './transmissionTypes'
 import './GlassCards.css'
 
@@ -5913,6 +6076,7 @@ const SLIDERS = [
 function TransmissionCard({
   variant, title, initialText = 'GLASS', children,
 }: TransmissionCardProps & { variant: TransmissionVariant }) {
+  const contentPainted = useContentPaintReady()
   const id = useId()
   const stage = useRef<HTMLDivElement>(null)
   const activity = useTransmissionActivity(stage)
@@ -5938,8 +6102,8 @@ function TransmissionCard({
     return () => { alive.current = false }
   }, [])
   useEffect(() => {
-    if (activity.inView && activity.pageVisible && activity.webgl) setRequested(true)
-  }, [activity.inView, activity.pageVisible, activity.webgl])
+    if (contentPainted && activity.inView && activity.pageVisible && activity.webgl) setRequested(true)
+  }, [contentPainted, activity.inView, activity.pageVisible, activity.webgl])
 
   const effectiveQuality = quality === 'auto'
     ? activity.coarse ? 'balanced' : 'high'
@@ -5962,11 +6126,23 @@ function TransmissionCard({
     setFailed(true)
     setReady(false)
   }, [attempt])
-  const retry = () => {
-    if (failed && failureReason.current !== 'context') clearTransmissionAssetCache()
-    epoch.current += 1
+  const retry = async () => {
+    const nextAttempt = ++epoch.current
+    if (failed && failureReason.current !== 'context') {
+      // Asset-loader helpers belong to the failed-scene retry, not the native
+      // card's initial dependency graph. Evict before mounting the new scene.
+      try {
+        const { clearTransmissionAssetCache } = await import('./transmissionAssets')
+        if (!alive.current || epoch.current !== nextAttempt) return
+        clearTransmissionAssetCache()
+      } catch {
+        // Leave the native controls and retry action usable if this chunk fails.
+        return
+      }
+    }
+    if (!alive.current || epoch.current !== nextAttempt) return
     blocked.current = false
-    setAttempt(epoch.current)
+    setAttempt(nextAttempt)
     setFailed(false)
     setReady(false)
   }
@@ -6099,45 +6275,14 @@ export function TransmissionGallery() {
 <a id="file-src-components-transmission-glassprimitives-tsx-f38b34f5"></a>
 ### src/components/transmission/GlassPrimitives.tsx
 
-4429 bytes · SHA-256 `c6fbf9e1c7323eecba3c3b57f1937fcafdab33af6f083dfd7a63f020803f3edf` · utf8
+3865 bytes · SHA-256 `aa178cc65737bc3829cfc7cbd37151834c1d25705cc378d04b3658fe86031be8` · utf8
 
 ```tsx
 import { MeshTransmissionMaterial } from '@react-three/drei'
 import type { ThreeElements } from '@react-three/fiber'
 
-export interface GlassSettings {
-  transmission: number
-  thickness: number
-  roughness: number
-  ior: number
-  chromaticAberration: number
-  anisotropicBlur: number
-  distortion: number
-  distortionScale: number
-  temporalDistortion: number
-  backside: boolean
-  backsideThickness: number
-  samples: number
-  resolution: number
-  color: string
-}
-
-export const DEFAULT_GLASS_SETTINGS: GlassSettings = {
-  transmission: 1,
-  thickness: 0.85,
-  roughness: 0.08,
-  ior: 1.4,
-  chromaticAberration: 0.04,
-  anisotropicBlur: 0.2,
-  distortion: 0.2,
-  distortionScale: 0.3,
-  temporalDistortion: 0.1,
-  backside: true,
-  backsideThickness: 0.3,
-  samples: 6,
-  resolution: 512,
-  color: '#e8f4ff',
-}
+import type { GlassSettings } from './glassSettings'
+export { DEFAULT_GLASS_SETTINGS, type GlassSettings } from './glassSettings'
 
 export function TransmissionSurface({
   settings,
@@ -6459,23 +6604,67 @@ export default function TransmissionCanvas(props: TransmissionCanvasProps) {
 
 [Back to contents](#contents)
 
+<a id="file-src-components-transmission-glasssettings-ts-0b9ba314"></a>
+### src/components/transmission/glassSettings.ts
+
+774 bytes · SHA-256 `33b305603be848188ca35b53bc805bf76c8397ee69815f8b0ecb2d31a543e782` · utf8
+
+```ts
+// CPU-only settings: native controls must not eagerly import the GPU renderer.
+export interface GlassSettings {
+  transmission: number
+  thickness: number
+  roughness: number
+  ior: number
+  chromaticAberration: number
+  anisotropicBlur: number
+  distortion: number
+  distortionScale: number
+  temporalDistortion: number
+  backside: boolean
+  backsideThickness: number
+  samples: number
+  resolution: number
+  color: string
+}
+
+export const DEFAULT_GLASS_SETTINGS: GlassSettings = {
+  transmission: 1,
+  thickness: 0.85,
+  roughness: 0.08,
+  ior: 1.4,
+  chromaticAberration: 0.04,
+  anisotropicBlur: 0.2,
+  distortion: 0.2,
+  distortionScale: 0.3,
+  temporalDistortion: 0.1,
+  backside: true,
+  backsideThickness: 0.3,
+  samples: 6,
+  resolution: 512,
+  color: '#e8f4ff',
+}
+```
+
+[Back to contents](#contents)
+
 <a id="file-src-components-transmission-transmissionassets-ts-aaaad7ce"></a>
 ### src/components/transmission/transmissionAssets.ts
 
-644 bytes · SHA-256 `9ece30c098b00d51c2928856c3aa08aaa30cfd84e309567b8ec370f970c5893c` · utf8
+635 bytes · SHA-256 `f784ae7b0bccdba4c8b8c85683e39f77ef994bec8d59e37be1ac5090d56d6d2e` · utf8
 
 ```ts
-import { useEnvironment, useFont } from '@react-three/drei'
+import { useFont } from '@react-three/drei'
 
 export const TRANSMISSION_ENVIRONMENT_URL = `${import.meta.env.BASE_URL}environments/potsdamer_platz_1k.hdr`
 export const TRANSMISSION_FONT_URL = `${import.meta.env.BASE_URL}fonts/helvetiker_bold.typeface.json`
 
-/** An explicit asset-error retry evicts only this scene's two loader keys.
- * Clearing these entries does not dispose resources retained by other scenes.
+/** An explicit asset-error retry evicts only this scene's font loader key.
+ * Its procedural studio does not consume the HDR shared by other panels.
+ * Clearing this entry does not dispose resources retained by other scenes.
  * Context-only retries keep the successful cache entries.
  */
 export function clearTransmissionAssetCache() {
-  useEnvironment.clear({ files: TRANSMISSION_ENVIRONMENT_URL })
   useFont.clear(TRANSMISSION_FONT_URL)
 }
 ```
@@ -6883,14 +7072,15 @@ export default function GlassObjectCanvas(props: TransparentGlassCanvasProps) {
 <a id="file-src-components-glass-objects-glassobjectcards-tsx-6093911e"></a>
 ### src/components/glass-objects/GlassObjectCards.tsx
 
-8841 bytes · SHA-256 `9e9aedb19671e52f31592e9620eaaee6b66a39253cc34e05b8e76fd15524918c` · utf8
+8996 bytes · SHA-256 `b2bad21e159167895666ad10c34367b2ae4ec62641d45e1a996cdfbf0265ece1` · utf8
 
 ```tsx
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import {
   Component, lazy, memo, Suspense, useCallback, useEffect, useId,
   useMemo, useRef, useState, type ReactNode,
 } from 'react'
-import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from '../transmission/GlassPrimitives'
+import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from '../transmission/glassSettings'
 import { useTransmissionActivity } from '../transmission/useTransmissionActivity'
 import type { TransmissionQuality } from '../transmission/transmissionTypes'
 import type { GlassObjectCardProps, GlassObjectKind } from './glassObjectSceneTypes'
@@ -6924,6 +7114,7 @@ const GlassObjectCard = memo(function GlassObjectCard({
   kind, title, children, initialSpin = true, initialRotationAxis = 'y',
   initialRotationSpeed = 0.3, initialMaterial, lightingIntensity = 1, backdrop = 'dark',
 }: GlassObjectCardProps & { kind: GlassObjectKind }) {
+  const contentPainted = useContentPaintReady()
   const id = useId()
   const stage = useRef<HTMLDivElement>(null)
   const activity = useTransmissionActivity(stage)
@@ -6946,8 +7137,8 @@ const GlassObjectCard = memo(function GlassObjectCard({
     return () => { alive.current = false }
   }, [])
   useEffect(() => {
-    if (activity.inView && activity.pageVisible && activity.webgl) setRequested(true)
-  }, [activity.inView, activity.pageVisible, activity.webgl])
+    if (contentPainted && activity.inView && activity.pageVisible && activity.webgl) setRequested(true)
+  }, [contentPainted, activity.inView, activity.pageVisible, activity.webgl])
 
   const effectiveQuality = quality === 'auto' ? activity.coarse ? 'balanced' : 'high' : quality
   const high = effectiveQuality === 'high'
@@ -7273,19 +7464,21 @@ export default GlassTextObject
 <a id="file-src-components-glass-objects-glasstextscene-tsx-7e7008a2"></a>
 ### src/components/glass-objects/GlassTextScene.tsx
 
-4140 bytes · SHA-256 `595aadeca9630c507801663dfa7e33655cd455879107dac1165aff6be7882178` · utf8
+4326 bytes · SHA-256 `878f3a08c5374e6c97e5dbf8ce2ca7ace585fa9e8355398c11c4959c931de692` · utf8
 
 ```tsx
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import {
   Component, lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type ReactNode,
 } from 'react'
-import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from '../transmission/GlassPrimitives'
+import { DEFAULT_GLASS_SETTINGS, type GlassSettings } from '../transmission/glassSettings'
 import { useTransmissionActivity } from '../transmission/useTransmissionActivity'
 import type { SceneObjectProps } from './GlassObjectCanvas'
-import GlassTextObject, { type GlassTextBounds } from './GlassTextObject'
+import type { GlassTextBounds } from './GlassTextObject'
 import styles from './GlassTextScene.module.css'
 
 const GlassObjectCanvas = lazy(() => import('./GlassObjectCanvas'))
+const GlassTextObject = lazy(() => import('./GlassTextObject'))
 
 class TextSceneBoundary extends Component<{
   children: ReactNode
@@ -7309,6 +7502,7 @@ export interface GlassTextSceneProps {
 export default function GlassTextScene({
   text = 'LIGHT', spin = false, rotationSpeed = 0.12, material,
 }: GlassTextSceneProps) {
+  const contentPainted = useContentPaintReady()
   const stage = useRef<HTMLDivElement>(null)
   const activity = useTransmissionActivity(stage)
   const [ready, setReady] = useState(false)
@@ -7341,7 +7535,7 @@ export default function GlassTextScene({
   ), [text, onBounds])
   const animate = spin && ready && !failed && !focused && activity.inView
     && activity.pageVisible && !activity.reduced
-  const eligible = activity.inView && activity.pageVisible && activity.webgl
+  const eligible = contentPainted && activity.inView && activity.pageVisible && activity.webgl
   // Retain the scene after its first visible request; hidden scenes use demand mode.
   useEffect(() => { if (eligible) setRequested(true) }, [eligible])
   const fitSize = bounds ? Math.hypot(bounds.width, bounds.height, bounds.depth) * 1.2 : 6.8
@@ -7919,9 +8113,10 @@ export default function FooterTextCanvas({ text, animate, rotationSpeed = 0, onR
 <a id="file-src-components-typography-footertextscene-tsx-8ca2a2d9"></a>
 ### src/components/typography/FooterTextScene.tsx
 
-2812 bytes · SHA-256 `f89208787bbc00b7a1e0a3e494231bd40ff671e39af693af7cc263a4fa4914f1` · utf8
+2978 bytes · SHA-256 `63cb4ae28ddba5635ce6dadc061a38799cf65eff55c85db506929be3e9a1e4d3` · utf8
 
 ```tsx
+import { useContentPaintReady } from '../performance/useContentPaintReady'
 import {
   Component, lazy, Suspense, useCallback, useEffect, useRef, useState,
   type ReactNode,
@@ -7959,6 +8154,7 @@ class FooterTextBoundary extends Component<{
 }
 
 export default function FooterTextScene({ text = 'Make learning tangible.', motion = true, rotationSpeed = 0, className }: FooterTextSceneProps) {
+  const contentPainted = useContentPaintReady()
   const element = useRef<HTMLDivElement>(null)
   const mounted = useRef(true)
   const failed = useRef(false)
@@ -7973,8 +8169,8 @@ export default function FooterTextScene({ text = 'Make learning tangible.', moti
   }, [])
 
   useEffect(() => {
-    if (inViewport && pageVisible && hasWebGL) setRequested(true)
-  }, [inViewport, pageVisible, hasWebGL])
+    if (contentPainted && inViewport && pageVisible && hasWebGL) setRequested(true)
+  }, [contentPainted, inViewport, pageVisible, hasWebGL])
 
   const onReady = useCallback(() => {
     if (mounted.current && !failed.current) setReady(true)
@@ -7987,7 +8183,7 @@ export default function FooterTextScene({ text = 'Make learning tangible.', moti
   }, [])
 
   const canRender = requested && hasWebGL === true && !unavailable
-  const animate = motion && canRender && inViewport && pageVisible && !reducedMotion
+  const animate = ready && motion && canRender && inViewport && pageVisible && !reducedMotion
   const state = unavailable || hasWebGL === false
     ? 'unavailable'
     : ready ? 'loaded' : requested ? 'loading' : 'pending'
@@ -8245,9 +8441,10 @@ export default function EarthFallback() {
 <a id="file-src-components-misc-earthmark-earthmark-tsx-3b0b8513"></a>
 ### src/components/misc/EarthMark/EarthMark.tsx
 
-3660 bytes · SHA-256 `911412432e863750295819e7410432911df4eaaf41f4466fadee95c1140e721f` · utf8
+3820 bytes · SHA-256 `9f6cc33a2c871af9c873a4b85ac3db9d4e85c8e972c129799f6ab839ce57a5b8` · utf8
 
 ```tsx
+import { useContentPaintReady } from '../../performance/useContentPaintReady'
 import {
   Component, lazy, memo, Suspense, useCallback, useEffect, useRef, useState,
   type CSSProperties, type ReactNode,
@@ -8281,6 +8478,7 @@ class EarthBoundary extends Component<{
 function EarthMark({
   size = 14, animate = true, rotationAxis = 'y', rotationSpeed = -0.12, className,
 }: EarthMarkProps) {
+  const contentPainted = useContentPaintReady()
   const element = useRef<HTMLSpanElement>(null)
   const live = useRef(true)
   const failed = useRef(false)
@@ -8296,8 +8494,8 @@ function EarthMark({
     return () => { live.current = false }
   }, [])
   useEffect(() => {
-    if (inViewport && pageVisible && hasWebGL) setRequested(true)
-  }, [inViewport, pageVisible, hasWebGL])
+    if (contentPainted && inViewport && pageVisible && hasWebGL) setRequested(true)
+  }, [contentPainted, inViewport, pageVisible, hasWebGL])
 
   const onReady = useCallback(() => {
     if (live.current && !failed.current) setReady(true)
@@ -8521,6 +8719,84 @@ export default function EarthModel({
 
 // This module is imported only by the lazily requested client renderer.
 useGLTF.preload(EARTH_MODEL_URL, false, false)
+```
+
+[Back to contents](#contents)
+
+<a id="file-src-components-performance-usecontentpaintready-ts-b42bc676"></a>
+### src/components/performance/useContentPaintReady.ts
+
+2527 bytes · SHA-256 `47bb7de0fc54407c42b340a781e1081839d7b52ea6cec490bfcd0a70dc0fff90` · utf8
+
+```ts
+import { useSyncExternalStore } from 'react'
+
+/** One shared, one-shot startup gate; native content paints before GPU work. */
+export function createContentPaintGate() {
+  const listeners = new Set<() => void>()
+  const hasPainted = () => typeof window !== 'undefined'
+    && Boolean(window.performance?.getEntriesByName?.('first-contentful-paint').length)
+  let ready = hasPainted()
+  let stop = () => {}
+
+  function notify() {
+    if (ready) return
+    ready = true
+    stop()
+    for (const listener of listeners) listener()
+  }
+
+  function observe(): () => void {
+    if (hasPainted()) { notify(); return () => {} }
+    if (typeof window === 'undefined') return () => {}
+    const Observer = window.PerformanceObserver
+    let live = true
+    if (Observer?.supportedEntryTypes?.includes('paint')) {
+      let observer: PerformanceObserver | undefined
+      try {
+        observer = new Observer(list => {
+          if (live && list.getEntries().some(entry => entry.name === 'first-contentful-paint')) notify()
+        })
+        observer.observe({ type: 'paint', buffered: true })
+        return () => { live = false; observer?.disconnect() }
+      } catch { observer?.disconnect() }
+    }
+    // Paint Timing is absent in older Safari. Allow two presentation
+    // opportunities plus a task instead of waiting on an unsupported event.
+    let first: number | undefined, second: number | undefined, timer: number | undefined
+    if (typeof window.requestAnimationFrame === 'function') {
+      first = window.requestAnimationFrame(() => {
+        if (!live) return
+        second = window.requestAnimationFrame(() => {
+          if (live) timer = window.setTimeout(() => { if (live) notify() }, 0)
+        })
+      })
+    } else timer = window.setTimeout(() => { if (live) notify() }, 0)
+    return () => {
+      live = false
+      if (first !== undefined) window.cancelAnimationFrame(first)
+      if (second !== undefined) window.cancelAnimationFrame(second)
+      if (timer !== undefined) window.clearTimeout(timer)
+    }
+  }
+
+  return {
+    getSnapshot: () => ready,
+    subscribe(listener: () => void) {
+      listeners.add(listener)
+      if (!ready && listeners.size === 1) { stop = observe(); if (ready) stop() }
+      return () => {
+        listeners.delete(listener)
+        if (!ready && !listeners.size) { stop(); stop = () => {} }
+      }
+    },
+  }
+}
+
+const gate = createContentPaintGate()
+export function useContentPaintReady() {
+  return useSyncExternalStore(gate.subscribe, gate.getSnapshot, () => false)
+}
 ```
 
 [Back to contents](#contents)

@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
-import { animate, motion, useMotionValue, type AnimationPlaybackControls } from 'framer-motion'
+import { animate, useMotionValue, type AnimationPlaybackControls } from 'framer-motion'
+import { motion } from '../calendarMotion/LightMotion'
 import { useCalendarMotionPreferences } from '../calendarMotion/useCalendarMotionPreferences'
 
 export type HeightSettlement = { immediate: boolean }

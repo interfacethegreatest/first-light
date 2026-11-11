@@ -1,7 +1,6 @@
 import { memo, useRef } from 'react'
 import { Stars } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import type { Points } from 'three'
 
 interface ModelProps {
@@ -25,21 +24,16 @@ function Model({ reducedMotion }: ModelProps) {
 
   return (
     <group>
-      <mesh>
-        <ambientLight intensity={1} />
-        {/* The optional shooting star remains disabled, as in Calendar4. */}
-        <Stars
-          {...sourceStarProps}
-          radius={200}
-          count={7500}
-          factor={4}
-          fade
-          ref={stars}
-        />
-        <EffectComposer>
-          <Bloom mipmapBlur luminanceThreshold={1} />
-        </EffectComposer>
-      </mesh>
+      {/* The optional shooting star remains disabled, as in Calendar4. */}
+      <Stars
+        {...sourceStarProps}
+        radius={200}
+        count={7500}
+        factor={4}
+        fade
+        speed={reducedMotion ? 0 : 1}
+        ref={stars}
+      />
     </group>
   )
 }

@@ -1,11 +1,49 @@
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { useEffect } from 'react'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import NewUserCard from '../src/components/cards/newUserCard/NewUserCard'
 import { sourceSectionTemplate } from '../src/components/sources/sourceSectionTemplate'
+import SunScene from '../src/components/react three fibre/sunScene/SunScene'
 
 // Keep card content and controls real; actual WebGL is verified in the browser.
-vi.mock('../src/components/react three fibre/sunScene/SunScene', () => ({ default: () => null }))
+vi.mock('../src/components/react three fibre/sunScene/SunScene', () => ({ default: vi.fn() }))
+
+const releaseSun = vi.fn()
+
+function badgeActivity(hidden = false) {
+  let state = hidden ? 'hidden' : 'visible'
+  vi.spyOn(document, 'visibilityState', 'get').mockImplementation(() => state as DocumentVisibilityState)
+  const observers: Observer[] = []
+  class Observer {
+    target: Element | null = null
+    disconnected = false
+    constructor(readonly callback: IntersectionObserverCallback) { observers.push(this) }
+    observe(target: Element) { this.target = target }
+    disconnect() { this.disconnected = true }
+    emit(inView: boolean) {
+      this.callback([{ target: this.target!, isIntersecting: inView } as IntersectionObserverEntry], this as unknown as IntersectionObserver)
+    }
+  }
+  vi.stubGlobal('IntersectionObserver', Observer)
+  return {
+    observers,
+    intersect(target: Element, inView: boolean) {
+      act(() => observers.filter(observer => observer.target === target && !observer.disconnected).forEach(observer => observer.emit(inView)))
+    },
+    visible(value: boolean) {
+      act(() => { state = value ? 'visible' : 'hidden';document.dispatchEvent(new Event('visibilitychange')) })
+    },
+  }
+}
+
+beforeEach(() => {
+  vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('visible')
+  vi.mocked(SunScene).mockImplementation(function Preview() {
+    useEffect(() => () => releaseSun(), [])
+    return <div data-testid="sun-preview-boundary" />
+  })
+})
 
 function motionPreferences() {
   function query() {
@@ -108,5 +146,63 @@ describe('Calendar NewUserCard integration', () => {
     view.unmount()
     expect(preference.reduced.listeners.size).toBe(0)
     expect(preference.coarse.listeners.size).toBe(0)
+  })
+
+  it('requests only visible Sun badges and releases their scenes offscreen or hidden without replacing native content', async () => {
+    const preference = motionPreferences()
+    const activity = badgeActivity()
+    const remove = vi.spyOn(document, 'removeEventListener')
+    const user = userEvent.setup()
+    const view = render(<NewUserCard headingId="deferred-sun-title" title="Deferred Sun"><label>Retained draft<textarea /></label></NewUserCard>)
+    const region = screen.getByRole('region', { name: 'Deferred Sun' })
+    const badge = region.querySelector('[data-source-sun]')!
+    const field = screen.getByRole('textbox', { name: 'Retained draft' })
+    expect(activity.observers[0].target).toBe(badge)
+    expect(SunScene).not.toHaveBeenCalled()
+    await user.type(field, 'Native output remains focused')
+
+    activity.intersect(badge, true)
+    const firstPreview = await screen.findByTestId('sun-preview-boundary')
+    activity.intersect(badge, false)
+    expect(screen.queryByTestId('sun-preview-boundary')).not.toBeInTheDocument()
+    expect(releaseSun).toHaveBeenCalledOnce()
+    activity.intersect(badge, true)
+    expect(await screen.findByTestId('sun-preview-boundary')).not.toBe(firstPreview)
+    activity.visible(false)
+    expect(screen.queryByTestId('sun-preview-boundary')).not.toBeInTheDocument()
+    expect(releaseSun).toHaveBeenCalledTimes(2)
+    activity.visible(true)
+    const reducedPreview = await screen.findByTestId('sun-preview-boundary')
+    preference.reduced.change(true)
+    expect(screen.getByTestId('sun-preview-boundary')).toBe(reducedPreview)
+    expect(screen.getByRole('region', { name: 'Deferred Sun' })).toBe(region)
+    expect(screen.getByRole('textbox', { name: 'Retained draft' })).toBe(field)
+    expect(field).toHaveValue('Native output remains focused')
+    expect(field).toHaveFocus()
+
+    view.unmount()
+    expect(releaseSun).toHaveBeenCalledTimes(3)
+    expect(activity.observers.every(observer => observer.disconnected)).toBe(true)
+    expect(remove).toHaveBeenCalledWith('visibilitychange', expect.any(Function))
+    const calls = vi.mocked(SunScene).mock.calls.length
+    act(() => activity.observers.forEach(observer => observer.emit(true)))
+    activity.visible(true)
+    expect(SunScene).toHaveBeenCalledTimes(calls)
+  })
+
+  it('contains a deferred scene error while retaining attribution and working native controls', async () => {
+    motionPreferences()
+    const activity = badgeActivity()
+    vi.spyOn(console, 'error').mockImplementation(() => {})
+    vi.mocked(SunScene).mockImplementation(() => { throw new Error('Local decorative scene unavailable') })
+    const action = vi.fn(), user = userEvent.setup()
+    render(<NewUserCard headingId="failed-sun-title" title="Working card" controls={<button onClick={action}>Edit output</button>}><p>Research stays available.</p></NewUserCard>)
+    activity.intersect(document.querySelector('[data-source-sun]')!, true)
+    await act(async () => {})
+    expect(screen.getByRole('region', { name: 'Working card' })).toHaveTextContent('Research stays available.')
+    expect(screen.getByRole('link', { name: 'Sun' })).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'Edit output' }))
+    expect(action).toHaveBeenCalledOnce()
+    expect(screen.queryByTestId('sun-preview-boundary')).not.toBeInTheDocument()
   })
 })

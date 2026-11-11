@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import { motion, useAnimationControls } from 'framer-motion'
+import { useAnimationControls } from 'framer-motion'
+import { motion } from './LightMotion'
 import Tilt from 'react-parallax-tilt'
 import { useCalendarMotionPreferences } from './useCalendarMotionPreferences'
 import './calendarMotion.css'

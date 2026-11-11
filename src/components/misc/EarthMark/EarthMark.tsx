@@ -1,3 +1,4 @@
+import { useContentPaintReady } from '../../performance/useContentPaintReady'
 import {
   Component, lazy, memo, Suspense, useCallback, useEffect, useRef, useState,
   type CSSProperties, type ReactNode,
@@ -31,6 +32,7 @@ class EarthBoundary extends Component<{
 function EarthMark({
   size = 14, animate = true, rotationAxis = 'y', rotationSpeed = -0.12, className,
 }: EarthMarkProps) {
+  const contentPainted = useContentPaintReady()
   const element = useRef<HTMLSpanElement>(null)
   const live = useRef(true)
   const failed = useRef(false)
@@ -46,8 +48,8 @@ function EarthMark({
     return () => { live.current = false }
   }, [])
   useEffect(() => {
-    if (inViewport && pageVisible && hasWebGL) setRequested(true)
-  }, [inViewport, pageVisible, hasWebGL])
+    if (contentPainted && inViewport && pageVisible && hasWebGL) setRequested(true)
+  }, [contentPainted, inViewport, pageVisible, hasWebGL])
 
   const onReady = useCallback(() => {
     if (live.current && !failed.current) setReady(true)

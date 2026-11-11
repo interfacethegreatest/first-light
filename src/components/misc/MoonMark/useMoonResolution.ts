@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const MAX_RENDERER_DPR = 4
+const MAX_RENDERER_DPR = 2
 
 function positiveFinite(value: unknown): number {
   return typeof value === 'number' && Number.isFinite(value) && value > 0 ? value : 1

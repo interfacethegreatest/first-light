@@ -84,20 +84,20 @@ describe('Moon render-buffer resolution', () => {
     browser.resize(2)
     expect(result.current).toBe(2)
     browser.resize(3)
-    expect(result.current).toBe(3)
+    expect(result.current).toBe(2)
     browser.resize(8)
-    expect(result.current).toBe(4)
+    expect(result.current).toBe(2)
   })
 
   it('accounts for mobile pinch scale, caps it, and returns to the base DPR', () => {
-    const browser = environment({ dpr: 2 })
+    const browser = environment({ dpr: 1 })
     const { result } = renderHook(useMoonResolution)
     browser.pinch(1.5)
-    expect(result.current).toBe(3)
+    expect(result.current).toBe(1.5)
     browser.pinch(5)
-    expect(result.current).toBe(4)
-    browser.pinch(1)
     expect(result.current).toBe(2)
+    browser.pinch(1)
+    expect(result.current).toBe(1)
   })
 
   it('handles display DPR changes without resize and releases the old query', () => {
@@ -105,7 +105,7 @@ describe('Moon render-buffer resolution', () => {
     const { result } = renderHook(useMoonResolution)
     expect(browser.queries.at(-1)!.query).toBe('(resolution: 2dppx)')
     browser.changeDisplay(3)
-    expect(result.current).toBe(3)
+    expect(result.current).toBe(2)
     expect(browser.queries[0].listeners.size).toBe(0)
     expect(browser.queries.at(-1)!.query).toBe('(resolution: 3dppx)')
   })
@@ -120,7 +120,7 @@ describe('Moon render-buffer resolution', () => {
     ['infinite pinch scale', 2, Infinity, 2],
     ['zero pinch scale', 2, 0, 2],
     ['fractional zoom-out floor', 0.5, 0.5, 1],
-    ['large finite zoom values', Number.MAX_VALUE, Number.MAX_VALUE, 4],
+    ['large finite zoom values', Number.MAX_VALUE, Number.MAX_VALUE, 2],
   ] as const) {
     it(`safely bounds ${name}`, () => {
       environment({ dpr, scale })
@@ -134,7 +134,7 @@ describe('Moon render-buffer resolution', () => {
     const { result } = renderHook(useMoonResolution)
     expect(result.current).toBe(2)
     browser.resize(3)
-    expect(result.current).toBe(3)
+    expect(result.current).toBe(2)
   })
 
   it('cleans up window, visual viewport and resolution listeners under StrictMode', () => {
