@@ -11,8 +11,8 @@ const targets = {
   manifest: 'docs/component-catalog-manifest.json',
   zip: 'docs/component-source.zip',
 }
-const extraSourceFiles = ['public/media/moon/Moon.jsx', 'examples/glass-panel-3d/main.tsx']
-const entryFiles = new Set(['src/main.tsx', 'examples/glass-panel-3d/main.tsx'])
+const extraSourceFiles = ['public/media/moon/Moon.jsx', 'examples/glass-panel-3d/main.tsx', 'examples/transparent-glass/main.tsx']
+const entryFiles = new Set(['src/main.tsx', 'examples/glass-panel-3d/main.tsx', 'examples/transparent-glass/main.tsx'])
 const groups = [
   ['application', 'Application, workspace data and shared styles', ['src/App.', 'src/main.', 'src/index.', 'src/useWorkspace.', 'src/workspace', 'src/styles/']],
   ['header-hero', 'Header, hero and shared tile decoration', ['src/components/header/', 'src/components/hero/', 'src/components/decorations/']],
@@ -25,7 +25,7 @@ const groups = [
   ['glass-3d', 'Three.js glass panel and example', ['src/components/glass-panel-3d/', 'examples/glass-panel-3d/main.tsx']],
   ['html-glass', 'HTML glass card and scene helpers', ['src/components/html-glass-card/']],
   ['transmission', 'Transmission materials and scene cards', ['src/components/transmission/']],
-  ['glass-objects', 'Isolated glass objects and rotation', ['src/components/glass-objects/']],
+  ['glass-objects', 'Isolated glass objects and rotation', ['src/components/glass-objects/', 'examples/transparent-glass/main.tsx']],
   ['input', 'Modal input container and outside-click hook', ['src/components/input/']],
   ['typography', '3D typography and footer scene', ['src/components/typography/']],
   ['other', 'Other supporting source', []],
@@ -136,13 +136,13 @@ function sourcebook(files, items, snapshotHash) {
     '',
     `Snapshot SHA-256: \`${snapshotHash}\`. All **${files.filter(file => file.path.startsWith('src/')).length} files under src/** plus **${extraSourceFiles.length} explicit compatibility/example entries** are included below in full and in the accompanying ZIP: **${files.length} selected source files**, with no source truncation.`,
     '',
-    `Additional files: ${extraSourceFiles.map(path => `\`${path}\``).join(' and ')}. The example entry mounts the optional GlassPanelExample; it is supporting application code, not an additional React component.`,
+    `Additional files: ${extraSourceFiles.map(path => `\`${path}\``).join(' and ')}. The example entries mount the glass panel and transparent typography demonstrations; they are supporting application code, not additional component implementations.`,
     '',
     'The inventory lists component-bearing modules, their primary exports and any named component exports reviewed in this source tree. It does not equate every function with a React component. Hooks, template objects, styles, HTML boilerplate, domain logic and application entry files are included separately. Internal components/helpers remain in their complete parent module.',
     '',
     'Application usage is literal relative-import reachability from `src/main.tsx`, including lazy/conditional imports. It describes code connections, not whether a component is mounted at a given moment. A compatibility re-export is identified separately rather than counted as a new implementation. Optional example status is stated only where supported by the source.',
     '',
-    'The ZIP contains exact bytes for every `src/...` file and the two explicitly listed source entries. Public model/font binaries, dependencies, tests and repository configuration remain in the project and are outside this source-only delivery. The manifest records every selected source filename, byte count and SHA-256. Code fences add a separator newline only when a source file lacks its final newline; the ZIP preserves that distinction exactly. Non-UTF-8 files, if any, are shown completely as base64 and labeled.',
+    `The ZIP contains exact bytes for every \`src/...\` file and the ${extraSourceFiles.length} explicitly listed source entries. Public model/font binaries, dependencies, tests and repository configuration remain in the project and are outside this source-only delivery. The manifest records every selected source filename, byte count and SHA-256. Code fences add a separator newline only when a source file lacks its final newline; the ZIP preserves that distinction exactly. Non-UTF-8 files, if any, are shown completely as base64 and labeled.`,
     '',
     'Regenerate with `node scripts/export-component-catalog.mjs`; verify without writing with `node scripts/export-component-catalog.mjs --verify`.',
     '',

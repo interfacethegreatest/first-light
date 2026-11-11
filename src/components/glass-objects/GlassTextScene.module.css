@@ -1,0 +1,21 @@
+.scene {
+  position: relative;
+  width: 100%;
+  height: clamp(14rem, 42vw, 24rem);
+  min-width: 0;
+  background: transparent;
+}
+
+.fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: clamp(2rem, 8vw, 5rem);
+  line-height: 1.1;
+}
+
+.fallback[hidden] { display: none; }

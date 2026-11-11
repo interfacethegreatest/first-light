@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useEffect, useLayoutEffect, useRef } from 'react'
+import { Suspense, useCallback, useEffect, useLayoutEffect, useRef, type ReactNode } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import {
@@ -8,17 +8,32 @@ import {
 import { GlassStudioEnvironment } from '../transmission/GlassStudioEnvironment'
 import GlassTorusObject from './GlassTorusObject'
 import GlassPanelObject from './GlassPanelObject'
-import GlassCaptureBackdrop from './GlassCaptureBackdrop'
+import CaptureStudioBackdrop from './CaptureStudioBackdrop'
 import type { GlassObjectCanvasProps } from './glassObjectSceneTypes'
+import type { ObjectProps } from './glassObjectTypes'
+import styles from './GlassObjectCanvas.module.css'
 
-function ObjectScene(props: GlassObjectCanvasProps) {
+export type SceneObjectProps = Required<Pick<ObjectProps,
+  'settings' | 'spin' | 'rotationAxis' | 'rotationSpeed'>> & {
+  onRendered: Mesh['onAfterRender']
+}
+
+export interface TransparentGlassCanvasProps extends GlassObjectCanvasProps {
+  /** Replace only the mesh, keeping the camera, capture, lights and callbacks. */
+  renderObject?: (props: SceneObjectProps) => ReactNode
+  /** Diameter of a sphere enclosing the custom object at every rotation. */
+  fitSize?: number
+}
+
+function ObjectScene(props: TransparentGlassCanvasProps) {
   const { kind, settings, spin, rotationAxis, rotationSpeed, interactive, coarse, onReady } = props
   const camera = useThree(state => state.camera)
   const size = useThree(state => state.size)
   const invalidate = useThree(state => state.invalidate)
   const reported = useRef(false)
   // Fit a bounding sphere rather than the front face, so every spin axis fits.
-  const designSize = kind === 'torus' ? 4.6 : 6.8
+  const designSize = props.fitSize && Number.isFinite(props.fitSize) && props.fitSize > 0
+    ? props.fitSize : kind === 'torus' ? 4.6 : 6.8
   const zoom = Math.min(size.width, size.height) / designSize
 
   useLayoutEffect(() => {
@@ -32,7 +47,7 @@ function ObjectScene(props: GlassObjectCanvasProps) {
   useEffect(() => {
     // Finite refresh for optical/camera changes; no recursive idle invalidation.
     invalidate(3)
-  }, [invalidate, settings, spin, rotationAxis, rotationSpeed, props.lightingIntensity])
+  }, [invalidate, settings, spin, rotationAxis, rotationSpeed, props.lightingIntensity, props.backdrop])
 
   const reportMainDraw = useCallback((renderer: WebGLRenderer, scene: Scene, renderedCamera: Camera) => {
     if (reported.current || renderer.getRenderTarget() !== null || renderedCamera !== camera) return
@@ -54,11 +69,10 @@ function ObjectScene(props: GlassObjectCanvasProps) {
   const objectProps = { settings, spin, rotationAxis, rotationSpeed, onRendered: reportMainDraw }
   return (
     <>
-      {props.backdrop === 'neutral'
-        ? <GlassCaptureBackdrop /> : <color attach="background" args={['#080b14']} />}
+      <CaptureStudioBackdrop tone={props.backdrop ?? 'neutral'} />
       <GlassStudioEnvironment intensity={props.lightingIntensity} />
-      {/* Exactly one visible mesh. No text, tags, shadow planes or extra shapes. */}
-      {kind === 'torus'
+      {/* Existing objects retain one mesh. Custom objects share their material API. */}
+      {props.renderObject ? props.renderObject(objectProps) : kind === 'torus'
         ? <GlassTorusObject {...objectProps} name="isolated-glass-torus" />
         : <GlassPanelObject {...objectProps} name="isolated-glass-panel" />}
       {!coarse && <OrbitControls makeDefault enabled={interactive}
@@ -71,7 +85,7 @@ function ObjectScene(props: GlassObjectCanvasProps) {
 }
 
 /** One renderer for one isolated object. The surrounding card owns its activity. */
-export default function GlassObjectCanvas(props: GlassObjectCanvasProps) {
+export default function GlassObjectCanvas(props: TransparentGlassCanvasProps) {
   const lightingIntensity = props.lightingIntensity ?? 1
   const canvas = useRef<HTMLCanvasElement>(null)
   useEffect(() => {
@@ -90,15 +104,18 @@ export default function GlassObjectCanvas(props: GlassObjectCanvasProps) {
   }, [props.onUnavailable])
 
   return (
-    <Canvas ref={canvas} data-testid="glass-object-canvas" data-glass-environment="studio-lights"
+    <Canvas ref={canvas} className={styles.canvas} data-testid="glass-object-canvas"
+      data-glass-environment="capture-only-studio" data-glass-display="transparent"
       aria-hidden="true" orthographic
       camera={{ position: [0, 0.35, 8], zoom: 70, near: 0.1, far: 40 }}
-      dpr={[1, props.high ? 1.75 : 1.25]} gl={{ alpha: false, antialias: true }}
-      frameloop={props.spin ? 'always' : 'demand'} style={{ touchAction: 'pan-y' }}
+      dpr={[1, props.high ? 1.75 : 1.25]} gl={{ alpha: true, antialias: true }}
+      frameloop={props.spin ? 'always' : 'demand'}
+      style={{ touchAction: 'pan-y', background: 'transparent' }}
       onCreated={({ gl, invalidate }) => {
         gl.toneMapping = ACESFilmicToneMapping
         gl.toneMappingExposure = 1
         gl.outputColorSpace = SRGBColorSpace
+        gl.setClearColor(0x000000, 0)
         gl.domElement.style.touchAction = 'pan-y'
         invalidate(3)
       }}>

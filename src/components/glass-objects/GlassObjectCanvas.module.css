@@ -1,0 +1,9 @@
+.canvas {
+  background: transparent;
+}
+
+/* Release only the stage containing this transparent renderer from its old
+   solid fill. Existing card, form and shared stylesheet files stay intact. */
+:global(.glass-object-stage):has(.canvas) {
+  background: transparent;
+}

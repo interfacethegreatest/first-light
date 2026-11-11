@@ -96,6 +96,8 @@ Both cards are also mounted on the [main page](https://interfacethegreatest.gith
 
 Glass cards now avoid lighting-map recaptures during unrelated form typing, and source Suns stop continuous rendering offscreen or in hidden tabs. The design and optical settings remain unchanged. An optional [device check](https://interfacethegreatest.github.io/first-light/performance/) measures actual submitted glass frames on your device without uploading the report or editing research records. Linux WebKit compatibility passed; physical Safari/Apple GPU smoothness awaits a device report. See [the measurement method, results and Safari instructions](docs/browser-device-performance.md).
 
+The main torus/panel canvases now have transparent displayed backgrounds. Their original meshes and shared material remain intact. A separate [glass typography example](https://interfacethegreatest.github.io/first-light/examples/transparent-glass/) demonstrates reusable rounded 3D lettering, with a clearer text-specific optical preset and no backing panel or checkerboard. Its studio background is used only inside offscreen refraction captures; arbitrary page HTML is not refracted. See [components and verification](docs/transparent-glass.md). The normal Pages build includes this example.
+
 ## Storage and current limits
 
 Records live in localStorage in one browser and origin, under `first-light.workspace.v1`. They are not saved to Git or shared between devices. Export JSON regularly. There is no import or deletion interface yet; keep important research reasoning in versioned documents as well. Do not put sensitive research data in this starter.
