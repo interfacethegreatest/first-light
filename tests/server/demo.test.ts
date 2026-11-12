@@ -85,4 +85,52 @@ describe('backend demonstration endpoint', () => {
     expect(log.mock.calls).toEqual([['MongoDB sample-user lookup failed:', expected]])
     log.mockRestore()
   })
+
+  it.each([
+    ['bad auth : rejected', 'DATABASE_AUTHENTICATION_FAILED'],
+    ['Authentication failed.', 'DATABASE_AUTHENTICATION_FAILED'],
+    ['Other Atlas failure', 'SAMPLE_DATA_UNAVAILABLE'],
+  ])('does not classify every Atlas code 8000 as authentication failure (%s)', async (message, expected) => {
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const cause = Object.assign(new Error(message + ' mongodb://fake:private@secret.invalid/private'), { name: 'MongoServerError', code: 8000 })
+    const { base } = await serve(vi.fn(async () => { throw new Error('Wrapper', { cause }) }))
+    const response = await fetch(base)
+    expect(response.status).toBe(503)
+    const body = await response.json()
+    expect(body.code).toBe(expected)
+    expect(Object.keys(body).sort()).toEqual(['code', 'error'])
+    expect(log).toHaveBeenCalledWith('MongoDB sample-user lookup failed:', expected)
+    if (expected === 'SAMPLE_DATA_UNAVAILABLE') {
+      expect(log).toHaveBeenCalledWith('MongoDB sample-user failure categories:', [{ type: 'Error' }, { type: 'MongoServerError', code: 8000 }])
+    } else expect(log).toHaveBeenCalledTimes(1)
+    expect(JSON.stringify({ body, logs: log.mock.calls })).not.toContain('secret.invalid')
+    log.mockRestore()
+  })
+
+  it('logs only allowed error types and codes, never arbitrary credential-bearing fields', async () => {
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const secret = 'mongodb://fake:private@secret.invalid/private'
+    const inner = Object.assign(new Error(secret), { name: 'MongoNetworkError', code: 'ENOTFOUND', codeName: secret })
+    const error = Object.assign(new Error(secret, { cause: inner }), { name: secret, code: secret, codeName: secret })
+    const { base } = await serve(vi.fn(async () => { throw error }))
+    const response = await fetch(base)
+    const body = await response.json()
+    expect(body.code).toBe('SAMPLE_DATA_UNAVAILABLE')
+    expect(log.mock.calls).toEqual([
+      ['MongoDB sample-user lookup failed:', 'SAMPLE_DATA_UNAVAILABLE'],
+      ['MongoDB sample-user failure categories:', [{ type: 'UnknownError' }, { type: 'MongoNetworkError', code: 'ENOTFOUND' }]],
+    ])
+    expect(JSON.stringify({ body, logs: log.mock.calls })).not.toContain(secret)
+    log.mockRestore()
+  })
+
+  it('bounds cyclic cause-chain metadata to five entries and drops invalid numeric codes', async () => {
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const error = Object.assign(new Error('private message'), { code: Infinity, cause: null as unknown })
+    error.cause = error
+    const { base } = await serve(vi.fn(async () => { throw error }))
+    expect((await fetch(base)).status).toBe(503)
+    expect(log).toHaveBeenCalledWith('MongoDB sample-user failure categories:', Array.from({ length: 5 }, () => ({ type: 'Error' })))
+    log.mockRestore()
+  })
 })
