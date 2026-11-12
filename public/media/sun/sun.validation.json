@@ -1,0 +1,240 @@
+{
+  "artifactStatus": "final-local-packer",
+  "sourceRepository": "https://github.com/interfacethegreatest/Calendar4",
+  "sourceScope": "Existing First Light archive; original Git blobs pinned before packaging",
+  "originalSourceBlobsVerified": true,
+  "validatorVersion": "2.0.0-dev.3.10",
+  "files": {
+    "sun.gltf": {
+      "bytes": 4100,
+      "sha256": "eec90ac2d723f6a60e3d434afc7c069ad0a54097a7e5668b905cb4c4d9284780",
+      "gitBlob": "59027ee2c28798f29a02e881d79fb56c8916cd5a"
+    },
+    "sun.bin": {
+      "bytes": 173792,
+      "sha256": "fab8f2c02324fbad514f78da6e5967ef142d020d15507c1820b0f32a85052e8d",
+      "gitBlob": "54692cb0bc89e1895ba150e7d2fb2ee322dd7f84"
+    },
+    "textures/Material.002_baseColor.jpeg": {
+      "bytes": 4292952,
+      "sha256": "58a3314791253c999a380eab20c09320b3ff177503fe3f80abe73901ed45ee90",
+      "gitBlob": "5edf25623ea641ad36927025ea3e6e9ebab5c59f"
+    },
+    "license.txt": {
+      "bytes": 636,
+      "sha256": "8811eb7dab80730d7afe12deea4b70aca6cc4ee5761dab85dbf7efdbe9f8ee8e",
+      "gitBlob": "b9e87fd32d13f76d3e8e8de72f424d7860fba9e1"
+    },
+    "sun.glb": {
+      "bytes": 4468980,
+      "sha256": "ac9fa68b6961736a62eadc1da05879ee0023e38cf09d1c7a806569986af672ea",
+      "gitBlob": "db076901e03848a009d7bb4a29a7730d770b48ec"
+    },
+    "sun.glb.pack-report.json": {
+      "bytes": 5673,
+      "sha256": "487001f6071a1ffe842e9f2c262819d1b50a1d0d11a3cd58529c0f5931dd2635",
+      "gitBlob": "c38aa959d27226d300320158133f2487cb91ac01"
+    }
+  },
+  "conversion": {
+    "tool": "scripts/pack-moon-glb.mjs (existing generic single-BIN/JPEG packer reused unchanged for Sun)",
+    "originalPayloadBytes": 4470844,
+    "glbBytes": 4468980,
+    "byteDifference": -1864,
+    "compression": "none; JSON minification and binary embedding only",
+    "externalUris": [],
+    "geometryBytesIdentical": true,
+    "imageBytesIdentical": true,
+    "jsonIdenticalExceptResourceEmbedding": true,
+    "imageMimeType": "image/jpeg",
+    "textureDimensions": {
+      "width": 4096,
+      "height": 2048
+    },
+    "textureRgba8BaseLevelBytes": 33554432
+  },
+  "geometry": {
+    "vertexCount": 3223,
+    "indexCount": 17664,
+    "triangleCount": 5888,
+    "positionBounds": {
+      "min": [
+        -0.9999986290931702,
+        -0.999998927116394,
+        -1
+      ],
+      "max": [
+        0.999999463558197,
+        0.9999982118606567,
+        1
+      ]
+    },
+    "accessors": {
+      "NORMAL": {
+        "count": 3223,
+        "components": 3,
+        "decodedValuesIdentical": true
+      },
+      "POSITION": {
+        "count": 3223,
+        "components": 3,
+        "decodedValuesIdentical": true
+      },
+      "TEXCOORD_0": {
+        "count": 3223,
+        "components": 2,
+        "decodedValuesIdentical": true
+      },
+      "INDICES": {
+        "count": 17664,
+        "components": 1,
+        "decodedValuesIdentical": true
+      }
+    },
+    "meshNames": [
+      "Sphere_Material.002_0"
+    ],
+    "nodeNames": [
+      "Sketchfab_model",
+      "5a0f334bc0f040aab529698084d4416e.fbx",
+      "RootNode",
+      "Sphere",
+      "Sphere_Material.002_0"
+    ],
+    "material": {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0.2272172333853305,
+        0.321109145188455,
+        0
+      ],
+      "name": "Material.002",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8040408205773457
+      }
+    },
+    "wrapperReference": {
+      "node": "Sphere_Material002_0",
+      "sourceNode": "Sphere_Material.002_0",
+      "material": "Material.002",
+      "explicitMeshRotation": [
+        -1.5707963267948966,
+        0,
+        0
+      ],
+      "meshScale": 2.85,
+      "ancestorTransformsBaked": false,
+      "note": "Archived Sun wrapper reads geometry/material directly; group 0.0285 times mesh 100 gives one scale of 2.85."
+    }
+  },
+  "original": {
+    "requestedLocalResources": [
+      "sun.bin",
+      "textures/Material.002_baseColor.jpeg"
+    ],
+    "validation": {
+      "uri": "sun.gltf",
+      "mimeType": "model/gltf+json",
+      "validatorVersion": "2.0.0-dev.3.10",
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [],
+        "truncated": false
+      },
+      "info": {
+        "version": "2.0",
+        "generator": "Sketchfab-12.65.0",
+        "resources": [
+          {
+            "pointer": "/buffers/0",
+            "mimeType": "application/gltf-buffer",
+            "storage": "external",
+            "uri": "sun.bin",
+            "byteLength": 173792
+          },
+          {
+            "pointer": "/images/0",
+            "mimeType": "image/jpeg",
+            "storage": "external",
+            "uri": "textures/Material.002_baseColor.jpeg",
+            "image": {
+              "width": 4096,
+              "height": 2048,
+              "format": "rgb",
+              "bits": 8
+            }
+          }
+        ],
+        "animationCount": 0,
+        "materialCount": 1,
+        "hasMorphTargets": false,
+        "hasSkins": false,
+        "hasTextures": true,
+        "hasDefaultScene": true,
+        "drawCallCount": 1,
+        "totalVertexCount": 3223,
+        "totalTriangleCount": 5888,
+        "maxUVs": 1,
+        "maxInfluences": 0,
+        "maxAttributes": 3
+      }
+    }
+  },
+  "converted": {
+    "validation": {
+      "uri": "sun.glb",
+      "mimeType": "model/gltf-binary",
+      "validatorVersion": "2.0.0-dev.3.10",
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [],
+        "truncated": false
+      },
+      "info": {
+        "version": "2.0",
+        "generator": "Sketchfab-12.65.0",
+        "resources": [
+          {
+            "pointer": "/buffers/0",
+            "mimeType": "application/gltf-buffer",
+            "storage": "glb",
+            "byteLength": 4466744
+          },
+          {
+            "pointer": "/images/0",
+            "mimeType": "image/jpeg",
+            "storage": "buffer-view",
+            "image": {
+              "width": 4096,
+              "height": 2048,
+              "format": "rgb",
+              "bits": 8
+            }
+          }
+        ],
+        "animationCount": 0,
+        "materialCount": 1,
+        "hasMorphTargets": false,
+        "hasSkins": false,
+        "hasTextures": true,
+        "hasDefaultScene": true,
+        "drawCallCount": 1,
+        "totalVertexCount": 3223,
+        "totalTriangleCount": 5888,
+        "maxUVs": 1,
+        "maxInfluences": 0,
+        "maxAttributes": 3
+      }
+    }
+  }
+}

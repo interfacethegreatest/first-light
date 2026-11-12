@@ -1,23 +1,20 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Group, Mesh, MeshBasicMaterial, Points } from 'three'
+import { renderHook } from '@testing-library/react'
+import { isValidElement, type ReactElement } from 'react'
 
 const harness = vi.hoisted(() => ({
-  targetRef: { current: null as unknown },
   frames: [] as Array<(state: unknown, delta: number) => void>,
   load: vi.fn(),
   preload: vi.fn(),
 }))
 
-// Call the real model functions and their registered frame callbacks without
-// mounting Three intrinsics or starting a GPU renderer. Keep real Three objects.
+// Execute real model hooks and their frame callbacks without mounting Three
+// intrinsics or starting a GPU renderer. Unwrap only memo for the star hook fixture.
 vi.mock('react', async importOriginal => {
   const actual = await importOriginal<typeof import('react')>()
   return {
     ...actual,
-    useRef: (initial: unknown) => initial === null ? harness.targetRef : { current: initial },
-    // These direct model-function tests do not mount React. The real-hook
-    // pause/resume lifecycle is exercised separately in sun-model.test.tsx.
-    useLayoutEffect: (effect: () => void) => effect(),
     memo: (component: unknown) => component,
   }
 })
@@ -33,21 +30,23 @@ vi.mock('@react-three/postprocessing', () => ({ Bloom: () => null, EffectCompose
 type ModelKind = 'sun' | 'stars'
 
 async function frameFor(kind: ModelKind, target: Group | Points | null, reducedMotion = false) {
-  const ref = { current: target }
-  harness.targetRef = ref
+  let ref: { current: Group | Points | null }
   if (kind === 'sun') {
     const { default: Sun } = await import('../src/components/react three fibre/sunScene/Sun')
-    Sun({})
+    const { result } = renderHook(() => Sun({}))
+    ref = result.current.props.ref
   } else {
     const { default: Model } = await import('../src/components/backgrounds/starsBackground/Model')
-    Model({ reducedMotion })
+    const { result } = renderHook(() => Model({ reducedMotion }))
+    if (!isValidElement<{ children: ReactElement<{ ref: typeof ref }> }>(result.current)) throw new Error('Missing star group')
+    ref = result.current.props.children.props.ref
   }
+  ref.current = target
   return { ref, frame: harness.frames.at(-1)! }
 }
 
 beforeEach(() => {
   harness.frames.length = 0
-  harness.targetRef = { current: null }
   harness.load.mockReturnValue({
     nodes: { Sphere_Material002_0: new Mesh() },
     materials: { 'Material.002': new MeshBasicMaterial() },
@@ -127,7 +126,7 @@ describe('source Sun mesh contract', () => {
   it('uses the original geometry/material and preserves group prop overrides and disposal ownership', async () => {
     const { default: Sun } = await import('../src/components/react three fibre/sunScene/Sun')
     const original = harness.load.getMockImplementation()!()
-    const normal = Sun({})
+    const normal = renderHook(() => Sun({})).result.current
     expect(normal.props.scale).toBe(0.0285)
     expect(normal.props.dispose).toBeNull()
     const mesh = normal.props.children
@@ -136,7 +135,7 @@ describe('source Sun mesh contract', () => {
     expect(mesh.props.scale).toBe(100)
     expect(mesh.props.rotation).toEqual([-Math.PI / 2, 0, 0])
 
-    const positioned = Sun({ position: [1, 2, 3], scale: 0.5 })
+    const positioned = renderHook(() => Sun({ position: [1, 2, 3], scale: 0.5 })).result.current
     expect(positioned.props.position).toEqual([1, 2, 3])
     expect(positioned.props.scale).toBe(0.5)
     expect(positioned.props.dispose).toBeNull()
@@ -148,14 +147,12 @@ describe('canonical Sun asset URL', () => {
     vi.stubEnv('BASE_URL', base)
     vi.resetModules()
     const { default: Sun } = await import('../src/components/react three fibre/sunScene/Sun')
-    harness.targetRef = { current: new Group() }
+    renderHook(() => Sun({}))
 
-    Sun({})
-
-    const expected = `${base}media/sun/sun.gltf`
+    const expected = `${base}media/sun/sun.glb`
     expect(harness.load).toHaveBeenCalledOnce()
-    expect(harness.load).toHaveBeenCalledWith(expected)
+    expect(harness.load).toHaveBeenCalledWith(expected, false, false)
     expect(harness.preload).toHaveBeenCalledOnce()
-    expect(harness.preload).toHaveBeenCalledWith(expected)
+    expect(harness.preload).toHaveBeenCalledWith(expected, false, false)
   })
 })
