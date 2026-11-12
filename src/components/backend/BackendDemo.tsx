@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-/** On-demand API smoke test; deliberately independent of accounts and MongoDB. */
+/** Read-only Atlas sample lookup; account/research data is never requested here. */
 export default function BackendDemo() {
   const request = useRef<{ controller: AbortController; timer: ReturnType<typeof setTimeout> } | null>(null)
   const [busy, setBusy] = useState(false)
@@ -33,8 +33,13 @@ export default function BackendDemo() {
         signal: controller.signal, credentials: 'same-origin', cache: 'no-store',
         headers: { Accept: 'application/json' },
       })
-      if (!response.ok) throw new Error('Backend request failed.')
       const data: unknown = await response.json()
+      if (!response.ok) {
+        if (request.current === pending) setError(response.status === 503
+          ? 'Could not read sample users. Check MongoDB connectivity and read access to sample_mflix.users.'
+          : 'Could not load the backend demo. Please try again.')
+        return
+      }
       if (request.current === pending) setOutput(JSON.stringify(data, null, 2))
     } catch {
       if (request.current === pending) setError(timedOut
@@ -53,7 +58,7 @@ export default function BackendDemo() {
     <section className="notice" aria-label="Backend demo" aria-busy={busy}>
       <button type="button" className="button button-secondary" disabled={busy}
         onClick={() => void testBackend()}>{busy ? 'Testing backend…' : 'Test backend'}</button>
-      <p>Dummy API data only. This checks the backend connection, not MongoDB.</p>
+      <p>Read up to three sample names from MongoDB: sample_mflix.users. No records are changed.</p>
       <div role="status" aria-live="polite">
         {output && <pre style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>{output}</pre>}
         {error && <p>{error}</p>}

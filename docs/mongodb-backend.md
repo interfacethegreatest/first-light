@@ -119,12 +119,22 @@ A `research_workspaces` document contains `{ ownerId, workspace, revision, creat
 | --- | --- |
 | `GET /api/health` (`/health`) | Process liveness; does not connect MongoDB. |
 | `GET /api/ready` (`/ready`) | Read-only MongoDB ping; 503 if unavailable. |
+| `GET /api/demo` | Test backend button: read at most three names from `sample_mflix.users`; no writes. Passwords, emails and other fields are excluded. |
 | `GET /api/auth/session` | Safe user/expiry or `{authenticated:false,user:null}`. |
 | `POST /api/auth/logout` | Revoke current token and clear cookie. |
 | `POST /api/auth/logout-all` | Revoke all sessions for the authenticated user. |
 | `GET /api/research` | Only current user's `{workspace,revision}`; empty revision 0 if not saved yet. |
 | `PUT /api/research` | Explicit replacement with `{workspace,expectedRevision}`; 409 if the revision no longer matches. |
 | `POST /api/research/import` | Explicit append-only merge of the same payload; identical IDs are skipped, conflicting IDs rejected atomically. |
+
+The read-only sample button needs the database credential to have read access to
+`sample_mflix.users` in addition to its existing First Light permissions. A role
+restricted to `first_light_test` does not include that sample collection. Keep
+`MONGODB_URI` pointed at First Light's database; this one fixed query selects the
+sample database using the same connection pool. It never selects `dev7`, accepts
+client-selected namespaces, or creates sample records. An unavailable connection
+or insufficient permission returns 503 with a fixed diagnostic code, never fake
+data, a driver message, or a connection string.
 
 All research responses are private `no-store` with `Vary: Cookie`. Unsigned/expired/revoked sessions return 401; mutations require an exact matching Origin (403 otherwise). Writes require `Content-Type: application/json` and `X-First-Light-Account: <last verified user.id>`; missing/mismatched account precondition returns 409. GET accepts that header and checks it if supplied. It is **not** authentication. A read is not a login, and a client user ID never establishes a session.
 

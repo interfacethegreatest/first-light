@@ -6,18 +6,27 @@ afterEach(() => { vi.unstubAllGlobals(); vi.useRealTimers() })
 
 describe('backend demo button', () => {
   it('fetches only on click and prints the actual API response', async () => {
-    const data = { message: 'Hello from the First Light backend.', data: [{ id: 'demo-1', status: 'demo' }] }
+    const data = { message: 'Sample users read from MongoDB.', database: 'sample_mflix', collection: 'users', data: [{ name: 'Sample User' }] }
     const fetcher = vi.fn().mockResolvedValue({ ok: true, json: async () => data })
     vi.stubGlobal('fetch', fetcher)
     render(<BackendDemo />)
     expect(fetcher).not.toHaveBeenCalled()
     fireEvent.click(screen.getByRole('button', { name: 'Test backend' }))
-    await waitFor(() => expect(screen.getByRole('status')).toHaveTextContent('Hello from the First Light backend.'))
+    await waitFor(() => expect(screen.getByRole('status')).toHaveTextContent('Sample users read from MongoDB.'))
     expect(fetcher).toHaveBeenCalledTimes(1)
     expect(fetcher).toHaveBeenCalledWith('/api/demo', expect.objectContaining({
       credentials: 'same-origin', cache: 'no-store', signal: expect.any(AbortSignal),
     }))
     expect(screen.getByRole('status').querySelector('pre')?.textContent).toBe(JSON.stringify(data, null, 2))
+  })
+
+  it('reports an unavailable database without showing fake sample users', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 503, json: async () => ({ error: 'Unavailable' }) }))
+    render(<BackendDemo />)
+    fireEvent.click(screen.getByRole('button', { name: 'Test backend' }))
+    await waitFor(() => expect(screen.getByRole('status')).toHaveTextContent('Check MongoDB connectivity and read access to sample_mflix.users.'))
+    expect(screen.getByRole('status').querySelector('pre')).toBeNull()
+    expect(screen.getByRole('button', { name: 'Test backend' })).toBeEnabled()
   })
 
   it.each(['http', 'invalid-json', 'network'])('reports %s failure and allows retry', async failure => {
