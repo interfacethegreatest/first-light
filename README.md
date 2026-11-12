@@ -24,7 +24,7 @@ Open the local URL printed by Vite, normally <http://127.0.0.1:5173>. Keep using
 ## First research-to-application cycle
 
 1. Copy [the research brief](templates/research-brief.md) into `docs/` and define the question, intended users, and observable application outcome.
-2. Review the underlying evidence with [the source review](templates/source-review.md). Record limitations and conflicting findings.
+2. Review the underlying evidence with [the  review](templates/-review.md). Record limitations and conflicting findings.
 3. Add a source in the app. Link a specific finding to a proposed implementation.
 4. Complete [the implementation decision](templates/implementation-decision.md), including measurable acceptance criteria, before building the feature.
 5. Implement and verify the behavior. Record the actual results in the decision document; use the app to track progress.
@@ -52,7 +52,7 @@ src/
   useWorkspace.ts       Browser state, persistence, export
   main.tsx, index.css   Application entry and base styles
 docs/                   Plan, architecture, research workflow
-templates/              Research brief, source review, decision record
+templates/              Research brief, review, decision record
 tests/                  Behavior and persistence verification
 ```
 
@@ -76,15 +76,15 @@ Watch the [animation preview](docs/previews/calendar-motion-demo.mp4) and see [t
 
 The main page includes a simple glass **Research draft** panel below the workspace panels and a compact 3D text scene above the footer. The panel follows the original reference design: a regular HTML heading, description and native draft field over the existing Three.js glass surface. The draft is temporary and clears on reload; it is separate from saved research records. The reusable `ThreeDHeading` and bold, beveled footer renderer remain available. A separate [component example](https://interfacethegreatest.github.io/first-light/examples/glass-panel-3d/) demonstrates the reusable glass panel, mount/unmount hook, native HTML inside Drei's `Html`, gentle torus motion, and Calendar4's extracted input container with its outside-click hook. Both pages are included in the normal production build.
 
-Each **Add source** activation appends all three source-section boilerplates together: short, medium and long. They expand below the button using the existing parent-height and staggered reveal animations. These are session-only UI sections and do not save a research record or reset the source form.
+Each **Add ** activation appends all three -section boilerplates together: short, medium and long. They expand below the button using the existing parent-height and staggered reveal animations. These are session-only UI sections and do not save a research record or reset the  form.
 
-See the [current change notes](docs/simple-glass-source-batches.md) and [complete component sourcebook](docs/component-catalog.md). Regenerate the sourcebook and source ZIP after edits with `node scripts/export-component-catalog.mjs`.
+See the [current change notes](docs/simple-glass--batches.md) and [complete component ](docs/component-catalog.md). Regenerate the and ZIP after edits with `node scripts/export-component-catalog.mjs`.
 
 See the [footer text](docs/footer-3d-text.md), [glass panel](docs/glass-panel-3d.md) and [HTML scene](docs/html-glass-card.md) documentation for component code, attribution and verification. Drafts remain local to the example and do not write research records. Motion respects reduced-motion preferences, page visibility and form focus; unavailable WebGL retains native content.
 
 The [glass and panes guide](docs/glass-and-panes-guide.md) explains CSS composition, native panes, decorative Three.js glass and the separate Drei `Html` scene. The header Moon now rotates around its Y axis at −0.12 radians per second; see [rotation options and checks](docs/moon-rotation.md). Its existing home action stays intact, and rotation pauses offscreen, in hidden tabs or with reduced motion enabled.
 
-The two green indicators beside **Local** and **Stored in this browser** are now small textured Earth scenes using Calendar4's original model. Their reusable `EarthMark` component mirrors the Moon's lifecycle and spins around Y at −0.12 radians per second, pausing offscreen, in hidden tabs and for reduced motion. A shared 2,043,928-byte icon GLB uses a 1024×512 texture; the original assets and full-resolution GLB are preserved. See [the implementation and checks](docs/earth-indicators.md) and [asset provenance](docs/earth-asset-provenance.md). The Moon, source cards, forms and other scenes remain intact.
+The two green indicators beside **Local** and **Stored in this browser** are now small textured Earth scenes using Calendar4's original model. Their reusable `EarthMark` component mirrors the Moon's lifecycle and spins around Y at −0.12 radians per second, pausing offscreen, in hidden tabs and for reduced motion. A shared 2,043,928-byte icon GLB uses a 1024×512 texture; the original assets and full-resolution GLB are preserved. See [the implementation and checks](docs/earth-indicators.md) and [asset provenance](docs/earth-asset-provenance.md). The Moon, cards, forms and other scenes remain intact.
 
 Earth now shares the Moon's zoom-aware render-buffer resolution, replacing its former 1.5× pixel-density cap with the same event-driven 1–4× range. Indicator dimensions and assets stay unchanged. See [the exact code change and zoom checks](docs/earth-resolution.md).
 
@@ -94,7 +94,7 @@ The component example also includes [**individual glass objects**](https://inter
 
 Both cards are also mounted on the [main page](https://interfacethegreatest.github.io/first-light/#glass-objects), below the original Research draft pane. They start at 0.25 rad/s around Y, with transmission 1 and thickness 0.41. The clarity update uses IOR 1.45, chromatic aberration 0.02 and roughness 0.03, with a procedural neutral backdrop for refraction. The cool grey tint and 1.25 lighting multiplier remain. See [the clarity changes and evidence](docs/transmission-reference-debug.md). The main footer's 3D “Make learning tangible.” text rotates around Y at 0.12 rad/s. Both cards and the footer pause with visibility/reduced-motion gates. Existing example defaults remain unchanged. See [the original App additions, layout and verification](docs/main-page-glass-objects.md).
 
-Glass cards now avoid lighting-map recaptures during unrelated form typing, and source Suns stop continuous rendering offscreen or in hidden tabs. The design and optical settings remain unchanged. An optional [device check](https://interfacethegreatest.github.io/first-light/performance/) measures actual submitted glass frames on your device without uploading the report or editing research records. Linux WebKit compatibility passed; physical Safari/Apple GPU smoothness awaits a device report. See [the measurement method, results and Safari instructions](docs/browser-device-performance.md).
+Glass cards now avoid lighting-map recaptures during unrelated form typing, and Suns stop continuous rendering offscreen or in hidden tabs. The design and optical settings remain unchanged. An optional [device check](https://interfacethegreatest.github.io/first-light/performance/) measures actual submitted glass frames on your device without uploading the report or editing research records. Linux WebKit compatibility passed; physical Safari/Apple GPU smoothness awaits a device report. See [the measurement method, results and Safari instructions](docs/browser-device-performance.md).
 
 The main torus/panel canvases now have transparent displayed backgrounds. Their original meshes and shared material remain intact. A separate [glass typography example](https://interfacethegreatest.github.io/first-light/examples/transparent-glass/) demonstrates reusable rounded 3D lettering, with a clearer text-specific optical preset and no backing panel or checkerboard. Its studio background is used only inside offscreen refraction captures; arbitrary page HTML is not refracted. See [components and verification](docs/transparent-glass.md). The normal Pages build includes this example.
 
@@ -104,7 +104,7 @@ Records live in localStorage in one browser and origin, under `first-light.works
 
 If stored data is corrupt or from an unsupported version, the app preserves the original and warns that new records are session-only. Storage write failures and detected changes from another tab also produce a warning; export before closing or reloading. The starter is intended for one active tab, not concurrent editing.
 
-Each decision links to one source in the web workspace. Its document can cite additional evidence. No backend, authentication, collaboration, or AI service has been configured. The research domain and license remain open decisions. No license grant is included.
+Each decision links to in the web workspace. Its document can cite additional evidence. No backend, authentication, collaboration, or AI service has been configured. The research domain and license remain open decisions. No license grant is included.
 
 ## Repository
 
