@@ -4,7 +4,6 @@ import { useContentPaintReady } from '../../performance/useContentPaintReady'
 import { useCalendarMotionPreferences } from '../../calendarMotion/useCalendarMotionPreferences'
 import { useMoonActivity } from '../MoonMark/useMoonActivity'
 import type { SunRotationAxis } from './SunModel'
-import SunFallback from './SunFallback'
 import styles from './SunMark.module.css'
 
 const SunMarkCanvas = lazy(() => import('./SunMarkCanvas'))
@@ -72,7 +71,6 @@ function SunMark({ size, animate = true, rotationAxis = 'y', rotationSpeed = -0.
       aria-hidden="true" data-sun-mark data-sun-state={state} data-sun-animate={rotating}
       data-sun-interactive={interactive}>
       <div className={styles.visual} data-sun-visual>
-        {state !== 'loaded' && <SunFallback />}
         {canRender && <SunBoundary onUnavailable={onUnavailable}>
           <Suspense fallback={null}>
             <SunMarkCanvas animate={rotating} interactive={interactive} rotationAxis={rotationAxis}

@@ -68,7 +68,7 @@ beforeEach(() => {
 afterEach(() => { vi.unstubAllGlobals() })
 
 describe('reusable Sun mark', () => {
-  it('keeps a decorative fallback until native paint, visibility, and a genuine rendered-frame callback', async () => {
+  it('keeps the reserved badge free of icons until the genuine model renders', async () => {
     paint.ready = false
     const activity = environment()
     const view = render(<StrictMode><SunMark className="reusable-sun" size={36} /></StrictMode>)
@@ -76,17 +76,17 @@ describe('reusable Sun mark', () => {
     expect(element).toHaveAttribute('aria-hidden', 'true')
     expect(element).toHaveClass('reusable-sun')
     expect(element).toHaveAttribute('data-sun-state', 'pending')
-    expect(element.querySelector('[data-sun-fallback]')).toBeInTheDocument()
+    expect(element.querySelector('svg')).not.toBeInTheDocument()
     activity.intersect(element, true)
     expect(SunMarkCanvas).not.toHaveBeenCalled()
     act(() => { paint.ready = true; paint.listeners.forEach(listener => listener()) })
     await screen.findByTestId('sun-gpu-boundary')
     expect(element).toHaveAttribute('data-sun-state', 'loading')
-    expect(element.querySelector('[data-sun-fallback]')).toBeInTheDocument()
+    expect(element.querySelector('svg')).not.toBeInTheDocument()
     expect(latestRenderer().animate).toBe(false)
     act(() => latestRenderer().onReady?.())
     expect(element).toHaveAttribute('data-sun-state', 'loaded')
-    expect(element.querySelector('[data-sun-fallback]')).not.toBeInTheDocument()
+    expect(element.querySelector('svg')).not.toBeInTheDocument()
     expect(latestRenderer().animate).toBe(true)
     expect((element as HTMLElement).style.getPropertyValue('--sun-mark-size')).toBe('36px')
   })
@@ -170,14 +170,14 @@ describe('reusable Sun mark', () => {
     expect(latestRenderer().animate).toBe(false)
   })
 
-  it('keeps a local vector fallback without WebGL and leaves native sibling controls usable', async () => {
+  it('leaves the badge empty without WebGL and keeps native sibling controls usable', async () => {
     const activity = environment({ webgl: false })
     const action = vi.fn(), user = userEvent.setup()
     const view = render(<><SunMark /><button onClick={action}>Continue research</button></>)
     const element = mark(view.container)
     activity.intersect(element, true)
     expect(element).toHaveAttribute('data-sun-state', 'unavailable')
-    expect(element.querySelector('[data-sun-fallback]')).toBeInTheDocument()
+    expect(element.querySelector('svg')).not.toBeInTheDocument()
     expect(SunMarkCanvas).not.toHaveBeenCalled()
     await user.click(screen.getByRole('button', { name: 'Continue research' }))
     expect(action).toHaveBeenCalledOnce()
@@ -191,7 +191,7 @@ describe('reusable Sun mark', () => {
     const [first, second] = [...view.container.querySelectorAll('[data-sun-mark]')]
     activity.intersect(first, true)
     await waitFor(() => expect(first).toHaveAttribute('data-sun-state', 'unavailable'))
-    expect(first.querySelector('[data-sun-fallback]')).toBeInTheDocument()
+    expect(first.querySelector('svg')).not.toBeInTheDocument()
     expect(second).toHaveAttribute('data-sun-state', 'pending')
     vi.mocked(SunMarkCanvas).mockImplementation(({ animate }) => <div data-testid="sun-gpu-boundary" data-animate={Boolean(animate)} />)
     activity.intersect(second, true)
@@ -201,7 +201,7 @@ describe('reusable Sun mark', () => {
     expect(first).toHaveAttribute('data-sun-state', 'unavailable')
   })
 
-  it('keeps fallback/error sticky when an old renderer reports readiness after failure', async () => {
+  it('keeps the failed badge empty when an old renderer reports readiness', async () => {
     const activity = environment()
     const view = render(<SunMark />)
     const element = mark(view.container)
@@ -213,7 +213,7 @@ describe('reusable Sun mark', () => {
     expect(screen.queryByTestId('sun-gpu-boundary')).not.toBeInTheDocument()
     act(() => renderer.onReady?.())
     expect(element).toHaveAttribute('data-sun-state', 'unavailable')
-    expect(element.querySelector('[data-sun-fallback]')).toBeInTheDocument()
+    expect(element.querySelector('svg')).not.toBeInTheDocument()
   })
 
   it('preserves existing source-card fields, focus and actions through legacy-scene retirement and remount', async () => {

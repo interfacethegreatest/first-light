@@ -20,7 +20,7 @@ rotation, not a solar/date simulation.
 ## Responsibilities
 
 - `SunMark.tsx`: native dimensions, post-content-paint loading, viewport and
-  page visibility, reduced motion, desktop/touch policy, local fallback and
+  page visibility, reduced motion, desktop/touch policy, and
   error containment. Only visible, page-visible marks allocate a Canvas.
 - `SunMarkCanvas.tsx`: transparent orthographic camera, bounded DPR (maximum 2),
   local lights, demand rendering while stationary, context-loss cleanup, and
@@ -34,7 +34,9 @@ rotation, not a solar/date simulation.
 
 The existing source-card parent also retires its scene while offscreen/hidden.
 Retiring or failing the decorative scene does not replace native card fields.
-The small SVG is only a loading/error fallback, never proof of model rendering.
+The badge stays empty while loading or if WebGL/model loading fails; no flat
+Sun icon or SVG placeholder is rendered. Its dimensions stay reserved, and the
+native card remains usable. Only the actual textured GLB is displayed.
 
 ## Asset and licence
 
