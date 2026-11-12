@@ -1,4 +1,5 @@
 import healthHandler from '../../api/health.js'
+import demoHandler from '../../api/demo.js'
 import { createReadyHandler } from '../../api/ready.js'
 import { createSessionHandler } from '../../api/auth/session.js'
 import { createLogoutHandler } from '../../api/auth/logout.js'
@@ -22,6 +23,7 @@ export function createApp(
   const routes = new Map<string, ApiHandler>([
     ['/health', healthHandler],
     ['/api/health', healthHandler],
+    ['/api/demo', demoHandler],
     ['/ready', ready],
     ['/api/ready', ready],
     ['/api/auth/session', createSessionHandler(sessionConfig)],

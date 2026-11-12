@@ -17,6 +17,7 @@ import ResearchDraftPanel from './components/glass-panel-3d/ResearchDraftPanel'
 import { GlassTorusCard, GlassPanelCard } from './components/glass-objects/GlassObjectCards'
 import WorkflowStep from './components/workflow/WorkflowStep'
 import AccountResearchControls from './components/account/AccountResearchControls'
+import BackendDemo from './components/backend/BackendDemo'
 import './App.css'
 
 const MAIN_GLASS_PROPS = {
@@ -173,6 +174,7 @@ function WorkspacePage({ access }: { access: AccountWorkspace }) {
         </div>
 
         <AccountResearchControls account={account} />
+        {account.enabled && <BackendDemo />}
 
         {storageWarning && <div className="notice notice-warning" role="alert">{storageWarning}</div>}
         {workspaceError && <div className="notice notice-error" role="alert">{workspaceError}</div>}
