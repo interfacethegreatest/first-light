@@ -12,7 +12,7 @@ This is a new local React + TypeScript + Vite starter. Its first research topic 
 
 ## Run locally
 
-Use Node.js 24 LTS (or Node.js 22.12+). With nvm, run `nvm use` first.
+Use Node.js 24 LTS (the deployment/runtime version is pinned to `24.x`). With nvm, run `nvm use` first.
 
 ```sh
 npm ci
@@ -20,6 +20,26 @@ npm run dev
 ```
 
 Open the local URL printed by Vite, normally <http://127.0.0.1:5173>. Keep using the same origin and port to access the same browser records.
+
+## MongoDB backend and account research
+
+The optional backend uses Vite plus **native Node.js API functions under one origin**, ready for a separately validated Vercel deployment. There is no Next.js or Express runtime. The current GitHub Pages site remains running and local-only.
+
+```sh
+npm ci
+cp .env.example .env
+# Set a fresh MONGODB_URI and APP_ORIGIN=http://127.0.0.1:5173.
+npm run db:check
+npm run server:dev
+# In another terminal:
+npm run dev
+```
+
+Node 24 loads the local environment; Vite proxies `/api` to the local Node listener. `VITE_API_ENABLED=true` enables account/session controls; leave it unset/false for Pages. User/Session storage and protected research endpoints are implemented. **A real OAuth/OIDC sign-in provider is still an explicit extension point**, not a working login UI.
+
+Authenticated research belongs exclusively to the session's user ID. New accounts start empty until the user explicitly imports browser data or an exported JSON file. Imports are append-only, revisions prevent silent overwrite, and account data is not cached in the anonymous localStorage key. Logout and account changes clear account state and invalidate pending requests.
+
+See [the complete backend guide](docs/mongodb-backend.md) for the Keep/Adapt/Add/Remove inventory, exact hierarchy, packages, environment variables, session/cookie behavior, endpoint examples, local/real-Mongo tests and Vercel cutover gates. The [changed-file list](docs/mongodb-backend-files.md) records every added, modified and removed file. Only Mongoose is needed at runtime for this backend; `tsx` is the development runner. Sessions use random opaque tokens and require no JWT signing secret. The existing Pages workflow remains intact; no deployment happens automatically.
 
 ## First research-to-application cycle
 
@@ -51,6 +71,7 @@ src/
   workspace.ts          Domain types and validation
   useWorkspace.ts       Browser state, persistence, export
   main.tsx, index.css   Application entry and base styles
+  server/               Separate Express API and MongoDB/OAuth user storage
 docs/                   Plan, architecture, research workflow
 templates/              Research brief, source review, decision record
 tests/                  Behavior and persistence verification
@@ -100,11 +121,11 @@ The main torus/panel canvases now have transparent displayed backgrounds. Their 
 
 ## Storage and current limits
 
-Records live in localStorage in one browser and origin, under `first-light.workspace.v1`. They are not saved to Git or shared between devices. Export JSON regularly. There is no import or deletion interface yet; keep important research reasoning in versioned documents as well. Do not put sensitive research data in this starter.
+Anonymous records live in localStorage in one browser and origin, under `first-light.workspace.v1`. Export JSON regularly. With the optional same-origin API enabled and a verified sign-in connected, account research is stored in MongoDB; browser/file import is a separate explicit action. Neither installing the backend nor signing in silently migrates browser records. Keep important research reasoning in versioned documents as well.
 
-If stored data is corrupt or from an unsupported version, the app preserves the original and warns that new records are session-only. Storage write failures and detected changes from another tab also produce a warning; export before closing or reloading. The starter is intended for one active tab, not concurrent editing.
+If stored data is corrupt or from an unsupported version, the app preserves the original and warns that new records are session-only. Storage write failures and detected changes from another tab also produce a warning; export before closing or reloading. The anonymous browser draft is intended for one active tab. Account writes use revision checks to reject concurrent overwrites.
 
-Each decision links to one source in the web workspace. Its document can cite additional evidence. No backend, authentication, collaboration, or AI service has been configured. The research domain and license remain open decisions. No license grant is included.
+Each decision links to one source in the web workspace. Its document can cite additional evidence. The optional MongoDB backend provides user/session storage, owner-scoped research and explicit import. Frontend integration is opt-in. Provider login routes, collaboration and an AI service are not configured. The research domain and license remain open decisions. No license grant is included.
 
 ## Repository
 

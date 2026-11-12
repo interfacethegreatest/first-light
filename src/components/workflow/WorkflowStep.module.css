@@ -1,0 +1,13 @@
+.button {
+  display: flex;
+  align-items: center;
+  gap: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  white-space: inherit;
+  text-align: left;
+}

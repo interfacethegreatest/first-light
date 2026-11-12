@@ -28,6 +28,14 @@ const renderingModuleAudit: Plugin = {
 
 export default defineConfig({
   base: process.env.VITE_BASE_PATH || '/',
+  // Development only: keep future browser API requests on Vite's origin.
+  server: {
+    proxy: {
+      '/api': { target: 'http://127.0.0.1:3001' },
+      '/health': { target: 'http://127.0.0.1:3001' },
+      '/ready': { target: 'http://127.0.0.1:3001' },
+    },
+  },
   plugins: [react(), renderingModuleAudit],
   build: {
     manifest: true,
@@ -49,6 +57,6 @@ export default defineConfig({
     restoreMocks: true,
     clearMocks: true,
     // This fixture suite uses Node's test runner, invoked separately by check.
-    exclude: [...configDefaults.exclude, 'tests/pack-moon-glb.test.mjs'],
+    exclude: [...configDefaults.exclude, 'tests/pack-moon-glb.test.mjs', 'tests/server/**'],
   },
 })

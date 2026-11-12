@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { useWorkspace } from './useWorkspace'
+import { useAccountWorkspace, type AccountWorkspace } from './useAccountWorkspace'
 import type { ImplementationStatus } from './workspace'
 import CalendarPanel from './components/calendarMotion/CalendarPanel'
 import CalendarButton from './components/calendarMotion/CalendarButton'
@@ -15,6 +15,8 @@ import PaneBackground from './components/panes/PaneBackground'
 import FooterTextScene from './components/typography/FooterTextScene'
 import ResearchDraftPanel from './components/glass-panel-3d/ResearchDraftPanel'
 import { GlassTorusCard, GlassPanelCard } from './components/glass-objects/GlassObjectCards'
+import WorkflowStep from './components/workflow/WorkflowStep'
+import AccountResearchControls from './components/account/AccountResearchControls'
 import './App.css'
 
 const MAIN_GLASS_PROPS = {
@@ -54,6 +56,12 @@ function errorMessage(error: unknown) {
 }
 
 export default function App() {
+  const access = useAccountWorkspace()
+  // Switching verified identities remounts transient fields/scene drafts, never localStorage.
+  return <WorkspacePage key={access.account.scopeKey} access={access} />
+}
+
+function WorkspacePage({ access }: { access: AccountWorkspace }) {
   useEffect(() => {
     const target = window.location.hash
     if (target !== '#glass-workspace' && target !== '#glass-objects') return
@@ -63,7 +71,7 @@ export default function App() {
     return () => window.cancelAnimationFrame(frame)
   }, [])
 
-  const { workspace, storageWarning, addSource, addDecision, updateDecisionStatus, exportWorkspace } = useWorkspace()
+  const { workspace, storageWarning, addSource, addDecision, updateDecisionStatus, exportWorkspace, account } = access
   const [sourceTitle, setSourceTitle] = useState('')
   const [sourceUrl, setSourceUrl] = useState('')
   const [sourceNotes, setSourceNotes] = useState('')
@@ -82,12 +90,12 @@ export default function App() {
   const effectiveSource = selectedSource || workspace.sources[0]?.id || ''
   const validated = workspace.decisions.filter((decision) => decision.status === 'validated').length
 
-  function submitSource(event: FormEvent<HTMLFormElement>) {
+  async function submitSource(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setSourceError('')
     setSourceSuccess('')
     try {
-      addSource({ title: sourceTitle, url: sourceUrl, notes: sourceNotes })
+      await addSource({ title: sourceTitle, url: sourceUrl, notes: sourceNotes })
       setSourceTitle('')
       setSourceUrl('')
       setSourceNotes('')
@@ -97,12 +105,12 @@ export default function App() {
     }
   }
 
-  function submitDecision(event: FormEvent<HTMLFormElement>) {
+  async function submitDecision(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setDecisionError('')
     setDecisionSuccess('')
     try {
-      addDecision({ sourceId: effectiveSource, finding, implementation })
+      await addDecision({ sourceId: effectiveSource, finding, implementation })
       setFinding('')
       setImplementation('')
       setDecisionSuccess('Implementation decision added. Start building when you are ready.')
@@ -111,11 +119,11 @@ export default function App() {
     }
   }
 
-  function changeStatus(id: string, status: ImplementationStatus) {
+  async function changeStatus(id: string, status: ImplementationStatus) {
     setWorkspaceError('')
     setWorkspaceMessage('')
     try {
-      updateDecisionStatus(id, status)
+      await updateDecisionStatus(id, status)
       setWorkspaceMessage(`Implementation status updated to ${status}.`)
     } catch (error) {
       setWorkspaceError(errorMessage(error))
@@ -134,7 +142,7 @@ export default function App() {
       link.click()
       link.remove()
       window.setTimeout(() => URL.revokeObjectURL(url), 1000)
-      setWorkspaceMessage('Workspace exported as JSON. Keep it as a backup; restoring exports is not available yet.')
+      setWorkspaceMessage(account.enabled ? 'Workspace exported as JSON. Keep it as a backup; import it explicitly after sign-in.' : 'Workspace exported as JSON. Keep it as a backup; restoring exports is not available yet.')
     } catch (error) {
       setWorkspaceError(errorMessage(error))
     }
@@ -156,13 +164,15 @@ export default function App() {
         </section>
 
         <section className="workflow-strip" aria-label="Research to application workflow">
-          <span><b>01</b> Collect sources</span><Arrow /><span><b>02</b> Connect findings</span><Arrow /><span><b>03</b> Build an application</span><Arrow /><span><b>04</b> Verify the result</span>
+          <WorkflowStep step="01" label="Collect sources" targetId="research-library" beforeNavigate={() => setSourcePanelDismissed(false)} /><Arrow /><span><b>02</b> Connect findings</span><Arrow /><span><b>03</b> Build an application</span><Arrow /><span><b>04</b> Verify the result</span>
         </section>
 
         <div className="workspace-heading" id="workspace">
           <div><p className="eyebrow">YOUR STARTING POINT</p><h2>The workspace</h2></div>
-          <span className="privacy-note"><EarthMark size={14} />Stored in this browser</span>
+          <span className="privacy-note"><EarthMark size={14} />{account.phase === 'authenticated' ? 'Stored in your account' : account.locked ? 'Account research locked' : 'Stored in this browser'}</span>
         </div>
+
+        <AccountResearchControls account={account} />
 
         {storageWarning && <div className="notice notice-warning" role="alert">{storageWarning}</div>}
         {workspaceError && <div className="notice notice-error" role="alert">{workspaceError}</div>}
@@ -174,9 +184,9 @@ export default function App() {
           <div className="stat"><span className="stat-label">Marked validated</span><span className="stat-value">{String(validated).padStart(2, '0')}<span className="stat-spark">✳</span></span><span className="stat-detail">Status reported by you</span></div>
         </PaneBackground>
 
-        <div className="workspace-grid">
+        <div className="workspace-grid" aria-busy={account.busy || account.checking || undefined} inert={account.locked || account.busy || undefined} style={account.checking ? { visibility: 'hidden' } : undefined}>
           {!sourcePanelDismissed && <CalendarPanel>
-          <PaneBackground as="section" className="panel source-panel" aria-labelledby="sources-heading">
+          <PaneBackground as="section" id="research-library" tabIndex={-1} className="panel source-panel" aria-labelledby="sources-heading">
             <div className="panel-heading"><span className="step-number">01</span><div><h3 id="sources-heading">Research library</h3><p>Start with something worth building on.</p></div>
               <SourceSectionMenu
                 sectionId="research-library"
@@ -229,7 +239,7 @@ export default function App() {
           </CalendarPanel>
         </div>
 
-        <section id="glass-workspace" aria-label="Idea draft" className="glass-workspace-section" data-main-glass="">
+        <section id="glass-workspace" aria-label="Idea draft" className="glass-workspace-section" data-main-glass="" inert={account.locked || undefined} style={account.checking ? { visibility: 'hidden' } : undefined}>
           <ResearchDraftPanel />
         </section>
 
@@ -240,7 +250,7 @@ export default function App() {
 
         <PaneBackground as="aside" className="next-step"><div className="next-step-icon" aria-hidden="true">✳</div><div><h3>A small beginning. Room to grow.</h3><p>Choose a research question, review the evidence, then build the smallest application that can test your idea. Research and decision templates are included in the repository.</p></div></PaneBackground>
         <FooterTextScene rotationSpeed={0.12} />
-        <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>Local browser storage · Export regularly for backup · No account needed<br /><MoonCredit />{' · '}<EarthCredit /></p></footer>
+        <footer className="site-footer"><span>first light<span className="brand-dot">.</span><span className="footer-tagline">Make learning tangible.</span></span><p>{account.phase === 'authenticated' ? 'Account research · Browser originals retained · Export regularly for backup' : 'Local browser storage · Export regularly for backup · No account needed'}<br /><MoonCredit />{' · '}<EarthCredit /></p></footer>
       </main>
     </>
   )
