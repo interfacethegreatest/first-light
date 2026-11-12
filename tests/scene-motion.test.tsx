@@ -149,7 +149,7 @@ describe('canonical Sun asset URL', () => {
     const { default: Sun } = await import('../src/components/react three fibre/sunScene/Sun')
     renderHook(() => Sun({}))
 
-    const expected = `${base}media/sun/sun.glb`
+    const expected = `${base}media/sun/sun-display.glb`
     expect(harness.load).toHaveBeenCalledOnce()
     expect(harness.load).toHaveBeenCalledWith(expected, false, false)
     expect(harness.preload).toHaveBeenCalledOnce()

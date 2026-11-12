@@ -14,9 +14,10 @@ export interface SunMarkCanvasProps {
   onUnavailable?: () => void
 }
 
-// Source radius 1 × 2.85, framed to match the previous 50px Sun badge.
+// Moon-style tight framing, adjusted for the Sun's original 1 × 2.85 radius.
+// Keep the existing badge dimensions and source model scale unchanged.
 const camera = { position: [0, 0, 10] as [number, number, number],
-  left: -3.15, right: 3.15, top: 3.15, bottom: -3.15, near: 0.1, far: 30 }
+  left: -2.86, right: 2.86, top: 2.86, bottom: -2.86, near: 0.1, far: 30 }
 const glOptions = { alpha: true, antialias: true, powerPreference: 'high-performance' as const }
 
 export default function SunMarkCanvas({
@@ -64,9 +65,10 @@ export default function SunMarkCanvas({
     <Canvas ref={canvas} className={styles.canvas} data-testid="sun-scene" aria-hidden="true"
       orthographic camera={camera} gl={glOptions} dpr={dpr} frameloop={rotating ? 'always' : 'demand'}
       style={{ background: 'transparent', pointerEvents: interactive ? 'auto' : 'none', touchAction: 'pan-y', cursor: interactive ? 'grab' : 'auto' }}>
-      <ambientLight intensity={2} />
-      <hemisphereLight args={['#fff8ef', '#6c3824', 0.6]} />
-      <directionalLight position={[3, 4, 5]} intensity={1.2} />
+      <ambientLight intensity={0.35} />
+      <hemisphereLight args={['#ffffff', '#808080', 0.6]} />
+      <directionalLight position={[3, 4, 5]} intensity={2} />
+      <directionalLight position={[-4, -2, 1]} intensity={0.25} />
       {interactive && <OrbitControls enableZoom={false} enablePan={false} enableDamping={false} />}
       <Suspense fallback={null}>
         <SunModel animate={rotating} rotationAxis={rotationAxis} rotationSpeed={rotationSpeed} onReady={forwardReady} />

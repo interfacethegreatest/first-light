@@ -4,7 +4,8 @@ import type { ThreeElements } from '@react-three/fiber'
 import { Mesh, type Group, type WebGLRenderer } from 'three'
 import { useObjectRotation, type RotationAxis } from '../../glass-objects/useObjectRotation'
 
-export const SUN_MODEL_URL = `${import.meta.env.BASE_URL}media/sun/sun.glb`
+// Same source mesh/material, with a 2K display map; the original 4K sun.glb is retained.
+export const SUN_MODEL_URL = `${import.meta.env.BASE_URL}media/sun/sun-display.glb`
 export type SunRotationAxis = RotationAxis
 export type SunModelProps = ThreeElements['group'] & {
   animate?: boolean

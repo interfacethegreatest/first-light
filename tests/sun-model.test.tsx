@@ -125,7 +125,7 @@ describe('self-contained Sun URL', () => {
     harness.load.mockClear(); harness.preload.mockClear()
     const { default: Model, SUN_MODEL_URL } = await import('../src/components/misc/SunMark/SunModel')
     renderHook(() => Model({ animate: false }))
-    expect(SUN_MODEL_URL).toBe(`${base}media/sun/sun.glb`)
+    expect(SUN_MODEL_URL).toBe(`${base}media/sun/sun-display.glb`)
     expect(harness.load).toHaveBeenCalledWith(SUN_MODEL_URL, false, false)
     expect(harness.preload).toHaveBeenCalledExactlyOnceWith(SUN_MODEL_URL, false, false)
   })

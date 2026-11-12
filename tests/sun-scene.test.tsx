@@ -31,13 +31,17 @@ describe('Sun renderer boundary', () => {
     render(<SunMarkCanvas />)
     const config = configuredCanvas()
     expect(config.orthographic).toBe(true)
+    expect(config.camera).toMatchObject({ left: -2.86, right: 2.86, top: 2.86, bottom: -2.86 })
     expect(config.gl).toMatchObject({ alpha: true })
     expect(config.dpr).toBeLessThanOrEqual(2)
     expect(config.frameloop).toBe('demand')
     expect(controls()).toBeUndefined()
     const children = Children.toArray(config.children).filter(isValidElement)
-    expect(children.some(child => child.type === 'ambientLight')).toBe(true)
-    expect(children.some(child => child.type === 'directionalLight')).toBe(true)
+    expect(children.find(child => child.type === 'ambientLight')).toHaveProperty('props.intensity', 0.35)
+    expect(children.find(child => child.type === 'hemisphereLight')).toHaveProperty('props.args', ['#ffffff', '#808080', 0.6])
+    expect(children.filter(child => child.type === 'directionalLight').map(child => child.props)).toEqual([
+      { position: [3, 4, 5], intensity: 2 }, { position: [-4, -2, 1], intensity: 0.25 },
+    ])
   })
 
   it('forwards axis and speed while switching between demand and automatic frames without replacing the canvas', () => {

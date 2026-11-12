@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "kind": "downsampled-lossy-jpeg-rendering-derivative",
+  "tool": {
+    "name": "scripts/prepare-sun-display.py",
+    "pythonVersion": "3.12.14",
+    "pillowVersion": "13.0.0",
+    "jpegLibraryVersion": "6.2",
+    "nodeVersion": "v24.22.1",
+    "packer": {
+      "file": "scripts/pack-moon-glb.mjs",
+      "bytes": 10519,
+      "sha256": "a49fc0ed96ae4f22cc44764722bf5920721b58fb2390f524677f3b3f1344618d",
+      "gitBlob": "dc81349a9fcb23e469a3f0f3f990c86e3f2473c2"
+    }
+  },
+  "originalFiles": {
+    "sun.gltf": {
+      "bytes": 4100,
+      "sha256": "eec90ac2d723f6a60e3d434afc7c069ad0a54097a7e5668b905cb4c4d9284780",
+      "gitBlob": "59027ee2c28798f29a02e881d79fb56c8916cd5a"
+    },
+    "sun.bin": {
+      "bytes": 173792,
+      "sha256": "fab8f2c02324fbad514f78da6e5967ef142d020d15507c1820b0f32a85052e8d",
+      "gitBlob": "54692cb0bc89e1895ba150e7d2fb2ee322dd7f84"
+    },
+    "textures/Material.002_baseColor.jpeg": {
+      "bytes": 4292952,
+      "sha256": "58a3314791253c999a380eab20c09320b3ff177503fe3f80abe73901ed45ee90",
+      "gitBlob": "5edf25623ea641ad36927025ea3e6e9ebab5c59f"
+    },
+    "license.txt": {
+      "bytes": 636,
+      "sha256": "8811eb7dab80730d7afe12deea4b70aca6cc4ee5761dab85dbf7efdbe9f8ee8e",
+      "gitBlob": "b9e87fd32d13f76d3e8e8de72f424d7860fba9e1"
+    },
+    "sun.glb": {
+      "bytes": 4468980,
+      "sha256": "ac9fa68b6961736a62eadc1da05879ee0023e38cf09d1c7a806569986af672ea",
+      "gitBlob": "db076901e03848a009d7bb4a29a7730d770b48ec"
+    },
+    "sun.glb.pack-report.json": {
+      "bytes": 5673,
+      "sha256": "487001f6071a1ffe842e9f2c262819d1b50a1d0d11a3cd58529c0f5931dd2635",
+      "gitBlob": "c38aa959d27226d300320158133f2487cb91ac01"
+    },
+    "sun.validation.json": {
+      "bytes": 6631,
+      "sha256": "07533dd0196ce128d989abd9ba24fe783824b951649fc1169bf86997d1f774ac",
+      "gitBlob": "aaf3f559918f432660284a0ce531670ffda1bbbe"
+    }
+  },
+  "sourceImage": {
+    "file": "textures/Material.002_baseColor.jpeg",
+    "bytes": 4292952,
+    "sha256": "58a3314791253c999a380eab20c09320b3ff177503fe3f80abe73901ed45ee90",
+    "gitBlob": "5edf25623ea641ad36927025ea3e6e9ebab5c59f",
+    "width": 4096,
+    "height": 2048
+  },
+  "image": {
+    "location": "embedded JPEG in sun-display.glb; no separate published image",
+    "bytes": 773828,
+    "sha256": "083a4c1512b6994a85f1f872e4dfed6c99d5054206ef6c54d79ed115a6ea2ed0",
+    "gitBlob": "a016c490788394cf1fe40f55c67a8099db4b120e",
+    "width": 2048,
+    "height": 1024
+  },
+  "output": {
+    "file": "sun-display.glb",
+    "bytes": 949852,
+    "sha256": "b7e6cdd9a9dcf187548e9137a1b16daa2c89d81de9beb4281e0e2f20283a96b7",
+    "gitBlob": "d3db02b4c6793fa2474bae4432af5dc3b546c274"
+  },
+  "jpeg": {
+    "quality": 92,
+    "chromaSubsampling": "4:4:4",
+    "optimize": true,
+    "progressive": true,
+    "colorMode": "RGB",
+    "sourceHasIccProfile": false,
+    "iccProfilePreserved": true,
+    "iccProfileSha256": null,
+    "resized": true,
+    "resizeFilter": "LANCZOS",
+    "colorTransformApplied": false,
+    "lossy": true,
+    "decodedPixelsIdentical": false,
+    "pixelErrorReference": {
+      "width": 2048,
+      "height": 1024,
+      "filter": "LANCZOS",
+      "sourceWidth": 4096,
+      "sourceHeight": 2048
+    },
+    "pixelErrorNote": "JPEG error is measured against the resized reference, not pixel identity with the full 4K source.",
+    "meanAbsoluteRgbError": 2.208312,
+    "psnrDb": 38.194645,
+    "sourceTextureRgba8BaseLevelBytes": 33554432,
+    "textureRgba8BaseLevelBytes": 8388608,
+    "decodedTextureAllocationReduced": true,
+    "gpuMemoryMeasured": false
+  },
+  "preservation": {
+    "originalFilesModified": false,
+    "stagedGltfAndBinByteIdentical": true,
+    "geometrySimplified": false,
+    "indicesConverted": false,
+    "transformsBaked": false,
+    "uvOrMaterialChanges": false,
+    "imageBytesIdenticalToOriginal": false,
+    "note": "Only the staged JPEG is resized and re-encoded. The original 4K sun.glb, source texture, geometry and licence remain unchanged."
+  }
+}

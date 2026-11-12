@@ -100,7 +100,8 @@ function jpegDimensions(bytes) {
 
 async function main() {
   const args = process.argv.slice(2)
-  assert.ok(args.every(arg => arg === '--write-report'), 'Usage: node scripts/validate-sun.mjs [--write-report]')
+  assert.ok(args.every(arg => ['--write-report', '--write-display-report'].includes(arg)),
+    'Usage: node scripts/validate-sun.mjs [--write-report] [--write-display-report]')
   const files = ['sun.gltf', 'sun.bin', 'textures/Material.002_baseColor.jpeg', 'license.txt', 'sun.glb', 'sun.glb.pack-report.json']
   const loaded = await Promise.all(files.map(async file => [file, await readFile(new URL(file, assetDirectory))]))
   const resources = new Map(loaded)
@@ -225,21 +226,111 @@ async function main() {
     original: { requestedLocalResources: [...new Set(requestedResources)].sort(), validation: originalValidation },
     converted: { validation: convertedValidation },
   }
+
+  // Validate the separate rendering derivative without weakening archive checks.
+  const displayBytes = await readFile(new URL('sun-display.glb', assetDirectory))
+  const display = unpackGlb(displayBytes)
+  const displayPack = JSON.parse(await readFile(new URL('sun-display.glb.pack-report.json', assetDirectory), 'utf8'))
+  const preparation = JSON.parse(await readFile(new URL('sun-display.preparation.json', assetDirectory), 'utf8'))
+  const displayValidation = await validator.validateBytes(new Uint8Array(displayBytes), {
+    uri: 'sun-display.glb', format: 'glb', writeTimestamp: false, maxIssues: 0,
+    externalResourceFunction: async uri => { throw new Error(`Display GLB must be self-contained: ${uri}`) },
+  })
+  assert.deepEqual(uriPaths(display.document), [], 'Display GLB has no external resources')
+  const displayView = display.document.bufferViews[display.document.images[0].bufferView]
+  assert.equal(displayView.buffer, 0)
+  assert.equal(displayView.byteOffset, imageOffset)
+  const displayImage = display.binary.subarray(displayView.byteOffset, displayView.byteOffset + displayView.byteLength)
+  const expectedDisplay = structuredClone(expected)
+  expectedDisplay.buffers[0].byteLength = imageOffset + displayImage.length
+  expectedDisplay.bufferViews.at(-1).byteLength = displayImage.length
+  assert.deepEqual(display.document, expectedDisplay, 'Only JPEG embedding length differs from original scene metadata')
+  assert.ok(display.binary.subarray(0, sourceBinary.length).equals(sourceBinary), 'Display geometry bytes are unchanged')
+  assert.equal(display.binary.length, align4(expectedDisplay.buffers[0].byteLength))
+  assert.ok(display.binary.subarray(expectedDisplay.buffers[0].byteLength).every(byte => byte === 0))
+  assert.deepEqual(textureDimensions, { width: 4096, height: 2048 })
+  const displayTextureDimensions = jpegDimensions(displayImage)
+  assert.deepEqual(displayTextureDimensions, { width: 2048, height: 1024 })
+  for (const [semantic, index] of Object.entries(accessorIndices)) {
+    assert.deepEqual(decodeAccessor(display.document, display.binary, index), decodeAccessor(source, sourceBinary, index),
+      `${semantic}: display decoded geometry is identical`)
+  }
+  assert.equal(displayPack.source.sha256, sha256(sourceBytes))
+  assert.equal(displayPack.buffer.sha256, sha256(sourceBinary))
+  assert.equal(displayPack.image.sha256, sha256(displayImage))
+  assert.equal(displayPack.image.bytes, displayImage.length)
+  assert.equal(displayPack.output.sha256, sha256(displayBytes))
+  assert.equal(displayPack.output.bytes, displayBytes.length)
+  assert.equal(displayPack.packing.compression, 'none')
+  assert.equal(displayPack.packing.transformsBaked, false)
+  assert.equal(displayPack.packing.indexConversion, false)
+  assert.deepEqual(displayPack.sourceMetadata, packReport.sourceMetadata)
+  const preservedFiles = [...Object.keys(expectedSourceBlobs), 'sun.glb', 'sun.glb.pack-report.json', 'sun.validation.json']
+  assert.deepEqual(Object.keys(preparation.originalFiles).sort(), preservedFiles.sort())
+  for (const file of preservedFiles) {
+    const bytes = resources.get(file) ?? await readFile(new URL(file, assetDirectory))
+    assert.equal(preparation.originalFiles[file].sha256, sha256(bytes), `${file}: original archive remains unchanged`)
+    assert.equal(preparation.originalFiles[file].bytes, bytes.length)
+  }
+  assert.equal(preparation.sourceImage.sha256, sha256(sourceImage))
+  assert.equal(preparation.image.sha256, sha256(displayImage))
+  assert.equal(preparation.image.bytes, displayImage.length)
+  assert.equal(preparation.output.sha256, sha256(displayBytes))
+  assert.equal(preparation.output.bytes, displayBytes.length)
+  assert.equal(preparation.sourceImage.width, 4096)
+  assert.equal(preparation.sourceImage.height, 2048)
+  assert.equal(preparation.image.width, 2048)
+  assert.equal(preparation.image.height, 1024)
+  assert.equal(preparation.jpeg.quality, 92)
+  assert.equal(preparation.jpeg.chromaSubsampling, '4:4:4')
+  for (const key of ['optimize', 'progressive', 'iccProfilePreserved', 'lossy', 'resized', 'decodedTextureAllocationReduced']) assert.equal(preparation.jpeg[key], true)
+  for (const key of ['colorTransformApplied', 'decodedPixelsIdentical']) assert.equal(preparation.jpeg[key], false)
+  assert.equal(preparation.jpeg.resizeFilter, 'LANCZOS')
+  assert.deepEqual(preparation.jpeg.pixelErrorReference, { width: 2048, height: 1024, filter: 'LANCZOS', sourceWidth: 4096, sourceHeight: 2048 })
+  assert.equal(preparation.jpeg.sourceTextureRgba8BaseLevelBytes, 4096 * 2048 * 4)
+  assert.equal(preparation.jpeg.textureRgba8BaseLevelBytes, 2048 * 1024 * 4)
+  assert.ok(preparation.jpeg.meanAbsoluteRgbError > 0)
+  assert.equal(preparation.preservation.originalFilesModified, false)
+  assert.equal(preparation.preservation.imageBytesIdenticalToOriginal, false)
+  assert.ok(!displayImage.equals(sourceImage), 'Display JPEG is an explicit re-encoded derivative')
+  const displayReport = {
+    validatorVersion: validator.version(),
+    output: { file: 'sun-display.glb', bytes: displayBytes.length, sha256: sha256(displayBytes) },
+    comparison: {
+      originalGlbBytes: convertedBytes.length, byteDifference: displayBytes.length - convertedBytes.length,
+      geometryBytesIdentical: true, decodedAccessorsIdentical: true, sceneMetadataIdenticalExceptEmbedding: true,
+      originalFilesUnchanged: true, externalUris: [], sourceTextureDimensions: textureDimensions, textureDimensions: displayTextureDimensions,
+      imageBytesIdentical: false, decodedPixelsIdentical: false,
+      imageSha256: sha256(displayImage), imageBytes: displayImage.length,
+      jpegRecompressionLossy: true, textureRgba8BaseLevelBytes: 2048 * 1024 * 4,
+      decodedTextureAllocationReduced: true, gpuMemoryMeasured: false,
+    },
+    geometry: report.geometry,
+    preparation,
+    validation: displayValidation,
+  }
   if (args.includes('--write-report')) {
     await writeFile(new URL('../public/media/sun/sun.validation.json', import.meta.url), `${JSON.stringify(report, null, 2)}\n`)
+  }
+  if (args.includes('--write-display-report')) {
+    await writeFile(new URL('sun-display.validation.json', assetDirectory), `${JSON.stringify(displayReport, null, 2)}\n`)
   }
   console.log(JSON.stringify({
     validatorVersion: report.validatorVersion,
     originalIssues: originalValidation.issues,
     convertedIssues: convertedValidation.issues,
+    displayIssues: displayValidation.issues,
     glbBytes: convertedBytes.length,
+    displayGlbBytes: displayBytes.length,
+    displayGlbSha256: sha256(displayBytes),
     externalUris,
     vertexCount: report.geometry.vertexCount,
     indexCount: report.geometry.indexCount,
     triangleCount: report.geometry.triangleCount,
     reportWritten: args.includes('--write-report'),
+    displayReportWritten: args.includes('--write-display-report'),
   }, null, 2))
-  if (originalValidation.issues.numErrors || convertedValidation.issues.numErrors) process.exitCode = 1
+  if (originalValidation.issues.numErrors || convertedValidation.issues.numErrors || displayValidation.issues.numErrors) process.exitCode = 1
 }
 
 main().catch(error => {

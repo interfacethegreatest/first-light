@@ -20,6 +20,7 @@
     "moon:validate": "node scripts/validate-moon.mjs",
     "earth:validate": "node scripts/validate-earth.mjs",
     "sun:pack": "node scripts/pack-moon-glb.mjs public/media/sun/sun.gltf public/media/sun/sun.glb",
+    "sun:prepare-display": "python3 scripts/prepare-sun-display.py",
     "sun:validate": "node scripts/validate-sun.mjs",
     "check": "npm run moon:test-packer && npm run moon:validate && npm run earth:validate && npm run sun:validate && npm run typecheck && npm test && npm run server:test && npm run build",
     "server:dev": "node --env-file-if-exists=.env --import tsx --watch src/server/index.ts",
