@@ -5,9 +5,11 @@ import { readSampleUsers } from '../src/server/lib/sample-users.js'
 function failureCode(error: unknown): string {
   let unreachable = false
   for (let current = error, depth = 0; current && typeof current === 'object' && depth < 5; depth++) {
-    const value = current as { code?: unknown; name?: unknown; cause?: unknown }
+    const value = current as { code?: unknown; name?: unknown; message?: unknown; cause?: unknown }
     if (value.code === 13) return 'SAMPLE_DATABASE_ACCESS_DENIED'
     if (value.code === 18) return 'DATABASE_AUTHENTICATION_FAILED'
+    if (value.message === 'Set MONGODB_URI to a MongoDB connection string.') return 'DATABASE_CONFIGURATION_INVALID'
+    if (value.name === 'MongoParseError' || value.code === 'ERR_INVALID_URL') return 'DATABASE_URI_INVALID'
     if (value.name === 'MongoServerSelectionError' || value.name === 'MongooseServerSelectionError') unreachable = true
     current = value.cause
   }

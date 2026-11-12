@@ -66,4 +66,23 @@ describe('backend demonstration endpoint', () => {
     expect(log).toHaveBeenCalledWith('MongoDB sample-user lookup failed:', expected)
     log.mockRestore()
   })
+
+  it.each([
+    ['configuration', new Error('Set MONGODB_URI to a MongoDB connection string.'), 'DATABASE_CONFIGURATION_INVALID'],
+    ['MongoDB URI parsing', Object.assign(new Error('mongodb://fake:private@secret.invalid/private'), { name: 'MongoParseError' }), 'DATABASE_URI_INVALID'],
+    ['URL parsing', Object.assign(new Error('mongodb://fake:private@secret.invalid/private'), { code: 'ERR_INVALID_URL' }), 'DATABASE_URI_INVALID'],
+  ])('safely categorizes %s failures through their cause chain', async (_description, cause, expected) => {
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const { base } = await serve(vi.fn(async () => {
+      throw new Error('mongodb://fake:private@secret.invalid/private', { cause })
+    }))
+    const response = await fetch(base)
+    expect(response.status).toBe(503)
+    expect(response.headers.get('cache-control')).toBe('no-store')
+    const body = await response.json()
+    expect(body).toEqual({ error: 'Could not read sample users. Check MongoDB connectivity and read access to sample_mflix.users.', code: expected })
+    expect(JSON.stringify(body)).not.toContain('secret.invalid')
+    expect(log.mock.calls).toEqual([['MongoDB sample-user lookup failed:', expected]])
+    log.mockRestore()
+  })
 })
